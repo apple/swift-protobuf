@@ -1121,10 +1121,18 @@ final class Test_Any: XCTestCase {
 
     func test_Any_WKT_UnknownFields() throws {
         let testcases = [
-            // unknown field before value
+            // unknown field after @type, before value
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"fred\":1,\"value\":\"99.001s\"}}",
-            // unknown field after value
+            // unknown field after @type, after value
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\",\"fred\":1}}",
+            // unknown field before @type, value after @type
+            "{\"optionalAny\":{\"fred\":1,\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\"}}",
+            // unknown field and value both before @type
+            "{\"optionalAny\":{\"fred\":1,\"value\":\"99.001s\",\"@type\":\"type.googleapis.com/google.protobuf.Duration\"}}",
+            // unknown fields before and after @type, value before @type
+            "{\"optionalAny\":{\"value\":\"99.001s\",\"fred\":{\"nested\":[1,2]},\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"barney\":true}}",
+            // unknown fields before and after @type, value after @type
+            "{\"optionalAny\":{\"fred\":1,\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"barney\":2,\"value\":\"99.001s\"}}",
         ]
         for json in testcases {
             for ignoreUnknown in [false, true] {
@@ -1134,17 +1142,18 @@ final class Test_Any: XCTestCase {
 
                     let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json, options: options)
                     // The previous operation should have thrown if we're not ignoring unknowns.
-                    XCTAssertTrue(ignoreUnknown)
+                    XCTAssertTrue(ignoreUnknown, json)
 
                     XCTAssertNotNil(decoded.optionalAny)
                     let anyField = decoded.optionalAny
 
                     let unpacked = try Google_Protobuf_Duration(unpackingAny: anyField)
-                    XCTAssertEqual(unpacked.seconds, 99)
-                    XCTAssertEqual(unpacked.nanos, 1_000_000)
+                    XCTAssertEqual(unpacked.seconds, 99, json)
+                    XCTAssertEqual(unpacked.nanos, 1_000_000, json)
                 } catch {
                     // We should get here if we're not ignoring unknowns.
-                    XCTAssertTrue(!ignoreUnknown)
+                    XCTAssertTrue(!ignoreUnknown, "Unexpected error for \(json): \(error)")
+                    XCTAssertEqual(error as? AnyUnpackError, .malformedWellKnownTypeJSON, json)
                 }
             }
         }
@@ -1202,7 +1211,8 @@ final class Test_Any: XCTestCase {
         //   // INVALID_ARGUMENT: broken Any: missing type URL
         //   EXPECT_THAT(ToJson(any), StatusIs(absl::StatusCode::kInvalidArgument));
         //
-        //   // INVALID_ARGUMENT: invalid JSON  in  google.protobuf.Any,  near 2:5 (offset 5):   in legacy   mode,   missing @type in Any  is  only  allowed for an   empty object
+        //   // INVALID_ARGUMENT: invalid JSON  in  google.protobuf.Any,  near 2:5 (offset 5):   in legacy   mode,
+        //   missing @type in Any  is  only  allowed for an   empty object
         //   EXPECT_THAT(ToProto<google::protobuf::Any>(R"json(
         //     {
         //       "value": "abc"
@@ -1406,8 +1416,10 @@ final class Test_Any: XCTestCase {
     }
 
     func test_Any_duplicateTypeURL() throws {
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+
         // Upstream rejects a repeated @type ("repeated @type in Any"), regardless
-        // of where it appears and whether the values match.
+        // of where it appears, whether the values match, and whether ignoreUnknownFields is set.
         let inputs: [(String, String, String)] = [
             (
                 "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"x\"}",
@@ -1420,19 +1432,44 @@ final class Test_Any: XCTestCase {
                 "type.googleapis.com/google.protobuf.Int32Value"
             ),
             (
+                "{\"value\":1,\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\"}",
+                "type.googleapis.com/google.protobuf.Int32Value",
+                "type.googleapis.com/google.protobuf.Int32Value"
+            ),
+            (
+                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt32\":1,\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\"}",
+                "type.googleapis.com/swift_proto_testing.TestAllTypes",
+                "type.googleapis.com/swift_proto_testing.TestAllTypes"
+            ),
+            (
+                "{\"optionalInt32\":1,\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"\\u0040type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\"}",
+                "type.googleapis.com/swift_proto_testing.TestAllTypes",
+                "type.googleapis.com/swift_proto_testing.TestAllTypes"
+            ),
+            (
                 "{\"@type\":\"type.googleapis.com/SomeMessage\",\"\\u0040type\":\"type.googleapis.com/AnotherMessage\"}",
+                "type.googleapis.com/SomeMessage",
+                "type.googleapis.com/AnotherMessage"
+            ),
+            (
+                "{\"a\":1,\"@type\":\"type.googleapis.com/SomeMessage\",\"b\":[2,3],\"@type\":\"type.googleapis.com/AnotherMessage\"}",
                 "type.googleapis.com/SomeMessage",
                 "type.googleapis.com/AnotherMessage"
             ),
         ]
         for (json, first, second) in inputs {
-            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), json) { error in
-                XCTAssertTrue(
-                    self.isSwiftProtobufErrorEqual(
-                        error as! SwiftProtobufError,
-                        .JSONDecoding.duplicateAnyTypeURL(type_url: first, duplicate_type_url: second)
+            for ignoreUnknown in [false, true] {
+                var options = JSONDecodingOptions()
+                options.ignoreUnknownFields = ignoreUnknown
+                XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options), json) { error in
+                    XCTAssertTrue(
+                        self.isSwiftProtobufErrorEqual(
+                            error as! SwiftProtobufError,
+                            .JSONDecoding.duplicateAnyTypeURL(type_url: first, duplicate_type_url: second)
+                        ),
+                        "ignoreUnknown=\(ignoreUnknown), json=\(json), error=\(error)"
                     )
-                )
+                }
             }
         }
 
@@ -1456,15 +1493,346 @@ final class Test_Any: XCTestCase {
         let inputs = [
             "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":1,\"value\":2}",
             "{\"value\":1,\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":2}",
+            "{\"value\":1,\"value\":2,\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\"}",
             "{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"1s\",\"\\u0076alue\":\"2s\"}",
+            "{\"value\":\"1s\",\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"\\u0076alue\":\"2s\"}",
         ]
         for json in inputs {
             for ignoreUnknown in [false, true] {
                 var options = JSONDecodingOptions()
                 options.ignoreUnknownFields = ignoreUnknown
                 XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options), json) { error in
-                    XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+                    let pbError = error as? SwiftProtobufError
+                    XCTAssertEqual(pbError?.code, .jsonDecodingError)
+                    XCTAssertTrue(
+                        pbError?.message.hasSuffix(": Field 'value' specified more than once") == true,
+                        "Unexpected error message: \(String(describing: pbError?.message))"
+                    )
                 }
+            }
+        }
+    }
+
+    func test_Any_typeURLOrdering() throws {
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_Test3_TestAllTypesProto3.self)
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllExtensions.self)
+
+        // Regular message with @type first, middle, and last (including nested message,
+        // repeated field, and finite doubles larger than UInt64.max).
+        let regularInputs = [
+            #"{"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes","optionalInt32":42,"optionalString":"hi","optionalDouble":18446744073709551616,"optionalNestedMessage":{"bb":7},"repeatedInt32":[1,2,3]}"#,
+            #"{"optionalInt32":42,"optionalDouble":18446744073709551616,"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes","optionalString":"hi","optionalNestedMessage":{"bb":7},"repeatedInt32":[1,2,3]}"#,
+            #"{"optionalInt32":42,"optionalString":"hi","optionalDouble":18446744073709551616,"optionalNestedMessage":{"bb":7},"repeatedInt32":[1,2,3],"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes"}"#,
+        ]
+        for json in regularInputs {
+            let decodedAny = try Google_Protobuf_Any(jsonString: json)
+            let unpacked = try SwiftProtoTesting_TestAllTypes(unpackingAny: decodedAny)
+            XCTAssertEqual(unpacked.optionalInt32, 42, json)
+            XCTAssertEqual(unpacked.optionalString, "hi", json)
+            XCTAssertEqual(unpacked.optionalDouble, 18446744073709551616.0, json)
+            XCTAssertEqual(unpacked.optionalNestedMessage.bb, 7, json)
+            XCTAssertEqual(unpacked.repeatedInt32, [1, 2, 3], json)
+        }
+
+        // Map fields with @type first, middle, and last.
+        let mapInputs = [
+            #"{"@type":"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3","mapInt32Int32":{"1":10,"2":20},"mapStringString":{"a":"x","b":"y"}}"#,
+            #"{"mapInt32Int32":{"1":10,"2":20},"@type":"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3","mapStringString":{"a":"x","b":"y"}}"#,
+            #"{"mapInt32Int32":{"1":10,"2":20},"mapStringString":{"a":"x","b":"y"},"@type":"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3"}"#,
+        ]
+        for json in mapInputs {
+            let decodedAny = try Google_Protobuf_Any(jsonString: json)
+            let unpacked = try SwiftProtoTesting_Test3_TestAllTypesProto3(unpackingAny: decodedAny)
+            XCTAssertEqual(unpacked.mapInt32Int32, [1: 10, 2: 20], json)
+            XCTAssertEqual(unpacked.mapStringString, ["a": "x", "b": "y"], json)
+        }
+
+        // Oneof members split across @type: null secondary member is allowed, conflicting non-null fails.
+        for json in [
+            #"{"oneofUint32":42,"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes","oneofString":null}"#,
+            #"{"oneofString":null,"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes","oneofUint32":42}"#,
+        ] {
+            let decodedAny = try Google_Protobuf_Any(jsonString: json)
+            let unpacked = try SwiftProtoTesting_TestAllTypes(unpackingAny: decodedAny)
+            XCTAssertEqual(unpacked.oneofField, .oneofUint32(42), json)
+        }
+        for json in [
+            #"{"oneofUint32":42,"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes","oneofString":"abc"}"#,
+            #"{"oneofUint32":42,"oneofString":"abc","@type":"type.googleapis.com/swift_proto_testing.TestAllTypes"}"#,
+        ] {
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), json) { error in
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+            }
+        }
+
+        // Extensions with @type first, middle, and last.
+        let extInputs = [
+            #"{"@type":"type.googleapis.com/swift_proto_testing.TestAllExtensions","[swift_proto_testing.optional_int32_extension]":17,"[swift_proto_testing.optional_string_extension]":"ext"}"#,
+            #"{"[swift_proto_testing.optional_int32_extension]":17,"@type":"type.googleapis.com/swift_proto_testing.TestAllExtensions","[swift_proto_testing.optional_string_extension]":"ext"}"#,
+            #"{"[swift_proto_testing.optional_int32_extension]":17,"[swift_proto_testing.optional_string_extension]":"ext","@type":"type.googleapis.com/swift_proto_testing.TestAllExtensions"}"#,
+        ]
+        for json in extInputs {
+            let decodedAny = try Google_Protobuf_Any(
+                jsonString: json,
+                extensions: SwiftProtoTesting_Unittest_Extensions
+            )
+            let unpacked = try SwiftProtoTesting_TestAllExtensions(
+                unpackingAny: decodedAny,
+                extensions: SwiftProtoTesting_Unittest_Extensions
+            )
+            XCTAssertEqual(unpacked.SwiftProtoTesting_optionalInt32Extension, 17, json)
+            XCTAssertEqual(unpacked.SwiftProtoTesting_optionalStringExtension, "ext", json)
+        }
+
+        // WKTs with "value" before @type.
+        do {
+            let intAny = try Google_Protobuf_Any(
+                jsonString: #"{"value":42,"@type":"type.googleapis.com/google.protobuf.Int32Value"}"#
+            )
+            XCTAssertEqual(try Google_Protobuf_Int32Value(unpackingAny: intAny).value, 42)
+
+            let durationAny = try Google_Protobuf_Any(
+                jsonString: #"{"value":"99.001s","@type":"type.googleapis.com/google.protobuf.Duration"}"#
+            )
+            let duration = try Google_Protobuf_Duration(unpackingAny: durationAny)
+            XCTAssertEqual(duration.seconds, 99)
+            XCTAssertEqual(duration.nanos, 1_000_000)
+
+            let structAny = try Google_Protobuf_Any(
+                jsonString: #"{"value":{"a":1,"b":"two"},"@type":"type.googleapis.com/google.protobuf.Struct"}"#
+            )
+            let structVal = try Google_Protobuf_Struct(unpackingAny: structAny)
+            XCTAssertEqual(structVal.fields["a"]?.numberValue, 1)
+            XCTAssertEqual(structVal.fields["b"]?.stringValue, "two")
+
+            let valueAny = try Google_Protobuf_Any(
+                jsonString: #"{"value":[1,"x",null,{"k":true}],"@type":"type.googleapis.com/google.protobuf.Value"}"#
+            )
+            let valueVal = try Google_Protobuf_Value(unpackingAny: valueAny)
+            XCTAssertEqual(valueVal.listValue.values.count, 4)
+            XCTAssertEqual(valueVal.listValue.values[0].numberValue, 1)
+            XCTAssertEqual(valueVal.listValue.values[1].stringValue, "x")
+            XCTAssertEqual(valueVal.listValue.values[2].kind, .nullValue(.nullValue))
+            XCTAssertEqual(valueVal.listValue.values[3].structValue.fields["k"]?.boolValue, true)
+
+            // Large negative finite integer value before @type in google.protobuf.Value.
+            let largeNumAny = try Google_Protobuf_Any(
+                jsonString: #"{"value":-18446744073709551616,"@type":"type.googleapis.com/google.protobuf.Value"}"#
+            )
+            XCTAssertEqual(try Google_Protobuf_Value(unpackingAny: largeNumAny).numberValue, -18446744073709551616.0)
+
+            // Nested Any inside Any with out-of-order @type at both levels.
+            let nestedAny = try Google_Protobuf_Any(
+                jsonString:
+                    #"{"value":{"optionalInt32":7,"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes"},"@type":"type.googleapis.com/google.protobuf.Any"}"#
+            )
+            let innerAny = try Google_Protobuf_Any(unpackingAny: nestedAny)
+            let innerMsg = try SwiftProtoTesting_TestAllTypes(unpackingAny: innerAny)
+            XCTAssertEqual(innerMsg.optionalInt32, 7)
+        }
+    }
+
+    func test_Any_duplicateFieldsSplitAcrossTypeURL() throws {
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_Test3_TestAllTypesProto3.self)
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllExtensions.self)
+
+        let regularDuplicates = [
+            // Same field before and after @type.
+            #"{"optionalInt32":1,"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes","optionalInt32":2}"#,
+            // Snake_case and camelCase alias split across @type.
+            #"{"optional_int32":1,"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes","optionalInt32":2}"#,
+            // Duplicate both before @type.
+            #"{"optionalInt32":1,"optionalInt32":2,"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes"}"#,
+            // Map field split before and after @type.
+            #"{"mapInt32Int32":{"1":10},"@type":"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3","mapInt32Int32":{"2":20}}"#,
+        ]
+        for json in regularDuplicates {
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), json) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertEqual(pbError?.code, .jsonDecodingError, json)
+                XCTAssertTrue(
+                    pbError?.message.contains("specified more than once") == true,
+                    "Unexpected error message for \(json): \(String(describing: pbError?.message))"
+                )
+            }
+        }
+
+        let extensionDuplicates = [
+            #"{"[swift_proto_testing.optional_int32_extension]":1,"@type":"type.googleapis.com/swift_proto_testing.TestAllExtensions","[swift_proto_testing.optional_int32_extension]":2}"#,
+            #"{"[swift_proto_testing.optional_int32_extension]":1,"[swift_proto_testing.optional_int32_extension]":2,"@type":"type.googleapis.com/swift_proto_testing.TestAllExtensions"}"#,
+        ]
+        for json in extensionDuplicates {
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(jsonString: json, extensions: SwiftProtoTesting_Unittest_Extensions),
+                json
+            ) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertEqual(pbError?.code, .jsonDecodingError, json)
+                XCTAssertTrue(
+                    pbError?.message.contains("specified more than once") == true,
+                    "Unexpected error message for \(json): \(String(describing: pbError?.message))"
+                )
+            }
+        }
+    }
+
+    func test_Any_WKT_omittedValue() throws {
+        // An empty Google_Protobuf_Value encodes in Any without a "value" field and must round-trip.
+        let emptyValueAny = try Google_Protobuf_Any(packing: Google_Protobuf_Value())
+        let encoded = try emptyValueAny.jsonString()
+        XCTAssertEqual(encoded, #"{"@type":"type.googleapis.com/google.protobuf.Value"}"#)
+
+        let decodedValueAny = try Google_Protobuf_Any(jsonString: encoded)
+        XCTAssertEqual(decodedValueAny.typeURL, "type.googleapis.com/google.protobuf.Value")
+        XCTAssertTrue(decodedValueAny.value.isEmpty)
+        let unpackedValue = try Google_Protobuf_Value(unpackingAny: decodedValueAny)
+        XCTAssertNil(unpackedValue.kind)
+        XCTAssertEqual(try decodedValueAny.jsonString(), encoded)
+
+        // Other custom-JSON WKTs with omitted "value" decode to their default-initialized message.
+        let omittedIntAny = try Google_Protobuf_Any(
+            jsonString: #"{"@type":"type.googleapis.com/google.protobuf.Int32Value"}"#
+        )
+        XCTAssertEqual(try Google_Protobuf_Int32Value(unpackingAny: omittedIntAny), Google_Protobuf_Int32Value())
+
+        let omittedDurationAny = try Google_Protobuf_Any(
+            jsonString: #"{"@type":"type.googleapis.com/google.protobuf.Duration"}"#
+        )
+        XCTAssertEqual(try Google_Protobuf_Duration(unpackingAny: omittedDurationAny), Google_Protobuf_Duration())
+
+        let omittedStructAny = try Google_Protobuf_Any(
+            jsonString: #"{"@type":"type.googleapis.com/google.protobuf.Struct"}"#
+        )
+        XCTAssertEqual(try Google_Protobuf_Struct(unpackingAny: omittedStructAny), Google_Protobuf_Struct())
+
+        let omittedListAny = try Google_Protobuf_Any(
+            jsonString: #"{"@type":"type.googleapis.com/google.protobuf.ListValue"}"#
+        )
+        XCTAssertEqual(try Google_Protobuf_ListValue(unpackingAny: omittedListAny), Google_Protobuf_ListValue())
+
+        let omittedNestedAny = try Google_Protobuf_Any(
+            jsonString: #"{"@type":"type.googleapis.com/google.protobuf.Any"}"#
+        )
+        XCTAssertEqual(try Google_Protobuf_Any(unpackingAny: omittedNestedAny), Google_Protobuf_Any())
+
+        // Omitted "value" alongside unknown fields respects ignoreUnknownFields.
+        for json in [
+            #"{"fred":1,"@type":"type.googleapis.com/google.protobuf.Duration"}"#,
+            #"{"@type":"type.googleapis.com/google.protobuf.Duration","fred":1}"#,
+        ] {
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), json) { error in
+                XCTAssertEqual(error as? AnyUnpackError, .malformedWellKnownTypeJSON, json)
+            }
+            var options = JSONDecodingOptions()
+            options.ignoreUnknownFields = true
+            let anyWithIgnored = try Google_Protobuf_Any(jsonString: json, options: options)
+            XCTAssertEqual(try Google_Protobuf_Duration(unpackingAny: anyWithIgnored), Google_Protobuf_Duration())
+        }
+    }
+
+    func test_Any_outOfOrderDepthLimits() throws {
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+
+        // WKT Value with "value" before @type enforces the exact same depth limit as @type first.
+        do {
+            let json = #"{"value":[[[[1]]]],"@type":"type.googleapis.com/google.protobuf.Value"}"#
+            var options = JSONDecodingOptions()
+            options.messageDepthLimit = 4
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options)) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertTrue(
+                    pbError?.message.hasSuffix(": Message is too deep") == true,
+                    "Unexpected error: \(error)"
+                )
+            }
+
+            options.messageDepthLimit = 5
+            let decodedAny = try Google_Protobuf_Any(jsonString: json, options: options)
+            let unpacked = try Google_Protobuf_Value(unpackingAny: decodedAny)
+            XCTAssertEqual(
+                unpacked.listValue.values.first?.listValue.values.first?.listValue.values.first?.listValue.values.first?
+                    .numberValue,
+                1
+            )
+        }
+
+        // Regular message with nested message before @type enforces depth limit.
+        do {
+            let json =
+                #"{"optionalNestedMessage":{"bb":42},"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes"}"#
+            var options = JSONDecodingOptions()
+            options.messageDepthLimit = 1
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options)) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertTrue(
+                    pbError?.message.hasSuffix(": Message is too deep") == true,
+                    "Unexpected error: \(error)"
+                )
+            }
+
+            options.messageDepthLimit = 2
+            let decodedAny = try Google_Protobuf_Any(jsonString: json, options: options)
+            let unpacked = try SwiftProtoTesting_TestAllTypes(unpackingAny: decodedAny)
+            XCTAssertEqual(unpacked.optionalNestedMessage.bb, 42)
+        }
+
+        // Nested out-of-order Any chain enforces depth limit at the exact boundary.
+        do {
+            let nestedThree =
+                #"{"value":{"value":{"value":7,"@type":"type.googleapis.com/google.protobuf.Int32Value"},"@type":"type.googleapis.com/google.protobuf.Any"},"@type":"type.googleapis.com/google.protobuf.Any"}"#
+            var options = JSONDecodingOptions()
+            options.messageDepthLimit = 2
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: nestedThree, options: options)) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertTrue(
+                    pbError?.message.hasSuffix(": Message is too deep") == true,
+                    "Unexpected error: \(error)"
+                )
+            }
+
+            options.messageDepthLimit = 3
+            let outer = try Google_Protobuf_Any(jsonString: nestedThree, options: options)
+            let middle = try Google_Protobuf_Any(unpackingAny: outer)
+            let inner = try Google_Protobuf_Any(unpackingAny: middle)
+            XCTAssertEqual(try Google_Protobuf_Int32Value(unpackingAny: inner).value, 7)
+
+            // 99 out-of-order Any wrappers + 1 Int32Value = 100 messages total succeeds at default limit 100.
+            var deepOutOfOrder = #"{"value":7,"@type":"type.googleapis.com/google.protobuf.Int32Value"}"#
+            for _ in 0..<98 {
+                deepOutOfOrder = #"{"value":\#(deepOutOfOrder),"@type":"type.googleapis.com/google.protobuf.Any"}"#
+            }
+            let decodedDeep = try Google_Protobuf_Any(jsonString: deepOutOfOrder)
+            XCTAssertTrue(decodedDeep.textFormatString().contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        }
+    }
+
+    func test_Any_unregisteredTypeURLWithFields() throws {
+        // Fields before and/or after an unregistered @type report unknownAnyTypeURL once syntax is valid.
+        for json in [
+            #"{"a":1,"@type":"type.googleapis.com/SomeMessage"}"#,
+            #"{"@type":"type.googleapis.com/SomeMessage","b":[1,2,3],"c":{"d":true}}"#,
+            #"{"a":1,"@type":"type.googleapis.com/SomeMessage","b":"hi"}"#,
+        ] {
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), json) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.unknownAnyTypeURL(type_url: "type.googleapis.com/SomeMessage")
+                    ),
+                    "Unexpected error for \(json): \(error)"
+                )
+            }
+        }
+
+        // Trailing syntax errors after an unregistered @type still throw jsonDecodingError.
+        for malformed in [
+            #"{"@type":"type.googleapis.com/SomeMessage","b":}"#,
+            #"{"@type":"type.googleapis.com/SomeMessage",}"#,
+        ] {
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: malformed), malformed) { error in
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError, malformed)
             }
         }
     }
