@@ -373,11 +373,11 @@ final class Test_Required: XCTestCase, PBTestHelpers {
             var options = BinaryDecodingOptions()
             options.allowPartial = true
             let msg = try MessageTestType(serializedBytes: bytes, options: options)
-            var expected = "SwiftProtobufTests.SwiftProtoTesting_TestAllRequiredTypes:\n"
+            var expected = ".SwiftProtoTesting_TestAllRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
             }
-            assertDebugDescription(expected, msg, fmt: "While decoding \(bytes)", file: file, line: line)
+            assertDebugDescriptionSuffix(expected, msg, fmt: "While decoding \(bytes)", file: file, line: line)
         } catch let e {
             XCTFail("Decoding \(bytes) failed with error: \(e)", file: file, line: line)
         }
@@ -439,14 +439,14 @@ final class Test_Required: XCTestCase, PBTestHelpers {
 
         // Glue it all together and it should decode ok as it will be complete.
         var allBytes: [UInt8] = []
-        var allTextFormattedField = "SwiftProtobufTests.SwiftProtoTesting_TestAllRequiredTypes:\n"
+        var allTextFormattedField = ".SwiftProtoTesting_TestAllRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
             allBytes.append(contentsOf: bytes)
             allTextFormattedField.append(textFormattedField)
             allTextFormattedField.append("\n")
         }
         let fullMsg = try SwiftProtoTesting_TestAllRequiredTypes(serializedBytes: allBytes)
-        assertDebugDescription(allTextFormattedField, fullMsg)
+        assertDebugDescriptionSuffix(allTextFormattedField, fullMsg)
     }
 
     // Helper to assert encoding fails with a not initialized error.
@@ -585,11 +585,11 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
             var options = BinaryDecodingOptions()
             options.allowPartial = true
             let msg = try MessageTestType(serializedBytes: bytes, options: options)
-            var expected = "SwiftProtobufTests.SwiftProtoTesting_TestSomeRequiredTypes:\n"
+            var expected = ".SwiftProtoTesting_TestSomeRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
             }
-            assertDebugDescription(expected, msg, fmt: "While decoding \(bytes)", file: file, line: line)
+            assertDebugDescriptionSuffix(expected, msg, fmt: "While decoding \(bytes)", file: file, line: line)
         } catch let e {
             XCTFail("Decoding \(bytes) failed with error: \(e)", file: file, line: line)
         }
@@ -616,14 +616,14 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
 
         // Glue it all together and it should decode ok as it will be complete.
         var allBytes: [UInt8] = []
-        var allTextFormattedField = "SwiftProtobufTests.SwiftProtoTesting_TestSomeRequiredTypes:\n"
+        var allTextFormattedField = ".SwiftProtoTesting_TestSomeRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
             allBytes.append(contentsOf: bytes)
             allTextFormattedField.append(textFormattedField)
             allTextFormattedField.append("\n")
         }
         let fullMsg = try SwiftProtoTesting_TestSomeRequiredTypes(serializedBytes: allBytes)
-        assertDebugDescription(allTextFormattedField, fullMsg)
+        assertDebugDescriptionSuffix(allTextFormattedField, fullMsg)
     }
 
     // Helper to assert encoding fails with a not initialized error.
