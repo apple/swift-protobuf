@@ -411,14 +411,18 @@ final class Test_JSON_Conformance: XCTestCase {
         assertDuplicate(#"{"optionalNullValue": null, "optionalNullValue": null}"#)
         assertDuplicate(#"{"optionalNestedMessage": {"a": 1, "a": 2}}"#)
 
-        // 'null' leaves other field types unset, so it doesn't count as a
-        // first occurrence (same as the reference parser).
-        do {
-            let decoded = try M(jsonString: #"{"optionalInt32": null, "optionalInt32": 5}"#)
-            XCTAssertEqual(decoded.optionalInt32, 5)
-        } catch let e {
-            XCTFail("Decode failed with error \(e)")
-        }
+        // 'null' counts as an occurrence, before or after a value.
+        assertDuplicate(#"{"optionalInt32": null, "optionalInt32": 5}"#)
+        assertDuplicate(#"{"optionalInt32": 5, "optionalInt32": null}"#)
+        assertDuplicate(#"{"optionalInt32": null, "optionalInt32": null}"#)
+        assertDuplicate(#"{"optionalNestedMessage": null, "optionalNestedMessage": {"a": 1}}"#)
+        assertDuplicate(#"{"optionalNestedMessage": {"a": 1}, "optionalNestedMessage": null}"#)
+        assertDuplicate(#"{"repeatedInt32": null, "repeatedInt32": [1]}"#)
+        assertDuplicate(#"{"repeatedInt32": [1], "repeatedInt32": null}"#)
+        assertDuplicate(#"{"mapInt32Int32": null, "mapInt32Int32": {"1": 1}}"#)
+        assertDuplicate(#"{"mapInt32Int32": {"1": 1}, "mapInt32Int32": null}"#)
+        assertDuplicate(#"{"optionalValue": 1, "optionalValue": null}"#)
+
         // Tracking is per JSON object.
         do {
             let decoded = try M(
