@@ -199,7 +199,7 @@ public enum BinaryDelimited {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - options: The BinaryDecodingOptions to use.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
     /// and for some reading errors; or the underlying `InputStream.streamError` for a stream error.
     public static func merge<M: Message>(
@@ -283,7 +283,7 @@ public enum BinaryDelimited {
     ///   - partial: If `false` (the default), this method will verify that all required
     ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
-    ///   - options: The BinaryDecodingOptions to use.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
     /// and for some reading errors; or the underlying `InputStream.streamError` for a stream error.
     @available(*, deprecated, message: "Use merge(into:from:extensions:options:) with options.allowPartial instead")
