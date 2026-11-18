@@ -68,7 +68,11 @@ extension Message {
         fieldMask: Google_Protobuf_FieldMask,
         mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
     ) throws {
-        try storageForRuntime.merge(from: source.storageForRuntime, fieldMask: fieldMask, mergeOptions: mergeOption)
+        guard !fieldMask.paths.isEmpty else { return }
+        let trie = try FieldMaskMergeTrie(paths: fieldMask.paths, rootSchema: storageForRuntime.schema)
+        guard trie.hasResolvedLeaf else { return }
+        _protobuf_ensureUniqueStorage(accessToken: .init())
+        storageForRuntime.merge(from: source.storageForRuntime, trie: trie, mergeOptions: mergeOption)
     }
 
     /// Removes from 'message' any field that is not represented in the given
@@ -82,6 +86,7 @@ extension Message {
         guard allPathsAreValid, !fieldMask.paths.isEmpty else {
             return false
         }
+        _protobuf_ensureUniqueStorage(accessToken: .init())
         return storageForRuntime.trim(keeping: fieldMask)
     }
 }

@@ -1589,5 +1589,649 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(m1.singularGroup, m2.singularGroup)
     }
 
+    // Empty source repeated and map fields must leave destination intact when
+    // replaceRepeatedFields is false, and clear only when replaceRepeatedFields is true.
+    func testMergeEmptySourceRepeatedAndMapFields() throws {
+        var dest = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.repeatedInt32 = [1, 2]
+            m.repeatedEnum = [.one, .two]
+            m.repeatedMessage = [.with { $0.singularInt32 = 10 }]
+            m.mapInt32String = [1: "a", 2: "b"]
+            m.mapInt32Message = [1: .with { $0.singularInt32 = 20 }]
+        }
+        let emptySource = SwiftProtoTesting_Fuzz_Message()
+        let mask = Google_Protobuf_FieldMask(protoPaths: [
+            "repeated_int32",
+            "repeated_enum",
+            "repeated_message",
+            "map_int32_string",
+            "map_int32_Message",
+        ])
+
+        try dest.merge(from: emptySource, fieldMask: mask)
+        XCTAssertEqual(dest.repeatedInt32, [1, 2])
+        XCTAssertEqual(dest.repeatedEnum, [.one, .two])
+        XCTAssertEqual(dest.repeatedMessage.map(\.singularInt32), [10])
+        XCTAssertEqual(dest.mapInt32String, [1: "a", 2: "b"])
+        XCTAssertEqual(dest.mapInt32Message[1]?.singularInt32, 20)
+
+        var replaceOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceOptions.replaceRepeatedFields = true
+        try dest.merge(from: emptySource, fieldMask: mask, mergeOption: replaceOptions)
+        XCTAssertEqual(dest.repeatedInt32, [])
+        XCTAssertEqual(dest.repeatedEnum, [])
+        XCTAssertEqual(dest.repeatedMessage, [])
+        XCTAssertEqual(dest.mapInt32String, [:])
+        XCTAssertEqual(dest.mapInt32Message, [:])
+
+        // Nested repeated field under an unset intermediate sub-path.
+        var nestedDest = SwiftProtoTesting_NestedTestAllTypes.with { m in
+            m.child.payload.optionalInt64 = 99
+            m.child.payload.repeatedInt32 = [5, 6]
+        }
+        let emptyNested = SwiftProtoTesting_NestedTestAllTypes()
+        let nestedMask = Google_Protobuf_FieldMask(protoPaths: ["child.payload.repeated_int32"])
+
+        try nestedDest.merge(from: emptyNested, fieldMask: nestedMask)
+        XCTAssertEqual(nestedDest.child.payload.repeatedInt32, [5, 6])
+        XCTAssertEqual(nestedDest.child.payload.optionalInt64, 99)
+
+        try nestedDest.merge(from: emptyNested, fieldMask: nestedMask, mergeOption: replaceOptions)
+        XCTAssertEqual(nestedDest.child.payload.repeatedInt32, [])
+        XCTAssertEqual(nestedDest.child.payload.optionalInt64, 99)
+    }
+
+    // When an intermediate message in a sub-path is unset in the source, only the
+    // masked leaf fields should be cleared in the destination; sibling fields must
+    // remain intact, and no empty submessage should be allocated when destination
+    // also leaves the intermediate message unset.
+    func testMergeUnsetIntermediateSubPathPreservesSiblings() throws {
+        var dest = SwiftProtoTesting_NestedTestAllTypes.with { m in
+            m.child.payload.optionalInt32 = 1
+            m.child.payload.optionalInt64 = 2
+            m.child.child.payload.optionalInt32 = 3
+        }
+        let emptySource = SwiftProtoTesting_NestedTestAllTypes()
+
+        try dest.merge(from: emptySource, fieldMask: .init(protoPaths: ["child.payload.optional_int32"]))
+        XCTAssertTrue(dest.hasChild)
+        XCTAssertTrue(dest.child.hasPayload)
+        XCTAssertFalse(dest.child.payload.hasOptionalInt32)
+        XCTAssertEqual(dest.child.payload.optionalInt64, 2)
+        XCTAssertEqual(dest.child.child.payload.optionalInt32, 3)
+
+        // Sub-path targeting a leaf message field when the parent is unset in source.
+        try dest.merge(from: emptySource, fieldMask: .init(protoPaths: ["child.payload"]))
+        XCTAssertTrue(dest.child.hasPayload)
+        XCTAssertEqual(dest.child.payload.optionalInt64, 2)
+        XCTAssertEqual(dest.child.child.payload.optionalInt32, 3)
+
+        var replaceMsgOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceMsgOptions.replaceMessageFields = true
+        try dest.merge(
+            from: emptySource,
+            fieldMask: .init(protoPaths: ["child.payload"]),
+            mergeOption: replaceMsgOptions
+        )
+        XCTAssertTrue(dest.hasChild)
+        XCTAssertFalse(dest.child.hasPayload)
+        XCTAssertEqual(dest.child.child.payload.optionalInt32, 3)
+
+        // When neither source nor destination has the intermediate message set,
+        // destination must remain unset.
+        var emptyDest = SwiftProtoTesting_NestedTestAllTypes()
+        try emptyDest.merge(from: emptySource, fieldMask: .init(protoPaths: ["child.payload.optional_int32"]))
+        XCTAssertFalse(emptyDest.hasChild)
+    }
+
+    // Appending and replacing repeated message, group, and enum fields when both
+    // destination and source are non-empty.
+    func testMergeRepeatedMessageAndGroupAppendAndReplace() throws {
+        var dest = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.repeatedMessage = [
+                .with {
+                    $0.singularInt32 = 1
+                    $0.singularMessage.singularString = "dest-nested"
+                }
+            ]
+            m.repeatedGroup = [.with { $0.groupField = 10 }]
+            m.repeatedEnum = [.one]
+        }
+        let source = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.repeatedMessage = [
+                .with {
+                    $0.singularInt32 = 2
+                    $0.singularMessage.singularString = "src-nested"
+                    $0.unknownFields.append(protobufData: Data([40, 7]))
+                },
+                .with { $0.singularInt32 = 3 },
+            ]
+            m.repeatedGroup = [.with { $0.groupField = 20 }]
+            m.repeatedEnum = [.two, .three]
+        }
+        let mask = Google_Protobuf_FieldMask(protoPaths: [
+            "repeated_message",
+            "repeated_enum",
+            "RepeatedGroup",
+        ])
+
+        try dest.merge(from: source, fieldMask: mask)
+        XCTAssertEqual(dest.repeatedMessage.count, 3)
+        XCTAssertEqual(dest.repeatedMessage[0].singularInt32, 1)
+        XCTAssertEqual(dest.repeatedMessage[0].singularMessage.singularString, "dest-nested")
+        XCTAssertEqual(dest.repeatedMessage[1].singularInt32, 2)
+        XCTAssertEqual(dest.repeatedMessage[1].singularMessage.singularString, "src-nested")
+        XCTAssertEqual(dest.repeatedMessage[1].unknownFields.data, Data([40, 7]))
+        XCTAssertEqual(dest.repeatedMessage[2].singularInt32, 3)
+        XCTAssertEqual(dest.repeatedGroup.map(\.groupField), [10, 20])
+        XCTAssertEqual(dest.repeatedEnum, [.one, .two, .three])
+
+        var replaceOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceOptions.replaceRepeatedFields = true
+        try dest.merge(from: source, fieldMask: mask, mergeOption: replaceOptions)
+        XCTAssertEqual(dest.repeatedMessage.map(\.singularInt32), [2, 3])
+        XCTAssertEqual(dest.repeatedGroup.map(\.groupField), [20])
+        XCTAssertEqual(dest.repeatedEnum, [.two, .three])
+    }
+
+    // Merging a leaf singular message field preserves and merges all extension
+    // categories and unknown fields; replaceMessageFields replaces them.
+    func testMergeLeafMessageExtensionsAndUnknownFields() throws {
+        let destUnknown = Data([40, 1])  // Field 5, varint 1
+        let srcUnknown = Data([40, 2])  // Field 5, varint 2
+
+        let initialDest = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularMessage = .with { sub in
+                sub.singularInt32 = 1
+                sub.SwiftProtoTesting_Fuzz_singularInt32Ext = 10
+                sub.SwiftProtoTesting_Fuzz_singularInt64Ext = 100
+                sub.SwiftProtoTesting_Fuzz_singularStringExt = "dest"
+                sub.SwiftProtoTesting_Fuzz_singularBytesExt = Data([1])
+                sub.SwiftProtoTesting_Fuzz_singularEnumExt = .one
+                sub.SwiftProtoTesting_Fuzz_singularMessageExt = .with {
+                    $0.singularInt32 = 11
+                    $0.singularInt64 = 12
+                }
+                sub.SwiftProtoTesting_Fuzz_repeatedInt32Ext = [1]
+                sub.SwiftProtoTesting_Fuzz_repeatedStringExt = ["a"]
+                sub.SwiftProtoTesting_Fuzz_repeatedEnumExt = [.one]
+                sub.SwiftProtoTesting_Fuzz_repeatedMessageExt = [.with { $0.singularInt32 = 21 }]
+                sub.unknownFields.append(protobufData: destUnknown)
+            }
+        }
+        let source = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularMessage = .with { sub in
+                sub.singularInt64 = 2
+                sub.SwiftProtoTesting_Fuzz_singularInt32Ext = 20
+                sub.SwiftProtoTesting_Fuzz_singularStringExt = "src"
+                sub.SwiftProtoTesting_Fuzz_singularBytesExt = Data([2, 3])
+                sub.SwiftProtoTesting_Fuzz_singularEnumExt = .two
+                sub.SwiftProtoTesting_Fuzz_singularMessageExt = .with {
+                    $0.singularInt32 = 33
+                }
+                sub.SwiftProtoTesting_Fuzz_repeatedInt32Ext = [2, 3]
+                sub.SwiftProtoTesting_Fuzz_repeatedStringExt = ["b"]
+                sub.SwiftProtoTesting_Fuzz_repeatedEnumExt = [.two, .three]
+                sub.SwiftProtoTesting_Fuzz_repeatedMessageExt = [.with { $0.singularInt32 = 22 }]
+                sub.unknownFields.append(protobufData: srcUnknown)
+            }
+        }
+        let mask = Google_Protobuf_FieldMask(protoPaths: ["singular_message"])
+
+        // Default merge preserves destination-only extensions and merges overlapping ones.
+        var merged = initialDest
+        try merged.merge(from: source, fieldMask: mask)
+        XCTAssertEqual(merged.singularMessage.singularInt32, 1)
+        XCTAssertEqual(merged.singularMessage.singularInt64, 2)
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_singularInt32Ext, 20)
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_singularInt64Ext, 100)
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_singularStringExt, "src")
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_singularBytesExt, Data([2, 3]))
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_singularEnumExt, .two)
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_singularMessageExt.singularInt32, 33)
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_singularMessageExt.singularInt64, 12)
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_repeatedInt32Ext, [1, 2, 3])
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_repeatedStringExt, ["a", "b"])
+        XCTAssertEqual(merged.singularMessage.SwiftProtoTesting_Fuzz_repeatedEnumExt, [.one, .two, .three])
+        XCTAssertEqual(
+            merged.singularMessage.SwiftProtoTesting_Fuzz_repeatedMessageExt.map(\.singularInt32),
+            [21, 22]
+        )
+        XCTAssertEqual(merged.singularMessage.unknownFields.data, destUnknown + srcUnknown)
+
+        // replaceMessageFields = true replaces destination extensions and unknown fields.
+        var replaced = initialDest
+        var replaceOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceOptions.replaceMessageFields = true
+        try replaced.merge(from: source, fieldMask: mask, mergeOption: replaceOptions)
+        XCTAssertFalse(replaced.singularMessage.hasSingularInt32)
+        XCTAssertEqual(replaced.singularMessage.singularInt64, 2)
+        XCTAssertFalse(replaced.singularMessage.hasSwiftProtoTesting_Fuzz_singularInt64Ext)
+        XCTAssertEqual(replaced.singularMessage.SwiftProtoTesting_Fuzz_singularInt32Ext, 20)
+        XCTAssertEqual(replaced.singularMessage.SwiftProtoTesting_Fuzz_singularMessageExt.singularInt32, 33)
+        XCTAssertFalse(replaced.singularMessage.SwiftProtoTesting_Fuzz_singularMessageExt.hasSingularInt64)
+        XCTAssertEqual(replaced.singularMessage.SwiftProtoTesting_Fuzz_repeatedInt32Ext, [2, 3])
+        XCTAssertEqual(replaced.singularMessage.unknownFields.data, srcUnknown)
+    }
+
+    // Merging into a message must preserve copy-on-write value semantics for shared copies.
+    func testMergeCopyOnWriteIsolation() throws {
+        var dest = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularInt32 = 1
+            m.repeatedInt32 = [10]
+            m.mapInt32String = [1: "a"]
+            m.singularMessage = .with { sub in
+                sub.singularInt32 = 2
+                sub.singularInt64 = 3
+                sub.SwiftProtoTesting_Fuzz_singularInt32Ext = 4
+            }
+        }
+        let snapshot = dest
+
+        let source = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularInt32 = 99
+            m.repeatedInt32 = [20]
+            m.mapInt32String = [2: "b"]
+            m.singularMessage = .with { sub in
+                sub.singularInt32 = 88
+                sub.SwiftProtoTesting_Fuzz_singularInt32Ext = 77
+            }
+        }
+
+        try dest.merge(
+            from: source,
+            fieldMask: .init(protoPaths: ["singular_int32", "repeated_int32", "map_int32_string", "singular_message"])
+        )
+
+        // Mutated destination reflects the merge.
+        XCTAssertEqual(dest.singularInt32, 99)
+        XCTAssertEqual(dest.repeatedInt32, [10, 20])
+        XCTAssertEqual(dest.mapInt32String, [1: "a", 2: "b"])
+        XCTAssertEqual(dest.singularMessage.singularInt32, 88)
+        XCTAssertEqual(dest.singularMessage.singularInt64, 3)
+        XCTAssertEqual(dest.singularMessage.SwiftProtoTesting_Fuzz_singularInt32Ext, 77)
+
+        // Shared snapshot must remain completely untouched.
+        XCTAssertEqual(snapshot.singularInt32, 1)
+        XCTAssertEqual(snapshot.repeatedInt32, [10])
+        XCTAssertEqual(snapshot.mapInt32String, [1: "a"])
+        XCTAssertEqual(snapshot.singularMessage.singularInt32, 2)
+        XCTAssertEqual(snapshot.singularMessage.singularInt64, 3)
+        XCTAssertEqual(snapshot.singularMessage.SwiftProtoTesting_Fuzz_singularInt32Ext, 4)
+
+        // Unset-source sub-path clear also respects CoW isolation.
+        var dest2 = snapshot
+        let snapshot2 = dest2
+        try dest2.merge(
+            from: SwiftProtoTesting_Fuzz_Message(),
+            fieldMask: .init(protoPaths: ["singular_message.singular_int32"])
+        )
+        XCTAssertFalse(dest2.singularMessage.hasSingularInt32)
+        XCTAssertEqual(dest2.singularMessage.singularInt64, 3)
+        XCTAssertEqual(snapshot2.singularMessage.singularInt32, 2)
+    }
+
+    // Self-merging a message into itself must not alias or corrupt storage.
+    func testMergeSelfMerge() throws {
+        var msg = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularInt32 = 5
+            m.repeatedInt32 = [1, 2]
+            m.repeatedEnum = [.one]
+            m.repeatedMessage = [.with { $0.singularInt32 = 10 }]
+            m.repeatedGroup = [.with { $0.groupField = 20 }]
+            m.mapInt32String = [1: "a"]
+            m.singularMessage = .with { sub in
+                sub.singularInt32 = 7
+                sub.repeatedInt32 = [3]
+                sub.SwiftProtoTesting_Fuzz_repeatedInt32Ext = [4]
+                sub.unknownFields.append(protobufData: Data([40, 1]))
+            }
+        }
+        let allMask = Google_Protobuf_FieldMask(allFieldsOf: SwiftProtoTesting_Fuzz_Message.self)
+
+        try msg.merge(from: msg, fieldMask: allMask)
+        XCTAssertEqual(msg.singularInt32, 5)
+        XCTAssertEqual(msg.repeatedInt32, [1, 2, 1, 2])
+        XCTAssertEqual(msg.repeatedEnum, [.one, .one])
+        XCTAssertEqual(msg.repeatedMessage.map(\.singularInt32), [10, 10])
+        XCTAssertEqual(msg.repeatedGroup.map(\.groupField), [20, 20])
+        XCTAssertEqual(msg.mapInt32String, [1: "a"])
+        XCTAssertEqual(msg.singularMessage.singularInt32, 7)
+        XCTAssertEqual(msg.singularMessage.repeatedInt32, [3, 3])
+        XCTAssertEqual(msg.singularMessage.SwiftProtoTesting_Fuzz_repeatedInt32Ext, [4, 4])
+        XCTAssertEqual(msg.singularMessage.unknownFields.data, Data([40, 1, 40, 1]))
+
+        let beforeReplace = msg
+        var replaceAll = Google_Protobuf_FieldMask.MergeOptions()
+        replaceAll.replaceRepeatedFields = true
+        replaceAll.replaceMessageFields = true
+        try msg.merge(from: msg, fieldMask: allMask, mergeOption: replaceAll)
+        XCTAssertEqual(msg, beforeReplace)
+    }
+
+    // Switching, merging, and clearing oneof message and scalar members must not
+    // disturb active sibling oneof arms.
+    func testMergeOneofSwitchingAndClearing() throws {
+        // Switching from a non-trivial oneof string to a oneof message via sub-path.
+        var msg = SwiftProtoTesting_Fuzz_Message.with { $0.o = .oneofString("initial") }
+        let srcWithMsg = SwiftProtoTesting_Fuzz_Message.with {
+            $0.o = .oneofMessage(.with { $0.singularInt32 = 42 })
+        }
+        try msg.merge(from: srcWithMsg, fieldMask: .init(protoPaths: ["oneof_message.singular_int32"]))
+        XCTAssertEqual(msg.o, .oneofMessage(.with { $0.singularInt32 = 42 }))
+
+        var replaceMsg = Google_Protobuf_FieldMask.MergeOptions()
+        replaceMsg.replaceMessageFields = true
+
+        // Clearing an inactive oneof member must leave the active sibling arm intact.
+        var msgWithString = SwiftProtoTesting_Fuzz_Message.with { $0.o = .oneofString("keep") }
+        let empty = SwiftProtoTesting_Fuzz_Message()
+        try msgWithString.merge(
+            from: empty,
+            fieldMask: .init(protoPaths: ["oneof_int32", "oneof_message", "oneof_message.singular_int32"]),
+            mergeOption: replaceMsg
+        )
+        XCTAssertEqual(msgWithString.o, .oneofString("keep"))
+
+        // Clearing a leaf scalar inside an active oneof message with unset source.
+        var msgWithActiveSub = SwiftProtoTesting_Fuzz_Message.with {
+            $0.o = .oneofMessage(
+                .with {
+                    $0.singularInt32 = 1
+                    $0.singularInt64 = 2
+                }
+            )
+        }
+        try msgWithActiveSub.merge(from: empty, fieldMask: .init(protoPaths: ["oneof_message.singular_int32"]))
+        XCTAssertEqual(msgWithActiveSub.o, .oneofMessage(.with { $0.singularInt64 = 2 }))
+
+        try msgWithActiveSub.merge(from: empty, fieldMask: .init(protoPaths: ["oneof_message"]))
+        XCTAssertEqual(msgWithActiveSub.o, .oneofMessage(.with { $0.singularInt64 = 2 }))
+
+        try msgWithActiveSub.merge(
+            from: empty,
+            fieldMask: .init(protoPaths: ["oneof_message"]),
+            mergeOption: replaceMsg
+        )
+        XCTAssertNil(msgWithActiveSub.o)
+
+        // Clearing a top-level active oneof group with replaceMessageFields = true.
+        var msgWithGroup = SwiftProtoTesting_Fuzz_Message.with {
+            $0.o = .oneofGroup(.with { $0.groupField = 7 })
+        }
+        try msgWithGroup.merge(from: empty, fieldMask: .init(protoPaths: ["OneofGroup"]))
+        XCTAssertEqual(msgWithGroup.o, .oneofGroup(.with { $0.groupField = 7 }))
+        try msgWithGroup.merge(
+            from: empty,
+            fieldMask: .init(protoPaths: ["OneofGroup"]),
+            mergeOption: replaceMsg
+        )
+        XCTAssertNil(msgWithGroup.o)
+    }
+
+    // Path grouping, duplicate/ancestor collapsing, unknown sub-paths, and upfront
+    // invalid-path validation leaving the destination unmodified on error.
+    func testMergePathGroupingDeduplicationAndInvalidPaths() throws {
+        // Duplicate repeated path appends once.
+        var dupDest = SwiftProtoTesting_TestAllTypes.with { $0.repeatedInt32 = [1] }
+        let dupSrc = SwiftProtoTesting_TestAllTypes.with { $0.repeatedInt32 = [2] }
+        try dupDest.merge(from: dupSrc, fieldMask: .init(protoPaths: ["repeated_int32", "repeated_int32"]))
+        XCTAssertEqual(dupDest.repeatedInt32, [1, 2])
+
+        // Ancestor subsumes descendant regardless of order (appends inner repeated once).
+        for paths in [
+            ["child", "child.payload.repeated_int32"],
+            ["child.payload.repeated_int32", "child"],
+        ] {
+            var nested = SwiftProtoTesting_NestedTestAllTypes.with {
+                $0.child.payload.repeatedInt32 = [1]
+            }
+            let src = SwiftProtoTesting_NestedTestAllTypes.with {
+                $0.child.payload.repeatedInt32 = [2]
+                $0.child.payload.optionalInt32 = 7
+            }
+            try nested.merge(from: src, fieldMask: .init(protoPaths: paths))
+            XCTAssertEqual(nested.child.payload.repeatedInt32, [1, 2])
+            XCTAssertEqual(nested.child.payload.optionalInt32, 7)
+        }
+
+        // Ancestor scalar field subsumes invalid sub-paths under itself regardless of order.
+        for paths in [
+            ["optional_int32", "optional_int32.foo"],
+            ["optional_int32.foo", "optional_int32"],
+        ] {
+            var subsumedDest = SwiftProtoTesting_TestAllTypes.with { $0.optionalInt32 = 1 }
+            let subsumedSrc = SwiftProtoTesting_TestAllTypes.with { $0.optionalInt32 = 9 }
+            try subsumedDest.merge(from: subsumedSrc, fieldMask: .init(protoPaths: paths))
+            XCTAssertEqual(subsumedDest.optionalInt32, 9)
+        }
+
+        // Multiple sibling sub-paths sharing a prefix are all merged.
+        var grouped = SwiftProtoTesting_NestedTestAllTypes()
+        let groupedSrc = SwiftProtoTesting_NestedTestAllTypes.with {
+            $0.child.payload.optionalInt32 = 11
+            $0.child.payload.optionalInt64 = 22
+            $0.child.payload.optionalString = "skip"
+        }
+        try grouped.merge(
+            from: groupedSrc,
+            fieldMask: .init(protoPaths: ["child.payload.optional_int32", "child.payload.optional_int64"])
+        )
+        XCTAssertEqual(grouped.child.payload.optionalInt32, 11)
+        XCTAssertEqual(grouped.child.payload.optionalInt64, 22)
+        XCTAssertFalse(grouped.child.payload.hasOptionalString)
+
+        // Unknown sub-paths and malformed empty/dot segments do not allocate phantom submessages.
+        var unknownDest = SwiftProtoTesting_TestAllTypes()
+        let unknownSrc = SwiftProtoTesting_TestAllTypes.with {
+            $0.optionalInt32 = 5
+            $0.optionalNestedMessage.bb = 9
+        }
+        try unknownDest.merge(
+            from: unknownSrc,
+            fieldMask: .init(protoPaths: [
+                "",
+                ".",
+                ".optional_int32",
+                "optional_nested_message.",
+                "optional_nested_message.nonexistent",
+            ])
+        )
+        XCTAssertFalse(unknownDest.hasOptionalInt32)
+        XCTAssertFalse(unknownDest.hasOptionalNestedMessage)
+
+        // Invalid non-leaf paths throw FieldMaskError.invalidPath without mutating destination.
+        var invalidDest = SwiftProtoTesting_TestAllTypes.with { $0.optionalInt64 = 1 }
+        let invalidSrc = SwiftProtoTesting_TestAllTypes.with {
+            $0.optionalInt64 = 2
+            $0.repeatedNestedMessage = [.with { $0.bb = 3 }]
+        }
+        for badPath in [
+            "repeated_nested_message.bb",
+            "optional_int32.foo",
+            "optional_int32.",
+        ] {
+            XCTAssertThrowsError(
+                try invalidDest.merge(from: invalidSrc, fieldMask: .init(protoPaths: ["optional_int64", badPath]))
+            ) { error in
+                XCTAssertEqual(error as? FieldMaskError, .invalidPath)
+            }
+            XCTAssertEqual(invalidDest.optionalInt64, 1)
+        }
+
+        // Non-leaf map path throws invalidPath without mutating destination.
+        var mapDest = SwiftProtoTesting_Fuzz_Message.with { $0.singularInt32 = 1 }
+        let mapSrc = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularInt32 = 2
+            $0.mapInt32Message = [1: .with { $0.singularInt32 = 3 }]
+        }
+        XCTAssertThrowsError(
+            try mapDest.merge(
+                from: mapSrc,
+                fieldMask: .init(protoPaths: ["singular_int32", "map_int32_Message.singular_int32"])
+            )
+        ) { error in
+            XCTAssertEqual(error as? FieldMaskError, .invalidPath)
+        }
+        XCTAssertEqual(mapDest.singularInt32, 1)
+
+        // Deep invalid path still throws even when neither source nor destination has parent set.
+        var emptyNestedDest = SwiftProtoTesting_NestedTestAllTypes()
+        let emptyNestedSrc = SwiftProtoTesting_NestedTestAllTypes()
+        XCTAssertThrowsError(
+            try emptyNestedDest.merge(
+                from: emptyNestedSrc,
+                fieldMask: .init(protoPaths: ["child.payload.optional_int32.bad"])
+            )
+        ) { error in
+            XCTAssertEqual(error as? FieldMaskError, .invalidPath)
+        }
+        XCTAssertFalse(emptyNestedDest.hasChild)
+    }
+
+    // Trimming a message must preserve copy-on-write value semantics for both
+    // shared root copies and shared nested submessage storage.
+    func testTrimCopyOnWriteIsolation() throws {
+        // Shared root copy must remain untouched when trimming top-level and nested fields.
+        var dest = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularInt32 = 1
+            m.singularInt64 = 2
+            m.singularMessage = .with { sub in
+                sub.singularInt32 = 10
+                sub.singularInt64 = 20
+                sub.singularMessage = .with { leaf in
+                    leaf.singularInt32 = 100
+                    leaf.singularInt64 = 200
+                }
+            }
+        }
+        let rootSnapshot = dest
+
+        let rootChanged = dest.trim(
+            keeping: .init(protoPaths: ["singular_message.singular_message.singular_int32"])
+        )
+        XCTAssertTrue(rootChanged)
+        XCTAssertFalse(dest.hasSingularInt32)
+        XCTAssertFalse(dest.hasSingularInt64)
+        XCTAssertFalse(dest.singularMessage.hasSingularInt32)
+        XCTAssertFalse(dest.singularMessage.hasSingularInt64)
+        XCTAssertEqual(dest.singularMessage.singularMessage.singularInt32, 100)
+        XCTAssertFalse(dest.singularMessage.singularMessage.hasSingularInt64)
+
+        XCTAssertEqual(rootSnapshot.singularInt32, 1)
+        XCTAssertEqual(rootSnapshot.singularInt64, 2)
+        XCTAssertEqual(rootSnapshot.singularMessage.singularInt32, 10)
+        XCTAssertEqual(rootSnapshot.singularMessage.singularInt64, 20)
+        XCTAssertEqual(rootSnapshot.singularMessage.singularMessage.singularInt32, 100)
+        XCTAssertEqual(rootSnapshot.singularMessage.singularMessage.singularInt64, 200)
+
+        // Uniquely referenced outer message sharing a nested submessage with another value
+        // must copy the nested submessage storage before trimming inside it.
+        let sharedSub = SwiftProtoTesting_Fuzz_Message.with { sub in
+            sub.singularInt32 = 11
+            sub.singularInt64 = 22
+        }
+        var outer = SwiftProtoTesting_Fuzz_Message()
+        outer.singularMessage = sharedSub
+
+        let nestedChanged = outer.trim(keeping: .init(protoPaths: ["singular_message.singular_int32"]))
+        XCTAssertTrue(nestedChanged)
+        XCTAssertEqual(outer.singularMessage.singularInt32, 11)
+        XCTAssertFalse(outer.singularMessage.hasSingularInt64)
+        XCTAssertEqual(sharedSub.singularInt32, 11)
+        XCTAssertEqual(sharedSub.singularInt64, 22)
+    }
+
+    // Proto3 implicit-presence float/double fields decoded with `-0.0` must preserve
+    // `-0.0` (and keep storage bitwise-consistent for equality and hashing) across both
+    // direct scalar merges and leaf submessage merges.
+    func testMergeProto3NegativeZeroFloatAndDouble() throws {
+        let src = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+            jsonString: #"{"optionalFloat": -0.0, "optionalDouble": -0.0}"#
+        )
+        XCTAssertEqual(src.optionalFloat.sign, .minus)
+        XCTAssertEqual(src.optionalDouble.sign, .minus)
+
+        // Direct field-mask merge preserves `-0.0` and equality/hashing.
+        var dst = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalFloat = 1.5
+            $0.optionalDouble = 2.5
+        }
+        try dst.merge(from: src, fieldMask: .init(protoPaths: ["optional_float", "optional_double"]))
+        XCTAssertEqual(dst.optionalFloat.sign, .minus)
+        XCTAssertEqual(dst.optionalDouble.sign, .minus)
+        XCTAssertEqual(dst, src)
+        XCTAssertEqual(dst.hashValue, src.hashValue)
+
+        // Merging an empty source clears `-0.0` cleanly back to bitwise zero.
+        let empty = SwiftProtoTesting_Test3_TestAllTypesProto3()
+        try dst.merge(from: empty, fieldMask: .init(protoPaths: ["optional_float", "optional_double"]))
+        XCTAssertEqual(dst, empty)
+        XCTAssertEqual(dst.hashValue, empty.hashValue)
+
+        // Leaf submessage merge (`replaceMessageFields = false`) preserves nested `-0.0`.
+        let nestedSrc = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive = src
+        }
+        var nestedDst = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.a = 7
+            $0.optionalNestedMessage.corecursive.optionalInt32 = 99
+        }
+        try nestedDst.merge(from: nestedSrc, fieldMask: .init(protoPaths: ["optional_nested_message"]))
+        XCTAssertEqual(nestedDst.optionalNestedMessage.a, 7)
+        XCTAssertEqual(nestedDst.optionalNestedMessage.corecursive.optionalInt32, 99)
+        XCTAssertEqual(nestedDst.optionalNestedMessage.corecursive.optionalFloat.sign, .minus)
+        XCTAssertEqual(nestedDst.optionalNestedMessage.corecursive.optionalDouble.sign, .minus)
+        var expectedCorecursive = src
+        expectedCorecursive.optionalInt32 = 99
+        XCTAssertEqual(nestedDst.optionalNestedMessage.corecursive, expectedCorecursive)
+        XCTAssertEqual(nestedDst.optionalNestedMessage.corecursive.hashValue, expectedCorecursive.hashValue)
+    }
+
+    // Merging a repeated scalar field decoded from a zero-length packed wire tag must
+    // maintain the storage invariant that empty arrays do not leave presence bits set.
+    func testMergeZeroLengthPackedRepeatedFieldMaintainsStorageInvariants() throws {
+        // Field 31 (`repeated_int32`), length-delimited tag = (31 << 3) | 2 = 250 = [0xfa, 0x01], length = 0.
+        let zeroLengthPackedSrc = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+            serializedBytes: Data([0xfa, 0x01, 0x00])
+        )
+        XCTAssertTrue(zeroLengthPackedSrc.repeatedInt32.isEmpty)
+        let empty = SwiftProtoTesting_Test3_TestAllTypesProto3()
+
+        // Default (`replaceRepeatedFields = false`) preserves destination values.
+        var keepDst = SwiftProtoTesting_Test3_TestAllTypesProto3.with { $0.repeatedInt32 = [1, 2] }
+        try keepDst.merge(from: zeroLengthPackedSrc, fieldMask: .init(protoPaths: ["repeated_int32"]))
+        XCTAssertEqual(keepDst.repeatedInt32, [1, 2])
+
+        // `replaceRepeatedFields = true` clears destination cleanly (no stale presence bit).
+        var replaceOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceOptions.replaceRepeatedFields = true
+        var replaceDst = SwiftProtoTesting_Test3_TestAllTypesProto3.with { $0.repeatedInt32 = [1, 2] }
+        try replaceDst.merge(
+            from: zeroLengthPackedSrc,
+            fieldMask: .init(protoPaths: ["repeated_int32"]),
+            mergeOption: replaceOptions
+        )
+        XCTAssertEqual(replaceDst, empty)
+        XCTAssertEqual(replaceDst.hashValue, empty.hashValue)
+
+        // Merging into an empty destination leaves it equal to a fresh empty message.
+        var emptyDst = SwiftProtoTesting_Test3_TestAllTypesProto3()
+        try emptyDst.merge(from: zeroLengthPackedSrc, fieldMask: .init(protoPaths: ["repeated_int32"]))
+        XCTAssertEqual(emptyDst, empty)
+        XCTAssertEqual(emptyDst.hashValue, empty.hashValue)
+
+        // Leaf submessage merge into an empty nested message also maintains storage invariants.
+        let nestedSrc = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive = zeroLengthPackedSrc
+        }
+        var nestedDst = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive = SwiftProtoTesting_Test3_TestAllTypesProto3()
+        }
+        try nestedDst.merge(from: nestedSrc, fieldMask: .init(protoPaths: ["optional_nested_message"]))
+        XCTAssertEqual(nestedDst.optionalNestedMessage.corecursive, empty)
+        XCTAssertEqual(nestedDst.optionalNestedMessage.corecursive.hashValue, empty.hashValue)
+    }
+
     #endif
 }
