@@ -46,8 +46,15 @@ extension Google_Protobuf_FieldMask {
     /// - Parameter jsonPaths: The paths from which to create the field mask,
     ///   defined using the JSON names for the fields.
     public init?(jsonPaths: String...) {
-        // TODO: This should fail if any of the conversions from JSON fails
-        self.init(protoPaths: jsonPaths.compactMap(protoName(forJSONFieldMaskPath:)))
+        var protoPaths = [String]()
+        protoPaths.reserveCapacity(jsonPaths.count)
+        for jsonPath in jsonPaths {
+            guard let protoPath = protoName(forJSONFieldMaskPath: jsonPath) else {
+                return nil
+            }
+            protoPaths.append(protoPath)
+        }
+        self.init(protoPaths: protoPaths)
     }
 
     // It would be nice if to have an initializer that accepted Swift property
