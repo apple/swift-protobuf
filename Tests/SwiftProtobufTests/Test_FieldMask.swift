@@ -51,6 +51,10 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("\"foo~bar\"")
         assertJSONDecodeFails("\"foo@bar\"")
         assertJSONDecodeFails("\"foo bar\"")
+        assertJSONDecodeFails("\"foo(bar)\"")
+        assertJSONDecodeFails("\"(foo.bar)\"")
+        assertJSONDecodeFails("\"foo(\"")
+        assertJSONDecodeFails("\"foo)\"")
     }
 
     func testProtobuf() {
@@ -84,6 +88,23 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(m, other)
         XCTAssertNotEqual(m1, other)
         XCTAssertNotEqual(m2, other)
+
+        let j1 = Google_Protobuf_FieldMask(jsonPaths: "foo", "barBaz", "foo.barBaz")
+        XCTAssertEqual(j1, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz", "foo.bar_baz"))
+
+        let jEmpty = Google_Protobuf_FieldMask.init(jsonPaths:)()
+        XCTAssertEqual(jEmpty, Google_Protobuf_FieldMask())
+
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "foo_bar"))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "foo(bar)"))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "(foo.bar)"))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "foo("))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "foo)"))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "foo-bar"))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "foo,bar"))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: ""))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "foo", "bar_baz"))
+        XCTAssertNil(Google_Protobuf_FieldMask(jsonPaths: "foo_bar", "baz"))
     }
 
     // Make sure field mask works correctly when stored in a field
@@ -115,11 +136,28 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         // If the proto fieldname can't be converted to a JSON field name,
         // then JSON serialization should fail. This includes a path holding the
         // ',' separator, which otherwise round-trips into two separate paths.
-        let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ", "foo,bar", "foo-bar", "foo/bar"]
+        let cases = [
+            "foo_3_bar",
+            "foo__bar",
+            "fooBar",
+            "☹️",
+            "ȟìĳ",
+            "foo,bar",
+            "foo-bar",
+            "foo/bar",
+            "foo(bar)",
+            "(foo.bar)",
+            "foo(",
+            "foo)",
+            "",
+        ]
         for c in cases {
             let m = Google_Protobuf_FieldMask(protoPaths: c)
             XCTAssertThrowsError(try m.jsonString())
         }
+        // An empty path element alongside valid paths must also fail to serialize.
+        let mixedEmpty = Google_Protobuf_FieldMask(protoPaths: "foo", "")
+        XCTAssertThrowsError(try mixedEmpty.jsonString())
     }
 
     // Checks merge functionality for field masks.
