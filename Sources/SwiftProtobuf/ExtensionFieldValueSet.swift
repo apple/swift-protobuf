@@ -86,4 +86,28 @@ public struct ExtensionFieldValueSet: Hashable, Sendable {
         }
         return true
     }
+
+    #if FieldMaskUtilities
+    internal var isEmpty: Bool {
+        values.isEmpty
+    }
+
+    internal mutating func merge(from other: ExtensionFieldValueSet) throws {
+        for (fieldNumber, srcField) in other.values {
+            if var dstField = values[fieldNumber] {
+                var visitor = MessageMergeVisitor()
+                try srcField.traverse(visitor: &visitor)
+                if !visitor.fields.isEmpty {
+                    var decoder = MessageMergeDecoder(fields: visitor.fields)
+                    while try decoder.nextFieldNumber() != nil {
+                        try dstField.decodeExtensionField(decoder: &decoder)
+                    }
+                    values[fieldNumber] = dstField
+                }
+            } else {
+                values[fieldNumber] = srcField
+            }
+        }
+    }
+    #endif
 }

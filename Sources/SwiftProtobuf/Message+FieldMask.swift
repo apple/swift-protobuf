@@ -24,6 +24,14 @@ extension Google_Protobuf_FieldMask {
         /// to keep the entries from the source repeated field, set this flag
         /// to true.
         public var replaceRepeatedFields = false
+
+        /// When merging message fields, the default behavior is to merge the
+        /// content of two message fields together. If you instead want to use
+        /// the field from the source message to replace the corresponding field
+        /// in the destination message, set this flag to true. When this flag is
+        /// set, specified submessage fields that are missing in source will be
+        /// cleared in destination.
+        public var replaceMessageFields = false
     }
 }
 
@@ -50,7 +58,7 @@ extension Message {
 
     internal mutating func hasPath(path: String) -> Bool {
         do {
-            try set(path: path, value: nil, mergeOption: .init())
+            try set(path: path[...], value: nil, mergeOption: .init())
             return true
         } catch let error as PathDecodingError {
             return error != .pathNotFound
@@ -79,17 +87,47 @@ extension Message {
         fieldMask: Google_Protobuf_FieldMask,
         mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
     ) throws {
-        var visitor = PathVisitor<Self>()
-        try source.traverse(visitor: &visitor)
-        let values = visitor.values
-        // TODO: setting all values with only one decoding
-        for path in fieldMask.paths {
-            try? set(
-                path: path,
-                value: values[path],
-                mergeOption: mergeOption
-            )
+        if fieldMask.paths.isEmpty {
+            return
         }
+        // Build a component-keyed trie of canonicalized mask paths (matching
+        // C++ FieldMaskTree) in linear time/memory, deduplicating parent-covered
+        // paths and pruning invalid root segments early.
+        let tree = FieldMaskPathTree(paths: fieldMask.paths) { segment in
+            Self.number(for: segment) != nil
+        }
+        let canonicalLeaves = tree.canonicalLeaves()
+        if canonicalLeaves.isEmpty {
+            return
+        }
+        let values: [Int: Any]
+        if let sourceAny = source as? Google_Protobuf_Any {
+            values = try extractAnyPathValues(
+                from: sourceAny,
+                nodeIndex: 0,
+                tree: tree
+            )
+        } else {
+            var visitor = PathVisitor<Self>(tree: tree, nodeIndex: 0)
+            try source.traverse(visitor: &visitor)
+            values = visitor.values
+        }
+        // Stage mutations on a copy so a throw on a later path never leaves
+        // `self` partially modified.
+        var workingCopy = self
+        // TODO: setting all values with only one decoding
+        for (nodeIndex, path) in canonicalLeaves {
+            do {
+                try workingCopy.set(
+                    path: path[...],
+                    value: values[nodeIndex],
+                    mergeOption: mergeOption
+                )
+            } catch PathDecodingError.pathNotFound {
+                continue
+            }
+        }
+        self = workingCopy
     }
 }
 
