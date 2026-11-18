@@ -24,8 +24,17 @@ extension Google_Protobuf_FieldMask {
         /// to true.
         public var replaceRepeatedFields: Bool
 
+        /// When merging message fields, the default behavior is to merge the
+        /// content of two message fields together. If you instead want to use
+        /// the field from the source message to replace the corresponding field
+        /// in the destination message, set this flag to true. When this flag is
+        /// set, specified submessage fields that are missing in source will be
+        /// cleared in destination.
+        public var replaceMessageFields: Bool
+
         public init() {
             self.replaceRepeatedFields = false
+            self.replaceMessageFields = false
         }
     }
 }
