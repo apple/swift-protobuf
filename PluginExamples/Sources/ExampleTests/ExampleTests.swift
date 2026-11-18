@@ -6,6 +6,10 @@ import Simple
 import UsesWKTs
 import XCTest
 
+#if compiler(>=6.2.3)
+import Nonexhaustive
+#endif
+
 final class ExampleTests: XCTestCase {
     func testSimple() {
         let simple = Simple.with { $0.name = "Simple" }
@@ -50,4 +54,24 @@ final class ExampleTests: XCTestCase {
         XCTAssertEqual(foo.name, "Foo")
         XCTAssertEqual(bar.name, "Bar")
     }
+
+    #if compiler(>=6.2.3)
+    func testNonexhaustive() {
+        let testEnum = TestEnum.valueA
+        switch testEnum {
+        case .valueA: break
+        case .valueB: break
+        case .unknown: break
+        case .UNRECOGNIZED: break
+        @unknown default: break
+        }
+
+        let testMessage = TestMessage.with { $0.payload = .text("test") }
+        switch testMessage.payload! {
+        case .text: break
+        case .data: break
+        @unknown default: break
+        }
+    }
+    #endif
 }

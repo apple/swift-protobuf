@@ -30,6 +30,25 @@ package class GeneratorOptions {
         }
     }
 
+    package enum EnumGeneration: String {
+        case none
+        case nonexhaustive
+        case nonexhaustiveWarn
+
+        init?(flag: String) {
+            switch flag.lowercased() {
+            case "none":
+                self = .none
+            case "nonexhaustive":
+                self = .nonexhaustive
+            case "nonexhaustivewarn":
+                self = .nonexhaustiveWarn
+            default:
+                return nil
+            }
+        }
+    }
+
     package enum Visibility: String {
         case `internal`
         case `public`
@@ -97,6 +116,7 @@ package class GeneratorOptions {
     }
 
     let outputNaming: OutputNaming
+    package let enumGeneration: EnumGeneration
     let protoToModuleMappings: ProtoFileToModuleMappings
     let visibility: Visibility
     let importDirective: ImportDirective
@@ -117,8 +137,18 @@ package class GeneratorOptions {
     /// A string snippet to insert for the visibility
     let visibilitySourceSnippet: String
 
+    /// A string snippet to insert for the @nonexhaustive attribute, or empty if not applicable.
+    package var enumAnnotation: String {
+        switch enumGeneration {
+        case .none: return ""
+        case .nonexhaustive: return "@nonexhaustive "
+        case .nonexhaustiveWarn: return "@nonexhaustive(warn) "
+        }
+    }
+
     package init(parameter: any CodeGeneratorParameter) throws {
         var outputNaming: OutputNaming = .fullPath
+        var enumGeneration: EnumGeneration = .none
         var moduleMapPath: String?
         var visibility: Visibility = .internal
         var swiftProtobufModuleName: String? = nil
@@ -133,6 +163,15 @@ package class GeneratorOptions {
             case "FileNaming":
                 if let naming = OutputNaming(flag: pair.value) {
                     outputNaming = naming
+                } else {
+                    throw GenerationError.invalidParameterValue(
+                        name: pair.key,
+                        value: pair.value
+                    )
+                }
+            case "EnumGeneration":
+                if let generation = EnumGeneration(flag: pair.value) {
+                    enumGeneration = generation
                 } else {
                     throw GenerationError.invalidParameterValue(
                         name: pair.key,
@@ -234,6 +273,7 @@ package class GeneratorOptions {
         }
 
         self.outputNaming = outputNaming
+        self.enumGeneration = enumGeneration
         self.visibility = visibility
 
         switch visibility {
@@ -270,6 +310,15 @@ package class GeneratorOptions {
                 message: """
                     Cannot use @_implementationOnly imports when the proto visibility is public or package.
                     Either change the visibility to internal, or disable @_implementationOnly imports.
+                    """
+            )
+        }
+
+        if self.enumGeneration != .none && self.visibility == .internal {
+            throw GenerationError.message(
+                message: """
+                    Cannot use EnumGeneration=Nonexhaustive or EnumGeneration=NonexhaustiveWarn when the proto visibility is internal.
+                    Either change the visibility to public or package, or use EnumGeneration=None.
                     """
             )
         }

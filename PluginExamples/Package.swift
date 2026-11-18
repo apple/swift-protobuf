@@ -1,12 +1,27 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.2
 
 import PackageDescription
 
+var packageDependencies: [Package.Dependency] = [
+    .package(path: "../")
+]
+var exampleTestDependencies: [Target.Dependency] = [
+    .target(name: "Simple"),
+    .target(name: "Nested"),
+    .target(name: "Import"),
+    .target(name: "AccessLevelOnImport"),
+    .target(name: "CustomProtoPath"),
+    .target(name: "UsesWKTs"),
+    .target(name: "PathToUnderscores"),
+]
+#if compiler(>=6.2.3)
+packageDependencies.append(.package(path: "Subpackage"))
+exampleTestDependencies.append(.product(name: "Nonexhaustive", package: "Subpackage"))
+#endif
+
 let package = Package(
     name: "PluginExamples",
-    dependencies: [
-        .package(path: "../")
-    ],
+    dependencies: packageDependencies,
     targets: [
         .target(
             name: "Simple",
@@ -76,15 +91,7 @@ let package = Package(
         ),
         .testTarget(
             name: "ExampleTests",
-            dependencies: [
-                .target(name: "Simple"),
-                .target(name: "Nested"),
-                .target(name: "Import"),
-                .target(name: "AccessLevelOnImport"),
-                .target(name: "CustomProtoPath"),
-                .target(name: "UsesWKTs"),
-                .target(name: "PathToUnderscores"),
-            ]
+            dependencies: exampleTestDependencies
         ),
     ],
     swiftLanguageModes: [.v6]
