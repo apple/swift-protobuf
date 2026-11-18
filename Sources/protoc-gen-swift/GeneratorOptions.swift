@@ -116,7 +116,7 @@ package class GeneratorOptions {
     }
 
     let outputNaming: OutputNaming
-    let enumGeneration: EnumGeneration
+    package let enumGeneration: EnumGeneration
     let protoToModuleMappings: ProtoFileToModuleMappings
     let visibility: Visibility
     let importDirective: ImportDirective
@@ -138,7 +138,7 @@ package class GeneratorOptions {
     let visibilitySourceSnippet: String
 
     /// A string snippet to insert for the @nonexhaustive attribute, or empty if not applicable.
-    var enumAnnotation: String {
+    package var enumAnnotation: String {
         switch enumGeneration {
         case .none: return ""
         case .nonexhaustive: return "@nonexhaustive "
@@ -310,6 +310,15 @@ package class GeneratorOptions {
                 message: """
                     Cannot use @_implementationOnly imports when the proto visibility is public or package.
                     Either change the visibility to internal, or disable @_implementationOnly imports.
+                    """
+            )
+        }
+
+        if self.enumGeneration != .none && self.visibility == .internal {
+            throw GenerationError.message(
+                message: """
+                    Cannot use EnumGeneration=Nonexhaustive or EnumGeneration=NonexhaustiveWarn when the proto visibility is internal.
+                    Either change the visibility to public or package, or use EnumGeneration=None.
                     """
             )
         }

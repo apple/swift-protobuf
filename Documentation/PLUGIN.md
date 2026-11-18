@@ -212,10 +212,11 @@ Both open proto enums (proto3-style enums with an `UNRECOGNIZED` case) and oneof
 are annotated, because adding a new case to either is wire-compatible and should not
 be a source-breaking Swift change.
 
-**Requires Swift 6.2.3 or later.**
+**Requires Swift 6.2.3 or later, and `Visibility=Public` or `Visibility=Package`**
+(Swift only allows `@nonexhaustive` on `public` or `package` declarations).
 
 ```
-protoc --swift_opt=EnumGeneration=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=Visibility=Public --swift_opt=EnumGeneration=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `EnumGeneration` are:

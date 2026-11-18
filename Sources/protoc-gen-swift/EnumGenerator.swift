@@ -259,9 +259,13 @@ class EnumGenerator {
 /// Generates an open protobuf enum as a Swift enum.
 private final class OpenEnumGenerator: EnumGenerator {
     override func generateTypeDeclaration(to p: inout CodePrinter) {
+        let comments = enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
+        // `@nonexhaustive` is only valid on `public` or `package` declarations; skip it
+        // when visibility is forced internal (e.g. `swift_protobuf.ImplicitWeakEnum`).
+        let enumAnnotation = visibility.isEmpty ? "" : generatorOptions.enumAnnotation
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(comments)\(enumAnnotation)\(visibility)nonisolated enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
             p.print("\(visibility)typealias RawValue = Swift.Int")

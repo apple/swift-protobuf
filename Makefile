@@ -280,6 +280,7 @@ _test: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@mkdir -p _test/Tests/protoc-gen-swiftTests/NonExhaustive
 	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/protoc-gen-swiftTests \
+		--tfiws_opt=Visibility=Public \
 		--tfiws_opt=EnumGeneration=NonExhaustive \
 		--tfiws_out=_test/Tests/protoc-gen-swiftTests/NonExhaustive \
 		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto

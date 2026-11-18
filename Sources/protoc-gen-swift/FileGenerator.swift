@@ -18,7 +18,7 @@ import Foundation
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 
-class FileGenerator {
+package class FileGenerator {
     private let fileDescriptor: FileDescriptor
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
@@ -45,7 +45,7 @@ class FileGenerator {
         }
     }
 
-    init(
+    package init(
         fileDescriptor: FileDescriptor,
         generatorOptions: GeneratorOptions
     ) {
@@ -107,7 +107,7 @@ class FileGenerator {
 
     /// Generate, if `errorString` gets filled in, then report error instead of using
     /// what written into `printer`.
-    func generateOutputFile(printer p: inout CodePrinter, errorString: inout String?) {
+    package func generateOutputFile(printer p: inout CodePrinter, errorString: inout String?) {
         guard
             fileDescriptor.options.swiftPrefix.isEmpty
                 || isValidSwiftIdentifier(
