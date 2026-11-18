@@ -572,7 +572,7 @@ extension MessageStorage {
 /// Returns the JSON form of the field mask path with the given proto name, or nil if it was not
 /// possible to convert it to a JSON form.
 private func jsonName(forProtoFieldMaskPath name: String) -> String? {
-    guard isPrintableASCII(name) else { return nil }
+    guard !name.isEmpty, isPrintableASCII(name) else { return nil }
     var jsonPath = String()
     var chars = name.makeIterator()
     while let c = chars.next() {
@@ -590,7 +590,7 @@ private func jsonName(forProtoFieldMaskPath name: String) -> String? {
             }
         case "A"..."Z":
             return nil
-        case "a"..."z", "0"..."9", ".", "(", ")":
+        case "a"..."z", "0"..."9", ".":
             jsonPath.append(c)
         default:
             return nil
