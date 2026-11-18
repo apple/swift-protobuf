@@ -281,7 +281,7 @@ class OneofGenerator {
             p.print("set {")
             p.withIndentation { p in
                 p.print("switch newValue {")
-                p.print("case nil: _storage.clearPopulatedOneofMember(at: \(oneofOffset))")
+                p.print("case nil: _uniqueStorage().clearPopulatedOneofMember(at: \(oneofOffset))")
                 for f in fields {
                     p.print("case .\(f.swiftName)(let value)?: self.\(f.swiftName) = value")
                 }
