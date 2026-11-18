@@ -111,7 +111,6 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, options: options)
     }
 
-    #if compiler(>=6.2)
     /// Creates a new message by decoding the bytes provided by a `RawSpan`
     /// containing a serialized message in Protocol Buffer binary format.
     ///
@@ -167,7 +166,6 @@ extension Message {
         options.allowPartial = partial
         try merge(serializedBytes: bytes, extensions: extensions, options: options)
     }
-    #endif
 
     /// Updates the message by decoding the given `SwiftProtobufContiguousBytes` value
     /// containing a serialized message in Protocol Buffer binary format into the
@@ -231,7 +229,6 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, options: options)
     }
 
-    #if compiler(>=6.2)
     /// Updates the message by decoding the bytes provided by a `RawSpan` containing
     /// a serialized message in Protocol Buffer binary format into the receiver.
     ///
@@ -293,7 +290,6 @@ extension Message {
         options.allowPartial = partial
         try merge(serializedBytes: bytes, extensions: extensions, options: options)
     }
-    #endif
 
     @usableFromInline
     mutating func _decode(

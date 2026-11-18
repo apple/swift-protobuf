@@ -165,6 +165,10 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	check-for-protobuf-checkout \
 	check-proto-files \
 	check-version-numbers \
+	check-traits \
+	check-traits-disable-default \
+	check-traits-BinaryDelimitedStreams \
+	check-traits-FieldMaskUtilities \
 	clean \
 	compile-tests \
 	compile-tests-multimodule \
@@ -325,14 +329,8 @@ test-plugin: _test
 	diff -ru Reference _test
 
 # Test the SPM plugin.
-# TODO: simplify this when swift 5.10 support is dropped.
 test-spm-plugin:
-	@SWIFT_VERSION=$$(${SWIFT} --version | head -n1 | sed 's/.*Swift version \([0-9]*\)\..*/\1/'); \
-	if [ "$$SWIFT_VERSION" -lt 6 ]; then \
-		env PROTOC_PATH=$$(realpath ${PROTOC}) ${SWIFT} test --package-path PluginExamples; \
-	else \
-		${SWIFT} test --package-path PluginExamples; \
-	fi
+	${SWIFT} test --package-path PluginExamples
 
 compile-tests: \
 	compile-tests-multimodule \
@@ -347,14 +345,8 @@ compile-tests-multimodule:
 
 # Test that ensures that using access level modifiers on imports yields code that's buildable
 # when `InternalImportsByDefault` is enabled on the module.
-# TODO: simplify this when swift 5.10 support is dropped.
 compile-tests-internalimportsbydefault:
-	@SWIFT_VERSION=$$(${SWIFT} --version | head -n1 | sed 's/.*Swift version \([0-9]*\)\..*/\1/'); \
-	if [ "$$SWIFT_VERSION" -lt 6 ]; then \
-		env PROTOC_PATH=$$(realpath ${PROTOC}) ${SWIFT} build --package-path CompileTests/InternalImportsByDefault; \
-	else \
-		${SWIFT} build --package-path CompileTests/InternalImportsByDefault; \
-	fi
+	${SWIFT} build --package-path CompileTests/InternalImportsByDefault
 
 # Test that generated code with the `NonisolatedDeclarations` option compiles in a
 # target that has `.defaultIsolation(MainActor.self)`.
@@ -374,6 +366,19 @@ compile-tests-weakimports:
 		SWIFT="${SWIFT}" SWIFTC="${SWIFT}c" ./CompileTests/WeakImports/run_test.sh; \
 	fi
 
+
+# Ensure all the the different traits compile correct.
+# NOTE: Not currently part of the regular "check" target.
+check-traits: check-traits-disable-default check-traits-BinaryDelimitedStreams check-traits-FieldMaskUtilities
+
+check-traits-disable-default:
+	${SWIFT} test --disable-default-traits
+
+check-traits-BinaryDelimitedStreams:
+	${SWIFT} test --traits BinaryDelimitedStreams
+
+check-traits-FieldMaskUtilities:
+	${SWIFT} test --traits FieldMaskUtilities
 
 # Rebuild the reference files by running the local version of protoc-gen-swift
 # against our menagerie of sample protos.

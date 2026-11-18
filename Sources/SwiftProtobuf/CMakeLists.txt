@@ -1,93 +1,120 @@
 add_library(SwiftProtobuf
   any.pb.swift
-  AnyMessageStorage.swift
   AnyUnpackError.swift
   api.pb.swift
-  BinaryDecoder.swift
+  AsyncMessageSequence.swift
   BinaryDecodingError.swift
   BinaryDecodingOptions.swift
   BinaryDelimited.swift
   BinaryEncoder.swift
   BinaryEncodingError.swift
-  BinaryEncodingSizeVisitor.swift
-  BinaryEncodingVisitor.swift
-  CustomJSONCodable.swift
-  Data+Extensions.swift
-  Decoder.swift
+  BinaryEncodingOptions.swift
+  Compression.swift
+  Compression+Decompressing.swift
+  CustomJSONWKTClassification.swift
   descriptor.pb.swift
-  DoubleParser.swift
   duration.pb.swift
   empty.pb.swift
   Enum.swift
-  ExtensibleMessage.swift
-  ExtensionFields.swift
-  ExtensionFieldValueSet.swift
+  EnumSchema.swift
+  EnumWitnesses.swift
   ExtensionMap.swift
-  FieldTag.swift
-  FieldTypes.swift
+  ExtensionSchema.swift
+  ExtensionStorage.swift
+  ExtensionStorage+BinaryDecoding.swift
+  ExtensionStorage+BinaryEncoding.swift
+  ExtensionStorage+BinarySize.swift
+  ExtensionStorage+JSONDecoding.swift
+  ExtensionStorage+JSONEncoding.swift
+  ExtensionStorage+TextDecoding.swift
+  ExtensionStorage+TextEncoding.swift
+  ExtensionStorage+Witnesses.swift
+  ExtensionValueStorage.swift
   field_mask.pb.swift
+  FieldBitSet.swift
+  FieldTag.swift
+  GeneratedMessage.swift
   Google_Protobuf_Any+Extensions.swift
   Google_Protobuf_Any+Registry.swift
   Google_Protobuf_Duration+Extensions.swift
   Google_Protobuf_FieldMask+Extensions.swift
   Google_Protobuf_ListValue+Extensions.swift
-  Google_Protobuf_NullValue+Extensions.swift
   Google_Protobuf_Struct+Extensions.swift
   Google_Protobuf_Timestamp+Extensions.swift
   Google_Protobuf_Value+Extensions.swift
   Google_Protobuf_Wrappers+Extensions.swift
-  HashVisitor.swift
-  Internal.swift
-  JSONDecoder.swift
+  implicit_weak_message.pb.swift
   JSONDecodingError.swift
   JSONDecodingOptions.swift
   JSONEncoder.swift
   JSONEncodingError.swift
   JSONEncodingOptions.swift
-  JSONEncodingVisitor.swift
-  JSONMapEncodingVisitor.swift
-  JSONScanner.swift
+  JSONReader.swift
+  KnownField.swift
+  Lock.swift
+  MapEntryWitnesses.swift
+  MapEntryWorkingSpace.swift
   MathUtils.swift
+  Message.swift
   Message+AnyAdditions.swift
+  Message+BinaryAdditions_Data.swift
   Message+BinaryAdditions.swift
   Message+FieldMask.swift
+  Message+JSONAdditions_Data.swift
   Message+JSONAdditions.swift
+  Message+JSONArrayAdditions_Data.swift
   Message+JSONArrayAdditions.swift
   Message+TextFormatAdditions.swift
-  Message.swift
-  MessageExtension.swift
-  NameMap.swift
-  PathDecoder.swift
-  PathVisitor.swift
+  MessageSchema.swift
+  MessageSchema+FieldMask.swift
+  MessageStorage.swift
+  MessageStorage+BinaryDecoding.swift
+  MessageStorage+BinaryEncoding.swift
+  MessageStorage+BinarySize.swift
+  MessageStorage+Equality.swift
+  MessageStorage+FieldMask.swift
+  MessageStorage+Hashing.swift
+  MessageStorage+JSONDecoding.swift
+  MessageStorage+JSONEncoding.swift
+  MessageStorage+TextDecoding.swift
+  MessageStorage+TextEncoding.swift
+  MessageStorage+Witnesses.swift
+  MessageWitnesses.swift
   ProtobufAPIVersionCheck.swift
-  ProtobufMap.swift
-  ProtoNameProviding.swift
-  SelectiveVisitor.swift
-  SimpleExtensionMap.swift
+  ProtobufMapParticipant.swift
+  ReflectionTable.swift
+  SchemaBase128Decoding.swift
   source_context.pb.swift
   StringUtils.swift
   struct.pb.swift
+  SwiftProtobufContiguousBytes.swift
   SwiftProtobufError.swift
-  TextFormatDecoder.swift
-  TextFormatDecodingError.swift
+  TextFormatDecodingOptions.swift
   TextFormatEncoder.swift
   TextFormatEncodingOptions.swift
-  TextFormatEncodingVisitor.swift
-  TextFormatScanner.swift
+  TextFormatReader.swift
+  TextualParser.swift
   timestamp.pb.swift
   TimeUtils.swift
+  Tokenizer.swift
   type.pb.swift
   UnknownStorage.swift
-  UnsafeBufferPointer+Shims.swift
   UnsafeRawPointer+Shims.swift
+  UTF8Name.swift
   Varint.swift
   Version.swift
-  Visitor.swift
+  WeakLinkageSupport.swift
   WireFormat.swift
+  WireFormatReader.swift
   wrappers.pb.swift
   ZigZag.swift)
 set_target_properties(SwiftProtobuf PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_Swift_MODULE_DIRECTORY})
+
+target_compile_options(SwiftProtobuf PRIVATE
+    "SHELL:-package-name SwiftProtobuf"
+    -DBinaryDelimitedStreams
+    -DFieldMaskUtilities)
 
 
 install(TARGETS SwiftProtobuf
