@@ -1,6 +1,9 @@
+import CustomProtoPath
 import Import
 import Nested
+import PathToUnderscores
 import Simple
+import UsesWKTs
 import XCTest
 
 final class ExampleTests: XCTestCase {
@@ -15,7 +18,36 @@ final class ExampleTests: XCTestCase {
     }
 
     func testImport() {
-        let foo = Foo.with { $0.bar = .with { $0.name = "Bar" } }
+        let foo = Import.Foo.with { $0.bar = .with { $0.name = "Bar" } }
         XCTAssertEqual(foo.bar.name, "Bar")
+    }
+
+    func testCustomProtoPath() {
+        let main = CustomProtoPath.Main.with {
+            $0.bar = .with { $0.name = "Bar" }
+            $0.foo = .with { $0.bar = .with { $0.name = "BarInFoo" } }
+        }
+        XCTAssertEqual(main.bar.name, "Bar")
+        XCTAssertEqual(main.foo.bar.name, "BarInFoo")
+    }
+
+    func testUsesWKTs() {
+        let usesWKTs = UsesWKTs.with {
+            $0.name = "UsesWKTs"
+            $0.aTimestamp.seconds = 2
+        }
+        XCTAssertEqual(usesWKTs.name, "UsesWKTs")
+        XCTAssertEqual(usesWKTs.aTimestamp.seconds, 2)
+    }
+
+    // The two protos in this target share the file name Duplicate.proto in different
+    // subdirectories. The build only succeeds because the plugin generates them with
+    // PathToUnderscores naming, so they land in distinctly named files instead of
+    // colliding. This is the case reported in issue 1761.
+    func testPathToUnderscores() {
+        let foo = FooDuplicate.with { $0.name = "Foo" }
+        let bar = BarDuplicate.with { $0.name = "Bar" }
+        XCTAssertEqual(foo.name, "Foo")
+        XCTAssertEqual(bar.name, "Bar")
     }
 }
