@@ -349,7 +349,7 @@ nonisolated struct SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Swift.
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 16)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 16)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofNestedMessage(let value)?: self.oneofNestedMessage = value
       case .oneofString(let value)?: self.oneofString = value

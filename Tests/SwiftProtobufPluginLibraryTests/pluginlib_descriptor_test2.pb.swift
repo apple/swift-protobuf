@@ -135,7 +135,7 @@ nonisolated struct SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Swif
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofStrField(let value)?: self.oneofStrField = value
       case .oneofInt32Field(let value)?: self.oneofInt32Field = value
       case .oneofEnumField(let value)?: self.oneofEnumField = value

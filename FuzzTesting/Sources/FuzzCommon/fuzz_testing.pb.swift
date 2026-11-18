@@ -339,7 +339,7 @@ public nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Senda
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 36)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 36)
       case .oneofInt32(let value)?: self.oneofInt32 = value
       case .oneofInt64(let value)?: self.oneofInt64 = value
       case .oneofUint32(let value)?: self.oneofUint32 = value

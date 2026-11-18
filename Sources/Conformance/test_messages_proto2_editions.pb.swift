@@ -634,7 +634,7 @@ nonisolated struct ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: @unc
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 20)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 20)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofNestedMessage(let value)?: self.oneofNestedMessage = value
       case .oneofString(let value)?: self.oneofString = value
@@ -1236,7 +1236,7 @@ nonisolated struct ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: @unc
       }
       set {
         switch newValue {
-        case nil: _storage.clearPopulatedOneofMember(at: 4)
+        case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
         case .a(let value)?: self.a = value
         case .b(let value)?: self.b = value
         }
@@ -2068,7 +2068,7 @@ nonisolated struct ProtobufTestMessages_Editions_Proto2_TestLargeOneof: @uncheck
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .a1(let value)?: self.a1 = value
       case .a2(let value)?: self.a2 = value
       case .a3(let value)?: self.a3 = value

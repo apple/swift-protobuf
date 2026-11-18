@@ -68,7 +68,7 @@ nonisolated struct Proto2Unittest_TestOptimizedForSize: @unchecked Swift.Sendabl
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .integerField(let value)?: self.integerField = value
       case .stringField(let value)?: self.stringField = value
       }

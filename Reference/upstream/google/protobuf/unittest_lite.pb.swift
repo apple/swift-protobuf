@@ -650,7 +650,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 12)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 12)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofNestedMessage(let value)?: self.oneofNestedMessage = value
       case .oneofString(let value)?: self.oneofString = value
@@ -1522,7 +1522,7 @@ nonisolated struct Proto2Unittest_TestHugeFieldNumbersLite: @unchecked Swift.Sen
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofTestAllTypes(let value)?: self.oneofTestAllTypes = value
       case .oneofString(let value)?: self.oneofString = value
@@ -1616,7 +1616,7 @@ nonisolated struct Proto2Unittest_TestOneofParsingLite: @unchecked Swift.Sendabl
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofInt32(let value)?: self.oneofInt32 = value
       case .oneofSubmessage(let value)?: self.oneofSubmessage = value
       case .oneofString(let value)?: self.oneofString = value

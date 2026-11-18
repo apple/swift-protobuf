@@ -357,7 +357,7 @@ nonisolated struct Proto2Unittest_OneofWellKnownTypes: @unchecked Swift.Sendable
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .anyField(let value)?: self.anyField = value
       case .apiField(let value)?: self.apiField = value
       case .durationField(let value)?: self.durationField = value

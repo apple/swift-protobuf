@@ -379,7 +379,7 @@ nonisolated struct Proto3_TestOneof: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofInt32Value(let value)?: self.oneofInt32Value = value
       case .oneofStringValue(let value)?: self.oneofStringValue = value
       case .oneofBytesValue(let value)?: self.oneofBytesValue = value

@@ -791,7 +791,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 12)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 12)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofNestedMessage(let value)?: self.oneofNestedMessage = value
       case .oneofString(let value)?: self.oneofString = value
@@ -1047,7 +1047,7 @@ nonisolated struct EditionUnittest_TestDeprecatedFields: @unchecked Swift.Sendab
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .deprecatedInt32InOneof(let value)?: self.deprecatedInt32InOneof = value
       }
     }
@@ -4110,7 +4110,7 @@ nonisolated struct EditionUnittest_TestOneof: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooInt(let value)?: self.fooInt = value
       case .fooString(let value)?: self.fooString = value
       case .fooMessage(let value)?: self.fooMessage = value
@@ -4298,7 +4298,7 @@ nonisolated struct EditionUnittest_TestOneof2: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooInt(let value)?: self.fooInt = value
       case .fooString(let value)?: self.fooString = value
       case .fooCord(let value)?: self.fooCord = value
@@ -4383,7 +4383,7 @@ nonisolated struct EditionUnittest_TestOneof2: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 8)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 8)
       case .barInt(let value)?: self.barInt = value
       case .barString(let value)?: self.barString = value
       case .barCord(let value)?: self.barCord = value
@@ -4595,7 +4595,7 @@ nonisolated struct EditionUnittest_TestRequiredOneof: @unchecked Swift.Sendable 
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooInt(let value)?: self.fooInt = value
       case .fooString(let value)?: self.fooString = value
       case .fooMessage(let value)?: self.fooMessage = value
@@ -5704,7 +5704,7 @@ nonisolated struct EditionUnittest_TestHugeFieldNumbers: @unchecked Swift.Sendab
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofTestAllTypes(let value)?: self.oneofTestAllTypes = value
       case .oneofString(let value)?: self.oneofString = value

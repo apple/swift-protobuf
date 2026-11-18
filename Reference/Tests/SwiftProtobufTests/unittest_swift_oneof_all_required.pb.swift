@@ -117,7 +117,7 @@ nonisolated struct SwiftProtoTesting_OneOfContainer: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .option1(let value)?: self.option1 = value
       case .option2(let value)?: self.option2 = value
       case .option3(let value)?: self.option3 = value

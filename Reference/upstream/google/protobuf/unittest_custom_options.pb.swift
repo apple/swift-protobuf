@@ -168,7 +168,7 @@ nonisolated struct Proto2Unittest_TestMessageWithCustomOptions: @unchecked Swift
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofField(let value)?: self.oneofField = value
       }
     }

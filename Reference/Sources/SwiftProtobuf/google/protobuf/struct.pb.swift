@@ -130,7 +130,7 @@ nonisolated struct Google_Protobuf_Value: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .nullValue(let value)?: self.nullValue = value
       case .numberValue(let value)?: self.numberValue = value
       case .stringValue(let value)?: self.stringValue = value

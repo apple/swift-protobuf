@@ -82,7 +82,7 @@ nonisolated struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofInt64(let value)?: self.oneofInt64 = value
       case .oneofBool(let value)?: self.oneofBool = value
       case .oneofString(let value)?: self.oneofString = value
@@ -190,7 +190,7 @@ nonisolated struct SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked 
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .a(let value)?: self.a = value
       case .b(let value)?: self.b = value
       }
@@ -220,7 +220,7 @@ nonisolated struct SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked 
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 8)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 8)
       case .a2(let value)?: self.a2 = value
       case .b2(let value)?: self.b2 = value
       }
@@ -260,7 +260,7 @@ nonisolated struct SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked 
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 12)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 12)
       case .a3(let value)?: self.a3 = value
       case .b3(let value)?: self.b3 = value
       }
@@ -290,7 +290,7 @@ nonisolated struct SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked 
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 16)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 16)
       case .a4(let value)?: self.a4 = value
       case .b4(let value)?: self.b4 = value
       }
