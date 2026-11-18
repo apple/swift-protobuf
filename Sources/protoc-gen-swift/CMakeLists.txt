@@ -1,8 +1,9 @@
 add_executable(protoc-gen-swift
-  BytecodeWriter.swift
   CommandLine+Extensions.swift
+  Compression+Compressing.swift
   Descriptor+Extensions.swift
   EnumGenerator.swift
+  EnumSchemaCalculator.swift
   ExtensionSetGenerator.swift
   FieldGenerator.swift
   FileGenerator.swift
@@ -12,15 +13,16 @@ add_executable(protoc-gen-swift
   Google_Protobuf_FileDescriptorProto+Extensions.swift
   json_enumvalue_options.pb.swift
   json_options.pb.swift
+  MapEntryGenerator.swift
   MessageFieldGenerator.swift
   MessageGenerator.swift
-  MessageStorageClassGenerator.swift
-  MessageStorageDecision.swift
+  MessageSchemaCalculator.swift
   OneofGenerator.swift
-  ProtoNameInstructionWriter.swift
   ProvidesDeprecationComment+Extensions.swift
   ProvidesSourceCodeLocation+Extensions.swift
   Range+Extensions.swift
+  ReflectionTableCalculator.swift
+  SchemaWriter.swift
   StringUtils.swift
   SwiftGeneratorPlugin.swift
   SwiftProtobufNamer+Extensions.swift

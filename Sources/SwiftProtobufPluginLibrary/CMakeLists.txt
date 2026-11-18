@@ -29,8 +29,7 @@ target_link_libraries(SwiftProtobufPluginLibrary PUBLIC
   SwiftProtobuf)
 
 target_compile_options(SwiftProtobufPluginLibrary PRIVATE
-    "SHELL:-package-name SwiftProtobuf"
-    "SHELL:-module-name SwiftProtobufPluginLibrary")
+    "SHELL:-package-name SwiftProtobuf")
 
 
 install(TARGETS SwiftProtobufPluginLibrary
