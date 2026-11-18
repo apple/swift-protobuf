@@ -305,6 +305,28 @@ internal class AnyMessageStorage {
             }
         }
     }
+
+    #if FieldMaskUtilities
+    internal func serializedContentJSONBytes(
+        contentJSON: [UInt8],
+        options: JSONDecodingOptions
+    ) throws -> Data {
+        guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
+            throw BinaryEncodingError.anyTranscodeFailure
+        }
+        do {
+            let m = try unpack(
+                contentJSON: contentJSON,
+                extensions: SimpleExtensionMap(),
+                options: options,
+                as: messageType
+            )
+            return try m.serializedBytes(partial: true)
+        } catch {
+            throw BinaryEncodingError.anyTranscodeFailure
+        }
+    }
+    #endif
 }
 
 /// Custom handling for Text format.

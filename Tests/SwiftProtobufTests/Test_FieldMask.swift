@@ -212,7 +212,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertTrue(message.hasOptionalNestedMessage)
         XCTAssertEqual(message.optionalNestedMessage.bb, 2)
 
-        // When the source does set the message field, it still replaces the
+        // When the source does set the message field, it merges into the
         // destination value.
         let thirdMessage = SwiftProtoTesting_TestAllTypes.with { model in
             model.optionalNestedMessage = .with { nested in
@@ -221,6 +221,853 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         }
         try message.merge(from: thirdMessage, fieldMask: .init(protoPaths: "optional_nested_message"))
         XCTAssertEqual(message.optionalNestedMessage.bb, 7)
+    }
+
+    // Mirrors C++ FieldMaskUtilTest.MergeMessage MergeOptions checks.
+    func testMergeMessageFieldOptions() throws {
+        var nestedSrc = SwiftProtoTesting_NestedTestAllTypes.with {
+            $0.child.payload.optionalInt32 = 1234
+        }
+        var nestedDst = SwiftProtoTesting_NestedTestAllTypes.with {
+            $0.child.payload.optionalInt64 = 4321
+        }
+        var options = Google_Protobuf_FieldMask.MergeOptions()
+
+        // Message fields are merged by default, preserving destination-only fields.
+        let childPayloadMask = Google_Protobuf_FieldMask(protoPaths: "child.payload")
+        try nestedDst.merge(from: nestedSrc, fieldMask: childPayloadMask, mergeOption: options)
+        XCTAssertEqual(nestedDst.child.payload.optionalInt32, 1234)
+        XCTAssertEqual(nestedDst.child.payload.optionalInt64, 4321)
+        XCTAssertTrue(nestedDst.child.payload.hasOptionalInt64)
+
+        // Setting replaceMessageFields replaces the destination submessage instead.
+        options.replaceMessageFields = true
+        try nestedDst.merge(from: nestedSrc, fieldMask: childPayloadMask, mergeOption: options)
+        XCTAssertEqual(nestedDst.child.payload.optionalInt32, 1234)
+        XCTAssertEqual(nestedDst.child.payload.optionalInt64, 0)
+        XCTAssertFalse(nestedDst.child.payload.hasOptionalInt64)
+
+        // By default, message fields missing in source are not cleared in destination.
+        let payloadMask = Google_Protobuf_FieldMask(protoPaths: "payload")
+        options.replaceMessageFields = false
+        nestedDst.payload = .with { $0.optionalInt64 = 4321 }
+        XCTAssertTrue(nestedDst.hasPayload)
+        try nestedDst.merge(from: nestedSrc, fieldMask: payloadMask, mergeOption: options)
+        XCTAssertTrue(nestedDst.hasPayload)
+        XCTAssertEqual(nestedDst.payload.optionalInt64, 4321)
+
+        // Unset message fields in source are cleared when replaceMessageFields is true.
+        options.replaceMessageFields = true
+        nestedDst = SwiftProtoTesting_NestedTestAllTypes()
+        nestedDst.payload = .with { $0.optionalInt64 = 4321 }
+        try nestedDst.merge(from: nestedSrc, fieldMask: payloadMask, mergeOption: options)
+        XCTAssertFalse(nestedDst.hasPayload)
+
+        // A present empty source submessage preserves destination fields by default,
+        // and replaces with a present empty submessage when replaceMessageFields is true.
+        let emptyPayloadSrc = SwiftProtoTesting_NestedTestAllTypes.with {
+            $0.payload = SwiftProtoTesting_TestAllTypes()
+        }
+        nestedDst = SwiftProtoTesting_NestedTestAllTypes.with {
+            $0.payload.optionalInt64 = 4321
+        }
+        options.replaceMessageFields = false
+        try nestedDst.merge(from: emptyPayloadSrc, fieldMask: payloadMask, mergeOption: options)
+        XCTAssertTrue(nestedDst.hasPayload)
+        XCTAssertEqual(nestedDst.payload.optionalInt64, 4321)
+
+        options.replaceMessageFields = true
+        try nestedDst.merge(from: emptyPayloadSrc, fieldMask: payloadMask, mergeOption: options)
+        XCTAssertTrue(nestedDst.hasPayload)
+        XCTAssertFalse(nestedDst.payload.hasOptionalInt64)
+        XCTAssertEqual(nestedDst.payload.optionalInt64, 0)
+
+        // Explicit repeated field paths append by default (even with replaceMessageFields)
+        // and replace when replaceRepeatedFields is true.
+        nestedSrc.payload.repeatedInt32 = [1234]
+        nestedDst = SwiftProtoTesting_NestedTestAllTypes.with {
+            $0.payload.repeatedInt32 = [5678]
+        }
+        let repeatedMask = Google_Protobuf_FieldMask(protoPaths: "payload.repeated_int32")
+        try nestedDst.merge(from: nestedSrc, fieldMask: repeatedMask, mergeOption: options)
+        XCTAssertEqual(nestedDst.payload.repeatedInt32, [5678, 1234])
+
+        options.replaceRepeatedFields = true
+        try nestedDst.merge(from: nestedSrc, fieldMask: repeatedMask, mergeOption: options)
+        XCTAssertEqual(nestedDst.payload.repeatedInt32, [1234])
+    }
+
+    // Inner repeated and map fields inside a masked leaf submessage follow
+    // protobuf MergeFrom semantics (appending repeated fields and merging maps)
+    // unless replaceMessageFields replaces the whole submessage.
+    func testMergeLeafMessageInnerRepeatedAndMapFields() throws {
+        let src = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.singularInt32 = 20
+                $0.repeatedInt32 = [3, 4]
+                $0.mapInt32String = [2: "src", 3: "c"]
+            }
+        }
+        let initialDst = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.singularInt64 = 10
+                $0.repeatedInt32 = [1, 2]
+                $0.mapInt32String = [1: "a", 2: "dst"]
+            }
+        }
+        let mask = Google_Protobuf_FieldMask(protoPaths: "singular_message")
+
+        var defaultDst = initialDst
+        try defaultDst.merge(from: src, fieldMask: mask)
+        XCTAssertEqual(defaultDst.singularMessage.singularInt32, 20)
+        XCTAssertEqual(defaultDst.singularMessage.singularInt64, 10)
+        XCTAssertEqual(defaultDst.singularMessage.repeatedInt32, [1, 2, 3, 4])
+        XCTAssertEqual(defaultDst.singularMessage.mapInt32String, [1: "a", 2: "src", 3: "c"])
+
+        // replaceRepeatedFields does not override MergeFrom on inner fields of
+        // an unmasked leaf submessage (matching C++ FieldMaskUtil::MergeMessageTo).
+        var replaceRepeatedDst = initialDst
+        var replaceRepeatedOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceRepeatedOptions.replaceRepeatedFields = true
+        try replaceRepeatedDst.merge(
+            from: src,
+            fieldMask: mask,
+            mergeOption: replaceRepeatedOptions
+        )
+        XCTAssertEqual(replaceRepeatedDst.singularMessage.singularInt32, 20)
+        XCTAssertEqual(replaceRepeatedDst.singularMessage.singularInt64, 10)
+        XCTAssertEqual(replaceRepeatedDst.singularMessage.repeatedInt32, [1, 2, 3, 4])
+        XCTAssertEqual(replaceRepeatedDst.singularMessage.mapInt32String, [1: "a", 2: "src", 3: "c"])
+
+        // replaceMessageFields replaces the entire leaf submessage.
+        var replaceMessageDst = initialDst
+        var replaceMessageOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceMessageOptions.replaceMessageFields = true
+        try replaceMessageDst.merge(
+            from: src,
+            fieldMask: mask,
+            mergeOption: replaceMessageOptions
+        )
+        XCTAssertEqual(replaceMessageDst.singularMessage.singularInt32, 20)
+        XCTAssertFalse(replaceMessageDst.singularMessage.hasSingularInt64)
+        XCTAssertEqual(replaceMessageDst.singularMessage.repeatedInt32, [3, 4])
+        XCTAssertEqual(replaceMessageDst.singularMessage.mapInt32String, [2: "src", 3: "c"])
+    }
+
+    // Decoded extensions on leaf submessages (and nested submessages / MessageSets)
+    // must remain decoded extensions rather than turning into unknown fields.
+    func testMergeLeafMessagePreservesDecodedExtensions() throws {
+        let src = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.SwiftProtoTesting_Fuzz_singularInt32Ext = 2
+                $0.SwiftProtoTesting_Fuzz_singularInt64Ext = 3
+                $0.SwiftProtoTesting_Fuzz_repeatedInt32Ext = [20]
+                $0.SwiftProtoTesting_Fuzz_singularMessageExt = .with {
+                    $0.singularInt32 = 200
+                    $0.SwiftProtoTesting_Fuzz_singularStringExt = "nested"
+                }
+                $0.mapInt32Message[1] = .with {
+                    $0.SwiftProtoTesting_Fuzz_singularInt32Ext = 99
+                }
+                $0.singularMessageSet = .with {
+                    $0.SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension.anInt32 = 42
+                }
+            }
+        }
+        let initialDst = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.SwiftProtoTesting_Fuzz_singularInt32Ext = 1
+                $0.SwiftProtoTesting_Fuzz_singularStringExt = "dst"
+                $0.SwiftProtoTesting_Fuzz_repeatedInt32Ext = [10]
+                $0.SwiftProtoTesting_Fuzz_singularMessageExt = .with {
+                    $0.singularInt64 = 100
+                }
+                $0.singularMessageSet = .with {
+                    $0.SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension.aString = "dst"
+                }
+            }
+        }
+        let mask = Google_Protobuf_FieldMask(protoPaths: "singular_message")
+
+        var mergedDst = initialDst
+        try mergedDst.merge(from: src, fieldMask: mask)
+        let mergedSub = mergedDst.singularMessage
+        XCTAssertEqual(mergedSub.SwiftProtoTesting_Fuzz_singularInt32Ext, 2)
+        XCTAssertEqual(mergedSub.SwiftProtoTesting_Fuzz_singularInt64Ext, 3)
+        XCTAssertEqual(mergedSub.SwiftProtoTesting_Fuzz_singularStringExt, "dst")
+        XCTAssertEqual(mergedSub.SwiftProtoTesting_Fuzz_repeatedInt32Ext, [10, 20])
+        XCTAssertEqual(mergedSub.SwiftProtoTesting_Fuzz_singularMessageExt.singularInt64, 100)
+        XCTAssertEqual(mergedSub.SwiftProtoTesting_Fuzz_singularMessageExt.singularInt32, 200)
+        XCTAssertEqual(
+            mergedSub.SwiftProtoTesting_Fuzz_singularMessageExt.SwiftProtoTesting_Fuzz_singularStringExt,
+            "nested"
+        )
+        XCTAssertEqual(mergedSub.mapInt32Message[1]?.SwiftProtoTesting_Fuzz_singularInt32Ext, 99)
+        XCTAssertEqual(
+            mergedSub.singularMessageSet.SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension
+                .aString,
+            "dst"
+        )
+        XCTAssertEqual(
+            mergedSub.singularMessageSet.SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension
+                .anInt32,
+            42
+        )
+        XCTAssertTrue(mergedSub.unknownFields.data.isEmpty)
+        XCTAssertTrue(mergedSub.SwiftProtoTesting_Fuzz_singularMessageExt.unknownFields.data.isEmpty)
+        XCTAssertTrue(mergedSub.mapInt32Message[1]?.unknownFields.data.isEmpty ?? false)
+        XCTAssertTrue(mergedSub.singularMessageSet.unknownFields.data.isEmpty)
+
+        var replacedDst = initialDst
+        var replaceOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceOptions.replaceMessageFields = true
+        try replacedDst.merge(from: src, fieldMask: mask, mergeOption: replaceOptions)
+        let replacedSub = replacedDst.singularMessage
+        XCTAssertEqual(replacedSub.SwiftProtoTesting_Fuzz_singularInt32Ext, 2)
+        XCTAssertEqual(replacedSub.SwiftProtoTesting_Fuzz_singularInt64Ext, 3)
+        XCTAssertFalse(replacedSub.hasSwiftProtoTesting_Fuzz_singularStringExt)
+        XCTAssertEqual(replacedSub.SwiftProtoTesting_Fuzz_repeatedInt32Ext, [20])
+        XCTAssertFalse(replacedSub.SwiftProtoTesting_Fuzz_singularMessageExt.hasSingularInt64)
+        XCTAssertEqual(replacedSub.SwiftProtoTesting_Fuzz_singularMessageExt.singularInt32, 200)
+        XCTAssertEqual(
+            replacedSub.SwiftProtoTesting_Fuzz_singularMessageExt.SwiftProtoTesting_Fuzz_singularStringExt,
+            "nested"
+        )
+        XCTAssertFalse(
+            replacedSub.singularMessageSet.hasSwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension
+        )
+        XCTAssertEqual(
+            replacedSub.singularMessageSet.SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension
+                .anInt32,
+            42
+        )
+    }
+
+    // replaceMessageFields must clear oneof message and group branches when
+    // unset in source without clearing unrelated oneof branches or sibling data.
+    func testMergeReplaceMessageFieldsClearsOneofMessagesAndGroups() throws {
+        var replaceOptions = Google_Protobuf_FieldMask.MergeOptions()
+        replaceOptions.replaceMessageFields = true
+
+        // Google_Protobuf_Value oneof struct_value / list_value.
+        let emptyValue = Google_Protobuf_Value()
+        var structVal = Google_Protobuf_Value(
+            structValue: Google_Protobuf_Struct(fields: ["k": Google_Protobuf_Value(stringValue: "v")])
+        )
+        let structMask = Google_Protobuf_FieldMask(protoPaths: "struct_value")
+        try structVal.merge(from: emptyValue, fieldMask: structMask)
+        if case .structValue? = structVal.kind {
+            // Preserved by default when unset in source.
+        } else {
+            XCTFail("Expected structValue to be preserved by default, got \(String(describing: structVal.kind))")
+        }
+        try structVal.merge(from: emptyValue, fieldMask: structMask, mergeOption: replaceOptions)
+        XCTAssertNil(structVal.kind)
+
+        // Unrelated active oneof branch is not cleared.
+        var stringVal = Google_Protobuf_Value(stringValue: "keep")
+        try stringVal.merge(from: emptyValue, fieldMask: structMask, mergeOption: replaceOptions)
+        XCTAssertEqual(stringVal.kind, .stringValue("keep"))
+
+        // Top-level oneof message and oneof group on Fuzz_Message preserve sibling
+        // fields, extensions, and unknownFields when cleared.
+        let unknownBytes = Data([0x98, 0x3E, 0x01])  // field 995 varint = 1
+        let emptyFuzz = SwiftProtoTesting_Fuzz_Message()
+        var msgWithOneof = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularInt32 = 7
+            $0.SwiftProtoTesting_Fuzz_singularInt32Ext = 11
+            $0.o = .oneofMessage(.with { $0.singularInt64 = 99 })
+        }
+        msgWithOneof.unknownFields.append(protobufData: unknownBytes)
+
+        try msgWithOneof.merge(
+            from: emptyFuzz,
+            fieldMask: .init(protoPaths: "oneof_message"),
+            mergeOption: replaceOptions
+        )
+        XCTAssertNil(msgWithOneof.o)
+        XCTAssertEqual(msgWithOneof.singularInt32, 7)
+        XCTAssertEqual(msgWithOneof.SwiftProtoTesting_Fuzz_singularInt32Ext, 11)
+        XCTAssertEqual(msgWithOneof.unknownFields.data, unknownBytes)
+
+        // Same-case oneof_message merges by default and replaces when requested.
+        var sameBranchDst = SwiftProtoTesting_Fuzz_Message.with {
+            $0.o = .oneofMessage(.with { $0.singularInt64 = 10 })
+        }
+        let sameBranchSrc = SwiftProtoTesting_Fuzz_Message.with {
+            $0.o = .oneofMessage(.with { $0.singularInt32 = 20 })
+        }
+        try sameBranchDst.merge(from: sameBranchSrc, fieldMask: .init(protoPaths: "oneof_message"))
+        XCTAssertEqual(sameBranchDst.oneofMessage.singularInt64, 10)
+        XCTAssertEqual(sameBranchDst.oneofMessage.singularInt32, 20)
+        try sameBranchDst.merge(
+            from: sameBranchSrc,
+            fieldMask: .init(protoPaths: "oneof_message"),
+            mergeOption: replaceOptions
+        )
+        XCTAssertFalse(sameBranchDst.oneofMessage.hasSingularInt64)
+        XCTAssertEqual(sameBranchDst.oneofMessage.singularInt32, 20)
+
+        // Unrelated active oneof branch on Fuzz_Message is untouched.
+        var intOneofDst = SwiftProtoTesting_Fuzz_Message.with {
+            $0.o = .oneofInt32(77)
+        }
+        try intOneofDst.merge(
+            from: emptyFuzz,
+            fieldMask: .init(protoPaths: "oneof_message"),
+            mergeOption: replaceOptions
+        )
+        XCTAssertEqual(intOneofDst.o, .oneofInt32(77))
+
+        // Nested oneof message and oneof group clearing inside singular_message.
+        var nestedOneofDst = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.singularInt32 = 5
+                $0.o = .oneofMessage(.with { $0.singularInt32 = 1 })
+            }
+        }
+        try nestedOneofDst.merge(
+            from: emptyFuzz,
+            fieldMask: .init(protoPaths: "singular_message.oneof_message"),
+            mergeOption: replaceOptions
+        )
+        XCTAssertEqual(nestedOneofDst.singularMessage.singularInt32, 5)
+        XCTAssertNil(nestedOneofDst.singularMessage.o)
+
+        var nestedGroupDst = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.singularInt32 = 6
+                $0.o = .oneofGroup(.with { $0.groupField = 3 })
+            }
+        }
+        try nestedGroupDst.merge(
+            from: emptyFuzz,
+            fieldMask: .init(protoPaths: "singular_message.OneofGroup"),
+            mergeOption: replaceOptions
+        )
+        XCTAssertEqual(nestedGroupDst.singularMessage.singularInt32, 6)
+        XCTAssertNil(nestedGroupDst.singularMessage.o)
+    }
+
+    // Non-canonical masks with duplicate or parent-covered child paths must not
+    // duplicate repeated or unknown fields during merge or trim.
+    func testMergeAndTrimDeduplicateOverlappingPaths() throws {
+        let srcUnknown = Data([0x98, 0x3E, 0x02])  // field 995 varint = 2
+        let dstUnknown = Data([0x98, 0x3E, 0x01])  // field 995 varint = 1
+        var src = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.repeatedInt32 = [2, 3]
+            }
+        }
+        src.singularMessage.unknownFields.append(protobufData: srcUnknown)
+
+        let overlappingMasks = [
+            Google_Protobuf_FieldMask(protoPaths: ["singular_message", "singular_message"]),
+            Google_Protobuf_FieldMask(protoPaths: ["singular_message.repeated_int32", "singular_message"]),
+            Google_Protobuf_FieldMask(protoPaths: ["singular_message", "singular_message.repeated_int32"]),
+        ]
+        for mask in overlappingMasks {
+            var dst = SwiftProtoTesting_Fuzz_Message.with {
+                $0.singularMessage = .with {
+                    $0.repeatedInt32 = [1]
+                }
+            }
+            dst.singularMessage.unknownFields.append(protobufData: dstUnknown)
+            try dst.merge(from: src, fieldMask: mask)
+            XCTAssertEqual(dst.singularMessage.repeatedInt32, [1, 2, 3])
+            XCTAssertEqual(dst.singularMessage.unknownFields.data, dstUnknown + srcUnknown)
+        }
+
+        var trimmed = src
+        trimmed.singularInt32 = 99
+        let changed = trimmed.trim(
+            keeping: .init(protoPaths: ["singular_message.repeated_int32", "singular_message"])
+        )
+        XCTAssertTrue(changed)
+        XCTAssertFalse(trimmed.hasSingularInt32)
+        XCTAssertEqual(trimmed.singularMessage.repeatedInt32, [2, 3])
+        XCTAssertEqual(trimmed.singularMessage.unknownFields.data, srcUnknown)
+
+        let secondChanged = trimmed.trim(
+            keeping: .init(protoPaths: ["singular_message.repeated_int32", "singular_message"])
+        )
+        XCTAssertFalse(secondChanged)
+        XCTAssertEqual(trimmed.singularMessage.repeatedInt32, [2, 3])
+        XCTAssertEqual(trimmed.singularMessage.unknownFields.data, srcUnknown)
+    }
+
+    // Leaf message merge must preserve unknown fields directly without invoking
+    // binary decoding depth limits on deeply nested unknown groups.
+    func testMergeLeafMessagePreservesDeepUnknownGroups() throws {
+        var deepUnknownGroup = Data()
+        // 110 nested unknown groups on field 999 (start-group tag 0xBB 0x3E, end-group 0xBC 0x3E).
+        for _ in 0..<110 {
+            deepUnknownGroup.append(contentsOf: [0xBB, 0x3E])
+        }
+        for _ in 0..<110 {
+            deepUnknownGroup.append(contentsOf: [0xBC, 0x3E])
+        }
+        var src = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.singularInt32 = 42
+            }
+        }
+        src.singularMessage.unknownFields.append(protobufData: deepUnknownGroup)
+
+        var dst = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.singularInt64 = 7
+            }
+        }
+        try dst.merge(from: src, fieldMask: .init(protoPaths: "singular_message"))
+        XCTAssertEqual(dst.singularMessage.singularInt32, 42)
+        XCTAssertEqual(dst.singularMessage.singularInt64, 7)
+        XCTAssertEqual(dst.singularMessage.unknownFields.data, deepUnknownGroup)
+    }
+
+    // Merging leaf submessages must preserve remaining binary decode depth
+    // budgets recorded on Google_Protobuf_Any fields.
+    func testMergeLeafMessagePreservesAnyBinaryDepthBudget() throws {
+        let deepInner = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalNestedMessage.corecursive.optionalInt32 = 77
+        }
+        let outerOriginal = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalAny = try Google_Protobuf_Any(message: deepInner)
+        }
+        let wireBytes: Data = try outerOriginal.serializedBytes()
+        var tightOptions = BinaryDecodingOptions()
+        // Outer -> optionalNestedMessage (3) -> corecursive (2) -> optionalAny (1).
+        tightOptions.messageDepthLimit = 4
+        let src = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+            serializedBytes: wireBytes,
+            options: tightOptions
+        )
+
+        // Precondition: unpacking fails with messageDepthLimit due to budget 1.
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                unpackingAny: src.optionalNestedMessage.corecursive.optionalAny
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .messageDepthLimit)
+        }
+
+        let mask = Google_Protobuf_FieldMask(protoPaths: "optional_nested_message")
+
+        // Merging into a destination without optionalAny preserves the budget.
+        var dstWithoutAny = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalInt32 = 1
+        }
+        try dstWithoutAny.merge(from: src, fieldMask: mask)
+        XCTAssertEqual(dstWithoutAny.optionalNestedMessage.corecursive.optionalInt32, 1)
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                unpackingAny: dstWithoutAny.optionalNestedMessage.corecursive.optionalAny
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .messageDepthLimit)
+        }
+
+        // Merging into a destination that already has optionalAny also preserves src's budget.
+        var dstWithAny = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalAny = try Google_Protobuf_Any(
+                message: Google_Protobuf_Int32Value(1)
+            )
+        }
+        try dstWithAny.merge(from: src, fieldMask: mask)
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                unpackingAny: dstWithAny.optionalNestedMessage.corecursive.optionalAny
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .messageDepthLimit)
+        }
+
+        // A type_url-only merge onto a tight-budget binary Any keeps its budget.
+        let typeURLOnlySrc = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalAny.typeURL =
+                "type.googleapis.com/\(SwiftProtoTesting_Test3_TestAllTypesProto3.protoMessageName)"
+        }
+        try dstWithAny.merge(from: typeURLOnlySrc, fieldMask: mask)
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                unpackingAny: dstWithAny.optionalNestedMessage.corecursive.optionalAny
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .messageDepthLimit)
+        }
+    }
+
+    // Decoded extensions on one submessage must not cause unknown fields with
+    // the same field number on sibling/child submessages to be decoded.
+    func testMergeLeafMessageDoesNotPromoteUnknownFieldsToExtensions() throws {
+        // Field 1014 (SwiftProtoTesting_Fuzz_singularStringExt) wire type 2 with invalid UTF-8.
+        let invalidUTF8ExtBytes = Data([0xB2, 0x3F, 0x02, 0xFF, 0xFE])
+        var childWithUnknown = SwiftProtoTesting_Fuzz_Message()
+        childWithUnknown.unknownFields.append(protobufData: invalidUTF8ExtBytes)
+
+        let src = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.SwiftProtoTesting_Fuzz_singularStringExt = "parent"
+                $0.singularMessage = childWithUnknown
+                $0.mapInt32Message[1] = .with {
+                    $0.SwiftProtoTesting_Fuzz_singularStringExt = "valid"
+                }
+                $0.mapInt32Message[2] = childWithUnknown
+            }
+        }
+        var dst = SwiftProtoTesting_Fuzz_Message.with {
+            $0.singularMessage = .with {
+                $0.singularInt64 = 10
+            }
+        }
+
+        try dst.merge(from: src, fieldMask: .init(protoPaths: "singular_message"))
+        XCTAssertEqual(dst.singularMessage.singularInt64, 10)
+        XCTAssertEqual(dst.singularMessage.SwiftProtoTesting_Fuzz_singularStringExt, "parent")
+        XCTAssertFalse(dst.singularMessage.singularMessage.hasSwiftProtoTesting_Fuzz_singularStringExt)
+        XCTAssertEqual(dst.singularMessage.singularMessage.unknownFields.data, invalidUTF8ExtBytes)
+        XCTAssertEqual(dst.singularMessage.mapInt32Message[1]?.SwiftProtoTesting_Fuzz_singularStringExt, "valid")
+        XCTAssertEqual(dst.singularMessage.mapInt32Message[2]?.unknownFields.data, invalidUTF8ExtBytes)
+    }
+
+    // Merging a Google_Protobuf_Any with a different type_url and empty value
+    // onto a destination holding a .message Any must materialize the existing
+    // value bytes so type_url and storage state never disagree.
+    func testMergeLeafAnyCrossTypeEmptySourceValue() throws {
+        let originalInner = SwiftProtoTesting_TestAllTypes.with { $0.optionalInt32 = 42 }
+        let expectedBytes: Data = try originalInner.serializedBytes()
+
+        var dst = try SwiftProtoTesting_Fuzz_Message.with {
+            $0.wktAny = try Google_Protobuf_Any(message: originalInner)
+            $0.singularMessage.wktAny = try Google_Protobuf_Any(message: originalInner)
+        }
+        let src = try SwiftProtoTesting_Fuzz_Message.with {
+            $0.wktAny = try Google_Protobuf_Any(message: Google_Protobuf_Empty())
+            $0.singularMessage.wktAny = try Google_Protobuf_Any(message: Google_Protobuf_Empty())
+        }
+
+        try dst.merge(from: src, fieldMask: .init(protoPaths: ["wkt_any", "singular_message"]))
+
+        for mergedAny in [dst.wktAny, dst.singularMessage.wktAny] {
+            XCTAssertEqual(mergedAny.typeURL, "type.googleapis.com/google.protobuf.Empty")
+            XCTAssertEqual(mergedAny.value, expectedBytes)
+            let text = mergedAny.textFormatString()
+            XCTAssertFalse(text.contains("optional_int32"), "Unexpected stale message text format: \(text)")
+        }
+    }
+
+    // Deeply nested .message Google_Protobuf_Any chains inside leaf submessages
+    // must merge without exponential serialization blowup.
+    func testMergeLeafMessageWithDeeplyNestedMessageAnyChain() throws {
+        var nested = try Google_Protobuf_Any(message: Google_Protobuf_Int32Value(7))
+        for _ in 0..<20 {
+            nested = try Google_Protobuf_Any(message: nested)
+        }
+        let src = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalAny = nested
+            $0.optionalNestedMessage.corecursive.repeatedAny = [nested]
+        }
+        var dst = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalInt32 = 99
+            $0.optionalNestedMessage.corecursive.optionalAny = try Google_Protobuf_Any(
+                message: Google_Protobuf_Int32Value(1)
+            )
+        }
+
+        try dst.merge(from: src, fieldMask: .init(protoPaths: "optional_nested_message"))
+        XCTAssertEqual(dst.optionalNestedMessage.corecursive.optionalInt32, 99)
+        XCTAssertEqual(dst.optionalNestedMessage.corecursive.repeatedAny.count, 1)
+
+        var current = dst.optionalNestedMessage.corecursive.optionalAny
+        for _ in 0..<20 {
+            current = try Google_Protobuf_Any(unpackingAny: current)
+        }
+        let leaf = try Google_Protobuf_Int32Value(unpackingAny: current)
+        XCTAssertEqual(leaf.value, 7)
+    }
+
+    // Large dotted FieldMask paths (e.g. untrusted inputs with tens of thousands
+    // of components) must be canonicalized and rejected in linear time/memory
+    // without quadratic prefix expansion.
+    func testMergeLargeDottedFieldMaskPaths() throws {
+        let src = SwiftProtoTesting_TestAllTypes.with {
+            $0.optionalString = "kept"
+            $0.optionalNestedMessage.bb = 42
+        }
+        var dst = SwiftProtoTesting_TestAllTypes()
+
+        let mask = Google_Protobuf_FieldMask(protoPaths: [
+            String(repeating: ".", count: 100_000),
+            String(repeating: "a.", count: 50_000),
+            String(repeating: "a.", count: 50_000) + "a",
+            "optional_int32." + String(repeating: "a.", count: 50_000),
+            "optional_int32." + String(repeating: "a.", count: 10_000) + "a",
+            "optional_nested_message." + String(repeating: "a.", count: 10_000) + "a",
+            "optional_nested_message",
+            "optional_string",
+        ])
+
+        try dst.merge(from: src, fieldMask: mask)
+        XCTAssertEqual(dst.optionalString, "kept")
+        XCTAssertEqual(dst.optionalNestedMessage.bb, 42)
+        XCTAssertFalse(dst.hasOptionalInt32)
+    }
+
+    // Sub-path merges on Google_Protobuf_Any ("type_url" and "value", nested or
+    // top-level) must keep AnyMessageStorage invariants intact and preserve
+    // decoded binary depth budgets.
+    func testMergeAnySubPathsPreserveStorageInvariants() throws {
+        let originalInner = SwiftProtoTesting_TestAllTypes.with { $0.optionalInt32 = 42 }
+        let expectedBytes: Data = try originalInner.serializedBytes()
+
+        // Changing or clearing type_url on a .message destination must materialize
+        // the payload to .binary so type_url and state never disagree or resurrect
+        // the old type URL.
+        var dstNested = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalAny = try Google_Protobuf_Any(message: originalInner)
+        }
+        let srcChangedType = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalAny.typeURL = "type.googleapis.com/google.protobuf.Empty"
+        }
+        try dstNested.merge(
+            from: srcChangedType,
+            fieldMask: .init(protoPaths: "optional_any.type_url")
+        )
+        XCTAssertEqual(dstNested.optionalAny.typeURL, "type.googleapis.com/google.protobuf.Empty")
+        XCTAssertEqual(dstNested.optionalAny.value, expectedBytes)
+        XCTAssertFalse(dstNested.optionalAny.textFormatString().contains("optional_int32"))
+
+        // Clearing type_url to "" on a .message destination must not resurrect the
+        // old type URL in text or JSON output.
+        var dstTopAny = try Google_Protobuf_Any(message: originalInner)
+        let emptyAny = Google_Protobuf_Any()
+        try dstTopAny.merge(from: emptyAny, fieldMask: .init(protoPaths: "type_url"))
+        XCTAssertEqual(dstTopAny.typeURL, "")
+        XCTAssertEqual(dstTopAny.value, expectedBytes)
+        XCTAssertFalse(dstTopAny.textFormatString().contains(SwiftProtoTesting_TestAllTypes.protoMessageName))
+
+        // Invalid sub-paths under Google_Protobuf_Any are rejected cleanly.
+        XCTAssertTrue(Google_Protobuf_Any.isPathValid("type_url"))
+        XCTAssertTrue(Google_Protobuf_Any.isPathValid("value"))
+        XCTAssertFalse(Google_Protobuf_Any.isPathValid("unknown"))
+        XCTAssertFalse(Google_Protobuf_Any.isPathValid("type_url.extra"))
+        XCTAssertFalse(Google_Protobuf_Any.isPathValid("value.extra"))
+
+        // Merging "value" (alone or alongside "type_url") from a binary-decoded Any
+        // must preserve its decoded recursion budget.
+        let deepInner = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalInt32 = 123
+        }
+        let outerOriginal = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalAny = try Google_Protobuf_Any(message: deepInner)
+        }
+        let wireBytes: Data = try outerOriginal.serializedBytes()
+        var tightOptions = BinaryDecodingOptions()
+        // Outer -> optionalNestedMessage (3) -> corecursive (2) -> optionalAny (1).
+        tightOptions.messageDepthLimit = 4
+        let tightSrc = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+            serializedBytes: wireBytes,
+            options: tightOptions
+        )
+
+        // Nested "value" sub-path preserves budget.
+        var dstValueOnly = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalAny.typeURL =
+                "type.googleapis.com/\(SwiftProtoTesting_Test3_TestAllTypesProto3.protoMessageName)"
+        }
+        try dstValueOnly.merge(
+            from: tightSrc,
+            fieldMask: .init(protoPaths: "optional_nested_message.corecursive.optional_any.value")
+        )
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                unpackingAny: dstValueOnly.optionalNestedMessage.corecursive.optionalAny
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .messageDepthLimit)
+        }
+
+        // Nested ["type_url", "value"] preserves budget regardless of mask order.
+        var dstBothSubPaths = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalAny = try Google_Protobuf_Any(
+                message: Google_Protobuf_Int32Value(1)
+            )
+        }
+        try dstBothSubPaths.merge(
+            from: tightSrc,
+            fieldMask: .init(protoPaths: [
+                "optional_nested_message.corecursive.optional_any.type_url",
+                "optional_nested_message.corecursive.optional_any.value",
+            ])
+        )
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                unpackingAny: dstBothSubPaths.optionalNestedMessage.corecursive.optionalAny
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .messageDepthLimit)
+        }
+
+        // Top-level Google_Protobuf_Any sub-path merge preserves budget on both
+        // value write and subsequent type_url update.
+        var dstRootAny = Google_Protobuf_Any()
+        try dstRootAny.merge(
+            from: tightSrc.optionalNestedMessage.corecursive.optionalAny,
+            fieldMask: .init(protoPaths: ["type_url", "value"])
+        )
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(unpackingAny: dstRootAny)
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .messageDepthLimit)
+        }
+        let sameTypeOnly = Google_Protobuf_Any.with {
+            $0.typeURL = "type.googleapis.com/\(SwiftProtoTesting_Test3_TestAllTypesProto3.protoMessageName)"
+        }
+        var dstRootBinary = tightSrc.optionalNestedMessage.corecursive.optionalAny
+        dstRootBinary.typeURL = "type.googleapis.com/example.Other"
+        try dstRootBinary.merge(from: sameTypeOnly, fieldMask: .init(protoPaths: "type_url"))
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(unpackingAny: dstRootBinary)
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .messageDepthLimit)
+        }
+    }
+
+    // Deferred JSON-decoded Any payloads with unregistered types must survive
+    // leaf merges when no transcoding is needed and propagate
+    // BinaryEncodingError.anyTranscodeFailure when merging onto a non-empty Any.
+    func testMergeLeafMessageWithDeferredJSONAny() throws {
+        let json = """
+            {
+              "optionalInt32": 999,
+              "optionalNestedMessage": {
+                "corecursive": {
+                  "optionalAny": {
+                    "@type": "type.googleapis.com/example.UnregisteredType",
+                    "foo": 1
+                  },
+                  "repeatedAny": [
+                    {
+                      "@type": "type.googleapis.com/example.UnregisteredType",
+                      "bar": 2
+                    }
+                  ]
+                }
+              },
+              "optionalAny": {
+                "@type": "type.googleapis.com/example.UnregisteredType",
+                "baz": 3
+              }
+            }
+            """
+        let src = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
+        let mask = Google_Protobuf_FieldMask(protoPaths: "optional_nested_message")
+
+        // Destination lacks optionalAny: deferred .contentJSON is preserved cleanly.
+        var dstEmptyAny = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalNestedMessage.corecursive.optionalInt32 = 10
+        }
+        try dstEmptyAny.merge(from: src, fieldMask: mask)
+        XCTAssertEqual(dstEmptyAny.optionalNestedMessage.corecursive.optionalInt32, 10)
+        XCTAssertEqual(
+            dstEmptyAny.optionalNestedMessage.corecursive.optionalAny.typeURL,
+            "type.googleapis.com/example.UnregisteredType"
+        )
+        XCTAssertEqual(dstEmptyAny.optionalNestedMessage.corecursive.repeatedAny.count, 1)
+        let encoded = try dstEmptyAny.jsonString()
+        XCTAssertTrue(encoded.contains("\"foo\":1"))
+        XCTAssertTrue(encoded.contains("\"bar\":2"))
+
+        // Destination already has a non-empty optionalAny: transcoding failure must
+        // propagate instead of being swallowed, and destination must stay intact
+        // even when earlier paths in a multi-path mask already mutated the working copy.
+        var dstNonEmptyAny = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalInt32 = 1
+            $0.optionalNestedMessage.corecursive.optionalInt32 = 10
+            $0.optionalNestedMessage.corecursive.optionalAny = try Google_Protobuf_Any(
+                message: Google_Protobuf_Int32Value(5)
+            )
+        }
+        let snapshot = dstNonEmptyAny
+        let multiPathMask = Google_Protobuf_FieldMask(protoPaths: [
+            "optional_int32",
+            "optional_nested_message",
+        ])
+        XCTAssertThrowsError(try dstNonEmptyAny.merge(from: src, fieldMask: multiPathMask)) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+        XCTAssertEqual(dstNonEmptyAny, snapshot)
+        XCTAssertEqual(dstNonEmptyAny.optionalInt32, 1)
+
+        // Sub-path optional_any.type_url avoids transcoding source while materializing
+        // a .message destination; optional_any.value propagates source transcode error.
+        let intVal = Google_Protobuf_Int32Value(42)
+        let intValBytes: Data = try intVal.serializedBytes()
+        var dstSubPath = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalAny = try Google_Protobuf_Any(message: intVal)
+        }
+        try dstSubPath.merge(from: src, fieldMask: .init(protoPaths: "optional_any.type_url"))
+        XCTAssertEqual(dstSubPath.optionalAny.typeURL, "type.googleapis.com/example.UnregisteredType")
+        XCTAssertEqual(dstSubPath.optionalAny.value, intValBytes)
+        XCTAssertThrowsError(
+            try dstSubPath.merge(from: src, fieldMask: .init(protoPaths: "optional_any.value"))
+        ) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+
+        // Changing type_url on a destination holding unregistered .contentJSON fails
+        // atomically without committing earlier paths in the mask.
+        var dstUnregisteredJSON = src
+        dstUnregisteredJSON.optionalInt32 = 7
+        let dstUnregisteredSnapshot = dstUnregisteredJSON
+        let validSrc = try SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalInt32 = 88
+            $0.optionalAny = try Google_Protobuf_Any(message: Google_Protobuf_Int32Value(9))
+        }
+        XCTAssertThrowsError(
+            try dstUnregisteredJSON.merge(
+                from: validSrc,
+                fieldMask: .init(protoPaths: ["optional_int32", "optional_any.type_url"])
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+        XCTAssertEqual(dstUnregisteredJSON, dstUnregisteredSnapshot)
+        XCTAssertEqual(dstUnregisteredJSON.optionalInt32, 7)
+
+        // Overwriting both type_url and value on a destination holding unregistered
+        // .contentJSON succeeds without attempting to transcode the discarded JSON.
+        try dstUnregisteredJSON.merge(
+            from: validSrc,
+            fieldMask: .init(protoPaths: ["optional_any.type_url", "optional_any.value"])
+        )
+        XCTAssertEqual(dstUnregisteredJSON.optionalAny.typeURL, validSrc.optionalAny.typeURL)
+        XCTAssertEqual(
+            try Google_Protobuf_Int32Value(unpackingAny: dstUnregisteredJSON.optionalAny).value,
+            9
+        )
+
+        // Changing type_url on a destination holding registered .contentJSON
+        // materializes its binary payload under the new type_url.
+        let registeredJSON = """
+            {
+              "optionalAny": {
+                "@type": "type.googleapis.com/google.protobuf.Int32Value",
+                "value": 42
+              }
+            }
+            """
+        var dstRegisteredJSON = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: registeredJSON)
+        let newTypeOnly = SwiftProtoTesting_Test3_TestAllTypesProto3.with {
+            $0.optionalAny.typeURL = "type.googleapis.com/google.protobuf.Empty"
+        }
+        try dstRegisteredJSON.merge(
+            from: newTypeOnly,
+            fieldMask: .init(protoPaths: "optional_any.type_url")
+        )
+        XCTAssertEqual(dstRegisteredJSON.optionalAny.typeURL, "type.googleapis.com/google.protobuf.Empty")
+        XCTAssertEqual(dstRegisteredJSON.optionalAny.value, intValBytes)
     }
 
     // Reproduces the report in issue #1875: merging with a mask that covers
