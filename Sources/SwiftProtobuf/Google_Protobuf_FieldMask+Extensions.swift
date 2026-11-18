@@ -26,7 +26,7 @@ private func isPrintableASCII(_ s: String) -> Bool {
 }
 
 private func ProtoToJSON(name: String) -> String? {
-    guard isPrintableASCII(name) else { return nil }
+    guard !name.isEmpty, isPrintableASCII(name) else { return nil }
     var jsonPath = String()
     var chars = name.makeIterator()
     while let c = chars.next() {
@@ -44,7 +44,7 @@ private func ProtoToJSON(name: String) -> String? {
             }
         case "A"..."Z":
             return nil
-        case "a"..."z", "0"..."9", ".", "(", ")":
+        case "a"..."z", "0"..."9", ".":
             jsonPath.append(c)
         default:
             return nil
@@ -54,7 +54,7 @@ private func ProtoToJSON(name: String) -> String? {
 }
 
 private func JSONToProto(name: String) -> String? {
-    guard isPrintableASCII(name) else { return nil }
+    guard !name.isEmpty, isPrintableASCII(name) else { return nil }
     var path = String()
     for c in name {
         switch c {
@@ -63,7 +63,7 @@ private func JSONToProto(name: String) -> String? {
         case "A"..."Z":
             path.append(Character("_"))
             path.append(String(c).lowercased())
-        case "a"..."z", "0"..."9", ".", "(", ")":
+        case "a"..."z", "0"..."9", ".":
             path.append(c)
         default:
             return nil
@@ -165,8 +165,15 @@ extension Google_Protobuf_FieldMask {
     /// - Parameter jsonPaths: The paths from which to create the field mask,
     ///   defined using the JSON names for the fields.
     public init?(jsonPaths: String...) {
-        // TODO: This should fail if any of the conversions from JSON fails
-        self.init(protoPaths: jsonPaths.compactMap(JSONToProto))
+        var protoPaths = [String]()
+        protoPaths.reserveCapacity(jsonPaths.count)
+        for jsonPath in jsonPaths {
+            guard let protoPath = JSONToProto(name: jsonPath) else {
+                return nil
+            }
+            protoPaths.append(protoPath)
+        }
+        self.init(protoPaths: protoPaths)
     }
 
     // It would be nice if to have an initializer that accepted Swift property
