@@ -16,12 +16,37 @@ import SwiftProtobuf
 // things enough to read a few messages in a row.
 private let kMaxMessages = 50
 
-private func asyncByteStream(bytes: UnsafeRawBufferPointer) -> AsyncStream<UInt8> {
-    AsyncStream(UInt8.self) { continuation in
-        for i in 0..<bytes.count {
-            continuation.yield(bytes.loadUnaligned(fromByteOffset: i, as: UInt8.self))
+private struct AsyncRawBufferSequence: AsyncSequence, @unchecked Sendable {
+    typealias Element = UInt8
+
+    // Safe to pass across concurrency boundaries here because the buffer is read-only
+    // and FuzzAsyncMessageSequence blocks on a semaphore until the consuming Task completes.
+    private let bytes: UnsafeRawBufferPointer
+
+    init(_ bytes: UnsafeRawBufferPointer) {
+        self.bytes = bytes
+    }
+
+    struct AsyncIterator: AsyncIteratorProtocol {
+        private let bytes: UnsafeRawBufferPointer
+        private var index = 0
+
+        init(_ bytes: UnsafeRawBufferPointer) {
+            self.bytes = bytes
         }
-        continuation.finish()
+
+        mutating func next() async -> UInt8? {
+            guard index < bytes.count else {
+                return nil
+            }
+            let byte = bytes[index]
+            index += 1
+            return byte
+        }
+    }
+
+    func makeAsyncIterator() -> AsyncIterator {
+        AsyncIterator(bytes)
     }
 }
 
@@ -34,7 +59,7 @@ public func FuzzAsyncMessageSequence(_ start: UnsafeRawPointer?, _ count: Int) -
         return -1
     }
     let bytes = UnsafeRawBufferPointer(start: start, count: count)
-    let asyncBytes = asyncByteStream(bytes: bytes)
+    let asyncBytes = AsyncRawBufferSequence(bytes)
     let decoding = asyncBytes.binaryProtobufDelimitedMessages(
         of: SwiftProtoTesting_Fuzz_Message.self,
         extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
@@ -42,6 +67,7 @@ public func FuzzAsyncMessageSequence(_ start: UnsafeRawPointer?, _ count: Int) -
 
     let semaphore = DispatchSemaphore(value: 0)
     Task {
+        defer { semaphore.signal() }
         do {
             var msgCount = 0
             for try await _ in decoding {
@@ -62,7 +88,6 @@ public func FuzzAsyncMessageSequence(_ start: UnsafeRawPointer?, _ count: Int) -
         } catch {
             // Error parsing are to be expected since not all input will be well formed.
         }
-        semaphore.signal()
     }
     semaphore.wait()
     return 0
