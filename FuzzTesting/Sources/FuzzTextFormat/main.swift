@@ -12,6 +12,7 @@ import SwiftProtobuf
 
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzTextFormat(_ start: UnsafeRawPointer?, _ count: Int) -> CInt {
+    FuzzAnyRegistry.registerTypes()
     guard let (options, bytes) = TextFormatFuzzingOptions.extractOptions(start, count) else {
         return -1
     }

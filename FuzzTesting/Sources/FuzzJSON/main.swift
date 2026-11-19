@@ -12,6 +12,7 @@ import SwiftProtobuf
 
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzJSON(_ start: UnsafeRawPointer?, _ count: Int) -> CInt {
+    FuzzAnyRegistry.registerTypes()
     guard let (options, bytes) = JSONFuzzingOptions.extractOptions(start, count) else {
         return -1
     }
