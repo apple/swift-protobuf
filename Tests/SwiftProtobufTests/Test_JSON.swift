@@ -1515,6 +1515,49 @@ final class Test_JSON_EnumValue_CustomString: XCTestCase, PBTestHelpers {
             o.SwiftProtoTesting_EnumValueJsonString_extUnpackedEnum = [.six, .customName]
         }
     }
+
+    func testTextFormatRejectsCustomJSONName() {
+        // Declared proto names and aliases round-trip in TextFormat.
+        assertTextFormatEncode("test_case: ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\n") { (o: inout MessageTestType) in
+            o.testCase = .customName
+        }
+        assertTextFormatEncode("test_case: ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\n") { (o: inout MessageTestType) in
+            o.testCase = .somethingSpecial
+        }
+        assertTextFormatDecodeSucceeds("test_case: ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS") {
+            $0.testCase == .somethingSpecial
+        }
+        assertTextFormatEncode("empty_option_zero: ENUM_EMPTY_JSON_OPTION_ZERO_UNSPECIFIED\n") {
+            (o: inout MessageTestType) in
+            o.emptyOptionZero = .unspecified
+        }
+        assertTextFormatDecodeSucceeds("empty_option_aliased: ENUM_EMPTY_JSON_OPTION_ALIASED_OMITTED_SECOND") {
+            $0.emptyOptionAliased == .emptyFirst
+        }
+        assertTextFormatEncode(
+            "repeated_test_case: [ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL, ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME]\n"
+        ) { (o: inout MessageTestType) in
+            o.repeatedTestCase = [.somethingSpecial, .customName]
+        }
+        assertTextFormatEncode("map_test_case {\n  key: \"a\"\n  value: ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\n}\n") {
+            (o: inout MessageTestType) in
+            o.mapTestCase = ["a": .customName]
+        }
+
+        // Identifier-shaped custom JSON names must not be accepted by TextFormat.
+        let extensions = SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions
+        let rejectedTextFormats = [
+            "test_case: customName",
+            "repeated_test_case: [customName]",
+            "map_test_case { key: \"a\" value: customName }",
+            "[swift_proto_testing.enum_value_json_string.ext_singular_enum]: customName",
+        ]
+        for text in rejectedTextFormats {
+            XCTAssertThrowsError(try MessageTestType(textFormatString: text, extensions: extensions)) { error in
+                XCTAssertEqual(error as? TextFormatDecodingError, .unrecognizedEnumValue)
+            }
+        }
+    }
 }
 
 final class Test_JSON_Proto2Enum: XCTestCase, PBTestHelpers {
