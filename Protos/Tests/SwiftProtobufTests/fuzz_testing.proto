@@ -333,8 +333,18 @@ message Message {
   optional AMessageSetMessage singular_message_set = 600;
   repeated AMessageSetMessage repeated_message_set = 601;
 
+  // Get some coverage for required fields and partial decoding/encoding.
+  optional MessageWithRequired singular_required_message = 602;
+  repeated MessageWithRequired repeated_required_message = 603;
+
   // Extensions
   extensions 1000 to 2000;
+}
+
+// A message with a required field so partial decoding/encoding and isInitialized
+// checks are exercised when referenced from Message.
+message MessageWithRequired {
+  required int32 req_int32 = 1;
 }
 
 // A message with message_set_wire_format.

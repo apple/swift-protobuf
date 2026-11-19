@@ -1,9 +1,18 @@
 # To generate the data set.
-#   FuzzTesting/make_FuzzBinary_dict Protos/Tests/SwiftProtobufTests/fuzz_testing.proto
-# Yes, this is the same as FuzzBinary.dict to help guide the contents of the
-# messages.
+#   ./FuzzTesting/make_FuzzBinary_dict Protos/Tests/SwiftProtobufTests/fuzz_testing.proto
+# Generated the same way as FuzzBinary.dict (without option headers) to help guide
+# the contents of the messages.
 
 # Tags for all the fields
+"\x08"
+"\x10"
+"\x18"
+"\x20"
+"\x28"
+"\x30"
+"\x3d"
+"\x41"
+"\x4d"
 "\x51"
 "\x5d"
 "\x61"
@@ -304,9 +313,14 @@
 "\xaa\x20"
 "\xc2\x25"
 "\xca\x25"
-"\xca\xdf\xf3\x05"
+"\xd2\x25"
+"\xda\x25"
+"\x0b"
+"\x0c"
+"\x1a"
+"\xf9\xbb\x5e"
 "\x52"
-"\x82\x99\xe3\x0f"
+"\x90\xb3\xfc\x01"
 "\xa0\x01"
 "\xc8\x3e"
 "\xd0\x3e"

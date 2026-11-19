@@ -11,11 +11,12 @@ import FuzzCommon
 import SwiftProtobuf
 
 @_cdecl("LLVMFuzzerTestOneInput")
-public func FuzzTextFormat(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
+public func FuzzTextFormat(_ start: UnsafeRawPointer?, _ count: Int) -> CInt {
+    FuzzAnyRegistry.registerTypes()
     guard let (options, bytes) = TextFormatFuzzingOptions.extractOptions(start, count) else {
-        return 1
+        return -1
     }
-    guard let str = String(data: Data(bytes), encoding: .utf8) else { return 0 }
+    guard let str = String(data: Data(bytes), encoding: .utf8) else { return -1 }
     var msg: SwiftProtoTesting_Fuzz_Message?
     do {
         msg = try SwiftProtoTesting_Fuzz_Message(
