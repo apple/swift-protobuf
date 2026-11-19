@@ -391,6 +391,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum anySelf: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneAnySelf // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAnySelf
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAnySelf
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAnySelf: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.anySelf] = [
+      .noneAnySelf,
+    ]
+
+  }
+
   nonisolated enum AnyUnpackError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAnyUnpackError // = 0
@@ -1561,6 +1591,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum binaryRemainingDepth: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneBinaryRemainingDepth // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBinaryRemainingDepth
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBinaryRemainingDepth
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBinaryRemainingDepth: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.binaryRemainingDepth] = [
+      .noneBinaryRemainingDepth,
+    ]
+
+  }
+
   nonisolated enum BinaryStreamDecoding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryStreamDecoding // = 0
@@ -2071,6 +2131,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum candidate: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneCandidate // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCandidate
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCandidate
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCandidate: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.candidate] = [
+      .noneCandidate,
+    ]
+
+  }
+
   nonisolated enum canonical: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCanonical // = 0
@@ -2157,6 +2247,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.cardinality] = [
       .noneCardinality,
+    ]
+
+  }
+
+  nonisolated enum caseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneCase // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCase
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCase
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCase: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.caseEnum] = [
+      .noneCase,
     ]
 
   }
@@ -2337,6 +2457,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.chars] = [
       .noneChars,
+    ]
+
+  }
+
+  nonisolated enum checker: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneChecker // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneChecker
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneChecker
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneChecker: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.checker] = [
+      .noneChecker,
     ]
 
   }
@@ -7831,6 +7981,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum dict: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneDict // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDict
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDict
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDict: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dict] = [
+      .noneDict,
+    ]
+
+  }
+
   nonisolated enum Dictionary: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDictionary // = 0
@@ -8191,6 +8371,126 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum dst: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneDst // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDst
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDst
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDst: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dst] = [
+      .noneDst,
+    ]
+
+  }
+
+  nonisolated enum dstAny: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneDstAny // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDstAny
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDstAny
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDstAny: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dstAny] = [
+      .noneDstAny,
+    ]
+
+  }
+
+  nonisolated enum dstExt: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneDstExt // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDstExt
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDstExt
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDstExt: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dstExt] = [
+      .noneDstExt,
+    ]
+
+  }
+
+  nonisolated enum dstField: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneDstField // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDstField
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDstField
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDstField: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dstField] = [
+      .noneDstField,
+    ]
+
+  }
+
   nonisolated enum duplicateAnyTypeURL: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDuplicateAnyTypeURL // = 0
@@ -8217,6 +8517,66 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateAnyTypeURL] = [
       .noneDuplicateAnyTypeURL,
+    ]
+
+  }
+
+  nonisolated enum duplicateField: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneDuplicateField // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDuplicateField
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDuplicateField
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDuplicateField: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateField] = [
+      .noneDuplicateField,
+    ]
+
+  }
+
+  nonisolated enum duplicateSingularField: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneDuplicateSingularField // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDuplicateSingularField
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDuplicateSingularField
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDuplicateSingularField: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateSingularField] = [
+      .noneDuplicateSingularField,
     ]
 
   }
@@ -9267,6 +9627,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Error] = [
       .noneError,
+    ]
+
+  }
+
+  nonisolated enum excludingFieldNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneExcludingFieldNumber // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneExcludingFieldNumber
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneExcludingFieldNumber
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneExcludingFieldNumber: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.excludingFieldNumber] = [
+      .noneExcludingFieldNumber,
     ]
 
   }
@@ -18451,6 +18841,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum leaves: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneLeaves // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneLeaves
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneLeaves
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneLeaves: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.leaves] = [
+      .noneLeaves,
+    ]
+
+  }
+
   nonisolated enum length: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLength // = 0
@@ -19381,6 +19801,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum MessageFieldPresenceVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneMessageFieldPresenceVisitor // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMessageFieldPresenceVisitor
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMessageFieldPresenceVisitor
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMessageFieldPresenceVisitor: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageFieldPresenceVisitor] = [
+      .noneMessageFieldPresenceVisitor,
+    ]
+
+  }
+
   nonisolated enum MessageImplementationBase: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageImplementationBase // = 0
@@ -19407,6 +19857,66 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageImplementationBase] = [
       .noneMessageImplementationBase,
+    ]
+
+  }
+
+  nonisolated enum MessageMergeDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneMessageMergeDecoder // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMessageMergeDecoder
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMessageMergeDecoder
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMessageMergeDecoder: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageMergeDecoder] = [
+      .noneMessageMergeDecoder,
+    ]
+
+  }
+
+  nonisolated enum MessageMergeVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneMessageMergeVisitor // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMessageMergeVisitor
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMessageMergeVisitor
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMessageMergeVisitor: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageMergeVisitor] = [
+      .noneMessageMergeVisitor,
     ]
 
   }
@@ -19801,6 +20311,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum multiple: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneMultiple // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMultiple
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMultiple
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMultiple: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.multiple] = [
+      .noneMultiple,
+    ]
+
+  }
+
   nonisolated enum mutating: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMutating // = 0
@@ -20067,6 +20607,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.negativeIntValue] = [
       .noneNegativeIntValue,
+    ]
+
+  }
+
+  nonisolated enum nestedOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneNestedOptions // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneNestedOptions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneNestedOptions
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneNestedOptions: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nestedOptions] = [
+      .noneNestedOptions,
     ]
 
   }
@@ -20637,6 +21207,66 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.noBytesAvailable] = [
       .noneNoBytesAvailable,
+    ]
+
+  }
+
+  nonisolated enum nodeIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneNodeIndex // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneNodeIndex
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneNodeIndex
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneNodeIndex: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nodeIndex] = [
+      .noneNodeIndex,
+    ]
+
+  }
+
+  nonisolated enum NonEmptyCheckVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneNonEmptyCheckVisitor // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneNonEmptyCheckVisitor
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneNonEmptyCheckVisitor
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneNonEmptyCheckVisitor: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.NonEmptyCheckVisitor] = [
+      .noneNonEmptyCheckVisitor,
     ]
 
   }
@@ -21267,6 +21897,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OptionTargetType] = [
       .noneOptionTargetType,
+    ]
+
+  }
+
+  nonisolated enum order: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneOrder // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOrder
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOrder
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOrder: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.order] = [
+      .noneOrder,
     ]
 
   }
@@ -22171,32 +22831,32 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
-  nonisolated enum prevPath: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum prevWasDot: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
-    case nonePrevPath // = 0
+    case nonePrevWasDot // = 0
     case UNRECOGNIZED(Int)
 
     init() {
-      self = .nonePrevPath
+      self = .nonePrevWasDot
     }
 
     init?(rawValue: Int) {
       switch rawValue {
-      case 0: self = .nonePrevPath
+      case 0: self = .nonePrevWasDot
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Int {
       switch self {
-      case .nonePrevPath: return 0
+      case .nonePrevWasDot: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.prevPath] = [
-      .nonePrevPath,
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.prevWasDot] = [
+      .nonePrevWasDot,
     ]
 
   }
@@ -24091,6 +24751,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum rebuilt: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneRebuilt // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRebuilt
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRebuilt
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRebuilt: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rebuilt] = [
+      .noneRebuilt,
+    ]
+
+  }
+
   nonisolated enum register: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRegister // = 0
@@ -24417,6 +25107,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeating] = [
       .noneRepeating,
+    ]
+
+  }
+
+  nonisolated enum replaceMessageFields: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneReplaceMessageFields // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneReplaceMessageFields
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneReplaceMessageFields
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneReplaceMessageFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.replaceMessageFields] = [
+      .noneReplaceMessageFields,
     ]
 
   }
@@ -25107,6 +25827,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seconds] = [
       .noneSeconds,
+    ]
+
+  }
+
+  nonisolated enum segmentStart: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneSegmentStart // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSegmentStart
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSegmentStart
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSegmentStart: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.segmentStart] = [
+      .noneSegmentStart,
     ]
 
   }
@@ -25831,6 +26581,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum stack: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneStack // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneStack
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneStack
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneStack: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stack] = [
+      .noneStack,
+    ]
+
+  }
+
   nonisolated enum start: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStart // = 0
@@ -26431,6 +27211,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum sub: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneSub // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSub
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSub
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSub: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sub] = [
+      .noneSub,
+    ]
+
+  }
+
   nonisolated enum subDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSubDecoder // = 0
@@ -26491,6 +27301,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum Substring: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneSubstring // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSubstring
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSubstring
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSubstring: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Substring] = [
+      .noneSubstring,
+    ]
+
+  }
+
   nonisolated enum subtract: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSubtract // = 0
@@ -26547,6 +27387,126 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subVisitor] = [
       .noneSubVisitor,
+    ]
+
+  }
+
+  nonisolated enum swappedTypeURLIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneSwappedTypeUrlindex // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSwappedTypeUrlindex
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSwappedTypeUrlindex
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSwappedTypeUrlindex: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swappedTypeURLIndex] = [
+      .noneSwappedTypeUrlindex,
+    ]
+
+  }
+
+  nonisolated enum swappedTypeURLOrder: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneSwappedTypeUrlorder // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSwappedTypeUrlorder
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSwappedTypeUrlorder
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSwappedTypeUrlorder: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swappedTypeURLOrder] = [
+      .noneSwappedTypeUrlorder,
+    ]
+
+  }
+
+  nonisolated enum swappedValueIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneSwappedValueIndex // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSwappedValueIndex
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSwappedValueIndex
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSwappedValueIndex: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swappedValueIndex] = [
+      .noneSwappedValueIndex,
+    ]
+
+  }
+
+  nonisolated enum swappedValueOrder: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneSwappedValueOrder // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSwappedValueOrder
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSwappedValueOrder
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSwappedValueOrder: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swappedValueOrder] = [
+      .noneSwappedValueOrder,
     ]
 
   }
@@ -26761,6 +27721,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum targetFieldNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneTargetFieldNumber // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneTargetFieldNumber
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneTargetFieldNumber
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneTargetFieldNumber: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.targetFieldNumber] = [
+      .noneTargetFieldNumber,
+    ]
+
+  }
+
   nonisolated enum targets: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTargets // = 0
@@ -26941,7 +27931,37 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
-  nonisolated enum TextFormatDecodingError: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum TextFormatDecoding: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneTextFormatDecoding // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneTextFormatDecoding
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneTextFormatDecoding
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneTextFormatDecoding: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatDecoding] = [
+      .noneTextFormatDecoding,
+    ]
+
+  }
+
+  nonisolated enum textFormatDecodingError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTextFormatDecodingError // = 0
     case UNRECOGNIZED(Int)
@@ -26965,7 +27985,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatDecodingError] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.textFormatDecodingError] = [
       .noneTextFormatDecodingError,
     ]
 
@@ -27447,6 +28467,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.traverseEnum] = [
       .noneTraverse,
+    ]
+
+  }
+
+  nonisolated enum tree: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneTree // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneTree
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneTree
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneTree: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.tree] = [
+      .noneTree,
     ]
 
   }
@@ -28227,6 +29277,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnknownStorage] = [
       .noneUnknownStorage,
+    ]
+
+  }
+
+  nonisolated enum unpackOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneUnpackOptions // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUnpackOptions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUnpackOptions
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUnpackOptions: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unpackOptions] = [
+      .noneUnpackOptions,
     ]
 
   }
@@ -31111,6 +32191,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum workingCopy: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneWorkingCopy // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneWorkingCopy
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneWorkingCopy
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneWorkingCopy: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.workingCopy] = [
+      .noneWorkingCopy,
+    ]
+
+  }
+
   nonisolated enum Wrapped: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWrapped // = 0
@@ -31335,6 +32445,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.An
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_AnyMessageStorage\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.anySelf: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_anySelf\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AnyUnpackError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_AnyUnpackError\0")
 }
@@ -31491,6 +32605,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.bi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_binaryProtobufDelimitedMessages\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.binaryRemainingDepth: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_binaryRemainingDepth\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryStreamDecoding: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_BinaryStreamDecoding\0")
 }
@@ -31559,6 +32677,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.c:
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_c\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.candidate: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_candidate\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.canonical: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_canonical\0")
 }
@@ -31569,6 +32691,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ca
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.cardinality: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_cardinality\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.caseEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_case\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CaseIterable: SwiftProtobuf._ProtoNameProviding {
@@ -31593,6 +32719,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Ch
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.chars: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_chars\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.checker: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_checker\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.checkProgramFormat: SwiftProtobuf._ProtoNameProviding {
@@ -32327,6 +33457,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.de
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_description\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dict: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_dict\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Dictionary: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_Dictionary\0")
 }
@@ -32375,8 +33509,32 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.do
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_doubleValue\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dst: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_dst\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dstAny: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_dstAny\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dstExt: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_dstExt\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dstField: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_dstField\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateAnyTypeURL: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_duplicateAnyTypeURL\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateField: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_duplicateField\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateSingularField: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_duplicateSingularField\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duration: SwiftProtobuf._ProtoNameProviding {
@@ -32517,6 +33675,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Eq
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Error: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_Error\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.excludingFieldNumber: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_excludingFieldNumber\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.execute: SwiftProtobuf._ProtoNameProviding {
@@ -33743,6 +34905,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.le
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_leadingDetachedComments\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.leaves: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_leaves\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.length: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_length\0")
 }
@@ -33867,8 +35033,20 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Me
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_MessageExtension\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageFieldPresenceVisitor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_MessageFieldPresenceVisitor\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageImplementationBase: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_MessageImplementationBase\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageMergeDecoder: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_MessageMergeDecoder\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageMergeVisitor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_MessageMergeVisitor\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageSet: SwiftProtobuf._ProtoNameProviding {
@@ -33923,6 +35101,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ms
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_msgExtension\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.multiple: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_multiple\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mutating: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_mutating\0")
 }
@@ -33957,6 +35139,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.na
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.negativeIntValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_negativeIntValue\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nestedOptions: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_nestedOptions\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nestedType: SwiftProtobuf._ProtoNameProviding {
@@ -34033,6 +35219,14 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ni
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.noBytesAvailable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_noBytesAvailable\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nodeIndex: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_nodeIndex\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.NonEmptyCheckVisitor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_NonEmptyCheckVisitor\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nonisolated: SwiftProtobuf._ProtoNameProviding {
@@ -34117,6 +35311,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.op
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OptionTargetType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_OptionTargetType\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.order: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_order\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.other: SwiftProtobuf._ProtoNameProviding {
@@ -34239,8 +35437,8 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_previousNumber\0")
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.prevPath: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_prevPath\0")
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.prevWasDot: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_prevWasDot\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.printUnknownFields: SwiftProtobuf._ProtoNameProviding {
@@ -34495,6 +35693,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.re
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_reader\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rebuilt: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_rebuilt\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.register: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_register\0")
 }
@@ -34537,6 +35739,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Re
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeating: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_repeating\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.replaceMessageFields: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_replaceMessageFields\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.replaceRepeatedFields: SwiftProtobuf._ProtoNameProviding {
@@ -34629,6 +35835,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sc
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seconds: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_seconds\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.segmentStart: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_segmentStart\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.selfEnum: SwiftProtobuf._ProtoNameProviding {
@@ -34727,6 +35937,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sp
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_split\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stack: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_stack\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.start: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_start\0")
 }
@@ -34807,6 +36021,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.st
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_structValue\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sub: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_sub\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subDecoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_subDecoder\0")
 }
@@ -34815,12 +36033,32 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.su
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_subscript\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Substring: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_Substring\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subtract: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_subtract\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_subVisitor\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swappedTypeURLIndex: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_swappedTypeURLIndex\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swappedTypeURLOrder: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_swappedTypeURLOrder\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swappedValueIndex: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_swappedValueIndex\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swappedValueOrder: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_swappedValueOrder\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SwiftEnum: SwiftProtobuf._ProtoNameProviding {
@@ -34851,6 +36089,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ta
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_tag\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.targetFieldNumber: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_targetFieldNumber\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.targets: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_targets\0")
 }
@@ -34875,8 +36117,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Te
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_TextFormatDecoder\0")
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatDecodingError: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_TextFormatDecodingError\0")
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatDecoding: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_TextFormatDecoding\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.textFormatDecodingError: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_textFormatDecodingError\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatDecodingOptions: SwiftProtobuf._ProtoNameProviding {
@@ -34941,6 +36187,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.tr
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.traverseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_traverse\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.tree: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_tree\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.trim: SwiftProtobuf._ProtoNameProviding {
@@ -35045,6 +36295,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.un
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnknownStorage: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_UnknownStorage\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unpackOptions: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_unpackOptions\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unpackTo: SwiftProtobuf._ProtoNameProviding {
@@ -35429,6 +36683,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wi
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.work: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_work\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.workingCopy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_workingCopy\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Wrapped: SwiftProtobuf._ProtoNameProviding {

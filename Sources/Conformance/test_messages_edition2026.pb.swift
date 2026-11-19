@@ -40,6 +40,12 @@ nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProt
   case alias // = 5
   static let aliasToo = alias
   case numeric // = 6
+  case emptyOption // = 7
+  case emptyOptionTwo // = 8
+  case aliasEmptyOption // = 9
+  static let aliasOmitted = aliasEmptyOption
+  case aliasOmittedFirst // = 10
+  static let aliasEmptyOptionSecond = aliasOmittedFirst
   case UNRECOGNIZED(Int)
 
   init() {
@@ -55,6 +61,10 @@ nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProt
     case 4: self = .escapes
     case 5: self = .alias
     case 6: self = .numeric
+    case 7: self = .emptyOption
+    case 8: self = .emptyOptionTwo
+    case 9: self = .aliasEmptyOption
+    case 10: self = .aliasOmittedFirst
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -68,6 +78,10 @@ nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProt
     case .escapes: return 4
     case .alias: return 5
     case .numeric: return 6
+    case .emptyOption: return 7
+    case .emptyOptionTwo: return 8
+    case .aliasEmptyOption: return 9
+    case .aliasOmittedFirst: return 10
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -81,6 +95,82 @@ nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProt
     .escapes,
     .alias,
     .numeric,
+    .emptyOption,
+    .emptyOptionTwo,
+    .aliasEmptyOption,
+    .aliasOmittedFirst,
+  ]
+
+}
+
+nonisolated enum ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case unspecified // = 0
+  case foo // = 1
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .foo
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .foo: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026] = [
+    .unspecified,
+    .foo,
+  ]
+
+}
+
+nonisolated enum ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case unspecified // = 0
+  case emptyOptionFirst // = 1
+  case emptyStringSecond // = 2
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .emptyOptionFirst
+    case 2: self = .emptyStringSecond
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .emptyOptionFirst: return 1
+    case .emptyStringSecond: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026] = [
+    .unspecified,
+    .emptyOptionFirst,
+    .emptyStringSecond,
   ]
 
 }
@@ -114,12 +204,32 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2026: Sendab
 
   var mapInt32Int32: Dictionary<Int32,Int32> = [:]
 
+  var optionalEmptyOptionEnum: ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026 {
+    get {_optionalEmptyOptionEnum ?? .unspecified}
+    set {_optionalEmptyOptionEnum = newValue}
+  }
+  /// Returns true if `optionalEmptyOptionEnum` has been explicitly set.
+  var hasOptionalEmptyOptionEnum: Bool {self._optionalEmptyOptionEnum != nil}
+  /// Clears the value of `optionalEmptyOptionEnum`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalEmptyOptionEnum() {self._optionalEmptyOptionEnum = nil}
+
+  var optionalEmptyOptionBeforeEmptyString: ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026 {
+    get {_optionalEmptyOptionBeforeEmptyString ?? .unspecified}
+    set {_optionalEmptyOptionBeforeEmptyString = newValue}
+  }
+  /// Returns true if `optionalEmptyOptionBeforeEmptyString` has been explicitly set.
+  var hasOptionalEmptyOptionBeforeEmptyString: Bool {self._optionalEmptyOptionBeforeEmptyString != nil}
+  /// Clears the value of `optionalEmptyOptionBeforeEmptyString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalEmptyOptionBeforeEmptyString() {self._optionalEmptyOptionBeforeEmptyString = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
   fileprivate var _optionalInt32: Int32? = nil
   fileprivate var _optionalForeignEnum: ProtobufTestMessages_Editions_ForeignEnumEdition2026? = nil
+  fileprivate var _optionalEmptyOptionEnum: ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026? = nil
+  fileprivate var _optionalEmptyOptionBeforeEmptyString: ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -127,12 +237,20 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2026: Sendab
 fileprivate nonisolated let _protobuf_package = "protobuf_test_messages.editions"
 
 nonisolated extension ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOREIGN_ENUM_EDITION2026_FOO\0\u{5}FOREIGN_ENUM_EDITION2026_BAR\0customBar\0\u{5}FOREIGN_ENUM_EDITION2026_BAZ\0customBaz\0\u{5}FOREIGN_ENUM_EDITION2026_EMPTY\0\0\u{5}FOREIGN_ENUM_EDITION2026_ESCAPES\0e\"sc\u{9}ap\u{a}e\0\u{9}FOREIGN_ENUM_EDITION2026_ALIAS\0\u{1}FOREIGN_ENUM_EDITION2026_ALIAS_TOO\0\u{6}\0FOREIGN_ENUM_EDITION2026_ALIAS\0customAlias\0\u{5}FOREIGN_ENUM_EDITION2026_NUMERIC\06\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOREIGN_ENUM_EDITION2026_FOO\0\u{5}FOREIGN_ENUM_EDITION2026_BAR\0customBar\0\u{5}FOREIGN_ENUM_EDITION2026_BAZ\0customBaz\0\u{5}FOREIGN_ENUM_EDITION2026_EMPTY\0\0\u{5}FOREIGN_ENUM_EDITION2026_ESCAPES\0e\"sc\u{9}ap\u{a}e\0\u{9}FOREIGN_ENUM_EDITION2026_ALIAS\0\u{1}FOREIGN_ENUM_EDITION2026_ALIAS_TOO\0\u{6}\0FOREIGN_ENUM_EDITION2026_ALIAS\0customAlias\0\u{5}FOREIGN_ENUM_EDITION2026_NUMERIC\06\0\u{5}FOREIGN_ENUM_EDITION2026_EMPTY_OPTION\0\0\u{5}FOREIGN_ENUM_EDITION2026_EMPTY_OPTION_TWO\0\0\u{9}FOREIGN_ENUM_EDITION2026_ALIAS_EMPTY_OPTION\0\u{1}FOREIGN_ENUM_EDITION2026_ALIAS_OMITTED\0\u{6}\0FOREIGN_ENUM_EDITION2026_ALIAS_EMPTY_OPTION\0\0\u{9}FOREIGN_ENUM_EDITION2026_ALIAS_OMITTED_FIRST\0\u{1}FOREIGN_ENUM_EDITION2026_ALIAS_EMPTY_OPTION_SECOND\0")
+}
+
+nonisolated extension ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{6}\0ENUM_ONLY_EMPTY_OPTION_EDITION2026_UNSPECIFIED\0\0\u{5}ENUM_ONLY_EMPTY_OPTION_EDITION2026_FOO\0\0")
+}
+
+nonisolated extension ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_EMPTY_OPTION_BEFORE_EMPTY_STRING_EDITION2026_UNSPECIFIED\0\u{5}ENUM_EMPTY_OPTION_BEFORE_EMPTY_STRING_EDITION2026_EMPTY_OPTION_FIRST\0\0\u{5}ENUM_EMPTY_OPTION_BEFORE_EMPTY_STRING_EDITION2026_EMPTY_STRING_SECOND\0\0")
 }
 
 nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2026: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesEdition2026"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_foreign_enum\0\u{3}repeated_foreign_enum\0\u{3}map_string_foreign_enum\0\u{3}map_int32_int32\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_foreign_enum\0\u{3}repeated_foreign_enum\0\u{3}map_string_foreign_enum\0\u{3}map_int32_int32\0\u{3}optional_empty_option_enum\0\u{3}optional_empty_option_before_empty_string\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -145,6 +263,8 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2026: Swi
       case 3: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedForeignEnum) }()
       case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Editions_ForeignEnumEdition2026>.self, value: &self.mapStringForeignEnum) }()
       case 5: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &self.mapInt32Int32) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self._optionalEmptyOptionEnum) }()
+      case 7: try { try decoder.decodeSingularEnumField(value: &self._optionalEmptyOptionBeforeEmptyString) }()
       default: break
       }
     }
@@ -170,6 +290,12 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2026: Swi
     if !self.mapInt32Int32.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: self.mapInt32Int32, fieldNumber: 5)
     }
+    try { if let v = self._optionalEmptyOptionEnum {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    } }()
+    try { if let v = self._optionalEmptyOptionBeforeEmptyString {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 7)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -179,6 +305,8 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2026: Swi
     if lhs.repeatedForeignEnum != rhs.repeatedForeignEnum {return false}
     if lhs.mapStringForeignEnum != rhs.mapStringForeignEnum {return false}
     if lhs.mapInt32Int32 != rhs.mapInt32Int32 {return false}
+    if lhs._optionalEmptyOptionEnum != rhs._optionalEmptyOptionEnum {return false}
+    if lhs._optionalEmptyOptionBeforeEmptyString != rhs._optionalEmptyOptionBeforeEmptyString {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
