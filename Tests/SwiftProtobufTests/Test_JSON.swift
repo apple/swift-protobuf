@@ -1349,6 +1349,172 @@ final class Test_JSON_EnumValue_CustomString: XCTestCase, PBTestHelpers {
         }
         assertJSONDecodeFails("{\"emptyOptionAliasOmittedFirst\":\"\"}")
     }
+
+    func testRepeatedCustomJSONString() {
+        assertJSONEncode(
+            "{\"repeatedTestCase\":["
+                + "\"ENUM_CUSTOM_JSON_STRING_NORMAL\","
+                + "\"something special\","
+                + "\"\","
+                + "\"\\\"testing\\\"\","
+                + "\"tab\\tnewline\\nquote\\\"done\","
+                + "\"6\","
+                + "\"ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\","
+                + "\"customName\","
+                + "99]}"
+        ) { (o: inout MessageTestType) in
+            o.repeatedTestCase = [
+                .normal,
+                .somethingSpecial,
+                .blank,
+                .quoted,
+                .escapes,
+                .six,
+                .sameAsName,
+                .customName,
+                .UNRECOGNIZED(99),
+            ]
+        }
+
+        var intsOptions = JSONEncodingOptions()
+        intsOptions.alwaysPrintEnumsAsInts = true
+        assertJSONEncode("{\"repeatedTestCase\":[1,4,8,99]}", encodingOptions: intsOptions) {
+            (o: inout MessageTestType) in
+            o.repeatedTestCase = [.somethingSpecial, .blank, .customName, .UNRECOGNIZED(99)]
+        }
+
+        assertJSONDecodeSucceeds(
+            "{\"repeatedTestCase\":["
+                + "\"ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\","
+                + "\"ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\","
+                + "\"something special\","
+                + "\"ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\","
+                + "\"customName\","
+                + "6]}"
+        ) {
+            $0.repeatedTestCase == [
+                .somethingSpecial,
+                .somethingSpecial,
+                .somethingSpecial,
+                .customName,
+                .customName,
+                .six,
+            ]
+        }
+    }
+
+    func testMapCustomJSONString() {
+        var deterministicOptions = JSONEncodingOptions()
+        deterministicOptions.useDeterministicOrdering = true
+        assertJSONEncode(
+            "{\"mapTestCase\":{"
+                + "\"a\":\"ENUM_CUSTOM_JSON_STRING_NORMAL\","
+                + "\"b\":\"something special\","
+                + "\"c\":\"\","
+                + "\"d\":\"\\\"testing\\\"\","
+                + "\"e\":\"tab\\tnewline\\nquote\\\"done\","
+                + "\"f\":\"6\","
+                + "\"g\":\"ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\","
+                + "\"h\":\"customName\","
+                + "\"i\":99}}",
+            encodingOptions: deterministicOptions
+        ) { (o: inout MessageTestType) in
+            o.mapTestCase = [
+                "a": .normal,
+                "b": .somethingSpecial,
+                "c": .blank,
+                "d": .quoted,
+                "e": .escapes,
+                "f": .six,
+                "g": .sameAsName,
+                "h": .customName,
+                "i": .UNRECOGNIZED(99),
+            ]
+        }
+
+        var intsOptions = JSONEncodingOptions()
+        intsOptions.alwaysPrintEnumsAsInts = true
+        intsOptions.useDeterministicOrdering = true
+        assertJSONEncode(
+            "{\"mapTestCase\":{\"a\":1,\"b\":4,\"c\":8,\"d\":99}}",
+            encodingOptions: intsOptions
+        ) { (o: inout MessageTestType) in
+            o.mapTestCase = [
+                "a": .somethingSpecial,
+                "b": .blank,
+                "c": .customName,
+                "d": .UNRECOGNIZED(99),
+            ]
+        }
+
+        assertJSONDecodeSucceeds(
+            "{\"mapTestCase\":{"
+                + "\"a\":\"ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\","
+                + "\"b\":\"something special\","
+                + "\"c\":\"customName\","
+                + "\"d\":6}}"
+        ) {
+            $0.mapTestCase == [
+                "a": .somethingSpecial,
+                "b": .somethingSpecial,
+                "c": .customName,
+                "d": .six,
+            ]
+        }
+
+        // Map values of `_CustomJSONCodable` enum `google.protobuf.NullValue`
+        // encode as JSON `null`, matching singular and repeated `NullValue` fields.
+        assertJSONEncode("{\"mapNullValue\":{\"a\":null}}") { (o: inout MessageTestType) in
+            o.mapNullValue = ["a": .nullValue]
+        }
+        assertJSONEncode("{\"mapNullValue\":{\"a\":null}}", encodingOptions: intsOptions) {
+            (o: inout MessageTestType) in
+            o.mapNullValue = ["a": .nullValue]
+        }
+    }
+
+    func testExtensionCustomJSONString() {
+        let extensions = SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_singular_enum]\":\"something special\"}",
+            extensions: extensions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extSingularEnum = .somethingSpecial
+        }
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_repeated_enum]\":"
+                + "[\"something special\",\"\\\"testing\\\"\",\"\",\"tab\\tnewline\\nquote\\\"done\",99]}",
+            extensions: extensions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extRepeatedEnum = [
+                .somethingSpecial,
+                .quoted,
+                .blank,
+                .escapes,
+                .UNRECOGNIZED(99),
+            ]
+        }
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_unpacked_enum]\":[\"6\",\"customName\"]}",
+            extensions: extensions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extUnpackedEnum = [.six, .customName]
+        }
+
+        var intsOptions = JSONEncodingOptions()
+        intsOptions.alwaysPrintEnumsAsInts = true
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_singular_enum]\":1,"
+                + "\"[swift_proto_testing.enum_value_json_string.ext_repeated_enum]\":[1,4],"
+                + "\"[swift_proto_testing.enum_value_json_string.ext_unpacked_enum]\":[6,8]}",
+            extensions: extensions,
+            encodingOptions: intsOptions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extSingularEnum = .somethingSpecial
+            o.SwiftProtoTesting_EnumValueJsonString_extRepeatedEnum = [.somethingSpecial, .blank]
+            o.SwiftProtoTesting_EnumValueJsonString_extUnpackedEnum = [.six, .customName]
+        }
+    }
 }
 
 final class Test_JSON_Proto2Enum: XCTestCase, PBTestHelpers {

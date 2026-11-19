@@ -315,7 +315,7 @@ internal struct JSONEncodingVisitor: Visitor {
             let alwaysPrintEnumsAsInts = options.alwaysPrintEnumsAsInts
             try _visitRepeated(value: value, fieldNumber: fieldNumber) {
                 (encoder: inout JSONEncoder, v: E) throws in
-                if !alwaysPrintEnumsAsInts, let n = v.name {
+                if !alwaysPrintEnumsAsInts, let n = v.jsonName {
                     encoder.appendQuoted(name: n)
                 } else {
                     encoder.putEnumInt(value: v.rawValue)

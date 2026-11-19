@@ -46,6 +46,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
   case escapes // = 5
   case six // = 6
   case sameAsName // = 7
+  case customName // = 8
   static let somethingSpecialAlias = somethingSpecial
   case UNRECOGNIZED(Int)
 
@@ -63,6 +64,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     case 5: self = .escapes
     case 6: self = .six
     case 7: self = .sameAsName
+    case 8: self = .customName
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -77,6 +79,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     case .escapes: return 5
     case .six: return 6
     case .sameAsName: return 7
+    case .customName: return 8
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -91,6 +94,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     .escapes,
     .six,
     .sameAsName,
+    .customName,
   ]
 
 }
@@ -202,7 +206,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasO
 
 }
 
-nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: Sendable {
+nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -243,22 +247,98 @@ nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMe
   /// Clears the value of `emptyOptionAliasOmittedFirst`. Subsequent reads from it will return its default value.
   mutating func clearEmptyOptionAliasOmittedFirst() {self._emptyOptionAliasOmittedFirst = nil}
 
+  var repeatedTestCase: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] = []
+
+  var mapTestCase: Dictionary<String,SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString> = [:]
+
+  var mapNullValue: Dictionary<String,SwiftProtobuf.Google_Protobuf_NullValue> = [:]
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _testCase: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString? = nil
   fileprivate var _emptyOptionZero: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero? = nil
   fileprivate var _emptyOptionAliased: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased? = nil
   fileprivate var _emptyOptionAliasOmittedFirst: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst? = nil
 }
 
+// MARK: - Extension support defined in unittest_json_enumvalue_custom_string.proto.
+
+// MARK: - Extension Properties
+
+// Swift Extensions on the extended Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage {
+
+  var SwiftProtoTesting_EnumValueJsonString_extSingularEnum: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
+    get {return getExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum) ?? .unknown}
+    set {setExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_EnumValueJsonString_extSingularEnum: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_EnumValueJsonString_extSingularEnum() {
+    clearExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum)
+  }
+
+  var SwiftProtoTesting_EnumValueJsonString_extRepeatedEnum: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] {
+    get {return getExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum) ?? []}
+    set {setExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum, value: newValue)}
+  }
+
+  var SwiftProtoTesting_EnumValueJsonString_extUnpackedEnum: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] {
+    get {return getExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum) ?? []}
+    set {setExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum, value: newValue)}
+  }
+
+}
+
+// MARK: - File's ExtensionMap: SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum,
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum,
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum
+]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  _protobuf_fieldNumber: 100,
+  fieldName: "swift_proto_testing.enum_value_json_string.ext_singular_enum"
+)
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  _protobuf_fieldNumber: 101,
+  fieldName: "swift_proto_testing.enum_value_json_string.ext_repeated_enum"
+)
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  _protobuf_fieldNumber: 102,
+  fieldName: "swift_proto_testing.enum_value_json_string.ext_unpacked_enum"
+)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate nonisolated let _protobuf_package = "swift_proto_testing.enum_value_json_string"
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_CUSTOM_JSON_STRING_UNKNOWN\0\u{9}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0\u{1}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\0\u{6}\0ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0something special\0\u{1}ENUM_CUSTOM_JSON_STRING_NORMAL\0\u{5}ENUM_CUSTOM_JSON_STRING_QUOTED\0\"testing\"\0\u{5}ENUM_CUSTOM_JSON_STRING_BLANK\0\0\u{5}ENUM_CUSTOM_JSON_STRING_ESCAPES\0tab\u{9}newline\u{a}quote\"done\0\u{5}ENUM_CUSTOM_JSON_STRING_SIX\06\0\u{1}ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_CUSTOM_JSON_STRING_UNKNOWN\0\u{9}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0\u{1}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\0\u{6}\0ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0something special\0\u{1}ENUM_CUSTOM_JSON_STRING_NORMAL\0\u{5}ENUM_CUSTOM_JSON_STRING_QUOTED\0\"testing\"\0\u{5}ENUM_CUSTOM_JSON_STRING_BLANK\0\0\u{5}ENUM_CUSTOM_JSON_STRING_ESCAPES\0tab\u{9}newline\u{a}quote\"done\0\u{5}ENUM_CUSTOM_JSON_STRING_SIX\06\0\u{1}ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\0\u{5}ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\0customName\0")
 }
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero: SwiftProtobuf._ProtoNameProviding {
@@ -275,7 +355,12 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionA
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumCustomJSONStringsMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}test_case\0\u{3}empty_option_zero\0\u{3}empty_option_aliased\0\u{3}empty_option_alias_omitted_first\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}test_case\0\u{3}empty_option_zero\0\u{3}empty_option_aliased\0\u{3}empty_option_alias_omitted_first\0\u{3}repeated_test_case\0\u{3}map_test_case\0\u{3}map_null_value\0")
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -287,6 +372,11 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString
       case 2: try { try decoder.decodeSingularEnumField(value: &self._emptyOptionZero) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self._emptyOptionAliased) }()
       case 4: try { try decoder.decodeSingularEnumField(value: &self._emptyOptionAliasOmittedFirst) }()
+      case 5: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedTestCase) }()
+      case 6: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>.self, value: &self.mapTestCase) }()
+      case 7: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.Google_Protobuf_NullValue>.self, value: &self.mapNullValue) }()
+      case 100..<200:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -309,6 +399,16 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString
     try { if let v = self._emptyOptionAliasOmittedFirst {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
     } }()
+    if !self.repeatedTestCase.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedTestCase, fieldNumber: 5)
+    }
+    if !self.mapTestCase.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>.self, value: self.mapTestCase, fieldNumber: 6)
+    }
+    if !self.mapNullValue.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.Google_Protobuf_NullValue>.self, value: self.mapNullValue, fieldNumber: 7)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 200)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -317,7 +417,11 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString
     if lhs._emptyOptionZero != rhs._emptyOptionZero {return false}
     if lhs._emptyOptionAliased != rhs._emptyOptionAliased {return false}
     if lhs._emptyOptionAliasOmittedFirst != rhs._emptyOptionAliasOmittedFirst {return false}
+    if lhs.repeatedTestCase != rhs.repeatedTestCase {return false}
+    if lhs.mapTestCase != rhs.mapTestCase {return false}
+    if lhs.mapNullValue != rhs.mapNullValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
