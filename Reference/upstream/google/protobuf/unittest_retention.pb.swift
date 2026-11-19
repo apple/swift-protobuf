@@ -119,7 +119,7 @@ nonisolated struct Proto2Unittest_TopLevelMessage: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .i(let value)?: self.i = value
       }
     }

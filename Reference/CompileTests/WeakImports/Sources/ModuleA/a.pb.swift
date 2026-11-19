@@ -83,7 +83,7 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofMessageB(let value)?: self.oneofMessageB = value
       case .oneofEnumB(let value)?: self.oneofEnumB = value
       }
@@ -146,7 +146,7 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 8)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 8)
       case .oneofMessageC(let value)?: self.oneofMessageC = value
       case .oneofEnumC(let value)?: self.oneofEnumC = value
       }

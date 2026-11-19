@@ -100,7 +100,7 @@ public nonisolated struct EnumGenerationTestMessage: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .text(let value)?: self.text = value
       case .data(let value)?: self.data = value
       }

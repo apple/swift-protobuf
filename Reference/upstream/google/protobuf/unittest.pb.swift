@@ -844,7 +844,7 @@ nonisolated struct Proto2Unittest_TestAllTypes: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 12)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 12)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofNestedMessage(let value)?: self.oneofNestedMessage = value
       case .oneofString(let value)?: self.oneofString = value
@@ -1100,7 +1100,7 @@ nonisolated struct Proto2Unittest_TestDeprecatedFields: @unchecked Swift.Sendabl
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .deprecatedInt32InOneof(let value)?: self.deprecatedInt32InOneof = value
       }
     }
@@ -3019,7 +3019,7 @@ nonisolated struct Proto2Unittest_TestLazyMessage: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneof1(let value)?: self.oneof1 = value
       case .oneof2(let value)?: self.oneof2 = value
       }
@@ -4336,7 +4336,7 @@ nonisolated struct Proto2Unittest_TestOneof: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooInt(let value)?: self.fooInt = value
       case .fooString(let value)?: self.fooString = value
       case .fooMessage(let value)?: self.fooMessage = value
@@ -4524,7 +4524,7 @@ nonisolated struct Proto2Unittest_TestOneof2: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooInt(let value)?: self.fooInt = value
       case .fooString(let value)?: self.fooString = value
       case .fooCord(let value)?: self.fooCord = value
@@ -4609,7 +4609,7 @@ nonisolated struct Proto2Unittest_TestOneof2: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 8)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 8)
       case .barInt(let value)?: self.barInt = value
       case .barString(let value)?: self.barString = value
       case .barCord(let value)?: self.barCord = value
@@ -4829,7 +4829,7 @@ nonisolated struct Proto2Unittest_TestRequiredOneof: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooInt(let value)?: self.fooInt = value
       case .fooString(let value)?: self.fooString = value
       case .fooMessage(let value)?: self.fooMessage = value
@@ -6022,7 +6022,7 @@ nonisolated struct Proto2Unittest_TestHugeFieldNumbers: @unchecked Swift.Sendabl
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofTestAllTypes(let value)?: self.oneofTestAllTypes = value
       case .oneofString(let value)?: self.oneofString = value
@@ -8533,7 +8533,7 @@ nonisolated struct Proto2Unittest_MessageCreatorZeroInit: @unchecked Swift.Senda
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .os(let value)?: self.os = value
       case .oc(let value)?: self.oc = value
       case .of(let value)?: self.of = value

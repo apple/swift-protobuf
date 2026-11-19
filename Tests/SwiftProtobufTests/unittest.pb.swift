@@ -593,7 +593,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 12)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 12)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofNestedMessage(let value)?: self.oneofNestedMessage = value
       case .oneofString(let value)?: self.oneofString = value
@@ -1731,7 +1731,7 @@ nonisolated struct SwiftProtoTesting_TestOneof: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooInt(let value)?: self.fooInt = value
       case .fooString(let value)?: self.fooString = value
       case .fooMessage(let value)?: self.fooMessage = value
@@ -1828,7 +1828,7 @@ nonisolated struct SwiftProtoTesting_TestRequiredOneof: @unchecked Swift.Sendabl
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooInt(let value)?: self.fooInt = value
       case .fooString(let value)?: self.fooString = value
       case .fooMessage(let value)?: self.fooMessage = value

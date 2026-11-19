@@ -10017,7 +10017,7 @@ nonisolated struct SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Swift.Se
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case ._4(let value)?: self._4 = value
       case ._5Field(let value)?: self._5Field = value
       }
@@ -10097,7 +10097,7 @@ nonisolated struct SwiftProtoTesting_Names_SpecialNames1: @unchecked Swift.Senda
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .str(let value)?: self.str = value
       }
     }
@@ -10164,7 +10164,7 @@ nonisolated struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Swift.Senda
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .str(let value)?: self.str = value
       }
     }

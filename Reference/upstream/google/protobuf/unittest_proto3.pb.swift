@@ -377,7 +377,7 @@ nonisolated struct Proto3Unittest_TestAllTypes: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 8)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 8)
       case .oneofUint32(let value)?: self.oneofUint32 = value
       case .oneofNestedMessage(let value)?: self.oneofNestedMessage = value
       case .oneofString(let value)?: self.oneofString = value
@@ -778,7 +778,7 @@ nonisolated struct Proto3Unittest_TestOneof2: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .fooEnum(let value)?: self.fooEnum = value
       }
     }

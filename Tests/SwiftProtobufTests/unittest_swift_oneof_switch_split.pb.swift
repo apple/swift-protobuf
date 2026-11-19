@@ -601,7 +601,7 @@ nonisolated struct SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: @unchecked 
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 64)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 64)
       case .field001(let value)?: self.field001 = value
       case .field003(let value)?: self.field003 = value
       case .field004(let value)?: self.field004 = value

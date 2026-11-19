@@ -262,7 +262,7 @@ nonisolated struct SwiftProtoTesting_Message3: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 12)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 12)
       case .oneofInt32(let value)?: self.oneofInt32 = value
       case .oneofInt64(let value)?: self.oneofInt64 = value
       case .oneofUint32(let value)?: self.oneofUint32 = value

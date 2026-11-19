@@ -231,7 +231,7 @@ nonisolated struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .protobufPayload(let value)?: self.protobufPayload = value
       case .jsonPayload(let value)?: self.jsonPayload = value
       case .jspbPayload(let value)?: self.jspbPayload = value
@@ -350,7 +350,7 @@ nonisolated struct Conformance_ConformanceResponse: @unchecked Swift.Sendable {
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .parseError(let value)?: self.parseError = value
       case .serializeError(let value)?: self.serializeError = value
       case .timeoutError(let value)?: self.timeoutError = value

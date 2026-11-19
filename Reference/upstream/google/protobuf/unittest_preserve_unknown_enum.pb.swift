@@ -145,7 +145,7 @@ nonisolated struct Proto3PreserveUnknownEnumUnittest_MyMessage: @unchecked Swift
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofE1(let value)?: self.oneofE1 = value
       case .oneofE2(let value)?: self.oneofE2 = value
       }
@@ -214,7 +214,7 @@ nonisolated struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchec
     }
     set {
       switch newValue {
-      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case nil: _uniqueStorage().clearPopulatedOneofMember(at: 4)
       case .oneofE1(let value)?: self.oneofE1 = value
       case .oneofE2(let value)?: self.oneofE2 = value
       }
