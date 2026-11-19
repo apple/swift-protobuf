@@ -27,7 +27,10 @@ public func FuzzBinary(_ start: UnsafeRawPointer?, _ count: Int) -> CInt {
     }
     // Test serialization for completeness.
     // If a message was parsed, it should not fail to serialize, so assert as such.
-    let _: [UInt8]? = try! msg?.serializedBytes(options: options.encoding)
+    let _: [UInt8]? = try! msg?.serializedBytes(
+        partial: options.partialDecoding,
+        options: options.encoding
+    )
 
     return 0
 }
