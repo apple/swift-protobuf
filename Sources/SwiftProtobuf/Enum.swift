@@ -57,12 +57,9 @@ extension Enum {
     }
 
     /// Internal convenience initializer that returns the enum value with the
-    /// given name, if it provides names.
+    /// given text format name, if it provides names.
     ///
-    /// Since the text format and JSON names are always identical, we don't need
-    /// to distinguish them.
-    ///
-    /// - Parameter name: The name of the enum case.
+    /// - Parameter textFormatName: The text format name of the enum case.
     internal init?(textFormatName: String) {
         guard let number = Self.enumSchema.enumCase(forTextName: textFormatName) else {
             return nil

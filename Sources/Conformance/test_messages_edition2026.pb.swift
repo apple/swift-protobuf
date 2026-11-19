@@ -245,19 +245,19 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2026: @unche
 
 nonisolated extension ProtobufTestMessages_Editions_ForeignEnumEdition2026 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{b}\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2026"
-  private static let _protobuf_reflectionData: Swift.StaticString = "P\u{6}\0\0\u{10}s^\u{1c}\u{7}g\u{3}\u{17}DpImD!F\u{c}hXD_`%e+=,k$G}m/\u{19}\u{b}\u{e}%y\u{1b}\u{18}%aWi\u{c}/\u{5}!M>^\u{8}f__b=fZv\u{1d}\u{1b}\u{b}\t1_[/+2\u{18}\u{4})\u{18}Fbc+nuS37_gJ=\n{.vC]\u{14}h\"Qs@\u{19}\u{3}Q@V\u{1c}\u{e}yu`D\u{7}T*5O\u{10}$\u{1}=/{=2yy-)\"\u{10}\u{8}\\`~\u{1b}SMM\u{1d}S4u\u{3}W@\u{1b}\u{17}$s<\u{e}V\u{16}\u{3}4 u\u{12},i\u{15}&<p\u{10}FU\u{14}\u{8}E[+\u{8}h\u{e}\u{b}\u{18}^Xgx%BD@77IC\u{8}\u{1a}Y\u{2}VxA+ob'|9^\u{1}lj\nDc!I6\0z~yje0J=f\u{8}SjO:b\u{e}Y}S'\u{15}[\u{c}In\u{2}Yux\u{1f}\u{14}YA\u{1d}F\0<?:rK\njX1)B/\u{e}2B9*!N>xj1UB\nux}CZE'\u{3}\u{1f}\u{f}pKLKpD>5lq\u{4}\\\0\u{18}m:2\u{e}XoS!+-P4yk4\u{8}RWEl*$wI\rD?\u{7f}Nv,b V/s\0(\\f;,\u{13}\0\0\0"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\u{6}\0\0\0{_\u{14}7gk\u{15}CpImD!F\u{c}hXD_`%e+=,k$G}m/\u{19}\u{b}\u{e}%y\u{1b}\u{18}%aWi\u{c}/\u{5}M%>\u{17}\u{e}A/r\n\u{1c}^Qm#A`q_/FpU\u{1c}6\\y=3\u{3}ohF~\u{1b}\u{1a}#K,37`vXFJ\u{5}C2M5%\u{1b}5|N\u{13}\u{10}\u{12}\u{19}o\u{3}\u{14}\u{1a}=`\"'>\u{4}u+&\u{18}\u{18}6S\u{c}e\u{c}*eFy+R\u{1e}\u{5}b\u{12}WJLtSb\\Rw#4.9{D\u{1d}*(B*UgSKt\u{1e}/\u{13}\u{19} '|n\u{7}\"L{iIBF\u{17}F,OU2KV\u{4}^[B 3h\u{6}\u{18}\u{1e}P\u{8}O),GFQ]q?q@\u{7f}|Fts\0\u{1d}\u{1d}%\u{8}\t\u{2}N}\u{8}OlNH'tCYK^\u{16}uG0\u{e}C1bO8\\y1d\u{4}\u{f}{.\u{1}'%u4gb5]\u{8}\naH\u{e}?+8'1v\nss\u{8}Q\u{1e}}.\u{8}:i5$r.UP\\\u{4},\\\u{1}c_Jn9Y\u{12}\u{1e}Jp[\u{4}%\u{e}`\u{3}\u{c}Q\u{1e}'\u{8}<\u{19}Z\u{16}\u{7f}tp/\u{1e}\u{f}"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0>\0protobuf_test_messages.editions.EnumOnlyEmptyOptionEdition2026"
-  private static let _protobuf_reflectionData: Swift.StaticString = "\u{18}\u{1}\0\0 _\u{19}3-Z[,%,u 0\u{11}@D,MNh\u{16}5h\n\u{1}m}}C:3Ip\u{1d}fs(E\0T_\0Ea'\u{12}7M[4UQ\u{1e}Y\u{3}Culj/\u{e}\u{8}\u{1}{\u{14}\u{15}~\u{e}-!\\ye~2\u{1}#nhf+TC\u{10}<\0\0"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{1}\0\0 \u{7f}I8E\u{6}*(ae>pNF\u{16}k5P\u{1c}MrhP7`F\u{10}+d-JF*!l\u{b}\u{1c}h)VU\u{c}dvKJ\u{5}t\u{7f}[1~\u{10}iGb\u{18};u8?XyB,r\u{19}b6\u{7}rFU]\n\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0K\0protobuf_test_messages.editions.EnumEmptyOptionBeforeEmptyStringEdition2026"
-  private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{2}\0\0\0? e-ZOj\u{13}Pq\u{14}!s\u{8}zx!B\u{1b})A6\u{1b}$3YiJ#wz\u{16}\u{7f}#8\u{b}VV-|#B\u{e}XI\u{1}\u{10}>;\rK<m5Hh\u{1b}\u{14}\u{11}`BN*W\u{17}\u{12}dJy(l`(Vyw]]\u{b}.\u{15}P008\u{1d}\u{f}WpsqgM\u{10}\u{1d}\u{14}t,4S6\u{16}-~-\u{3}Fb\u{5} g\u{4}/Q\u{c}yM_D3\u{1}9ka\0\0"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{14}\u{2}\0\0\0_\u{18}$5Zg\u{3}Q\t;qyL\u{8}E8\u{14}Rb\u{f}W~\u{7}~& X4OJ<2-!\u{1f}#\u{7f}k\r>i4a\u{12}\u{7}-\u{5}7Rtd\u{18}ExDPT\u{10}ZCsXSV\t~\u{5}L&O\u{16}gYnpHdE\\Y|)&.\\\u{e}fwjF\u{f}_A\n\u{15}\t\u{1f}0kHF\\E?\u{1c}\u{16}4z:\u{18}\u{4}_ys%x\u{1d}\u{2}\u{4}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 

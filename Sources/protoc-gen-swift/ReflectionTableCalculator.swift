@@ -95,8 +95,20 @@ package struct ReflectionTableCalculator {
         // (descriptor_unittest.cc also confirms this). Meaning that there aren't multiple json
         // names when there are aliases. json_enumval_custom_string_test.cc also goes on to
         // test/confirm that the proto name and the json name are always accepted for json.
+        let customJSONName: String? =
+            (enumValue.options.hasPb_Enumvalue_json && enumValue.options.Pb_Enumvalue_json.hasString)
+            ? enumValue.options.Pb_Enumvalue_json.string
+            : nil
+        // Compare raw UTF-8 code units using `UTF8Name` (matching `ReflectionTable` at runtime)
+        // rather than Swift `String.==`, which performs Unicode canonical equivalence (e.g.
+        // treating "K" and "\u{212A}" as equal) and would drop custom JSON names whose UTF-8
+        // bytes differ from `enumValue.name`.
         let jsonName: String? =
-            (enumValue.options.hasPb_Enumvalue_json) ? enumValue.options.Pb_Enumvalue_json.string : nil
+            customJSONName.flatMap { candidate in
+                UTF8Name.withTemporary(viewing: candidate) {
+                    $0.utf8CodeUnitsEqual(enumValue.name) ? nil : candidate
+                }
+            }
         var list = [Names(name: enumValue.name, jsonName: jsonName)]
         for alias in aliases {
             list.append(Names(name: alias.name, jsonName: nil))
@@ -255,14 +267,31 @@ package struct ReflectionTableCalculator {
                 appendInteger(textOffset)
             }
 
-            // Text format name offset to field/case number (UInt32 -> UInt32), in alphabetical order.
-            for (offsetAndName, number) in textOffsetToNumber.sorted(by: { $0.key.name < $1.key.name }) {
+            // Compare names using `UTF8Name` (matching `ReflectionTable`'s runtime binary search)
+            // rather than Swift `String.<`. Swift's `String.<` orders by Unicode canonical
+            // equivalence (e.g. treating "e\u{0301}" and "\u{00E9}" as equal and ordering
+            // "\u{212A}" with "K" instead of after ASCII), which disagrees with
+            // `UTF8Name.lexicographicallyPrecedes` at runtime and would misorder lookup tables
+            // for non-ASCII / non-NFC names. Tie-break by offset for deterministic serialization.
+            let byUTF8Order: ((key: NameOffsetKey, value: UInt32), (key: NameOffsetKey, value: UInt32)) -> Bool = {
+                lhs,
+                rhs in
+                UTF8Name.withTemporary(viewing: lhs.key.name) { lhsUTF8 in
+                    if lhsUTF8.utf8CodeUnitsEqual(rhs.key.name) {
+                        return lhs.key.offset < rhs.key.offset
+                    }
+                    return lhsUTF8.lexicographicallyPrecedes(rhs.key.name)
+                }
+            }
+
+            // Text format name offset to field/case number (UInt32 -> UInt32), in UTF-8 byte order.
+            for (offsetAndName, number) in textOffsetToNumber.sorted(by: byUTF8Order) {
                 appendInteger(offsetAndName.offset)
                 appendInteger(number)
             }
 
-            // JSON format name offset to field/case number (UInt32 -> UInt32), in alphabetical order.
-            for (offsetAndName, number) in jsonOffsetToNumber.sorted(by: { $0.key.name < $1.key.name }) {
+            // JSON format name offset to field/case number (UInt32 -> UInt32), in UTF-8 byte order.
+            for (offsetAndName, number) in jsonOffsetToNumber.sorted(by: byUTF8Order) {
                 appendInteger(offsetAndName.offset)
                 appendInteger(number)
             }

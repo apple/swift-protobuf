@@ -22,6 +22,14 @@
 package struct UTF8Name: @unchecked Sendable {
     let buffer: UnsafeBufferPointer<UTF8.CodeUnit>
 
+    /// Creates a `UTF8Name` viewing the given buffer of UTF-8 code units.
+    ///
+    /// The caller is responsible for ensuring that `buffer` remains valid for the lifetime of the
+    /// returned `UTF8Name`.
+    package init(_ buffer: UnsafeBufferPointer<UTF8.CodeUnit>) {
+        self.buffer = buffer
+    }
+
     init(start: UnsafePointer<UTF8.CodeUnit>, count: Int) {
         self.buffer = UnsafeBufferPointer(start: start, count: count)
     }
@@ -29,6 +37,15 @@ package struct UTF8Name: @unchecked Sendable {
     init(start: UnsafeRawPointer, count: Int) {
         self.buffer =
             UnsafeRawBufferPointer(start: start, count: count).bindMemory(to: UTF8.CodeUnit.self)
+    }
+
+    /// Calls `body` with a temporary `UTF8Name` viewing the UTF-8 code units of `string`.
+    ///
+    /// The `UTF8Name` passed to `body` is only valid for the duration of the call and must not
+    /// escape it.
+    package static func withTemporary<R>(viewing string: String, _ body: (UTF8Name) -> R) -> R {
+        var copy = string
+        return copy.withUTF8 { body(UTF8Name($0)) }
     }
 }
 

@@ -1333,6 +1333,264 @@ final class Test_JSON_EnumValue_CustomString: XCTestCase, PBTestHelpers {
         }
         // And still that the raw number also works (like it normally does)
         assertJSONDecodeSucceeds("{\"testCase\":6}") { $0.testCase == .six }
+
+        // Custom string equal to the proto name encodes as the proto name.
+        assertJSONEncode("{\"testCase\":\"ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\"}") { (o: inout MessageTestType) in
+            o.testCase = .sameAsName
+        }
+        assertJSONDecodeSucceeds("{\"testCase\":7}") { $0.testCase == .sameAsName }
+    }
+
+    func testEmptyOption() {
+        // An empty `(pb.enumvalue.json) = {}` option leaves `.string` unset and
+        // must behave like an omitted option rather than setting `""`.
+        assertJSONEncode("{\"emptyOptionZero\":\"ENUM_EMPTY_JSON_OPTION_ZERO_UNSPECIFIED\"}") {
+            (o: inout MessageTestType) in
+            o.emptyOptionZero = .unspecified
+        }
+        assertJSONEncode("{\"emptyOptionZero\":\"ENUM_EMPTY_JSON_OPTION_ZERO_OTHER\"}") {
+            (o: inout MessageTestType) in
+            o.emptyOptionZero = .other
+        }
+        assertJSONDecodeSucceeds("{\"emptyOptionZero\":0}") { $0.emptyOptionZero == .unspecified }
+        assertJSONDecodeFails("{\"emptyOptionZero\":\"\"}")
+
+        assertJSONEncode("{\"emptyOptionAliased\":\"ENUM_EMPTY_JSON_OPTION_ALIASED_EMPTY_FIRST\"}") {
+            (o: inout MessageTestType) in
+            o.emptyOptionAliased = .emptyFirst
+        }
+        assertJSONDecodeSucceeds("{\"emptyOptionAliased\":\"ENUM_EMPTY_JSON_OPTION_ALIASED_OMITTED_SECOND\"}") {
+            $0.emptyOptionAliased == .emptyFirst
+        }
+        assertJSONDecodeFails("{\"emptyOptionAliased\":\"\"}")
+
+        assertJSONEncode(
+            "{\"emptyOptionAliasOmittedFirst\":\"ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_OMITTED\"}"
+        ) { (o: inout MessageTestType) in
+            o.emptyOptionAliasOmittedFirst = .omitted
+        }
+        assertJSONDecodeSucceeds(
+            "{\"emptyOptionAliasOmittedFirst\":\"ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_EMPTY\"}"
+        ) {
+            $0.emptyOptionAliasOmittedFirst == .omitted
+        }
+        assertJSONDecodeFails("{\"emptyOptionAliasOmittedFirst\":\"\"}")
+    }
+
+    func testRepeatedCustomJSONString() {
+        assertJSONEncode(
+            "{\"repeatedTestCase\":["
+                + "\"ENUM_CUSTOM_JSON_STRING_NORMAL\","
+                + "\"something special\","
+                + "\"\","
+                + "\"\\\"testing\\\"\","
+                + "\"tab\\tnewline\\nquote\\\"done\","
+                + "\"6\","
+                + "\"ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\","
+                + "\"customName\","
+                + "99]}"
+        ) { (o: inout MessageTestType) in
+            o.repeatedTestCase = [
+                .normal,
+                .somethingSpecial,
+                .blank,
+                .quoted,
+                .escapes,
+                .six,
+                .sameAsName,
+                .customName,
+                .UNRECOGNIZED(99),
+            ]
+        }
+
+        var intsOptions = JSONEncodingOptions()
+        intsOptions.alwaysPrintEnumsAsInts = true
+        assertJSONEncode("{\"repeatedTestCase\":[1,4,8,99]}", encodingOptions: intsOptions) {
+            (o: inout MessageTestType) in
+            o.repeatedTestCase = [.somethingSpecial, .blank, .customName, .UNRECOGNIZED(99)]
+        }
+
+        assertJSONDecodeSucceeds(
+            "{\"repeatedTestCase\":["
+                + "\"ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\","
+                + "\"ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\","
+                + "\"something special\","
+                + "\"ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\","
+                + "\"customName\","
+                + "6]}"
+        ) {
+            $0.repeatedTestCase == [
+                .somethingSpecial,
+                .somethingSpecial,
+                .somethingSpecial,
+                .customName,
+                .customName,
+                .six,
+            ]
+        }
+    }
+
+    func testMapCustomJSONString() {
+        var deterministicOptions = JSONEncodingOptions()
+        deterministicOptions.useDeterministicOrdering = true
+        assertJSONEncode(
+            "{\"mapTestCase\":{"
+                + "\"a\":\"ENUM_CUSTOM_JSON_STRING_NORMAL\","
+                + "\"b\":\"something special\","
+                + "\"c\":\"\","
+                + "\"d\":\"\\\"testing\\\"\","
+                + "\"e\":\"tab\\tnewline\\nquote\\\"done\","
+                + "\"f\":\"6\","
+                + "\"g\":\"ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\","
+                + "\"h\":\"customName\","
+                + "\"i\":99}}",
+            encodingOptions: deterministicOptions
+        ) { (o: inout MessageTestType) in
+            o.mapTestCase = [
+                "a": .normal,
+                "b": .somethingSpecial,
+                "c": .blank,
+                "d": .quoted,
+                "e": .escapes,
+                "f": .six,
+                "g": .sameAsName,
+                "h": .customName,
+                "i": .UNRECOGNIZED(99),
+            ]
+        }
+
+        var intsOptions = JSONEncodingOptions()
+        intsOptions.alwaysPrintEnumsAsInts = true
+        intsOptions.useDeterministicOrdering = true
+        assertJSONEncode(
+            "{\"mapTestCase\":{\"a\":1,\"b\":4,\"c\":8,\"d\":99}}",
+            encodingOptions: intsOptions
+        ) { (o: inout MessageTestType) in
+            o.mapTestCase = [
+                "a": .somethingSpecial,
+                "b": .blank,
+                "c": .customName,
+                "d": .UNRECOGNIZED(99),
+            ]
+        }
+
+        assertJSONDecodeSucceeds(
+            "{\"mapTestCase\":{"
+                + "\"a\":\"ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\","
+                + "\"b\":\"something special\","
+                + "\"c\":\"customName\","
+                + "\"d\":6}}"
+        ) {
+            $0.mapTestCase == [
+                "a": .somethingSpecial,
+                "b": .somethingSpecial,
+                "c": .customName,
+                "d": .six,
+            ]
+        }
+    }
+
+    func testExtensionCustomJSONString() {
+        let extensions = SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_singular_enum]\":\"something special\"}",
+            extensions: extensions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extSingularEnum = .somethingSpecial
+        }
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_repeated_enum]\":"
+                + "[\"something special\",\"\\\"testing\\\"\",\"\",\"tab\\tnewline\\nquote\\\"done\",99]}",
+            extensions: extensions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extRepeatedEnum = [
+                .somethingSpecial,
+                .quoted,
+                .blank,
+                .escapes,
+                .UNRECOGNIZED(99),
+            ]
+        }
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_unpacked_enum]\":[\"6\",\"customName\"]}",
+            extensions: extensions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extUnpackedEnum = [.six, .customName]
+        }
+
+        var intsOptions = JSONEncodingOptions()
+        intsOptions.alwaysPrintEnumsAsInts = true
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_singular_enum]\":1}",
+            extensions: extensions,
+            encodingOptions: intsOptions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extSingularEnum = .somethingSpecial
+        }
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_repeated_enum]\":[1,4]}",
+            extensions: extensions,
+            encodingOptions: intsOptions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extRepeatedEnum = [.somethingSpecial, .blank]
+        }
+        assertJSONEncode(
+            "{\"[swift_proto_testing.enum_value_json_string.ext_unpacked_enum]\":[6,8]}",
+            extensions: extensions,
+            encodingOptions: intsOptions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extUnpackedEnum = [.six, .customName]
+        }
+    }
+
+    func testTextFormatRejectsCustomJSONName() {
+        // Declared proto names and aliases round-trip in TextFormat.
+        let extensions = SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions
+        assertTextFormatEncode("test_case: ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\n") { (o: inout MessageTestType) in
+            o.testCase = .customName
+        }
+        assertTextFormatEncode("test_case: ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\n") { (o: inout MessageTestType) in
+            o.testCase = .somethingSpecial
+        }
+        assertTextFormatDecodeSucceeds("test_case: ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS") {
+            $0.testCase == .somethingSpecial
+        }
+        assertTextFormatEncode("empty_option_zero: ENUM_EMPTY_JSON_OPTION_ZERO_UNSPECIFIED\n") {
+            (o: inout MessageTestType) in
+            o.emptyOptionZero = .unspecified
+        }
+        assertTextFormatDecodeSucceeds("empty_option_aliased: ENUM_EMPTY_JSON_OPTION_ALIASED_OMITTED_SECOND") {
+            $0.emptyOptionAliased == .emptyFirst
+        }
+        assertTextFormatEncode(
+            "repeated_test_case: [ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL, ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME]\n"
+        ) { (o: inout MessageTestType) in
+            o.repeatedTestCase = [.somethingSpecial, .customName]
+        }
+        assertTextFormatEncode("map_test_case {\n  key: \"a\"\n  value: ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\n}\n") {
+            (o: inout MessageTestType) in
+            o.mapTestCase = ["a": .customName]
+        }
+        assertTextFormatEncode(
+            "[swift_proto_testing.enum_value_json_string.ext_singular_enum]: ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\n",
+            extensions: extensions
+        ) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_EnumValueJsonString_extSingularEnum = .customName
+        }
+
+        // Identifier-shaped custom JSON names must not be accepted by TextFormat.
+        assertTextFormatDecodeFails("test_case: customName")
+        assertTextFormatDecodeFails("repeated_test_case: [customName]")
+        assertTextFormatDecodeFails("map_test_case { key: \"a\" value: customName }")
+        for text in [
+            "[swift_proto_testing.enum_value_json_string.ext_singular_enum]: customName",
+            "[swift_proto_testing.enum_value_json_string.ext_repeated_enum]: [customName]",
+            "[swift_proto_testing.enum_value_json_string.ext_unpacked_enum]: customName",
+        ] {
+            XCTAssertThrowsError(try MessageTestType(textFormatString: text, extensions: extensions)) { error in
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .textFormatDecodingError)
+            }
+        }
     }
 }
 
