@@ -40,6 +40,12 @@ nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProt
   case alias // = 5
   static let aliasToo = alias
   case numeric // = 6
+  case emptyOption // = 7
+  case emptyOptionTwo // = 8
+  case aliasEmptyOption // = 9
+  static let aliasOmitted = aliasEmptyOption
+  case aliasOmittedFirst // = 10
+  static let aliasEmptyOptionSecond = aliasOmittedFirst
   case UNRECOGNIZED(Swift.Int)
 
   init() {
@@ -55,6 +61,10 @@ nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProt
     case 4: self = .escapes
     case 5: self = .alias
     case 6: self = .numeric
+    case 7: self = .emptyOption
+    case 8: self = .emptyOptionTwo
+    case 9: self = .aliasEmptyOption
+    case 10: self = .aliasOmittedFirst
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -68,6 +78,10 @@ nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProt
     case .escapes: return 4
     case .alias: return 5
     case .numeric: return 6
+    case .emptyOption: return 7
+    case .emptyOptionTwo: return 8
+    case .aliasEmptyOption: return 9
+    case .aliasOmittedFirst: return 10
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -81,6 +95,82 @@ nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2026: SwiftProt
     .escapes,
     .alias,
     .numeric,
+    .emptyOption,
+    .emptyOptionTwo,
+    .aliasEmptyOption,
+    .aliasOmittedFirst,
+  ]
+
+}
+
+nonisolated enum ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Swift.Int
+  case unspecified // = 0
+  case foo // = 1
+  case UNRECOGNIZED(Swift.Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Swift.Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .foo
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Swift.Int {
+    switch self {
+    case .unspecified: return 0
+    case .foo: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026] = [
+    .unspecified,
+    .foo,
+  ]
+
+}
+
+nonisolated enum ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Swift.Int
+  case unspecified // = 0
+  case emptyOptionFirst // = 1
+  case emptyStringSecond // = 2
+  case UNRECOGNIZED(Swift.Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Swift.Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .emptyOptionFirst
+    case 2: self = .emptyStringSecond
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Swift.Int {
+    switch self {
+    case .unspecified: return 0
+    case .emptyOptionFirst: return 1
+    case .emptyStringSecond: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026] = [
+    .unspecified,
+    .emptyOptionFirst,
+    .emptyStringSecond,
   ]
 
 }
@@ -109,19 +199,37 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2026: @unche
   mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   var repeatedForeignEnum: [ProtobufTestMessages_Editions_ForeignEnumEdition2026] {
-    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var mapStringForeignEnum: [String: ProtobufTestMessages_Editions_ForeignEnumEdition2026] {
-    get { _storage.value(atIndex: 0, hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   var mapInt32Int32: [Int32: Int32] {
-    get { _storage.value(atIndex: 1, hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
   }
+
+  var optionalEmptyOptionEnum: ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026 {
+    get { _storage.value(at: 12, default: .unspecified, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(at: 12, to: newValue, willBeSet: true, hasBit: (0, 4)) }
+  }
+  /// Returns true if `optionalEmptyOptionEnum` has been explicitly set.
+  var hasOptionalEmptyOptionEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
+  /// Clears the value of `optionalEmptyOptionEnum`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalEmptyOptionEnum() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 4)) }
+
+  var optionalEmptyOptionBeforeEmptyString: ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026 {
+    get { _storage.value(at: 16, default: .unspecified, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 8)) }
+  }
+  /// Returns true if `optionalEmptyOptionBeforeEmptyString` has been explicitly set.
+  var hasOptionalEmptyOptionBeforeEmptyString: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
+  /// Clears the value of `optionalEmptyOptionBeforeEmptyString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalEmptyOptionBeforeEmptyString() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 8)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -136,22 +244,36 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2026: @unche
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension ProtobufTestMessages_Editions_ForeignEnumEdition2026 {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2026"
-  private static let _protobuf_reflectionData: Swift.StaticString = "`\u{3}\0\00?!]iZO\"\rS2M\u{7}\0\nzx!\u{2}\u{1a}LGe\u{5}&+j\u{7}V7jK|\u{19}(\u{c}tUw=#\u{1c}\u{1d}\u{7}VC\u{1d}E\u{16}\u{5}gX)hlC\u{8}\u{1a}c~g<Ui4s\09\u{e}\u{12}}W\u{1b}i\u{3}YUm\u{2}T<zc|\u{1c}M<h6f\t\u{5}\u{13}K&f0\t|q\u{1b}+A\u{4}!BX#o\u{19}\u{1d}$,c\u{15}\u{13}\nz[}e\u{1f}\u{14}&G50P;h\nTU\u{6}j\u{1b}\u{16}eA\u{16}4\u{18}\u{1f}{TD7FkU\u{f};q\u{7f}f\u{12}\u{1e}@<$\u{1}>T)\u{c}\u{18}3Y4U5lL@UyjFylZJajw\u{2}z|;Fm9\u{3}G\u{1f}\u{1f}\u{e}Apt\u{c}u\u{12}>K\u{15}KD{\"SL?\u{16}!eA\u{2}\u{1e}\0\0\0"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{b}\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2026"
+  private static let _protobuf_reflectionData: Swift.StaticString = "P\u{6}\0\0\u{10}s^\u{1c}\u{7}g\u{3}\u{17}DpImD!F\u{c}hXD_`%e+=,k$G}m/\u{19}\u{b}\u{e}%y\u{1b}\u{18}%aWi\u{c}/\u{5}!M>^\u{8}f__b=fZv\u{1d}\u{1b}\u{b}\t1_[/+2\u{18}\u{4})\u{18}Fbc+nuS37_gJ=\n{.vC]\u{14}h\"Qs@\u{19}\u{3}Q@V\u{1c}\u{e}yu`D\u{7}T*5O\u{10}$\u{1}=/{=2yy-)\"\u{10}\u{8}\\`~\u{1b}SMM\u{1d}S4u\u{3}W@\u{1b}\u{17}$s<\u{e}V\u{16}\u{3}4 u\u{12},i\u{15}&<p\u{10}FU\u{14}\u{8}E[+\u{8}h\u{e}\u{b}\u{18}^Xgx%BD@77IC\u{8}\u{1a}Y\u{2}VxA+ob'|9^\u{1}lj\nDc!I6\0z~yje0J=f\u{8}SjO:b\u{e}Y}S'\u{15}[\u{c}In\u{2}Yux\u{1f}\u{14}YA\u{1d}F\0<?:rK\njX1)B/\u{e}2B9*!N>xj1UB\nux}CZE'\u{3}\u{1f}\u{f}pKLKpD>5lq\u{4}\\\0\u{18}m:2\u{e}XoS!+-P4yk4\u{8}RWEl*$wI\rD?\u{7f}Nv,b V/s\0(\\f;,\u{13}\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026 {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0>\0protobuf_test_messages.editions.EnumOnlyEmptyOptionEdition2026"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{18}\u{1}\0\0 _\u{19}3-Z[,%,u 0\u{11}@D,MNh\u{16}5h\n\u{1}m}}C:3Ip\u{1d}fs(E\0T_\0Ea'\u{12}7M[4UQ\u{1e}Y\u{3}Culj/\u{e}\u{8}\u{1}{\u{14}\u{15}~\u{e}-!\\ye~2\u{1}#nhf+TC\u{10}<\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026 {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0K\0protobuf_test_messages.editions.EnumEmptyOptionBeforeEmptyStringEdition2026"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{2}\0\0\0? e-ZOj\u{13}Pq\u{14}!s\u{8}zx!B\u{1b})A6\u{1b}$3YiJ#wz\u{16}\u{7f}#8\u{b}VV-|#B\u{e}XI\u{1}\u{10}>;\rK<m5Hh\u{1b}\u{14}\u{11}`BN*W\u{17}\u{12}dJy(l`(Vyw]]\u{b}.\u{15}P008\u{1d}\u{f}WpsqgM\u{10}\u{1d}\u{14}t,4S6\u{16}-~-\u{3}Fb\u{5} g\u{4}/Q\u{c}yM_D3\u{1}9ka\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2026: SwiftProtobuf.GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{5}\0\0\0\0\0\u{2}\0\0\u{6}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\u{a}\0\0\u{10}\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\u{4}\0\0 \u{3}\0\u{2}\0\u{b}\u{5}\0\0\0\u{4}\u{1}\0 \u{4}\0\u{3}\0\u{b}7\0protobuf_test_messages.editions.TestAllTypesEdition2026"
-  private static let _protobuf_reflectionData: Swift.StaticString = "D\u{2}\0\0\u{10}\u{7f}\u{7}*\u{5}ZO\u{2}+\rPLN1,V2\u{7f}7+3oEN!\u{8}n=\u{1d}\u{1c}\u{c}\u{1a}\u{12}\u{8}7\u{e}%\u{3} Nkx\u{15}^\u{4}6LVM\u{1e}za\n\u{4}\0~n\u{11}$8\u{17}0\u{3}Rm\u{5}\u{16}$nzP&\u{8}\u{15}~\u{1f};>\u{10}G]%\u{1}l6\u{11}\u{14}T-f\u{e}\u{1a}rZb-\tlYia\u{13}\0v\u{2}J$d~\"WOpd!fi\u{1a}`\u{2}V6@J8\tRd\u{6}/G|H86\u{1c}\u{18}(\u{6}\u{13}!i<Z\u{17}ce@\u{e}Gz\u{5}$M\u{3}W\u{1b}\r+a6\u{15}\0\0"
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0\0\u{7}\0\0\0\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\u{a}\0\0\u{10}\u{4}\0\u{1}\0\u{e}\u{4}\0\0\0\u{4}\0\0 \u{5}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{1}\0 \u{6}\0\u{5}\0\u{b}\u{6}\0\0\0\0\u{c}\0\0\u{2}\0\u{2}\0\u{e}\u{7}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{e}7\0protobuf_test_messages.editions.TestAllTypesEdition2026"
+  private static let _protobuf_reflectionData: Swift.StaticString = "x\u{3}\0\00\u{1f}9 QZOZ_\u{1e}pW M\u{1a}\u{2}*\u{1b}\u{1e}7=oEN!\u{8}n=\u{1d}\u{1c}\u{c}\u{1a}\u{12}\u{8}7\u{e}\u{7f}$7\u{1e};^\u{19}ph\u{1}\u{1e}x_\u{1a}l\u{13}\u{3}-\u{4}?+R\u{12}V[5\u{5}/\u{14}q`\u{14}f8x>H~Z+ok\u{11}$V\u{1}9d+9  e> TZ#l~FPi)!\u{10}2AK\u{e}n{\u{19}>bQ$\u{c}Eo\u{b}ozCe{\u{19}\u{18}\u{2})~]>L,\u{12}<\u{7f}`'^)rSw\u{7f}gm,xX\u{e}or01\r%j\u{3}\r\u{e}C\u{15}]lV\\}pg,\u{1d}\u{1e}{\u{b}UgIf?Dd%sg\u{2}!Z`cq\u{13}Q-OE2T)8\u{1e}WS/\u{1d}\u{16}%c\u{2}T\u{f}z\u{18}en0Xs@6\n5\tv!\u{8}\u{1b}^qB'h\u{11}U`{220p^a\n\u{13}\u{b}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
   private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .enum(ProtobufTestMessages_Editions_ForeignEnumEdition2026.enumSchema)
-    case 2: return .message(_protobuf_mapEntrySchema_MapStringForeignEnumEntry)
-    case 3: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
+    case 2: return .enum(ProtobufTestMessages_Editions_EnumOnlyEmptyOptionEdition2026.enumSchema)
+    case 3: return .enum(ProtobufTestMessages_Editions_EnumEmptyOptionBeforeEmptyStringEdition2026.enumSchema)
+    case 4: return .message(_protobuf_mapEntrySchema_MapStringForeignEnumEntry)
+    case 5: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }

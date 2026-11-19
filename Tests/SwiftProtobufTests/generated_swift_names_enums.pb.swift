@@ -539,6 +539,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum AnyHashable: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneAnyHashable // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneAnyHashable
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneAnyHashable
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneAnyHashable: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AnyHashable] = [
+      .noneAnyHashable,
+    ]
+
+  }
+
   nonisolated enum AnyMessageExtension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneAnyMessageExtension // = 0
@@ -2875,6 +2905,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.chars] = [
       .noneChars,
+    ]
+
+  }
+
+  nonisolated enum children: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneChildren // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneChildren
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneChildren
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneChildren: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.children] = [
+      .noneChildren,
     ]
 
   }
@@ -7409,6 +7469,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum cursor: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneCursor // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneCursor
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneCursor
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneCursor: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.cursor] = [
+      .noneCursor,
+    ]
+
+  }
+
   nonisolated enum CustomDebugStringConvertible: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneCustomDebugStringConvertible // = 0
@@ -7469,7 +7559,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum data: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum DataEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneData // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -7493,7 +7583,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.data] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.DataEnum] = [
       .noneData,
     ]
 
@@ -8309,6 +8399,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum dest: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneDest // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneDest
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneDest
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneDest: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dest] = [
+      .noneDest,
+    ]
+
+  }
+
   nonisolated enum destroy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneDestroy // = 0
@@ -8695,6 +8815,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateAnyTypeURL] = [
       .noneDuplicateAnyTypeURL,
+    ]
+
+  }
+
+  nonisolated enum duplicateSingularField: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneDuplicateSingularField // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneDuplicateSingularField
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneDuplicateSingularField
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneDuplicateSingularField: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateSingularField] = [
+      .noneDuplicateSingularField,
     ]
 
   }
@@ -9205,6 +9355,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.elementsReader] = [
       .noneElementsReader,
+    ]
+
+  }
+
+  nonisolated enum elseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneElse // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneElse
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneElse
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneElse: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.elseEnum] = [
+      .noneElse,
     ]
 
   }
@@ -10649,6 +10829,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum extensionFieldNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneExtensionFieldNumber // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneExtensionFieldNumber
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneExtensionFieldNumber
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneExtensionFieldNumber: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionFieldNumber] = [
+      .noneExtensionFieldNumber,
+    ]
+
+  }
+
   nonisolated enum ExtensionMap: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneExtensionMap // = 0
@@ -11009,6 +11219,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum FieldBitSet: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneFieldBitSet // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneFieldBitSet
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneFieldBitSet
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneFieldBitSet: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FieldBitSet] = [
+      .noneFieldBitSet,
+    ]
+
+  }
+
   nonisolated enum fieldCount: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneFieldCount // = 0
@@ -11065,6 +11305,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldHasPresence] = [
       .noneFieldHasPresence,
+    ]
+
+  }
+
+  nonisolated enum fieldIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneFieldIndex // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneFieldIndex
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneFieldIndex
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneFieldIndex: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldIndex] = [
+      .noneFieldIndex,
     ]
 
   }
@@ -12745,6 +13015,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fractionalDigits] = [
       .noneFractionalDigits,
+    ]
+
+  }
+
+  nonisolated enum Frame: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneFrame // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneFrame
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneFrame
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneFrame: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Frame] = [
+      .noneFrame,
     ]
 
   }
@@ -14909,32 +15209,32 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum hadFieldsOtherThanValue: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum guardEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
-    case noneHadFieldsOtherThanValue // = 0
+    case noneGuard // = 0
     case UNRECOGNIZED(Swift.Int)
 
     init() {
-      self = .noneHadFieldsOtherThanValue
+      self = .noneGuard
     }
 
     init?(rawValue: Swift.Int) {
       switch rawValue {
-      case 0: self = .noneHadFieldsOtherThanValue
+      case 0: self = .noneGuard
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Swift.Int {
       switch self {
-      case .noneHadFieldsOtherThanValue: return 0
+      case .noneGuard: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hadFieldsOtherThanValue] = [
-      .noneHadFieldsOtherThanValue,
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.guardEnum] = [
+      .noneGuard,
     ]
 
   }
@@ -15059,7 +15359,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum HasBit: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum hasBit: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneHasBit // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -15083,7 +15383,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.HasBit] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasBit] = [
       .noneHasBit,
     ]
 
@@ -15745,6 +16045,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasExtendee] = [
       .noneHasExtendee,
+    ]
+
+  }
+
+  nonisolated enum hasExtensionStorageForTesting: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneHasExtensionStorageForTesting // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneHasExtensionStorageForTesting
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneHasExtensionStorageForTesting
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneHasExtensionStorageForTesting: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasExtensionStorageForTesting] = [
+      .noneHasExtensionStorageForTesting,
     ]
 
   }
@@ -17009,6 +17339,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum hasOverflowStorageForTesting: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneHasOverflowStorageForTesting // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneHasOverflowStorageForTesting
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneHasOverflowStorageForTesting
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneHasOverflowStorageForTesting: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOverflowStorageForTesting] = [
+      .noneHasOverflowStorageForTesting,
+    ]
+
+  }
+
   nonisolated enum hasOverridableFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneHasOverridableFeatures // = 0
@@ -18265,6 +18625,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ignored] = [
       .noneIgnored,
+    ]
+
+  }
+
+  nonisolated enum ignoredEnumKeys: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneIgnoredEnumKeys // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneIgnoredEnumKeys
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneIgnoredEnumKeys
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneIgnoredEnumKeys: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ignoredEnumKeys] = [
+      .noneIgnoredEnumKeys,
     ]
 
   }
@@ -21299,6 +21689,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum lastSlash: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneLastSlash // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneLastSlash
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneLastSlash
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneLastSlash: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.lastSlash] = [
+      .noneLastSlash,
+    ]
+
+  }
+
   nonisolated enum lazy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneLazy // = 0
@@ -22829,7 +23249,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum MessageSchema: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum messageSchemaEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneMessageSchema // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -22853,7 +23273,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageSchema] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageSchemaEnum] = [
       .noneMessageSchema,
     ]
 
@@ -23069,7 +23489,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum messageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum MessageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneMessageStorage // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -23093,7 +23513,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageStorage] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageStorage] = [
       .noneMessageStorage,
     ]
 
@@ -23129,7 +23549,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum MessageType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum messageType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneMessageType // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -23153,7 +23573,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageType] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageType] = [
       .noneMessageType,
     ]
 
@@ -23335,6 +23755,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.min] = [
       .noneMin,
+    ]
+
+  }
+
+  nonisolated enum minimumCapacity: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneMinimumCapacity // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneMinimumCapacity
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneMinimumCapacity
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneMinimumCapacity: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minimumCapacity] = [
+      .noneMinimumCapacity,
     ]
 
   }
@@ -23939,6 +24389,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum nextChildIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneNextChildIndex // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneNextChildIndex
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneNextChildIndex
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneNextChildIndex: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextChildIndex] = [
+      .noneNextChildIndex,
+    ]
+
+  }
+
   nonisolated enum nextLengthDelimitedSlice: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneNextLengthDelimitedSlice // = 0
@@ -24205,6 +24685,66 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.noBytesAvailable] = [
       .noneNoBytesAvailable,
+    ]
+
+  }
+
+  nonisolated enum nodeIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneNodeIndex // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneNodeIndex
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneNodeIndex
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneNodeIndex: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nodeIndex] = [
+      .noneNodeIndex,
+    ]
+
+  }
+
+  nonisolated enum nodes: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneNodes // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneNodes
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneNodes
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneNodes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nodes] = [
+      .noneNodes,
     ]
 
   }
@@ -24719,6 +25259,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum OneOf_Kind: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneOneOfKind // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneOneOfKind
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneOneOfKind
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneOneOfKind: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneOf_Kind] = [
+      .noneOneOfKind,
+    ]
+
+  }
+
   nonisolated enum oneofDecl: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneOneofDecl // = 0
@@ -24865,36 +25435,6 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofs] = [
       .noneOneofs,
-    ]
-
-  }
-
-  nonisolated enum OneOf_Kind: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneOneOfKind // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneOneOfKind
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneOneOfKind
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneOneOfKind: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneOf_Kind] = [
-      .noneOneOfKind,
     ]
 
   }
@@ -25409,6 +25949,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum overflowBits: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneOverflowBits // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneOverflowBits
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneOverflowBits
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneOverflowBits: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.overflowBits] = [
+      .noneOverflowBits,
+    ]
+
+  }
+
   nonisolated enum overridableFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneOverridableFeatures // = 0
@@ -25739,6 +26309,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum parentIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneParentIndex // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneParentIndex
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneParentIndex
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneParentIndex: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parentIndex] = [
+      .noneParentIndex,
+    ]
+
+  }
+
   nonisolated enum parse: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneParse // = 0
@@ -25795,36 +26395,6 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parseDuration] = [
       .noneParseDuration,
-    ]
-
-  }
-
-  nonisolated enum parseJSONBuffer: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneParseJsonbuffer // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneParseJsonbuffer
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneParseJsonbuffer
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneParseJsonbuffer: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parseJSONBuffer] = [
-      .noneParseJsonbuffer,
     ]
 
   }
@@ -25975,6 +26545,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.paths] = [
       .nonePaths,
+    ]
+
+  }
+
+  nonisolated enum pendingSubmessages: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case nonePendingSubmessages // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .nonePendingSubmessages
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .nonePendingSubmessages
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .nonePendingSubmessages: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pendingSubmessages] = [
+      .nonePendingSubmessages,
     ]
 
   }
@@ -26219,36 +26819,6 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum possibleWKTValueJSON: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case nonePossibleWktvalueJson // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .nonePossibleWktvalueJson
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .nonePossibleWktvalueJson
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .nonePossibleWktvalueJson: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.possibleWKTValueJSON] = [
-      .nonePossibleWktvalueJson,
-    ]
-
-  }
-
   nonisolated enum prefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case nonePrefix // = 0
@@ -26335,6 +26905,66 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.preserveProtoFieldNames] = [
       .nonePreserveProtoFieldNames,
+    ]
+
+  }
+
+  nonisolated enum preTypeEndOffset: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case nonePreTypeEndOffset // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .nonePreTypeEndOffset
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .nonePreTypeEndOffset
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .nonePreTypeEndOffset: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.preTypeEndOffset] = [
+      .nonePreTypeEndOffset,
+    ]
+
+  }
+
+  nonisolated enum preTypeStartTokenizer: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case nonePreTypeStartTokenizer // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .nonePreTypeStartTokenizer
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .nonePreTypeStartTokenizer
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .nonePreTypeStartTokenizer: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.preTypeStartTokenizer] = [
+      .nonePreTypeStartTokenizer,
     ]
 
   }
@@ -26429,32 +27059,422 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum ProtobufAPIVersionCheck: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum protobuf_ensureUniqueStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
-    case noneProtobufApiversionCheck // = 0
+    case noneProtobufEnsureUniqueStorage // = 0
     case UNRECOGNIZED(Swift.Int)
 
     init() {
-      self = .noneProtobufApiversionCheck
+      self = .noneProtobufEnsureUniqueStorage
     }
 
     init?(rawValue: Swift.Int) {
       switch rawValue {
-      case 0: self = .noneProtobufApiversionCheck
+      case 0: self = .noneProtobufEnsureUniqueStorage
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Swift.Int {
       switch self {
-      case .noneProtobufApiversionCheck: return 0
+      case .noneProtobufEnsureUniqueStorage: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck] = [
-      .noneProtobufApiversionCheck,
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage] = [
+      .noneProtobufEnsureUniqueStorage,
+    ]
+
+  }
+
+  nonisolated enum protobuf_enumSchemaString: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufEnumSchemaString // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufEnumSchemaString
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufEnumSchemaString
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufEnumSchemaString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_enumSchemaString] = [
+      .noneProtobufEnumSchemaString,
+    ]
+
+  }
+
+  nonisolated enum protobuf_extensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufExtensionStorage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufExtensionStorage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufExtensionStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufExtensionStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorage] = [
+      .noneProtobufExtensionStorage,
+    ]
+
+  }
+
+  nonisolated enum protobuf_get: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufGet // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufGet
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufGet
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufGet: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_get] = [
+      .noneProtobufGet,
+    ]
+
+  }
+
+  nonisolated enum protobuf_getSingular: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufGetSingular // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufGetSingular
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufGetSingular
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufGetSingular: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_getSingular] = [
+      .noneProtobufGetSingular,
+    ]
+
+  }
+
+  nonisolated enum protobuf_mapWitness: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufMapWitness // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufMapWitness
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufMapWitness
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufMapWitness: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_mapWitness] = [
+      .noneProtobufMapWitness,
+    ]
+
+  }
+
+  nonisolated enum protobuf_messageSchemaString: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufMessageSchemaString // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufMessageSchemaString
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufMessageSchemaString
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufMessageSchemaString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageSchemaString] = [
+      .noneProtobufMessageSchemaString,
+    ]
+
+  }
+
+  nonisolated enum protobuf_messageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufMessageStorage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufMessageStorage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufMessageStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufMessageStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageStorage] = [
+      .noneProtobufMessageStorage,
+    ]
+
+  }
+
+  nonisolated enum protobuf_reflectionData: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufReflectionData // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufReflectionData
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufReflectionData
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufReflectionData: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_reflectionData] = [
+      .noneProtobufReflectionData,
+    ]
+
+  }
+
+  nonisolated enum protobuf_resolveReflection: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufResolveReflection // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufResolveReflection
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufResolveReflection
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufResolveReflection: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_resolveReflection] = [
+      .noneProtobufResolveReflection,
+    ]
+
+  }
+
+  nonisolated enum protobuf_resolveSubmessageOrEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufResolveSubmessageOrEnum // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufResolveSubmessageOrEnum
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufResolveSubmessageOrEnum
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufResolveSubmessageOrEnum: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_resolveSubmessageOrEnum] = [
+      .noneProtobufResolveSubmessageOrEnum,
+    ]
+
+  }
+
+  nonisolated enum protobuf_set: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufSet // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufSet
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufSet
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufSet: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_set] = [
+      .noneProtobufSet,
+    ]
+
+  }
+
+  nonisolated enum protobuf_setSingular: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufSetSingular // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufSetSingular
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufSetSingular
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufSetSingular: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_setSingular] = [
+      .noneProtobufSetSingular,
+    ]
+
+  }
+
+  nonisolated enum protobuf_uniqueExtensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufUniqueExtensionStorage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufUniqueExtensionStorage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufUniqueExtensionStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufUniqueExtensionStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage] = [
+      .noneProtobufUniqueExtensionStorage,
     ]
 
   }
@@ -26485,6 +27505,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2] = [
       .noneProtobufApiversion2,
+    ]
+
+  }
+
+  nonisolated enum ProtobufAPIVersionCheck: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufApiversionCheck // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufApiversionCheck
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufApiversionCheck
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufApiversionCheck: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck] = [
+      .noneProtobufApiversionCheck,
     ]
 
   }
@@ -27415,426 +28465,6 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufUInt64] = [
       .noneProtobufUint64,
-    ]
-
-  }
-
-  nonisolated enum protobuf_ensureUniqueStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufEnsureUniqueStorage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufEnsureUniqueStorage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufEnsureUniqueStorage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufEnsureUniqueStorage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage] = [
-      .noneProtobufEnsureUniqueStorage,
-    ]
-
-  }
-
-  nonisolated enum protobuf_enumSchemaString: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufEnumSchemaString // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufEnumSchemaString
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufEnumSchemaString
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufEnumSchemaString: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_enumSchemaString] = [
-      .noneProtobufEnumSchemaString,
-    ]
-
-  }
-
-  nonisolated enum protobuf_extensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufExtensionStorage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufExtensionStorage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufExtensionStorage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufExtensionStorage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorage] = [
-      .noneProtobufExtensionStorage,
-    ]
-
-  }
-
-  nonisolated enum protobuf_get: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufGet // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufGet
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufGet
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufGet: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_get] = [
-      .noneProtobufGet,
-    ]
-
-  }
-
-  nonisolated enum protobuf_getSingular: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufGetSingular // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufGetSingular
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufGetSingular
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufGetSingular: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_getSingular] = [
-      .noneProtobufGetSingular,
-    ]
-
-  }
-
-  nonisolated enum protobuf_mapWitness: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufMapWitness // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufMapWitness
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufMapWitness
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufMapWitness: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_mapWitness] = [
-      .noneProtobufMapWitness,
-    ]
-
-  }
-
-  nonisolated enum protobuf_messageSchemaString: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufMessageSchemaString // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufMessageSchemaString
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufMessageSchemaString
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufMessageSchemaString: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageSchemaString] = [
-      .noneProtobufMessageSchemaString,
-    ]
-
-  }
-
-  nonisolated enum protobuf_messageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufMessageStorage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufMessageStorage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufMessageStorage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufMessageStorage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageStorage] = [
-      .noneProtobufMessageStorage,
-    ]
-
-  }
-
-  nonisolated enum protobuf_reflectionData: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufReflectionData // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufReflectionData
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufReflectionData
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufReflectionData: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_reflectionData] = [
-      .noneProtobufReflectionData,
-    ]
-
-  }
-
-  nonisolated enum protobuf_resolveReflection: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufResolveReflection // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufResolveReflection
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufResolveReflection
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufResolveReflection: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_resolveReflection] = [
-      .noneProtobufResolveReflection,
-    ]
-
-  }
-
-  nonisolated enum protobuf_resolveSubmessageOrEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufResolveSubmessageOrEnum // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufResolveSubmessageOrEnum
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufResolveSubmessageOrEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufResolveSubmessageOrEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_resolveSubmessageOrEnum] = [
-      .noneProtobufResolveSubmessageOrEnum,
-    ]
-
-  }
-
-  nonisolated enum protobuf_set: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufSet // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufSet
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufSet
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufSet: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_set] = [
-      .noneProtobufSet,
-    ]
-
-  }
-
-  nonisolated enum protobuf_setSingular: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufSetSingular // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufSetSingular
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufSetSingular
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufSetSingular: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_setSingular] = [
-      .noneProtobufSetSingular,
-    ]
-
-  }
-
-  nonisolated enum protobuf_uniqueExtensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufUniqueExtensionStorage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufUniqueExtensionStorage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufUniqueExtensionStorage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufUniqueExtensionStorage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage] = [
-      .noneProtobufUniqueExtensionStorage,
     ]
 
   }
@@ -29009,6 +29639,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum remaining: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneRemaining // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneRemaining
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneRemaining
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneRemaining: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.remaining] = [
+      .noneRemaining,
+    ]
+
+  }
+
   nonisolated enum removalError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneRemovalError // = 0
@@ -29279,6 +29939,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum replaceMessageFields: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneReplaceMessageFields // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneReplaceMessageFields
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneReplaceMessageFields
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneReplaceMessageFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.replaceMessageFields] = [
+      .noneReplaceMessageFields,
+    ]
+
+  }
+
   nonisolated enum replaceRepeatedFields: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneReplaceRepeatedFields // = 0
@@ -29485,6 +30175,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.resetForTesting] = [
       .noneResetForTesting,
+    ]
+
+  }
+
+  nonisolated enum resolved: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneResolved // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneResolved
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneResolved
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneResolved: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.resolved] = [
+      .noneResolved,
     ]
 
   }
@@ -29879,6 +30599,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum rootSchema: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneRootSchema // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneRootSchema
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneRootSchema
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneRootSchema: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rootSchema] = [
+      .noneRootSchema,
+    ]
+
+  }
+
   nonisolated enum rubyPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneRubyPackage // = 0
@@ -30025,6 +30775,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection5Characters] = [
       .noneSawSection5Characters,
+    ]
+
+  }
+
+  nonisolated enum sawValueKey: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneSawValueKey // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneSawValueKey
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneSawValueKey
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneSawValueKey: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawValueKey] = [
+      .noneSawValueKey,
     ]
 
   }
@@ -30179,6 +30959,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum seenExtensions: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneSeenExtensions // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneSeenExtensions
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneSeenExtensions
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneSeenExtensions: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seenExtensions] = [
+      .noneSeenExtensions,
+    ]
+
+  }
+
   nonisolated enum seenFields: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneSeenFields // = 0
@@ -30205,6 +31015,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seenFields] = [
       .noneSeenFields,
+    ]
+
+  }
+
+  nonisolated enum seenSingularFields: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneSeenSingularFields // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneSeenSingularFields
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneSeenSingularFields
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneSeenSingularFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seenSingularFields] = [
+      .noneSeenSingularFields,
     ]
 
   }
@@ -31859,36 +32699,6 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum split: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneSplit // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneSplit
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneSplit
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneSplit: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.split] = [
-      .noneSplit,
-    ]
-
-  }
-
   nonisolated enum stable: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneStable // = 0
@@ -31915,6 +32725,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stable] = [
       .noneStable,
+    ]
+
+  }
+
+  nonisolated enum stack: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneStack // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneStack
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneStack
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneStack: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stack] = [
+      .noneStack,
     ]
 
   }
@@ -32579,7 +33419,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum SubmessageOrEnumResolver: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum submessageOrEnumResolver: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneSubmessageOrEnumResolver // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -32603,7 +33443,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SubmessageOrEnumResolver] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.submessageOrEnumResolver] = [
       .noneSubmessageOrEnumResolver,
     ]
 
@@ -32755,36 +33595,6 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subOptions] = [
       .noneSubOptions,
-    ]
-
-  }
-
-  nonisolated enum subPaths: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneSubPaths // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneSubPaths
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneSubPaths
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneSubPaths: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subPaths] = [
-      .noneSubPaths,
     ]
 
   }
@@ -34469,7 +35279,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum TypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum type: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneType // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -34493,7 +35303,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TypeEnum] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.type] = [
       .noneType,
     ]
 
@@ -35275,36 +36085,6 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Unmanaged] = [
       .noneUnmanaged,
-    ]
-
-  }
-
-  nonisolated enum UnsafeBufferPointer: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneUnsafeBufferPointer // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneUnsafeBufferPointer
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneUnsafeBufferPointer
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneUnsafeBufferPointer: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnsafeBufferPointer] = [
-      .noneUnsafeBufferPointer,
     ]
 
   }
@@ -36659,7 +37439,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum Version: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum version: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneVersion // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -36683,7 +37463,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Version] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.version] = [
       .noneVersion,
     ]
 
@@ -36779,6 +37559,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum visitedOrder: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneVisitedOrder // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneVisitedOrder
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneVisitedOrder
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneVisitedOrder: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.visitedOrder] = [
+      .noneVisitedOrder,
+    ]
+
+  }
+
   nonisolated enum Void: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneVoid // = 0
@@ -36809,32 +37619,32 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
-  nonisolated enum wasEmpty: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum wasDuplicate: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
-    case noneWasEmpty // = 0
+    case noneWasDuplicate // = 0
     case UNRECOGNIZED(Swift.Int)
 
     init() {
-      self = .noneWasEmpty
+      self = .noneWasDuplicate
     }
 
     init?(rawValue: Swift.Int) {
       switch rawValue {
-      case 0: self = .noneWasEmpty
+      case 0: self = .noneWasDuplicate
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Swift.Int {
       switch self {
-      case .noneWasEmpty: return 0
+      case .noneWasDuplicate: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wasEmpty] = [
-      .noneWasEmpty,
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wasDuplicate] = [
+      .noneWasDuplicate,
     ]
 
   }
@@ -37439,6 +38249,66 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unc
 
   }
 
+  nonisolated enum wordIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneWordIndex // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneWordIndex
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneWordIndex
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneWordIndex: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wordIndex] = [
+      .noneWordIndex,
+    ]
+
+  }
+
+  nonisolated enum words: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneWords // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneWords
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneWords
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneWords: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.words] = [
+      .noneWords,
+    ]
+
+  }
+
   nonisolated enum workingSpace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneWorkingSpace // = 0
@@ -37740,6 +38610,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.an
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AnyExtensionField {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.AnyExtensionField"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;5;cbeep\u{5}\0NWu(0'\u{4};a]\\Ex2l\u{1}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AnyHashable {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.AnyHashable"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;cb%&*\u{1c}\u{15}d61\u{1e}z7Wh\u{1d}\\\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -38208,6 +39084,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Ch
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.chars {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.chars"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07qqRn\u{19}fH-:\u{1d}c\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.children {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.children"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07Q2#-R<\u{11}\u{1a}\0V\u{13}z\r_\u{5}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -39117,6 +39999,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.cu
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.cursor {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.cursor"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G\u{11}6f.VDU%\u{13}\u{e}kF\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CustomDebugStringConvertible {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.CustomDebugStringConvertible"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}geMB\nf\0\u{7f}\u{e}0b\u{1d}n|\u{7f}|\u{1}5zOsTg(s\u{1}nVPX;x\u{5}\0"
@@ -39129,9 +40017,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Cu
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.data {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.data"
-  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}2WS\u{c}:@6Y\0B?\0\0\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.DataEnum {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Data"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}'\u{6}t`J\u{1a}\u{10}6Y\0B?\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -39297,6 +40185,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.de
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dest {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.dest"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{12}1W{+;\u{1b}\u{7}2\0c\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.destroy {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.destroy"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{12}1Wd&A\"Q$~Q\u{2}\u{16}\u{2}\0\0"
@@ -39372,6 +40266,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.do
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateAnyTypeURL {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.duplicateAnyTypeURL"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;57#\u{e}ZI\u{6}WXah\u{13}ufX8\u{1b}qn\u{12}\u{1b}=T+..i\u{b}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateSingularField {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.duplicateSingularField"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;57#\u{e}ZI\u{6}WXapE3*Z]\u{2}:pH\"KMjcR?$\u{e}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -39474,6 +40374,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.el
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.elementsReader {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.elementsReader"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;~QO\u{19}V\u{1b}FMC?8\u{1d}]\u{15}Pjf\u{8}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.elseEnum {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.else"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}SbgD*\u{11}6Y\0B?\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -39765,6 +40671,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Ex
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionFieldNumber {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.extensionFieldNumber"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;57C^\u{1}k\u{1c}B\u{5}W\u{1d}GQEC-\u{1e}RcXn\"g\u{e}IMH\u{1}\u{1b}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtensionMap {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ExtensionMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;S#\u{2}zLU)\u{1}.=\u{7f}\u{c}{PZ\u{14}mg\u{c}\0"
@@ -39837,6 +40749,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fi
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FieldBitSet {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.FieldBitSet"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;s3U\u{1d}[,{dQ\u{16}0G^]\u{15}\u{c}:\u{6}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldCount {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldCount"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS_*?Wq2eIkegr\u{8}\u{3}\0\0"
@@ -39846,6 +40764,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fi
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldHasPresence {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldHasPresence"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;57SnQ\u{2}{\u{4}\u{1c}n&Sbh?\u{12}:\u{c}-\u{15}lQ,b\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldIndex {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldIndex"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS_*?OJOcUR\u{8}\u{3}\u{c}A\u{4}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -40182,6 +41106,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fo
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fractionalDigits {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fractionalDigits"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;57S.=pQ\u{12}xj&>`#Aqhs>Z< yf\u{1}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Frame {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Frame"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}ghr;gK?J-:\u{1d}c\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -40617,9 +41547,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.gr
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hadFieldsOtherThanValue {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hadFieldsOtherThanValue"
-  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0'uKw._9\u{b}\u{c}\tu\u{1e}[[%!`Q\u{1b}-\\{\u{1d}#gA~\u{14}N\u{1}"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.guardEnum {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.guard"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0WTjY\u{e}%NN}\u{1c}\u{1b}[\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -40647,9 +41577,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ha
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.HasBit {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.HasBit"
-  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}\nwub\u{7f}\u{7}\nE^\u{2}-\0\0\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasBit {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasBit"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{13}\u{3}S5:_\t\u{1}yB\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -40782,6 +41712,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ha
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasExtendee {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasExtendee"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oM1\u{1e}8r\u{2}iHILie\u{2}Q6\u{2}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasExtensionStorageForTesting {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0W\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasExtensionStorageForTesting"
+  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{15}\u{f}W^\r=qB]f;\\\u{10}n+\u{12}\u{4}\"&%XpV(dP5{\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -41037,6 +41973,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ha
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOverflowStorageForTesting {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasOverflowStorageForTesting"
+  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{1a})o{}WWsi*SI;mB}gS\"}r04>c\u{8}{\u{2}f\u{6}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOverridableFeatures {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasOverridableFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}om2gb\u{19}xp\u{1d}q i#\\\u{11}\u{10}_\u{18}5#i\u{18}.\u{1d}\u{6}\u{18}\0"
@@ -41286,6 +42228,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.if
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ignored {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ignored"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{16}y)vv|#C-~Q\u{2}\u{16}\u{2}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ignoredEnumKeys {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ignoredEnumKeys"
+  private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{1b}/9K\u{1}I\u{12}\u{6}\u{19}\u{1a}\u{c}d\u{15}o\u{10}.3S\u{5}TU\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -41895,6 +42843,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.la
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.lastSlash {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.lastSlash"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07XBf\u{1b}FS>9m\u{1b}\\-U\u{3}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.lazy {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.lazy"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07\u{18}CU\u{13}\u{1a}*\\$\0[Q\0\0\0"
@@ -42201,9 +43155,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.me
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageSchema {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MessageSchema"
-  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;#U*\u{1c}\u{17}zN\u{11}i6^vk`-{\u{7f}&\u{f}"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageSchemaEnum {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageSchema"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}P%q>@g\u{18}Rz\u{7}6%z,ZI\u{5}\u{1a}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42249,9 +43203,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.me
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageStorage {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageStorage"
-  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}P%q>@gPck?\u{2}h\u{b}F!J\r\u{8}\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageStorage {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MessageStorage"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;#U*\u{1c}\u{17}zNAzg#3}LW5\u{1a}P\u{1d}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42261,9 +43215,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Me
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MessageType"
-  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;#U*\u{1c}\u{17}zP\t\u{10}S|%X\u{e}O 5\u{2}\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageType {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageType"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}P%q>@i\u{18}\u{11}\u{6}\u{1a}ZdP+\u{1a}\u{7}\u{5}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42300,6 +43254,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.me
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.min {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.min"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{19}y<_AUM?u\u{8}\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minimumCapacity {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.minimumCapacity"
+  private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{3}`Ja=1\u{f}\u{12}\0 =Eh_\u{11}\u{8}*_B\u{f}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42423,6 +43383,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ne
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextChildIndex {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextChildIndex"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}@\t\u{18}\"\u{1c}jGgRi\u{8}\u{5}!T'\r\u{f}\u{13}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextLengthDelimitedSlice {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextLengthDelimitedSlice"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0wYr\u{4}p\u{12}KqP\u{f}4\u{1c}k|hy\u{12}u\u{4}U\u{7f}S!Q_F(\u{19}7\0\0"
@@ -42474,6 +43440,18 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ni
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.noBytesAvailable {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.noBytesAvailable"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}`wy0&EG/OA\u{8}Y%ELKV\u{1e}/p^\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nodeIndex {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nodeIndex"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}zi mTm\u{12}\"7Px(Y\u{2}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nodes {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nodes"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}zi >Z|M}\u{1c}\u{1b}[\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42579,6 +43557,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.of
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneOf_Kind {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.OneOf_Kind"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}7q\u{7f}fx(w]i\u{14}\n=m\r\u{12}\u{7}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofDecl {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.oneofDecl"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gzlw\u{19}~WfUD\u{14};B\u{1e}\u{1a}\u{7}\0"
@@ -42606,12 +43590,6 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.On
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofs {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.oneofs"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gzlw\u{19}\0mp.N*Qh\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneOf_Kind {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.OneOf_Kind"
-  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}7q\u{7f}fx(w]i\u{14}\n=m\r\u{12}\u{7}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42717,6 +43695,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ou
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.overflowBits {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.overflowBits"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;; DA^CwJ\u{1e}3\u{5}\u{3}+dH}`R\u{1e}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.overridableFeatures {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.overridableFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;; DAgJ]5\u{11};\\\u{19}8s\u{b}cF\u{19}'n[Fyk\u{c}\r\0"
@@ -42783,6 +43767,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pa
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parentIndex {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.parentIndex"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KPk{z\tWgrcM4oE\tl\u{1f}\u{3}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parse {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.parse"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07;x\u{19}zK~K-:\u{1d}c\0\0\0"
@@ -42792,12 +43782,6 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pa
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parseDuration {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.parseDuration"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KPK}eMH[~/B\u{18}Zihv>\t\u{1c}\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parseJSONBuffer {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.parseJSONBuffer"
-  private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;5;KPK}em\\#\"\r\u{13}X8HcQ5\u{15}\u{4}\u{f}\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42828,6 +43812,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pa
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.paths {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.paths"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07;8X\u{4}\u{b}EI-:\u{1d}c\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pendingSubmessages {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.pendingSubmessages"
+  private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;5;K`\u{10}.$5\u{13}C\u{e}i~4i>\roZ\u{1}\u{1}\"~\u{c}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42879,12 +43869,6 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.po
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.possibleWKTValueJSON {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.possibleWKTValueJSON"
-  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;Kp}Jo+tCH\u{14}sC1T2l(Q\u{1f}]\u{1e}9\u{7}p'/\u{7}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.prefix {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.prefix"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W\u{1b}Te\u{1e}F7_R\t\u{1}yB\0\0"
@@ -42900,6 +43884,18 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pr
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.preserveProtoFieldNames {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.preserveProtoFieldNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W\u{1b}Tkl\u{7f}mmO\u{2}y>%\u{1c}To\u{6}4-[K>oq\u{17}#1\u{1c}\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.preTypeEndOffset {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.preTypeEndOffset"
+  private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;5;S`\u{2}ce6{\tS!d\u{3}\u{1d}i\u{1}H\u{e},\u{17}\u{1e}G6\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.preTypeStartTokenizer {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.preTypeStartTokenizer"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;S`\u{2}ce6\u{13}r(H\u{1f}\rx\n\u{e}q\u{8}$uR=o>\u{8}\u{1b}d\u{7}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -42921,15 +43917,99 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pr
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck"
-  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}w\u{12}\"qz\u{2}\u{1d}6+Ytz.\u{18}c*-T{c\u{5}-\u{11}`\u{15}H\u{e}\u{18}\u{4}\0\0\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage"
+  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;dQ]<\ns\u{2}Mj\u{4}\u{3}t=,b||f\u{3}a`&0fN\u{e}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_enumSchemaString {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_enumSchemaString"
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;dQ}<)\u{12}\u{f}['':\u{10}J1T\u{7}ick2Wx\u{8}\u{2}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorage {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_extensionStorage"
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;d\u{1}\u{1e}KD;50\u{1a}\u{f}\u{18}W^V\u{1a}\u{13}i\u{1b}0>4,\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_get {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_get"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spb4u\u{8}f\"~X\u{f}\\^c9\u{14}nr\u{8}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_getSingular {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_getSingular"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;Spb4u\u{8}f\"~X\u{f}\u{15}LQ\u{f}h\u{17}MVbG>\u{10}o\n\r\u{8}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_mapWitness {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_mapWitness"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;Spb4u\u{8}f\"\u{1e}k&O*1|ChKwn\u{2}j\u{3}b$\u{e}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageSchemaString {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_messageSchemaString"
+  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{1}+N[p\u{1f}@V\u{b}u\u{b}a)_|DZi`o\u{14}a#m\u{b}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageStorage {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_messageStorage"
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{1}+N[p\u{1f}D>Q7Y&'\u{f}\n)W\u{1d}Ht\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_reflectionData {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_reflectionData"
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{11}\u{17}AU:<{S3KZfDtS\u{17}yy_\u{4}0\u{1}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_resolveReflection {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_resolveReflection"
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{11}\u{17}E\r\u{13}\u{1b}FKocfjM\u{10}?2kkc*\n\u{1}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_resolveSubmessageOrEnum {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Z\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_resolveSubmessageOrEnum"
+  private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aFD~A\u{b}u\u{8}f&\u{1e}\u{e}\u{17}sp[\nEE\u{8}\ry\u{7}\u{15}]2B\u{5}62zM'S\u{19}`\t\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_set {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_set"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spb4u\u{8}f\"~\u{1e}\u{16}p^c9\u{14}nr\u{8}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_setSingular {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_setSingular"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;Spb4u\u{8}f\"~\u{1e}\u{16}iJU\u{18}#\"L)S\u{1b}K\u{12}\u{2};)\u{f}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage"
+  private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aFD~A\u{b}u\u{8}f*\u{1e}\0ecXY2\u{10}Im|\u{f}4,\r\tT<r0\u{1}KB#k\u{8}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufAPIVersion_2"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}kSwqC\u{2}VX\u{1e}\u{1d}O`mqm\u{1c}!s\u{1a}\u{13}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck"
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}w\u{12}\"qz\u{2}\u{1d}6+Ytz.\u{18}c*-T{c\u{5}-\u{11}`\u{15}H\u{e}\u{18}\u{4}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -43116,90 +44196,6 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Pr
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufUInt64 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufUInt64"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}O\\\u{14}/0fNFJo\u{4}\u{3}\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage"
-  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;dQ]<\ns\u{2}Mj\u{4}\u{3}t=,b||f\u{3}a`&0fN\u{e}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_enumSchemaString {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_enumSchemaString"
-  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;dQ}<)\u{12}\u{f}['':\u{10}J1T\u{7}ick2Wx\u{8}\u{2}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorage {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_extensionStorage"
-  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;d\u{1}\u{1e}KD;50\u{1a}\u{f}\u{18}W^V\u{1a}\u{13}i\u{1b}0>4,\0\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_get {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_get"
-  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spb4u\u{8}f\"~X\u{f}\\^c9\u{14}nr\u{8}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_getSingular {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_getSingular"
-  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;Spb4u\u{8}f\"~X\u{f}\u{15}LQ\u{f}h\u{17}MVbG>\u{10}o\n\r\u{8}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_mapWitness {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_mapWitness"
-  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;Spb4u\u{8}f\"\u{1e}k&O*1|ChKwn\u{2}j\u{3}b$\u{e}\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageSchemaString {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_messageSchemaString"
-  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{1}+N[p\u{1f}@V\u{b}u\u{b}a)_|DZi`o\u{14}a#m\u{b}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageStorage {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_messageStorage"
-  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{1}+N[p\u{1f}D>Q7Y&'\u{f}\n)W\u{1d}Ht\0\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_reflectionData {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_reflectionData"
-  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{11}\u{17}AU:<{S3KZfDtS\u{17}yy_\u{4}0\u{1}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_resolveReflection {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_resolveReflection"
-  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{11}\u{17}E\r\u{13}\u{1b}FKocfjM\u{10}?2kkc*\n\u{1}\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_resolveSubmessageOrEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Z\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_resolveSubmessageOrEnum"
-  private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aFD~A\u{b}u\u{8}f&\u{1e}\u{e}\u{17}sp[\nEE\u{8}\ry\u{7}\u{15}]2B\u{5}62zM'S\u{19}`\t\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_set {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_set"
-  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spb4u\u{8}f\"~\u{1e}\u{16}p^c9\u{14}nr\u{8}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_setSingular {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_setSingular"
-  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;Spb4u\u{8}f\"~\u{1e}\u{16}iJU\u{18}#\"L)S\u{1b}K\u{12}\u{2};)\u{f}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage"
-  private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aFD~A\u{b}u\u{8}f*\u{1e}\0ecXY2\u{10}Im|\u{f}4,\r\tT<r0\u{1}KB#k\u{8}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -43437,6 +44433,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.re
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.remaining {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.remaining"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}=g:}S:MeS\t|01\u{1}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.removalError {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.removalError"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{ 8\\y+\u{1a}q4T\u{1}?kRO\u{7}_\u{6}\0"
@@ -43491,6 +44493,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.re
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.replaceMessageFields {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.replaceMessageFields"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;{ Xu\u{f}v3H\u{b}t\nKJXB\u{17}cO\u{6}\u{6}\tG04N\r\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.replaceRepeatedFields {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.replaceRepeatedFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;{ Xu\u{f}v9@\u{8}\u{1e}Hl\"\u{b}<wH_e\u{8}lX\u{2}2B\u{6}\0\0"
@@ -43530,6 +44538,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.re
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.resetForTesting {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.resetForTesting"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;5;{0X\u{16}~YhqT%\u{2}7FMp!7\u{15}\u{4}\u{f}\u{7}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.resolved {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.resolved"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}}g./d=M\u{5};U#\u{15}\u{3}\n\u{7}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -43611,6 +44625,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ro
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rootSchema {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rootSchema"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{1d}[*\u{5})\u{1c}\twz\u{17}SPE0\u{5}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rubyPackage {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rubyPackage"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}\u{11}\u{e}BHpj!O=+#\u{6}\u{11}\u{11}J\u{16}\r\0\0"
@@ -43638,6 +44658,12 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sa
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection5Characters {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sawSection5Characters"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{1}W\u{1b}a}XNpX\u{18}Ig'\u{1f}U.PL\u{1}\n\u{2}o(yC\u{2}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawValueKey {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sawValueKey"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{1}\u{17}\u{1c}\u{3}*m\u{e}R_Ct/\u{e};\u{1c}[\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -43671,9 +44697,21 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.se
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seenExtensions {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.seenExtensions"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}q;\u{c}\u{7f}j8\u{8}l]eGW16k1\u{f}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seenFields {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.seenFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g\u{1d}tmMZT\0|\u{6}$|01\u{1}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seenSingularFields {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.seenSingularFields"
+  private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{13}q[\u{c}\u{17}npMp\u{7f}Q\u{2}\u{3}P\u{13}\u{13}7\u{e}\u{7f}@sL\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -44007,15 +45045,15 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sp
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.split {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.split"
-  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w=-\\dEDK-:\u{1d}c\0\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stable {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.stable"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^F\u{1}q3?\u{18}1B\u{3}_v\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stack {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.stack"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^\u{6}\u{2}JOMK-:\u{1d}c\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -44151,9 +45189,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.su
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SubmessageOrEnumResolver {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.SubmessageOrEnumResolver"
-  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}'\u{15}Y-\r|2m\u{f}`QyERqBsN\"5st\0]*%\u{2}|\u{8}\u{1}\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.submessageOrEnumResolver {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.submessageOrEnumResolver"
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^\u{b}{.\0\u{13}\u{16}:F05}\u{1e}d--O\u{10}\u{12}Ar3\u{4}lx94M\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -44184,12 +45222,6 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.su
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subOptions {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.subOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}~\u{b}\tM\u{3}x!&Hlz!lX\u{6}\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subPaths {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.subPaths"
-  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}~\u{b}\n&\u{4}\u{4}-\u{6}Kp#Ia\u{7}\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -44529,9 +45561,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.tr
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TypeEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Type"
-  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}\u{16}<$3^\u{4}T}MTs\0\0\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.type {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.type"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g^nqU\0\t_$\0[Q\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -44688,12 +45720,6 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.un
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Unmanaged {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Unmanaged"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}gVP\u{5}q&\u{13}M%~O{X\u{1d}\u{1}\0\0"
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
-}
-
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnsafeBufferPointer {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnsafeBufferPointer"
-  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0)x@\u{8}/;5;37?1(\r[x\u{c}K\temXV\t}p/\u{1a}y*-]z\u{4}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -44967,9 +45993,9 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ve
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Version {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Version"
-  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}7woGl76k\r&~Q\u{2}\u{16}\u{2}\0\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.version {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.version"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17} ]Bl76k\r&~Q\u{2}\u{16}\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -44991,15 +46017,21 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Vi
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.visitedOrder {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.visitedOrder"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;cA,\u{16}y\"\u{15}zdc-x\u{1e}\\R!@W\u{15}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Void {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Void"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}Gwb'@\u{7f}\0P\u{14}\u{1d}\u{1f}?\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wasEmpty {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.wasEmpty"
-  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}w\0Vu\u{5}W\u{7f}5\u{e}NA0ZkM\u{3}\0"
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wasDuplicate {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.wasDuplicate"
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{q\u{5}\u{1a}O=\u{f}R!o4\u{3}qqI}`R\u{1e}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -45120,6 +46152,18 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wi
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.witness {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.witness"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}w@\u{7f}#@=}g\u{3}%O\u{b}%L\u{3}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wordIndex {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.wordIndex"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}!^Jt[Tx\u{11}\u{17}\u{2}>\u{10}\\`\u{7}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.words {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.words"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}!^JBwLH-:\u{1d}c\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
