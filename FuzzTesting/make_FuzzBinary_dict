@@ -17,12 +17,14 @@ enum Matchers {
   case contains(String, WireFormat)
   case contains2(String, WireFormat, WireFormat)
   case containsAndPackable(String, WireFormat)
+  case messageSetExtension(String)
 }
 
 // The order of these matters since it is first match that is used.
 let tests: [Matchers] = [
   .prefix("wkt", .lengthDelimited),
   .prefix("map", .lengthDelimited),
+  .messageSetExtension("message_set_extension"),
   .contains2("Group", .startGroup, .endGroup),
   .containsAndPackable("float", .fixed32),
   .containsAndPackable("double", .fixed64),
@@ -50,9 +52,17 @@ func escapedVarint(_ x: Int) -> String {
   return escaped
 }
 
+var emittedTokens = Set<String>()
+
+func outputToken(_ token: String) {
+  if emittedTokens.insert(token).inserted {
+    print("\"\(token)\"")
+  }
+}
+
 func outputTag(_ fieldNum: Int, as wireformat: WireFormat) {
   let tag = UInt32(truncatingIfNeeded: fieldNum) << 3 | UInt32(wireformat.rawValue)
-  print("\"\(escapedVarint(Int(tag)))\"")
+  outputToken(escapedVarint(Int(tag)))
 }
 
 if CommandLine.arguments.count != 2 {
@@ -63,7 +73,7 @@ if CommandLine.arguments.count != 2 {
 print("# Tags for all the fields")
 
 let protoFile = try! String(contentsOfFile: CommandLine.arguments[1], encoding: .utf8)
-let re = try NSRegularExpression(pattern: #"^ *.+ +(\w+) += (\d+)"#,
+let re = try NSRegularExpression(pattern: #"^ *.+ +(\w+) += +(\d+)"#,
                                  options: [.anchorsMatchLines])
 let range = NSRange(protoFile.startIndex..<protoFile.endIndex, in: protoFile)
 re.enumerateMatches(in: protoFile, options: [], range: range) { (match, _, _) in
@@ -72,10 +82,10 @@ re.enumerateMatches(in: protoFile, options: [], range: range) { (match, _, _) in
 
   let fieldName = protoFile[Range(match.range(at: 1), in: protoFile)!]
   let fieldNum = Int(protoFile[Range(match.range(at: 2), in: protoFile)!])!
-  
+
   // The regex matches enum cases, so skip those.
   guard fieldName.uppercased() != fieldName else { return }
-  
+
   for test in tests {
     switch test {
       case .prefix(let s, let wf):
@@ -106,6 +116,17 @@ re.enumerateMatches(in: protoFile, options: [], range: range) { (match, _, _) in
           if fieldName.contains("repeated") {
             outputTag(fieldNum, as: .lengthDelimited)
           }
+          return
+        }
+      case .messageSetExtension(let s):
+        if fieldName == s {
+          // MessageSet wire format encodes extensions inside repeated group Item = 1
+          // containing required int32 type_id = 2 and required message = 3.
+          outputTag(1, as: .startGroup)
+          outputTag(1, as: .endGroup)
+          outputTag(2, as: .varint)
+          outputTag(3, as: .lengthDelimited)
+          outputToken(escapedVarint(fieldNum))
           return
         }
     }
