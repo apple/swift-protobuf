@@ -45,6 +45,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
   case blank // = 4
   case escapes // = 5
   case six // = 6
+  case sameAsName // = 7
   static let somethingSpecialAlias = somethingSpecial
   case UNRECOGNIZED(Swift.Int)
 
@@ -61,6 +62,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     case 4: self = .blank
     case 5: self = .escapes
     case 6: self = .six
+    case 7: self = .sameAsName
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -74,6 +76,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     case .blank: return 4
     case .escapes: return 5
     case .six: return 6
+    case .sameAsName: return 7
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -87,6 +90,114 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     .blank,
     .escapes,
     .six,
+    .sameAsName,
+  ]
+
+}
+
+/// Vendored protoc (v36.2) checks custom JSON string uniqueness across empty
+/// `(pb.enumvalue.json) = {}` options as if `.string` were `""`, so each enum
+/// below exercises at most one enum number with an empty option.
+nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Swift.Int
+  case unspecified // = 0
+  case other // = 1
+  case UNRECOGNIZED(Swift.Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Swift.Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .other
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Swift.Int {
+    switch self {
+    case .unspecified: return 0
+    case .other: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero] = [
+    .unspecified,
+    .other,
+  ]
+
+}
+
+nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Swift.Int
+  case unspecified // = 0
+  case emptyFirst // = 1
+  static let omittedSecond = emptyFirst
+  case UNRECOGNIZED(Swift.Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Swift.Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .emptyFirst
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Swift.Int {
+    switch self {
+    case .unspecified: return 0
+    case .emptyFirst: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased] = [
+    .unspecified,
+    .emptyFirst,
+  ]
+
+}
+
+nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Swift.Int
+  case unspecified // = 0
+  case omitted // = 1
+  static let empty = omitted
+  case UNRECOGNIZED(Swift.Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Swift.Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .omitted
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Swift.Int {
+    switch self {
+    case .unspecified: return 0
+    case .omitted: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst] = [
+    .unspecified,
+    .omitted,
   ]
 
 }
@@ -105,6 +216,33 @@ nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMe
   /// Clears the value of `testCase`. Subsequent reads from it will return its default value.
   mutating func clearTestCase() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
+  var emptyOptionZero: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero {
+    get { _storage.value(at: 8, default: .unspecified, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+  }
+  /// Returns true if `emptyOptionZero` has been explicitly set.
+  var hasEmptyOptionZero: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
+  /// Clears the value of `emptyOptionZero`. Subsequent reads from it will return its default value.
+  mutating func clearEmptyOptionZero() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
+
+  var emptyOptionAliased: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased {
+    get { _storage.value(at: 12, default: .unspecified, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(at: 12, to: newValue, willBeSet: true, hasBit: (0, 4)) }
+  }
+  /// Returns true if `emptyOptionAliased` has been explicitly set.
+  var hasEmptyOptionAliased: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
+  /// Clears the value of `emptyOptionAliased`. Subsequent reads from it will return its default value.
+  mutating func clearEmptyOptionAliased() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 4)) }
+
+  var emptyOptionAliasOmittedFirst: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst {
+    get { _storage.value(at: 16, default: .unspecified, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 8)) }
+  }
+  /// Returns true if `emptyOptionAliasOmittedFirst` has been explicitly set.
+  var hasEmptyOptionAliasOmittedFirst: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
+  /// Clears the value of `emptyOptionAliasOmittedFirst`. Subsequent reads from it will return its default value.
+  mutating func clearEmptyOptionAliasOmittedFirst() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 8)) }
+
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
   private var _storage: SwiftProtobuf.MessageStorage
@@ -118,20 +256,41 @@ nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMe
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0?\0swift_proto_testing.enum_value_json_string.EnumCustomJSONString"
-  private static let _protobuf_reflectionData: Swift.StaticString = "x\u{3}\0\00\u{1f}9 QZOr::\u{2}M\u{7}\0\nzx!B\u{1a}\r,\u{4}:#-JK~\u{3}[W\u{7f}&FrXF?y'3\u{7}\u{5}\u{7f}HfN\"\u{e}*F8*rs\\yqy~?\u{11}:rH\u{7f}\u{14}\u{7}j9\0Vu\u{3}S uF/HL\u{15}{<\\:\u{f}\u{1d}(e\u{17}\u{1a}wbwC< \u{3}.W\u{f}dbp'IR\u{1b}.ZwJO1xQ{x\0t|YyC-!wh7\u{e}>e-v3\u{2}G\u{17}\u{1a}p Q\n.\u{13}Z8:/I\u{6}W@@\u{17}b$B@ whL\u{18}>\u{6}\rU!O4$\u{4}9cG\u{8}:\u{14}05VbB\u{f}\t8\u{e}z^:3#OK^qpZ\u{1b}9^DA&avD\u{1}@\u{7f}7(KH}<\u{13}6k7mBn+\r?|\u{3}\u{17}EYcBL\n*vJ>\u{17}no\t\u{7}1y[\u{15}|\u{7f}u7\u{1}\0\0\0"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{8}\0\0?\0swift_proto_testing.enum_value_json_string.EnumCustomJSONString"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\u{4}\0\0\0\u{1f}tG885{jr\u{f}XF\u{17}~AV\u{19}\u{18}\u{f}\u{1}jT/6g\u{8}b:\u{12}u+E]841\u{4}\u{16}q\u{b}\roU\u{1e}|nMZ\u{19}4`5\u{8}fD.\u{8}\rt*B?\"_~.h\n\u{12}0.\\ \u{3}\u{7}o \u{13}8m\u{1f}\u{15}\u{13}pE\u{1e}L/\\Q\u{1f}?*Zi\u{1e}/\u{2}\u{8}7?r\u{1e}'\\T\0b)\u{b}\u{1a}h_0?Nd`\u{1}ZI=KGQz#\r&ZV\u{1c}\u{15}\u{1f}]\u{18}kH{0`\n]U)_n[jV:~~DaTP\u{15}k\u{14}\u{15}#\n\u{14}*\u{1}{!P}Mz05~\u{e}^A\u{17}Qs!\u{15}E`s\u{19}w/t:qu\u{2}\u{7}qL\u{6}d!d\u{c}uE:\u{e}hQt\0$\tA\u{11}fQKQ\u{19}Rbsv\u{c}W:\u{4}&o(\r8\u{4}5=@2A@,t\u{7f}\u{4}`<2sY)7~K\u{7f}u:N{d)N\u{5}}\u{4}c\u{1e}\u{17}Q\r\u{11}ye\u{7}k\u{c}g0\u{1}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0B\0swift_proto_testing.enum_value_json_string.EnumEmptyJSONOptionZero"
+  private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`\u{b}%zKK(Y\u{2}U'b@\u{f}$g\u{19}5'\u{6}f\u{1e}'[>7y[4]`}\0Rfkx\n>^Z\r$\u{6}\u{1b}j\0W\u{6}s3\u{10}p\u{c}S%-91\u{15}\u{1d}\u{1b}\u{f}P[\u{16}e\u{e}jV1\u{3}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0E\0swift_proto_testing.enum_value_json_string.EnumEmptyJSONOptionAliased"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\u{1}\0\0 \u{1f}=\u{1f}\u{11}\u{6}*Xt\\=6'\u{b}k\u{1d}>\u{5}\u{1e}n\u{1e}5\u{3}q\u{11}ToHo\u{17}\u{15}\u{1a}Qr9\u{19}N:\u{7f}h|\u{1f}vwC fg5IaH\u{4}:SqyA]H7V\"-\u{12}\u{c}h?a>\u{7f}`\u{8}SV\\QU{0wV \rP\u{17}N$$\0\0\0\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0O\0swift_proto_testing.enum_value_json_string.EnumEmptyJSONOptionAliasOmittedFirst"
+  private static let _protobuf_reflectionData: Swift.StaticString = "T\u{1}\0\00_Tay\u{7}*Psd[0u{0?u\u{c}Jx\u{7}\0:a(\u{3}M 8#]^2LZL\u{f}x\u{1d}\t6h?%Dm!&]2@v\0@M[_\u{13}s1vf\u{f}gk9}06\u{1}\u{6}>]\u{6}2z\u{f}D{\u{7f},Xr|5Lq\u{4}@G\0\0\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}G\0swift_proto_testing.enum_value_json_string.EnumCustomJSONStringsMessage"
-  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hIl\rET8\u{2}2*nI\u{19}4`6\u{16} \u{16}NV\n\0"
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{4}\0\u{e}G\0swift_proto_testing.enum_value_json_string.EnumCustomJSONStringsMessage"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{2}\0\0\0_\u{10}c=ZORHt_LN1,V2\u{7f}7+3m}<\n\u{7}n=\\d5\u{18}5UY \u{6}ARt\u{f}+u:@M#;\u{1f}nqIpY{0@Z+GiA\u{11}57+-\u{b}<Q.{n2m\u{5}1o\u{7}\u{6}r+\u{5}+nX*5X\u{b};\t\u{1d}\\)\u{11}UieU,&l\0=yt\u{1b}]9\tAO<\u{c}us\u{17}s;Lb\u{1f}\u{1f}$j^\u{3}H\u{18}>[~\u{7}\r!@bzs\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
   private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .enum(SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString.enumSchema)
+    case 2: return .enum(SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero.enumSchema)
+    case 3: return .enum(SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased.enumSchema)
+    case 4: return .enum(SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst.enumSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }

@@ -420,7 +420,7 @@ regenerate-library-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 # would also need to list all the outputs.
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	$(call regenerate_protos,Sources/SwiftProtobufPluginLibrary,--tfiws_opt=Visibility=Public)
-	$(call regenerate_protos,Sources/protoc-gen-swift)
+	$(call regenerate_protos,Sources/protoc-gen-swift,--tfiws_opt=Visibility=Package)
 
 # Is this based on the upstream bazel rules `compile_edition_defaults` and
 # `embed_edition_defaults`.

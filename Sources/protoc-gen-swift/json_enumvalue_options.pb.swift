@@ -27,7 +27,7 @@ fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobu
   typealias Version = _2
 }
 
-nonisolated struct Pb_Enumvalue_JsonEnumValueOptions: @unchecked Swift.Sendable {
+package nonisolated struct Pb_Enumvalue_JsonEnumValueOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -40,23 +40,23 @@ nonisolated struct Pb_Enumvalue_JsonEnumValueOptions: @unchecked Swift.Sendable 
   ///   ...
   ///   FOO_BAR = 42 [(pb.enumvalue.json).string = "my_custom_name"];
   /// }
-  var string: String {
+  package var string: String {
     get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `string` has been explicitly set.
-  var hasString: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
+  package var hasString: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `string`. Subsequent reads from it will return its default value.
-  mutating func clearString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
+  package mutating func clearString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
-  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+  package init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
   private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+  package mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Extension support defined in json_enumvalue_options.proto.
@@ -70,16 +70,16 @@ nonisolated struct Pb_Enumvalue_JsonEnumValueOptions: @unchecked Swift.Sendable 
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
 
-  var Pb_Enumvalue_json: Pb_Enumvalue_JsonEnumValueOptions {
+  package var Pb_Enumvalue_json: Pb_Enumvalue_JsonEnumValueOptions {
     get { _protobuf_extensionStorage().value(of: Pb_Enumvalue_Extensions_json, default: Pb_Enumvalue_JsonEnumValueOptions()) }
     set { _protobuf_uniqueExtensionStorage().updateValue(of: Pb_Enumvalue_Extensions_json, to: newValue) }
   }
   /// Returns true if extension `Pb_Enumvalue_Extensions_json`
   /// has been explicitly set.
-  var hasPb_Enumvalue_json: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Enumvalue_Extensions_json) }
+  package var hasPb_Enumvalue_json: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Enumvalue_Extensions_json) }
   /// Clears the value of extension `Pb_Enumvalue_Extensions_json`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_Enumvalue_json() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Enumvalue_Extensions_json) }
+  package mutating func clearPb_Enumvalue_json() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Enumvalue_Extensions_json) }
 
 }
 
@@ -88,7 +88,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
-nonisolated let Pb_Enumvalue_JsonEnumvalueOptions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+package nonisolated let Pb_Enumvalue_JsonEnumvalueOptions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Pb_Enumvalue_Extensions_json
 ]
 
@@ -96,7 +96,7 @@ nonisolated let Pb_Enumvalue_JsonEnumvalueOptions_Extensions: SwiftProtobuf.Simp
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_Enumvalue_Extensions_json = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_Enumvalue_JsonEnumValueOptions>, SwiftProtobuf.Google_Protobuf_EnumValueOptions>(
+package nonisolated let Pb_Enumvalue_Extensions_json = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_Enumvalue_JsonEnumValueOptions>, SwiftProtobuf.Google_Protobuf_EnumValueOptions>(
   schema: "\0f\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{11}\0pb.enumvalue.json",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumValueOptions.messageSchema },
   submessageOrEnumResolver: { .message(Pb_Enumvalue_JsonEnumValueOptions.messageSchema) }
@@ -108,8 +108,8 @@ nonisolated extension Pb_Enumvalue_JsonEnumValueOptions: SwiftProtobuf.Generated
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}!\0pb.enumvalue.JsonEnumValueOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo\\(\u{1}Vf\u{3}\u{1a}\\\u{1c}v@\u{16}/\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+  package static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+  package func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
