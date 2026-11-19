@@ -175,6 +175,7 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	compile-tests-internalimportsbydefault \
 	compile-tests-nonisolateddeclarations \
 	compile-tests-experimentalhiddennames \
+	compile-tests-strictmemorysafety \
 	default \
 	docs \
 	install \
@@ -185,6 +186,7 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	regenerate-compiletests-multimodule-protos \
 	copy-compiletests-internalimportsbydefault-protos \
 	copy-compiletests-nonisolateddeclarations-protos \
+	copy-compiletests-strictmemorysafety-protos \
 	regenerate-compiletests-protos \
 	regenerate-conformance-protos \
 	regenerate-fuzz-protos \
@@ -313,6 +315,7 @@ compile-tests: \
 	compile-tests-multimodule \
 	compile-tests-internalimportsbydefault \
 	compile-tests-nonisolateddeclarations \
+	compile-tests-strictmemorysafety \
 	compile-tests-experimentalhiddennames
 
 # Test that ensures generating public into multiple modules with `import public`
@@ -329,6 +332,10 @@ compile-tests-internalimportsbydefault:
 # target that has `.defaultIsolation(MainActor.self)`.
 compile-tests-nonisolateddeclarations:
 	${SWIFT} build --package-path CompileTests/NonisolatedDeclarations
+
+# Test that generated code compiles with strict memory safety enabled.
+compile-tests-strictmemorysafety:
+	${SWIFT} build --package-path CompileTests/StrictMemorySafety
 
 # Test that generated code with the `ExperimentalHiddenNames` option compiles and behaves correctly.
 compile-tests-experimentalhiddennames:
@@ -540,6 +547,7 @@ regenerate-compiletests-protos: \
 	regenerate-compiletests-multimodule-protos \
 	copy-compiletests-internalimportsbydefault-protos \
 	copy-compiletests-nonisolateddeclarations-protos \
+	copy-compiletests-strictmemorysafety-protos \
 	regenerate-compiletests-experimentalhiddennames-protos
 
 # Update the CompileTests/MultiModule files.
@@ -571,6 +579,15 @@ copy-compiletests-internalimportsbydefault-protos:
 copy-compiletests-nonisolateddeclarations-protos:
 	@for p in Protos/CompileTests/NonisolatedDeclarations/*; do \
 		dst="CompileTests/NonisolatedDeclarations/Sources/NonisolatedDeclarations/Protos/$$(basename "$$p")"; \
+		if [ ! -f "$$dst" ] || ! cmp -s "$$p" "$$dst"; then cp "$$p" "$$dst"; fi; \
+	done
+
+# We use the plugin for the StrictMemorySafety test, so we don't actually need to regenerate
+# anything. However, to keep the protos centralised in a single place (the Protos directory),
+# this simply copies those files to the StrictMemorySafety package in case they change.
+copy-compiletests-strictmemorysafety-protos:
+	@for p in Protos/CompileTests/StrictMemorySafety/*; do \
+		dst="CompileTests/StrictMemorySafety/Sources/StrictMemorySafety/Protos/$$(basename "$$p")"; \
 		if [ ! -f "$$dst" ] || ! cmp -s "$$p" "$$dst"; then cp "$$p" "$$dst"; fi; \
 	done
 
