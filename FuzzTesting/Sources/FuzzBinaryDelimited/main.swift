@@ -17,10 +17,13 @@ import SwiftProtobuf
 private let kMaxMessages = 50
 
 @_cdecl("LLVMFuzzerTestOneInput")
-public func FuzzDelimited(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
+public func FuzzDelimited(_ start: UnsafeRawPointer?, _ count: Int) -> CInt {
     // No decoding options here, a leading zero is actually valid (zero length message),
     // so we rely on the other Binary fuzz tester to test options, and just let this
     // one focus on issue around framing of the messages on the stream.
+    guard count >= 0, start != nil || count == 0 else {
+        return -1
+    }
     let bytes = UnsafeRawBufferPointer(start: start, count: count)
     let istream = InputStream(data: Data(bytes))
     istream.open()

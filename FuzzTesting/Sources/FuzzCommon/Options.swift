@@ -27,10 +27,12 @@ public protocol SupportsFuzzOptions {
 
 extension SupportsFuzzOptions {
     public static func extractOptions(
-        _ start: UnsafeRawPointer,
+        _ start: UnsafeRawPointer?,
         _ count: Int
     ) -> (Self, UnsafeRawBufferPointer)? {
-        var start = start
+        guard count >= 0, start != nil || count == 0 else {
+            return nil
+        }
         let initialCount = count
         var count = count
         var options = Self()
@@ -40,7 +42,7 @@ extension SupportsFuzzOptions {
         // indicate there are decoding options. The one case that can start with a zero
         // would be length delimited binary, but since that's a zero length message, we
         // can go ahead and use that one also.
-        guard count >= 2, start.loadUnaligned(as: UInt8.self) == 0 else {
+        guard count >= 2, var start = start, start.loadUnaligned(as: UInt8.self) == 0 else {
             if reportInfo {
                 print("No options to decode")
             }

@@ -101,10 +101,27 @@ final class Test_FuzzOptions: XCTestCase {
         let bytes: [UInt8] = []
         XCTAssertEqual(bytes.count, 0)
         try bytes.withUnsafeBytes { ptr in
-            let result = TestOptions.extractOptions(ptr.baseAddress!, bytes.count)
+            let result = TestOptions.extractOptions(ptr.baseAddress, bytes.count)
             let (opts, bytes) = try XCTUnwrap(result)
             XCTAssertEqual(opts.sets, [])
             XCTAssertEqual(bytes.count, 0)
+        }
+
+        // Nil pointer with zero length (possible from C/C++ fuzz runners on empty inputs).
+        let nilResult = TestOptions.extractOptions(nil, 0)
+        let (nilOpts, nilBytes) = try XCTUnwrap(nilResult)
+        XCTAssertEqual(nilOpts.sets, [])
+        XCTAssertEqual(nilBytes.count, 0)
+        XCTAssertNil(nilBytes.baseAddress)
+        XCTAssertEqual(Array(nilBytes), [])
+        XCTAssertEqual(Data(nilBytes), Data())
+
+        // Invalid pointer/count combinations should be rejected cleanly.
+        XCTAssertNil(TestOptions.extractOptions(nil, 1))
+        XCTAssertNil(TestOptions.extractOptions(nil, -1))
+        let nonEmpty: [UInt8] = [1]
+        nonEmpty.withUnsafeBytes { ptr in
+            XCTAssertNil(TestOptions.extractOptions(ptr.baseAddress, -1))
         }
 
         // Try with no leading zero, so no options.
