@@ -16,11 +16,11 @@
 
 /// A collection of extension schemas.
 ///
-/// An `ExtensionMap` is used during decoding to look up extension schemas corresponding to
+/// An ``ExtensionMap`` is used during decoding to look up extension schemas corresponding to
 /// serialized data.
 ///
 /// This is a protocol so that applications can implement their own extension lookup if they need
-/// something more complex than the standard `SimpleExtensionMap` implementation.
+/// something more complex than the standard ``SimpleExtensionMap`` implementation.
 @preconcurrency
 public protocol ExtensionMap: Sendable {
     /// Returns the extension schema for the extension field in a message that has the given
@@ -74,10 +74,10 @@ extension ExtensionMap {
 }
 #endif  // !REMOVE_LEGACY_EXTENSION_APIS
 
-/// A default implementation of `ExtensionMap`.
+/// A default implementation of ``ExtensionMap``.
 ///
-/// You can create a `SimpleExtensionMap` using an array literal of extension schemas or by uniting
-/// other `SimpleExtensionMap`s together. The code generator also emits static `SimpleExtensionMap`s
+/// You can create a ``SimpleExtensionMap`` using an array literal of extension schemas or by uniting
+/// other ``SimpleExtensionMap``s together. The code generator also emits static ``SimpleExtensionMap``s
 /// for each file that defines extensions.
 public struct SimpleExtensionMap: ExtensionMap, Sendable, ExpressibleByArrayLiteral {
     /// The hashable key used to look up extension schemas in the registry by their field number.

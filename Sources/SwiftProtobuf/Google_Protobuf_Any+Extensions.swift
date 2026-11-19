@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extends the `Google_Protobuf_Any` type with various custom behaviors.
+/// Extends the ``Google_Protobuf_Any`` type with various custom behaviors.
 ///
 // -----------------------------------------------------------------------------
 
@@ -122,10 +122,10 @@ extension Google_Protobuf_Any {
         try self.init(message: message, options: options, typePrefix: typePrefix)
     }
 
-    /// Returns true if this `Google_Protobuf_Any` message contains the given
+    /// Returns true if this ``Google_Protobuf_Any`` message contains the given
     /// message type.
     ///
-    /// The check is performed by looking at the passed `Message.Type` and the
+    /// The check is performed by looking at the passed ``Message`` type and the
     /// `typeURL` of this message.
     ///
     /// - Parameter type: The concrete message type.

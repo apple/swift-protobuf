@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to provide binary coding and decoding using ``Foundation/Data``.
+/// Extensions to ``Message`` to provide binary coding and decoding using ``Foundation/Data``.
 ///
 // -----------------------------------------------------------------------------
 
@@ -56,7 +56,7 @@ extension Message {
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
     ///     fields are present while decoding. If any are missing, this method throws
-    ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
     @inlinable
@@ -82,7 +82,7 @@ extension Message {
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
     ///     fields are present while decoding. If any are missing, this method throws
-    ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
     @inlinable
@@ -118,7 +118,7 @@ extension Message {
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
     ///     fields are present while decoding. If any are missing, this method throws
-    ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
     @inlinable
@@ -152,7 +152,7 @@ extension Message {
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
     ///     fields are present while decoding. If any are missing, this method throws
-    ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
     @inlinable

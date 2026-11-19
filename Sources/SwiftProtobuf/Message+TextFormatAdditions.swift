@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to support text format encoding/decoding.
+/// Extensions to ``Message`` to support text format encoding/decoding.
 ///
 // -----------------------------------------------------------------------------
 
@@ -42,7 +42,7 @@ extension Message {
     ///
     /// - Returns: A string containing the text format serialization of the message.
     /// - Parameters:
-    ///   - options: The TextFormatEncodingOptions to use.
+    ///   - options: The ``TextFormatEncodingOptions`` to use.
     public func textFormatString(
         options: TextFormatEncodingOptions
     ) -> String {

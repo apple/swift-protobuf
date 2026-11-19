@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to support JSON encoding/decoding  using ``Foundation/Data``.
+/// Extensions to ``Message`` to support JSON encoding/decoding  using ``Foundation/Data``.
 ///
 // -----------------------------------------------------------------------------
 

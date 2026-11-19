@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to provide binary coding and decoding.
+/// Extensions to ``Message`` to provide binary coding and decoding.
 ///
 // -----------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ extension Message {
         return try serializedBytes(options: options)
     }
 
-    /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
+    /// Creates a new message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format.
     ///
     /// - Parameters:
@@ -79,10 +79,9 @@ extension Message {
         }
     }
 
-    /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
+    /// Creates a new message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format.
     ///
-    /// - Parameters:
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
@@ -138,7 +137,6 @@ extension Message {
     /// containing a serialized message in Protocol Buffer binary format.
     ///
     /// - Parameters:
-    /// - Parameters:
     ///   - bytes: The `RawSpan` of binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
@@ -167,7 +165,7 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, options: options)
     }
 
-    /// Updates the message by decoding the given `SwiftProtobufContiguousBytes` value
+    /// Updates the message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format into the
     /// receiver.
     ///
@@ -193,7 +191,7 @@ extension Message {
         }
     }
 
-    /// Updates the message by decoding the given `SwiftProtobufContiguousBytes` value
+    /// Updates the message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format into the
     /// receiver.
     ///
@@ -201,7 +199,6 @@ extension Message {
     ///   partially mutated by the binary data that was decoded before the error
     ///   occurred.
     ///
-    /// - Parameters:
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
@@ -262,7 +259,6 @@ extension Message {
     ///   partially mutated by the binary data that was decoded before the error
     ///   occurred.
     ///
-    /// - Parameters:
     /// - Parameters:
     ///   - bytes: The `RawSpan` of binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
