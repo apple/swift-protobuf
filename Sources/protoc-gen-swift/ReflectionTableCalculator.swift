@@ -99,11 +99,16 @@ package struct ReflectionTableCalculator {
             (enumValue.options.hasPb_Enumvalue_json && enumValue.options.Pb_Enumvalue_json.hasString)
             ? enumValue.options.Pb_Enumvalue_json.string
             : nil
-        // Compare raw UTF-8 code units rather than using Swift `String.==`, which performs
-        // Unicode canonical equivalence (e.g. treating "K" and "\u{212A}" as equal) and would
-        // drop custom JSON names whose UTF-8 bytes differ from `enumValue.name`.
+        // Compare raw UTF-8 code units using `UTF8Name` (matching `ReflectionTable` at runtime)
+        // rather than Swift `String.==`, which performs Unicode canonical equivalence (e.g.
+        // treating "K" and "\u{212A}" as equal) and would drop custom JSON names whose UTF-8
+        // bytes differ from `enumValue.name`.
         let jsonName: String? =
-            customJSONName.flatMap { $0.utf8.elementsEqual(enumValue.name.utf8) ? nil : $0 }
+            customJSONName.flatMap { candidate in
+                UTF8Name.withTemporary(viewing: candidate) {
+                    $0.utf8CodeUnitsEqual(enumValue.name) ? nil : candidate
+                }
+            }
         var list = [Names(name: enumValue.name, jsonName: jsonName)]
         for alias in aliases {
             list.append(Names(name: alias.name, jsonName: nil))
@@ -262,21 +267,21 @@ package struct ReflectionTableCalculator {
                 appendInteger(textOffset)
             }
 
-            // Compare names by raw UTF-8 code units rather than using Swift `String.<`. Swift's
-            // `String.<` orders by Unicode canonical equivalence (e.g. treating "e\u{0301}" and
-            // "\u{00E9}" as equal and ordering "\u{212A}" with "K" instead of after ASCII), which
-            // disagrees with `UTF8Name.lexicographicallyPrecedes` in `ReflectionTable`'s runtime
-            // binary search and would misorder lookup tables for non-ASCII / non-NFC names.
-            // Tie-break by offset for deterministic serialization.
+            // Compare names using `UTF8Name` (matching `ReflectionTable`'s runtime binary search)
+            // rather than Swift `String.<`. Swift's `String.<` orders by Unicode canonical
+            // equivalence (e.g. treating "e\u{0301}" and "\u{00E9}" as equal and ordering
+            // "\u{212A}" with "K" instead of after ASCII), which disagrees with
+            // `UTF8Name.lexicographicallyPrecedes` at runtime and would misorder lookup tables
+            // for non-ASCII / non-NFC names. Tie-break by offset for deterministic serialization.
             let byUTF8Order: ((key: NameOffsetKey, value: UInt32), (key: NameOffsetKey, value: UInt32)) -> Bool = {
                 lhs,
                 rhs in
-                let lhsUTF8 = lhs.key.name.utf8
-                let rhsUTF8 = rhs.key.name.utf8
-                if lhsUTF8.elementsEqual(rhsUTF8) {
-                    return lhs.key.offset < rhs.key.offset
+                UTF8Name.withTemporary(viewing: lhs.key.name) { lhsUTF8 in
+                    if lhsUTF8.utf8CodeUnitsEqual(rhs.key.name) {
+                        return lhs.key.offset < rhs.key.offset
+                    }
+                    return lhsUTF8.lexicographicallyPrecedes(rhs.key.name)
                 }
-                return lhsUTF8.lexicographicallyPrecedes(rhsUTF8)
             }
 
             // Text format name offset to field/case number (UInt32 -> UInt32), in UTF-8 byte order.
