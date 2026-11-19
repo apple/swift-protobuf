@@ -19,6 +19,7 @@ edition = "2026";
 package swift_proto_testing.enum_value_json_string;
 
 import "google/protobuf/json_options.proto";
+import "google/protobuf/struct.proto";
 
 enum EnumCustomJSONString {
   option allow_alias = true;
@@ -30,10 +31,50 @@ enum EnumCustomJSONString {
   ENUM_CUSTOM_JSON_STRING_BLANK = 4 [(pb.enumvalue.json).string = ""];
   ENUM_CUSTOM_JSON_STRING_ESCAPES = 5 [(pb.enumvalue.json).string = "tab\tnewline\nquote\"done"];
   ENUM_CUSTOM_JSON_STRING_SIX = 6 [(pb.enumvalue.json).string = "6"];
+  ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME = 7 [(pb.enumvalue.json).string = "ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME"];
+  ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME = 8 [(pb.enumvalue.json).string = "customName"];
 
   ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS = 1 [(pb.enumvalue.json).string = "something special"];
 }
 
+// Vendored protoc (v36.2) checks custom JSON string uniqueness across empty
+// `(pb.enumvalue.json) = {}` options as if `.string` were `""`, so each enum
+// below exercises at most one enum number with an empty option.
+enum EnumEmptyJSONOptionZero {
+  ENUM_EMPTY_JSON_OPTION_ZERO_UNSPECIFIED = 0 [(pb.enumvalue.json) = {}];
+  ENUM_EMPTY_JSON_OPTION_ZERO_OTHER = 1;
+}
+
+enum EnumEmptyJSONOptionAliased {
+  option allow_alias = true;
+
+  ENUM_EMPTY_JSON_OPTION_ALIASED_UNSPECIFIED = 0;
+  ENUM_EMPTY_JSON_OPTION_ALIASED_EMPTY_FIRST = 1 [(pb.enumvalue.json) = {}];
+  ENUM_EMPTY_JSON_OPTION_ALIASED_OMITTED_SECOND = 1;
+}
+
+enum EnumEmptyJSONOptionAliasOmittedFirst {
+  option allow_alias = true;
+
+  ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_UNSPECIFIED = 0;
+  ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_OMITTED = 1;
+  ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_EMPTY = 1 [(pb.enumvalue.json) = {}];
+}
+
 message EnumCustomJSONStringsMessage {
   EnumCustomJSONString test_case = 1;
+  EnumEmptyJSONOptionZero empty_option_zero = 2;
+  EnumEmptyJSONOptionAliased empty_option_aliased = 3;
+  EnumEmptyJSONOptionAliasOmittedFirst empty_option_alias_omitted_first = 4;
+  repeated EnumCustomJSONString repeated_test_case = 5;
+  map<string, EnumCustomJSONString> map_test_case = 6;
+  map<string, google.protobuf.NullValue> map_null_value = 7;
+
+  extensions 100 to 199;
+}
+
+extend EnumCustomJSONStringsMessage {
+  EnumCustomJSONString ext_singular_enum = 100;
+  repeated EnumCustomJSONString ext_repeated_enum = 101;
+  repeated EnumCustomJSONString ext_unpacked_enum = 102 [features.repeated_field_encoding = EXPANDED];
 }

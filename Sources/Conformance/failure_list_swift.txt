@@ -1,17 +1,1 @@
-# Track in #2259
-Recommended.Edition2026.JsonInput.EnumEmptyOptionBeforeEmptyStringFirstValue.JsonOutput # Output was not equivalent to reference message: modified: optional_empty_option_before_empty_string: ENUM_EMPTY_OPTION_BEFORE_EM
-Recommended.Edition2026.JsonInput.EnumOnlyEmptyOptionDefaultName.JsonOutput # JSON output we received from test was unparseable.
-Recommended.Edition2026.JsonInput.EnumOnlyEmptyOptionZeroDefaultName.JsonOutput # JSON output we received from test was unparseable.
-Recommended.Edition2026.JsonInput.EnumValueAliasedEmptyJsonOption.JsonOutput # Output was not equivalent to reference message: modified: optional_foreign_enum: FOREIGN_ENUM_EDITION2026_ALIAS_EMPTY_OPTION ->
-Recommended.Edition2026.JsonInput.EnumValueAliasedOmittedWithEmptyJsonOption.JsonOutput # Output was not equivalent to reference message: modified: optional_foreign_enum: FOREIGN_ENUM_EDITION2026_ALIAS_EMPTY_OPTION ->
-Recommended.Edition2026.JsonInput.EnumValueEmptyJsonOption.JsonOutput # Output was not equivalent to reference message: modified: optional_foreign_enum: FOREIGN_ENUM_EDITION2026_EMPTY_OPTION -> FOREIG
-Recommended.Edition2026.JsonInput.EnumValueEmptyJsonOptionInt.JsonOutput # Output was not equivalent to reference message: modified: optional_foreign_enum: FOREIGN_ENUM_EDITION2026_EMPTY_OPTION -> FOREIG
-Recommended.Edition2026.JsonInput.EnumValueEmptyJsonOptionRejectsEmptyString # Should have failed to parse, but didn't.
-Recommended.Edition2026.JsonInput.EnumValueEmptyJsonOptionSecond.JsonOutput # Output was not equivalent to reference message: modified: optional_foreign_enum: FOREIGN_ENUM_EDITION2026_EMPTY_OPTION_TWO -> FO
-Recommended.Edition2026.JsonInput.MapEnumValueEmptyJsonOption.JsonOutput # Output was not equivalent to reference message: modified: map_string_foreign_enum[a]: FOREIGN_ENUM_EDITION2026_EMPTY -> FOREIGN_
-Recommended.Edition2026.JsonInput.MapEnumValueEmptyJsonOption.ProtobufOutput # Output was not equivalent to reference message: modified: map_string_foreign_enum[a]: FOREIGN_ENUM_EDITION2026_EMPTY -> FOREIGN_
-Recommended.Edition2026.JsonInput.RepeatedEnumValueEmptyJsonOption.JsonOutput # Output was not equivalent to reference message: modified: repeated_foreign_enum[0]: FOREIGN_ENUM_EDITION2026_EMPTY -> FOREIGN_EN
-Recommended.Edition2026.JsonInput.RepeatedEnumValueEmptyJsonOption.ProtobufOutput # Output was not equivalent to reference message: modified: repeated_foreign_enum[0]: FOREIGN_ENUM_EDITION2026_EMPTY -> FOREIGN_EN
-Recommended.Edition2026.ProtobufInput.ValidEnumEmptyJsonOption.JsonOutput # JSON output we received from test was unparseable.
-Required.Edition2026.JsonInput.EnumValueEmptyCustomJsonName.ProtobufOutput # Output was not equivalent to reference message: modified: optional_foreign_enum: FOREIGN_ENUM_EDITION2026_EMPTY -> FOREIGN_ENUM_
 

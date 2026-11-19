@@ -63,13 +63,10 @@ extension Enum {
     }
 
     /// Internal convenience initializer that returns the enum value with the
-    /// given name, if it provides names.
+    /// given JSON name, if it provides names.
     ///
-    /// Since the text format and JSON names are always identical, we don't need
-    /// to distinguish them.
-    ///
-    /// - Parameter name: The name of the enum case.
-    internal init?(name: String) {
+    /// - Parameter name: The JSON name of the enum case.
+    internal init?(forJSONName name: String) {
         guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
             let number = nameProviding._protobuf_nameMap.number(forJSONName: name)
         else {
@@ -79,15 +76,25 @@ extension Enum {
     }
 
     /// Internal convenience initializer that returns the enum value with the
-    /// given name, if it provides names.
+    /// given JSON name, if it provides names.
     ///
-    /// Since the text format and JSON names are always identical, we don't need
-    /// to distinguish them.
-    ///
-    /// - Parameter rawUTF8: Buffer holding the UTF-8 bytes of the desired name.
-    internal init?(rawUTF8: UnsafeRawBufferPointer) {
+    /// - Parameter rawUTF8: Buffer holding the UTF-8 bytes of the desired JSON name.
+    internal init?(forJSONName rawUTF8: UnsafeRawBufferPointer) {
         guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
             let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8)
+        else {
+            return nil
+        }
+        self.init(rawValue: number)
+    }
+
+    /// Internal convenience initializer that returns the enum value with the
+    /// given proto name, if it provides names.
+    ///
+    /// - Parameter rawUTF8: Buffer holding the UTF-8 bytes of the desired proto name.
+    internal init?(forProtoName rawUTF8: UnsafeRawBufferPointer) {
+        guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
+            let number = nameProviding._protobuf_nameMap.number(forProtoName: rawUTF8)
         else {
             return nil
         }

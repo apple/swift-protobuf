@@ -164,8 +164,11 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
         // Enums can only be map values, never keys
         assert(fieldNumber == 2)
         startValue()
-        if !options.alwaysPrintEnumsAsInts, let n = value.name {
-            encoder.putStringValue(value: String(describing: n))
+        if let e = value as? (any _CustomJSONCodable) {
+            let json = try e.encodedJSONString(options: options)
+            encoder.append(text: json)
+        } else if !options.alwaysPrintEnumsAsInts, let n = value.jsonName {
+            encoder.appendQuoted(name: n)
         } else {
             encoder.putEnumInt(value: value.rawValue)
         }

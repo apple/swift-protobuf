@@ -1363,14 +1363,14 @@ internal struct JSONScanner {
         }
         if currentByte == asciiDoubleQuote {
             if let name = try nextOptionalKey() {
-                if let e = E(rawUTF8: name) {
+                if let e = E(forJSONName: name) {
                     return e
                 } else {
                     return try throwOrIgnore()
                 }
             }
             let name = try nextQuotedString()
-            if let e = E(name: name) {
+            if let e = E(forJSONName: name) {
                 return e
             } else {
                 return try throwOrIgnore()

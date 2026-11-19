@@ -192,7 +192,9 @@ class EnumGenerator {
             // gets a small amount of bloat compared to what might otherwise be
             // optimial, but give the edge case that this is (use of the option
             // AND aliases), that seems reasonable.
-            if v.options.hasPb_Enumvalue_json {
+            if v.options.hasPb_Enumvalue_json && v.options.Pb_Enumvalue_json.hasString,
+                v.options.Pb_Enumvalue_json.string != v.name
+            {
                 if let aliases = aliasInfo.aliases(v) {
                     writer.writeAliased(v, aliases: aliases)
                 }

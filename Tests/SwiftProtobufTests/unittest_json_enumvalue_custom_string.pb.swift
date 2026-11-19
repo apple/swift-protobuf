@@ -45,6 +45,8 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
   case blank // = 4
   case escapes // = 5
   case six // = 6
+  case sameAsName // = 7
+  case customName // = 8
   static let somethingSpecialAlias = somethingSpecial
   case UNRECOGNIZED(Int)
 
@@ -61,6 +63,8 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     case 4: self = .blank
     case 5: self = .escapes
     case 6: self = .six
+    case 7: self = .sameAsName
+    case 8: self = .customName
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -74,6 +78,8 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     case .blank: return 4
     case .escapes: return 5
     case .six: return 6
+    case .sameAsName: return 7
+    case .customName: return 8
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -87,11 +93,120 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     .blank,
     .escapes,
     .six,
+    .sameAsName,
+    .customName,
   ]
 
 }
 
-nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: Sendable {
+/// Vendored protoc (v36.2) checks custom JSON string uniqueness across empty
+/// `(pb.enumvalue.json) = {}` options as if `.string` were `""`, so each enum
+/// below exercises at most one enum number with an empty option.
+nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case unspecified // = 0
+  case other // = 1
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .other
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .other: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero] = [
+    .unspecified,
+    .other,
+  ]
+
+}
+
+nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case unspecified // = 0
+  case emptyFirst // = 1
+  static let omittedSecond = emptyFirst
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .emptyFirst
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .emptyFirst: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased] = [
+    .unspecified,
+    .emptyFirst,
+  ]
+
+}
+
+nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case unspecified // = 0
+  case omitted // = 1
+  static let empty = omitted
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .omitted
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .omitted: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst] = [
+    .unspecified,
+    .omitted,
+  ]
+
+}
+
+nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -105,24 +220,147 @@ nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMe
   /// Clears the value of `testCase`. Subsequent reads from it will return its default value.
   mutating func clearTestCase() {self._testCase = nil}
 
+  var emptyOptionZero: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero {
+    get {_emptyOptionZero ?? .unspecified}
+    set {_emptyOptionZero = newValue}
+  }
+  /// Returns true if `emptyOptionZero` has been explicitly set.
+  var hasEmptyOptionZero: Bool {self._emptyOptionZero != nil}
+  /// Clears the value of `emptyOptionZero`. Subsequent reads from it will return its default value.
+  mutating func clearEmptyOptionZero() {self._emptyOptionZero = nil}
+
+  var emptyOptionAliased: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased {
+    get {_emptyOptionAliased ?? .unspecified}
+    set {_emptyOptionAliased = newValue}
+  }
+  /// Returns true if `emptyOptionAliased` has been explicitly set.
+  var hasEmptyOptionAliased: Bool {self._emptyOptionAliased != nil}
+  /// Clears the value of `emptyOptionAliased`. Subsequent reads from it will return its default value.
+  mutating func clearEmptyOptionAliased() {self._emptyOptionAliased = nil}
+
+  var emptyOptionAliasOmittedFirst: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst {
+    get {_emptyOptionAliasOmittedFirst ?? .unspecified}
+    set {_emptyOptionAliasOmittedFirst = newValue}
+  }
+  /// Returns true if `emptyOptionAliasOmittedFirst` has been explicitly set.
+  var hasEmptyOptionAliasOmittedFirst: Bool {self._emptyOptionAliasOmittedFirst != nil}
+  /// Clears the value of `emptyOptionAliasOmittedFirst`. Subsequent reads from it will return its default value.
+  mutating func clearEmptyOptionAliasOmittedFirst() {self._emptyOptionAliasOmittedFirst = nil}
+
+  var repeatedTestCase: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] = []
+
+  var mapTestCase: Dictionary<String,SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString> = [:]
+
+  var mapNullValue: Dictionary<String,SwiftProtobuf.Google_Protobuf_NullValue> = [:]
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _testCase: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString? = nil
+  fileprivate var _emptyOptionZero: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero? = nil
+  fileprivate var _emptyOptionAliased: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased? = nil
+  fileprivate var _emptyOptionAliasOmittedFirst: SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst? = nil
 }
+
+// MARK: - Extension support defined in unittest_json_enumvalue_custom_string.proto.
+
+// MARK: - Extension Properties
+
+// Swift Extensions on the extended Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage {
+
+  var SwiftProtoTesting_EnumValueJsonString_extSingularEnum: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
+    get {return getExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum) ?? .unknown}
+    set {setExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_EnumValueJsonString_extSingularEnum: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_EnumValueJsonString_extSingularEnum() {
+    clearExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum)
+  }
+
+  var SwiftProtoTesting_EnumValueJsonString_extRepeatedEnum: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] {
+    get {return getExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum) ?? []}
+    set {setExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum, value: newValue)}
+  }
+
+  var SwiftProtoTesting_EnumValueJsonString_extUnpackedEnum: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] {
+    get {return getExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum) ?? []}
+    set {setExtensionValue(ext: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum, value: newValue)}
+  }
+
+}
+
+// MARK: - File's ExtensionMap: SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum,
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum,
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum
+]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  _protobuf_fieldNumber: 100,
+  fieldName: "swift_proto_testing.enum_value_json_string.ext_singular_enum"
+)
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  _protobuf_fieldNumber: 101,
+  fieldName: "swift_proto_testing.enum_value_json_string.ext_repeated_enum"
+)
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  _protobuf_fieldNumber: 102,
+  fieldName: "swift_proto_testing.enum_value_json_string.ext_unpacked_enum"
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate nonisolated let _protobuf_package = "swift_proto_testing.enum_value_json_string"
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_CUSTOM_JSON_STRING_UNKNOWN\0\u{9}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0\u{1}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\0\u{6}\0ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0something special\0\u{1}ENUM_CUSTOM_JSON_STRING_NORMAL\0\u{5}ENUM_CUSTOM_JSON_STRING_QUOTED\0\"testing\"\0\u{5}ENUM_CUSTOM_JSON_STRING_BLANK\0\0\u{5}ENUM_CUSTOM_JSON_STRING_ESCAPES\0tab\u{9}newline\u{a}quote\"done\0\u{5}ENUM_CUSTOM_JSON_STRING_SIX\06\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_CUSTOM_JSON_STRING_UNKNOWN\0\u{9}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0\u{1}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\0\u{6}\0ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0something special\0\u{1}ENUM_CUSTOM_JSON_STRING_NORMAL\0\u{5}ENUM_CUSTOM_JSON_STRING_QUOTED\0\"testing\"\0\u{5}ENUM_CUSTOM_JSON_STRING_BLANK\0\0\u{5}ENUM_CUSTOM_JSON_STRING_ESCAPES\0tab\u{9}newline\u{a}quote\"done\0\u{5}ENUM_CUSTOM_JSON_STRING_SIX\06\0\u{1}ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\0\u{5}ENUM_CUSTOM_JSON_STRING_CUSTOM_NAME\0customName\0")
+}
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_EMPTY_JSON_OPTION_ZERO_UNSPECIFIED\0\u{1}ENUM_EMPTY_JSON_OPTION_ZERO_OTHER\0")
+}
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_EMPTY_JSON_OPTION_ALIASED_UNSPECIFIED\0\u{9}ENUM_EMPTY_JSON_OPTION_ALIASED_EMPTY_FIRST\0\u{1}ENUM_EMPTY_JSON_OPTION_ALIASED_OMITTED_SECOND\0")
+}
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_UNSPECIFIED\0\u{9}ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_OMITTED\0\u{1}ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_EMPTY\0")
 }
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumCustomJSONStringsMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}test_case\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}test_case\0\u{3}empty_option_zero\0\u{3}empty_option_aliased\0\u{3}empty_option_alias_omitted_first\0\u{3}repeated_test_case\0\u{3}map_test_case\0\u{3}map_null_value\0")
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -131,6 +369,14 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self._testCase) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._emptyOptionZero) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self._emptyOptionAliased) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self._emptyOptionAliasOmittedFirst) }()
+      case 5: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedTestCase) }()
+      case 6: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>.self, value: &self.mapTestCase) }()
+      case 7: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.Google_Protobuf_NullValue>.self, value: &self.mapNullValue) }()
+      case 100..<200:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -144,12 +390,38 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString
     try { if let v = self._testCase {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     } }()
+    try { if let v = self._emptyOptionZero {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._emptyOptionAliased {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._emptyOptionAliasOmittedFirst {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+    } }()
+    if !self.repeatedTestCase.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedTestCase, fieldNumber: 5)
+    }
+    if !self.mapTestCase.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>.self, value: self.mapTestCase, fieldNumber: 6)
+    }
+    if !self.mapNullValue.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.Google_Protobuf_NullValue>.self, value: self.mapNullValue, fieldNumber: 7)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 200)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage, rhs: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage) -> Bool {
     if lhs._testCase != rhs._testCase {return false}
+    if lhs._emptyOptionZero != rhs._emptyOptionZero {return false}
+    if lhs._emptyOptionAliased != rhs._emptyOptionAliased {return false}
+    if lhs._emptyOptionAliasOmittedFirst != rhs._emptyOptionAliasOmittedFirst {return false}
+    if lhs.repeatedTestCase != rhs.repeatedTestCase {return false}
+    if lhs.mapTestCase != rhs.mapTestCase {return false}
+    if lhs.mapNullValue != rhs.mapNullValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
