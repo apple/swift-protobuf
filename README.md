@@ -293,6 +293,55 @@ let receivedFromJSON = try BookInfo(jsonUTF8Bytes: jsonBytes)
 You can find more information in the detailed
 [API Documentation](Documentation/API.md).
 
+# Developing SwiftProtobuf
+
+This section is useful if you want to develop this library.
+
+## First Time Setup
+
+After cloning the repository, you must initialize the git submodules which contain
+dependencies required for building. In the project root:
+
+```bash
+git submodule update --init --recursive
+```
+
+The submodules include:
+* `Sources/protobuf/protobuf` - Google's Protocol Buffers implementation
+* `Sources/protobuf/abseil` - Abseil C++ library
+
+## Building
+
+You can build the project using either Swift Package Manager directly or the provided Makefile:
+
+```bash
+make build
+```
+
+## Running Tests
+
+Run the test suite using:
+
+```bash
+swift test
+```
+
+Or using `make` for a complete test including plugin and conformance tests:
+
+```bash
+make test
+```
+
+## Common Make Targets
+
+* `make build` - Build all targets
+* `make test` - Run all tests (runtime, plugin, and conformance)
+* `make regenerate` - Regenerate all .pb.swift files from .proto sources
+* `make reference` - Update reference files used for plugin testing
+
+For more development details, see [INTERNALS.md](Documentation/INTERNALS.md) and
+[STYLE_GUIDELINES.md](Documentation/STYLE_GUIDELINES.md).
+
 ## Report any issues
 
 If you run into problems, please send us a detailed report.
