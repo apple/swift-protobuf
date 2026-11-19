@@ -24,8 +24,17 @@ extension Google_Protobuf_FieldMask {
         /// to true.
         public var replaceRepeatedFields: Bool
 
+        /// When merging message fields, the default behavior is to merge the
+        /// content of two message fields together. If you instead want to use
+        /// the field from the source message to replace the corresponding field
+        /// in the destination message, set this flag to true. When this flag is
+        /// set, specified submessage fields that are missing in source will be
+        /// cleared in destination.
+        public var replaceMessageFields: Bool
+
         public init() {
             self.replaceRepeatedFields = false
+            self.replaceMessageFields = false
         }
     }
 }
@@ -60,7 +69,11 @@ extension Message {
         fieldMask: Google_Protobuf_FieldMask,
         mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
     ) throws {
-        try storageForRuntime.merge(from: source.storageForRuntime, fieldMask: fieldMask, mergeOptions: mergeOption)
+        guard !fieldMask.paths.isEmpty else { return }
+        let trie = try FieldMaskMergeTrie(paths: fieldMask.paths, rootSchema: storageForRuntime.schema)
+        guard trie.hasResolvedLeaf else { return }
+        _protobuf_ensureUniqueStorage(accessToken: .init())
+        storageForRuntime.merge(from: source.storageForRuntime, trie: trie, mergeOptions: mergeOption)
     }
 
     /// Removes from 'message' any field that is not represented in the given
@@ -74,6 +87,7 @@ extension Message {
         guard allPathsAreValid, !fieldMask.paths.isEmpty else {
             return false
         }
+        _protobuf_ensureUniqueStorage(accessToken: .init())
         return storageForRuntime.trim(keeping: fieldMask)
     }
 }

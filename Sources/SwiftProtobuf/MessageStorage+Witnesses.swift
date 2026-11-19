@@ -68,7 +68,11 @@ extension MessageStorage {
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) { submessageStoragePointer in
             if !isPresent(field) {
-                // If the field is not present, initialize it and update its presence.
+                // If the field is not present, clear any other populated member of the same oneof
+                // before initializing it and updating its presence.
+                if case .oneOfMember(let oneofOffset) = field.presence {
+                    clearPopulatedOneofMember(at: oneofOffset)
+                }
                 submessageSchema.invokeWitness(.messageInitialize(pointer: pointer, result: submessageStoragePointer))
                 switch field.presence {
                 case .hasBit(let hasByteOffset, let hasMask):
