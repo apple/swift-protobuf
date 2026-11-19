@@ -155,7 +155,9 @@ public struct JSONFuzzingOptions: SupportsFuzzOptions {
     public var decoding = JSONDecodingOptions()
     public var encoding = JSONEncodingOptions()
 
-    public init() {}
+    public init() {
+        encoding.extensions = SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
+    }
 
     public static var fuzzOptionsList: [FuzzOption<Self>] {
         [
@@ -178,7 +180,9 @@ public struct TextFormatFuzzingOptions: SupportsFuzzOptions {
     public var decoding = TextFormatDecodingOptions()
     public var encoding = TextFormatEncodingOptions()
 
-    public init() {}
+    public init() {
+        encoding.extensions = SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
+    }
 
     public static var fuzzOptionsList: [FuzzOption<Self>] {
         [

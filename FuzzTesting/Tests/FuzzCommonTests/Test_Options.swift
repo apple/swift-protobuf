@@ -362,4 +362,89 @@ final class Test_FuzzOptions: XCTestCase {
             }
         }
     }
+
+    func test_JSONFuzzingOptions_encodingExtensions() throws {
+        FuzzAnyRegistry.registerTypes()
+
+        // Default (no option header) always configures FuzzTesting extensions for Any encoding.
+        let noHeader: [UInt8] = Array("{}".utf8)
+        try noHeader.withUnsafeBytes { ptr in
+            let (opts, payload) = try XCTUnwrap(JSONFuzzingOptions.extractOptions(ptr.baseAddress, noHeader.count))
+            XCTAssertNotNil(opts.encoding.extensions)
+            XCTAssertEqual(Array(payload), noHeader)
+
+            var inner = SwiftProtoTesting_Fuzz_Message()
+            inner.SwiftProtoTesting_Fuzz_singularSint32Ext = 42
+            var outer = SwiftProtoTesting_Fuzz_Message()
+            outer.wktAny = try Google_Protobuf_Any(packing: inner)
+            let jsonWithExt = try outer.jsonString(options: opts.encoding)
+            XCTAssertTrue(jsonWithExt.contains("[swift_proto_testing.fuzz.singular_sint32_ext]"), jsonWithExt)
+            XCTAssertTrue(jsonWithExt.contains("42"), jsonWithExt)
+        }
+
+        // All valid option bits 1..5 remain intact alongside hardcoded encoding.extensions.
+        let validBits: [UInt8] = [0x00, 0x3e, 0x7b, 0x7d]
+        try validBits.withUnsafeBytes { ptr in
+            let (opts, payload) = try XCTUnwrap(JSONFuzzingOptions.extractOptions(ptr.baseAddress, validBits.count))
+            XCTAssertTrue(opts.decoding.ignoreUnknownFields)
+            XCTAssertTrue(opts.encoding.alwaysPrintInt64sAsNumbers)
+            XCTAssertTrue(opts.encoding.alwaysPrintEnumsAsInts)
+            XCTAssertTrue(opts.encoding.preserveProtoFieldNames)
+            XCTAssertTrue(opts.encoding.useDeterministicOrdering)
+            XCTAssertNotNil(opts.encoding.extensions)
+            XCTAssertEqual(Array(payload), [0x7b, 0x7d])
+        }
+
+        // Reserved bits 6 (0x40) and 7 (0x80) remain rejected, matching main's 6-option layout.
+        for reserved: UInt8 in [0x40, 0x80] {
+            let bytes: [UInt8] = [0x00, reserved, 0x7b, 0x7d]
+            bytes.withUnsafeBytes { ptr in
+                XCTAssertNil(JSONFuzzingOptions.extractOptions(ptr.baseAddress, bytes.count))
+            }
+        }
+    }
+
+    func test_TextFormatFuzzingOptions_encodingExtensions() throws {
+        FuzzAnyRegistry.registerTypes()
+
+        // Default (no option header) always configures FuzzTesting extensions for Any encoding.
+        let noHeader: [UInt8] = Array("1: 1".utf8)
+        try noHeader.withUnsafeBytes { ptr in
+            let (opts, payload) = try XCTUnwrap(
+                TextFormatFuzzingOptions.extractOptions(ptr.baseAddress, noHeader.count)
+            )
+            XCTAssertNotNil(opts.encoding.extensions)
+            XCTAssertEqual(Array(payload), noHeader)
+
+            var inner = SwiftProtoTesting_Fuzz_Message()
+            inner.SwiftProtoTesting_Fuzz_singularSint32Ext = 42
+            var outer = SwiftProtoTesting_Fuzz_Message()
+            outer.wktAny = try Google_Protobuf_Any(packing: inner)
+            let textWithExt = outer.textFormatString(options: opts.encoding)
+            XCTAssertTrue(textWithExt.contains("[swift_proto_testing.fuzz.singular_sint32_ext]"), textWithExt)
+            XCTAssertTrue(textWithExt.contains("42"), textWithExt)
+        }
+
+        // All valid option bits 1..4 remain intact alongside hardcoded encoding.extensions.
+        let validBits: [UInt8] = [0x00, 0x1e, 0x31]
+        try validBits.withUnsafeBytes { ptr in
+            let (opts, payload) = try XCTUnwrap(
+                TextFormatFuzzingOptions.extractOptions(ptr.baseAddress, validBits.count)
+            )
+            XCTAssertTrue(opts.decoding.ignoreUnknownFields)
+            XCTAssertTrue(opts.decoding.ignoreUnknownExtensionFields)
+            XCTAssertFalse(opts.encoding.printUnknownFields)
+            XCTAssertFalse(opts.encoding.useDeterministicOrdering)
+            XCTAssertNotNil(opts.encoding.extensions)
+            XCTAssertEqual(Array(payload), [0x31])
+        }
+
+        // Reserved bits 5..7 (0x20, 0x40, 0x80) remain rejected, matching main's 5-option layout.
+        for reserved: UInt8 in [0x20, 0x40, 0x80] {
+            let bytes: [UInt8] = [0x00, reserved, 0x31]
+            bytes.withUnsafeBytes { ptr in
+                XCTAssertNil(TextFormatFuzzingOptions.extractOptions(ptr.baseAddress, bytes.count))
+            }
+        }
+    }
 }
