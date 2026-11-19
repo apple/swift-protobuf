@@ -1645,6 +1645,21 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessa
     set {_uniqueStorage()._repeatedMessageSet = newValue}
   }
 
+  /// Get some coverage for required fields and partial decoding/encoding.
+  var singularRequiredMessage: SwiftProtoTesting_Fuzz_MessageWithRequired {
+    get {_storage._singularRequiredMessage ?? SwiftProtoTesting_Fuzz_MessageWithRequired()}
+    set {_uniqueStorage()._singularRequiredMessage = newValue}
+  }
+  /// Returns true if `singularRequiredMessage` has been explicitly set.
+  var hasSingularRequiredMessage: Bool {_storage._singularRequiredMessage != nil}
+  /// Clears the value of `singularRequiredMessage`. Subsequent reads from it will return its default value.
+  mutating func clearSingularRequiredMessage() {_uniqueStorage()._singularRequiredMessage = nil}
+
+  var repeatedRequiredMessage: [SwiftProtoTesting_Fuzz_MessageWithRequired] {
+    get {_storage._repeatedRequiredMessage}
+    set {_uniqueStorage()._repeatedRequiredMessage = newValue}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// oneof
@@ -1742,6 +1757,29 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessa
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+/// A message with a required field so partial decoding/encoding and isInitialized
+/// checks are exercised when referenced from Message.
+nonisolated struct SwiftProtoTesting_Fuzz_MessageWithRequired: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var reqInt32: Int32 {
+    get {_reqInt32 ?? 0}
+    set {_reqInt32 = newValue}
+  }
+  /// Returns true if `reqInt32` has been explicitly set.
+  var hasReqInt32: Bool {self._reqInt32 != nil}
+  /// Clears the value of `reqInt32`. Subsequent reads from it will return its default value.
+  mutating func clearReqInt32() {self._reqInt32 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _reqInt32: Int32? = nil
 }
 
 /// A message with message_set_wire_format.
@@ -2667,7 +2705,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_AnEnum: SwiftProtobuf._ProtoNamePro
 
 nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Message"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}singular_int32\0\u{3}singular_int64\0\u{3}singular_uint32\0\u{3}singular_uint64\0\u{3}singular_sint32\0\u{3}singular_sint64\0\u{3}singular_fixed32\0\u{3}singular_fixed64\0\u{3}singular_sfixed32\0\u{3}singular_sfixed64\0\u{3}singular_float\0\u{3}singular_double\0\u{3}singular_bool\0\u{3}singular_string\0\u{3}singular_bytes\0\u{3}singular_enum\0\u{7}SingularGroup\0\u{4}\u{2}singular_message\0\u{4}\u{c}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{3}repeated_enum\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_message\0\u{4}\u{c}oneof_int32\0\u{3}oneof_int64\0\u{3}oneof_uint32\0\u{3}oneof_uint64\0\u{3}oneof_sint32\0\u{3}oneof_sint64\0\u{3}oneof_fixed32\0\u{3}oneof_fixed64\0\u{3}oneof_sfixed32\0\u{3}oneof_sfixed64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_bool\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_enum\0\u{7}OneofGroup\0\u{4}\u{2}oneof_message\0\u{4}\u{2}repeated_packed_int32\0\u{3}repeated_packed_int64\0\u{3}repeated_packed_uint32\0\u{3}repeated_packed_uint64\0\u{3}repeated_packed_sint32\0\u{3}repeated_packed_sint64\0\u{3}repeated_packed_fixed32\0\u{3}repeated_packed_fixed64\0\u{3}repeated_packed_sfixed32\0\u{3}repeated_packed_sfixed64\0\u{3}repeated_packed_float\0\u{3}repeated_packed_double\0\u{3}repeated_packed_bool\0\u{3}repeated_packed_enum\0\u{4}\u{6}map_int32_int32\0\u{3}map_int32_int64\0\u{3}map_int32_uint32\0\u{3}map_int32_uint64\0\u{3}map_int32_sint32\0\u{3}map_int32_sint64\0\u{3}map_int32_fixed32\0\u{3}map_int32_fixed64\0\u{3}map_int32_sfixed32\0\u{3}map_int32_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_int32_bool\0\u{3}map_int32_string\0\u{3}map_int32_bytes\0\u{3}map_int32_AnEnum\0\u{3}map_int32_Message\0\u{3}map_int64_int32\0\u{3}map_int64_int64\0\u{3}map_int64_uint32\0\u{3}map_int64_uint64\0\u{3}map_int64_sint32\0\u{3}map_int64_sint64\0\u{3}map_int64_fixed32\0\u{3}map_int64_fixed64\0\u{3}map_int64_sfixed32\0\u{3}map_int64_sfixed64\0\u{3}map_int64_float\0\u{3}map_int64_double\0\u{3}map_int64_bool\0\u{3}map_int64_string\0\u{3}map_int64_bytes\0\u{3}map_int64_AnEnum\0\u{3}map_int64_Message\0\u{3}map_uint32_int32\0\u{3}map_uint32_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint32_uint64\0\u{3}map_uint32_sint32\0\u{3}map_uint32_sint64\0\u{3}map_uint32_fixed32\0\u{3}map_uint32_fixed64\0\u{3}map_uint32_sfixed32\0\u{3}map_uint32_sfixed64\0\u{3}map_uint32_float\0\u{3}map_uint32_double\0\u{3}map_uint32_bool\0\u{3}map_uint32_string\0\u{3}map_uint32_bytes\0\u{3}map_uint32_AnEnum\0\u{3}map_uint32_Message\0\u{3}map_uint64_int32\0\u{3}map_uint64_int64\0\u{3}map_uint64_uint32\0\u{3}map_uint64_uint64\0\u{3}map_uint64_sint32\0\u{3}map_uint64_sint64\0\u{3}map_uint64_fixed32\0\u{3}map_uint64_fixed64\0\u{3}map_uint64_sfixed32\0\u{3}map_uint64_sfixed64\0\u{3}map_uint64_float\0\u{3}map_uint64_double\0\u{3}map_uint64_bool\0\u{3}map_uint64_string\0\u{3}map_uint64_bytes\0\u{3}map_uint64_AnEnum\0\u{3}map_uint64_Message\0\u{3}map_sint32_int32\0\u{3}map_sint32_int64\0\u{3}map_sint32_uint32\0\u{3}map_sint32_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint32_sint64\0\u{3}map_sint32_fixed32\0\u{3}map_sint32_fixed64\0\u{3}map_sint32_sfixed32\0\u{3}map_sint32_sfixed64\0\u{3}map_sint32_float\0\u{3}map_sint32_double\0\u{3}map_sint32_bool\0\u{3}map_sint32_string\0\u{3}map_sint32_bytes\0\u{3}map_sint32_AnEnum\0\u{3}map_sint32_Message\0\u{3}map_sint64_int32\0\u{3}map_sint64_int64\0\u{3}map_sint64_uint32\0\u{3}map_sint64_uint64\0\u{3}map_sint64_sint32\0\u{3}map_sint64_sint64\0\u{3}map_sint64_fixed32\0\u{3}map_sint64_fixed64\0\u{3}map_sint64_sfixed32\0\u{3}map_sint64_sfixed64\0\u{3}map_sint64_float\0\u{3}map_sint64_double\0\u{3}map_sint64_bool\0\u{3}map_sint64_string\0\u{3}map_sint64_bytes\0\u{3}map_sint64_AnEnum\0\u{3}map_sint64_Message\0\u{3}map_fixed32_int32\0\u{3}map_fixed32_int64\0\u{3}map_fixed32_uint32\0\u{3}map_fixed32_uint64\0\u{3}map_fixed32_sint32\0\u{3}map_fixed32_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed32_fixed64\0\u{3}map_fixed32_sfixed32\0\u{3}map_fixed32_sfixed64\0\u{3}map_fixed32_float\0\u{3}map_fixed32_double\0\u{3}map_fixed32_bool\0\u{3}map_fixed32_string\0\u{3}map_fixed32_bytes\0\u{3}map_fixed32_AnEnum\0\u{3}map_fixed32_Message\0\u{3}map_fixed64_int32\0\u{3}map_fixed64_int64\0\u{3}map_fixed64_uint32\0\u{3}map_fixed64_uint64\0\u{3}map_fixed64_sint32\0\u{3}map_fixed64_sint64\0\u{3}map_fixed64_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_fixed64_sfixed32\0\u{3}map_fixed64_sfixed64\0\u{3}map_fixed64_float\0\u{3}map_fixed64_double\0\u{3}map_fixed64_bool\0\u{3}map_fixed64_string\0\u{3}map_fixed64_bytes\0\u{3}map_fixed64_AnEnum\0\u{3}map_fixed64_Message\0\u{3}map_sfixed32_int32\0\u{3}map_sfixed32_int64\0\u{3}map_sfixed32_uint32\0\u{3}map_sfixed32_uint64\0\u{3}map_sfixed32_sint32\0\u{3}map_sfixed32_sint64\0\u{3}map_sfixed32_fixed32\0\u{3}map_sfixed32_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed32_sfixed64\0\u{3}map_sfixed32_float\0\u{3}map_sfixed32_double\0\u{3}map_sfixed32_bool\0\u{3}map_sfixed32_string\0\u{3}map_sfixed32_bytes\0\u{3}map_sfixed32_AnEnum\0\u{3}map_sfixed32_Message\0\u{3}map_sfixed64_int32\0\u{3}map_sfixed64_int64\0\u{3}map_sfixed64_uint32\0\u{3}map_sfixed64_uint64\0\u{3}map_sfixed64_sint32\0\u{3}map_sfixed64_sint64\0\u{3}map_sfixed64_fixed32\0\u{3}map_sfixed64_fixed64\0\u{3}map_sfixed64_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_sfixed64_float\0\u{3}map_sfixed64_double\0\u{3}map_sfixed64_bool\0\u{3}map_sfixed64_string\0\u{3}map_sfixed64_bytes\0\u{3}map_sfixed64_AnEnum\0\u{3}map_sfixed64_Message\0\u{3}map_bool_int32\0\u{3}map_bool_int64\0\u{3}map_bool_uint32\0\u{3}map_bool_uint64\0\u{3}map_bool_sint32\0\u{3}map_bool_sint64\0\u{3}map_bool_fixed32\0\u{3}map_bool_fixed64\0\u{3}map_bool_sfixed32\0\u{3}map_bool_sfixed64\0\u{3}map_bool_float\0\u{3}map_bool_double\0\u{3}map_bool_bool\0\u{3}map_bool_string\0\u{3}map_bool_bytes\0\u{3}map_bool_AnEnum\0\u{3}map_bool_Message\0\u{4}V\u{3}wkt_any\0\u{3}wkt_api\0\u{3}wkt_duration\0\u{3}wkt_empty\0\u{3}wkt_field_mask\0\u{3}wkt_source_context\0\u{3}wkt_struct\0\u{3}wkt_timestamp\0\u{3}wkt_type\0\u{3}wkt_double_value\0\u{3}wkt_float_value\0\u{3}wkt_int64_value\0\u{3}wkt_uint64_value\0\u{3}wkt_int32_value\0\u{3}wkt_uint32_value\0\u{3}wkt_bool_value\0\u{3}wkt_string_value\0\u{3}wkt_bytes_value\0\u{4}S\u{1}singular_message_set\0\u{3}repeated_message_set\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}singular_int32\0\u{3}singular_int64\0\u{3}singular_uint32\0\u{3}singular_uint64\0\u{3}singular_sint32\0\u{3}singular_sint64\0\u{3}singular_fixed32\0\u{3}singular_fixed64\0\u{3}singular_sfixed32\0\u{3}singular_sfixed64\0\u{3}singular_float\0\u{3}singular_double\0\u{3}singular_bool\0\u{3}singular_string\0\u{3}singular_bytes\0\u{3}singular_enum\0\u{7}SingularGroup\0\u{4}\u{2}singular_message\0\u{4}\u{c}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{3}repeated_enum\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_message\0\u{4}\u{c}oneof_int32\0\u{3}oneof_int64\0\u{3}oneof_uint32\0\u{3}oneof_uint64\0\u{3}oneof_sint32\0\u{3}oneof_sint64\0\u{3}oneof_fixed32\0\u{3}oneof_fixed64\0\u{3}oneof_sfixed32\0\u{3}oneof_sfixed64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_bool\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_enum\0\u{7}OneofGroup\0\u{4}\u{2}oneof_message\0\u{4}\u{2}repeated_packed_int32\0\u{3}repeated_packed_int64\0\u{3}repeated_packed_uint32\0\u{3}repeated_packed_uint64\0\u{3}repeated_packed_sint32\0\u{3}repeated_packed_sint64\0\u{3}repeated_packed_fixed32\0\u{3}repeated_packed_fixed64\0\u{3}repeated_packed_sfixed32\0\u{3}repeated_packed_sfixed64\0\u{3}repeated_packed_float\0\u{3}repeated_packed_double\0\u{3}repeated_packed_bool\0\u{3}repeated_packed_enum\0\u{4}\u{6}map_int32_int32\0\u{3}map_int32_int64\0\u{3}map_int32_uint32\0\u{3}map_int32_uint64\0\u{3}map_int32_sint32\0\u{3}map_int32_sint64\0\u{3}map_int32_fixed32\0\u{3}map_int32_fixed64\0\u{3}map_int32_sfixed32\0\u{3}map_int32_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_int32_bool\0\u{3}map_int32_string\0\u{3}map_int32_bytes\0\u{3}map_int32_AnEnum\0\u{3}map_int32_Message\0\u{3}map_int64_int32\0\u{3}map_int64_int64\0\u{3}map_int64_uint32\0\u{3}map_int64_uint64\0\u{3}map_int64_sint32\0\u{3}map_int64_sint64\0\u{3}map_int64_fixed32\0\u{3}map_int64_fixed64\0\u{3}map_int64_sfixed32\0\u{3}map_int64_sfixed64\0\u{3}map_int64_float\0\u{3}map_int64_double\0\u{3}map_int64_bool\0\u{3}map_int64_string\0\u{3}map_int64_bytes\0\u{3}map_int64_AnEnum\0\u{3}map_int64_Message\0\u{3}map_uint32_int32\0\u{3}map_uint32_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint32_uint64\0\u{3}map_uint32_sint32\0\u{3}map_uint32_sint64\0\u{3}map_uint32_fixed32\0\u{3}map_uint32_fixed64\0\u{3}map_uint32_sfixed32\0\u{3}map_uint32_sfixed64\0\u{3}map_uint32_float\0\u{3}map_uint32_double\0\u{3}map_uint32_bool\0\u{3}map_uint32_string\0\u{3}map_uint32_bytes\0\u{3}map_uint32_AnEnum\0\u{3}map_uint32_Message\0\u{3}map_uint64_int32\0\u{3}map_uint64_int64\0\u{3}map_uint64_uint32\0\u{3}map_uint64_uint64\0\u{3}map_uint64_sint32\0\u{3}map_uint64_sint64\0\u{3}map_uint64_fixed32\0\u{3}map_uint64_fixed64\0\u{3}map_uint64_sfixed32\0\u{3}map_uint64_sfixed64\0\u{3}map_uint64_float\0\u{3}map_uint64_double\0\u{3}map_uint64_bool\0\u{3}map_uint64_string\0\u{3}map_uint64_bytes\0\u{3}map_uint64_AnEnum\0\u{3}map_uint64_Message\0\u{3}map_sint32_int32\0\u{3}map_sint32_int64\0\u{3}map_sint32_uint32\0\u{3}map_sint32_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint32_sint64\0\u{3}map_sint32_fixed32\0\u{3}map_sint32_fixed64\0\u{3}map_sint32_sfixed32\0\u{3}map_sint32_sfixed64\0\u{3}map_sint32_float\0\u{3}map_sint32_double\0\u{3}map_sint32_bool\0\u{3}map_sint32_string\0\u{3}map_sint32_bytes\0\u{3}map_sint32_AnEnum\0\u{3}map_sint32_Message\0\u{3}map_sint64_int32\0\u{3}map_sint64_int64\0\u{3}map_sint64_uint32\0\u{3}map_sint64_uint64\0\u{3}map_sint64_sint32\0\u{3}map_sint64_sint64\0\u{3}map_sint64_fixed32\0\u{3}map_sint64_fixed64\0\u{3}map_sint64_sfixed32\0\u{3}map_sint64_sfixed64\0\u{3}map_sint64_float\0\u{3}map_sint64_double\0\u{3}map_sint64_bool\0\u{3}map_sint64_string\0\u{3}map_sint64_bytes\0\u{3}map_sint64_AnEnum\0\u{3}map_sint64_Message\0\u{3}map_fixed32_int32\0\u{3}map_fixed32_int64\0\u{3}map_fixed32_uint32\0\u{3}map_fixed32_uint64\0\u{3}map_fixed32_sint32\0\u{3}map_fixed32_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed32_fixed64\0\u{3}map_fixed32_sfixed32\0\u{3}map_fixed32_sfixed64\0\u{3}map_fixed32_float\0\u{3}map_fixed32_double\0\u{3}map_fixed32_bool\0\u{3}map_fixed32_string\0\u{3}map_fixed32_bytes\0\u{3}map_fixed32_AnEnum\0\u{3}map_fixed32_Message\0\u{3}map_fixed64_int32\0\u{3}map_fixed64_int64\0\u{3}map_fixed64_uint32\0\u{3}map_fixed64_uint64\0\u{3}map_fixed64_sint32\0\u{3}map_fixed64_sint64\0\u{3}map_fixed64_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_fixed64_sfixed32\0\u{3}map_fixed64_sfixed64\0\u{3}map_fixed64_float\0\u{3}map_fixed64_double\0\u{3}map_fixed64_bool\0\u{3}map_fixed64_string\0\u{3}map_fixed64_bytes\0\u{3}map_fixed64_AnEnum\0\u{3}map_fixed64_Message\0\u{3}map_sfixed32_int32\0\u{3}map_sfixed32_int64\0\u{3}map_sfixed32_uint32\0\u{3}map_sfixed32_uint64\0\u{3}map_sfixed32_sint32\0\u{3}map_sfixed32_sint64\0\u{3}map_sfixed32_fixed32\0\u{3}map_sfixed32_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed32_sfixed64\0\u{3}map_sfixed32_float\0\u{3}map_sfixed32_double\0\u{3}map_sfixed32_bool\0\u{3}map_sfixed32_string\0\u{3}map_sfixed32_bytes\0\u{3}map_sfixed32_AnEnum\0\u{3}map_sfixed32_Message\0\u{3}map_sfixed64_int32\0\u{3}map_sfixed64_int64\0\u{3}map_sfixed64_uint32\0\u{3}map_sfixed64_uint64\0\u{3}map_sfixed64_sint32\0\u{3}map_sfixed64_sint64\0\u{3}map_sfixed64_fixed32\0\u{3}map_sfixed64_fixed64\0\u{3}map_sfixed64_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_sfixed64_float\0\u{3}map_sfixed64_double\0\u{3}map_sfixed64_bool\0\u{3}map_sfixed64_string\0\u{3}map_sfixed64_bytes\0\u{3}map_sfixed64_AnEnum\0\u{3}map_sfixed64_Message\0\u{3}map_bool_int32\0\u{3}map_bool_int64\0\u{3}map_bool_uint32\0\u{3}map_bool_uint64\0\u{3}map_bool_sint32\0\u{3}map_bool_sint64\0\u{3}map_bool_fixed32\0\u{3}map_bool_fixed64\0\u{3}map_bool_sfixed32\0\u{3}map_bool_sfixed64\0\u{3}map_bool_float\0\u{3}map_bool_double\0\u{3}map_bool_bool\0\u{3}map_bool_string\0\u{3}map_bool_bytes\0\u{3}map_bool_AnEnum\0\u{3}map_bool_Message\0\u{4}V\u{3}wkt_any\0\u{3}wkt_api\0\u{3}wkt_duration\0\u{3}wkt_empty\0\u{3}wkt_field_mask\0\u{3}wkt_source_context\0\u{3}wkt_struct\0\u{3}wkt_timestamp\0\u{3}wkt_type\0\u{3}wkt_double_value\0\u{3}wkt_float_value\0\u{3}wkt_int64_value\0\u{3}wkt_uint64_value\0\u{3}wkt_int32_value\0\u{3}wkt_uint32_value\0\u{3}wkt_bool_value\0\u{3}wkt_string_value\0\u{3}wkt_bytes_value\0\u{4}S\u{1}singular_message_set\0\u{3}repeated_message_set\0\u{3}singular_required_message\0\u{3}repeated_required_message\0")
 
   fileprivate class _StorageClass {
     var _singularInt32: Int32? = nil
@@ -2928,6 +2966,8 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, Swi
     var _wktBytesValue: SwiftProtobuf.Google_Protobuf_BytesValue? = nil
     var _singularMessageSet: SwiftProtoTesting_Fuzz_AMessageSetMessage? = nil
     var _repeatedMessageSet: [SwiftProtoTesting_Fuzz_AMessageSetMessage] = []
+    var _singularRequiredMessage: SwiftProtoTesting_Fuzz_MessageWithRequired? = nil
+    var _repeatedRequiredMessage: [SwiftProtoTesting_Fuzz_MessageWithRequired] = []
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -3196,6 +3236,8 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, Swi
       _wktBytesValue = source._wktBytesValue
       _singularMessageSet = source._singularMessageSet
       _repeatedMessageSet = source._repeatedMessageSet
+      _singularRequiredMessage = source._singularRequiredMessage
+      _repeatedRequiredMessage = source._repeatedRequiredMessage
     }
   }
 
@@ -3225,6 +3267,8 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, Swi
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapBoolMessage) {return false}
       if let v = _storage._singularMessageSet, !v.isInitialized {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedMessageSet) {return false}
+      if let v = _storage._singularRequiredMessage, !v.isInitialized {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedRequiredMessage) {return false}
       return true
     }
   }
@@ -3648,6 +3692,8 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, Swi
         case 517: try { try decoder.decodeSingularMessageField(value: &_storage._wktBytesValue) }()
         case 600: try { try decoder.decodeSingularMessageField(value: &_storage._singularMessageSet) }()
         case 601: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedMessageSet) }()
+        case 602: try { try decoder.decodeSingularMessageField(value: &_storage._singularRequiredMessage) }()
+        case 603: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedRequiredMessage) }()
         case 1000..<2001:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Fuzz_Message.self, fieldNumber: fieldNumber) }()
         default: break
@@ -4508,6 +4554,12 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, Swi
       if !_storage._repeatedMessageSet.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedMessageSet, fieldNumber: 601)
       }
+      try { if let v = _storage._singularRequiredMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 602)
+      } }()
+      if !_storage._repeatedRequiredMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedRequiredMessage, fieldNumber: 603)
+      }
       try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 2001)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -4776,6 +4828,8 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, Swi
         if _storage._wktBytesValue != rhs_storage._wktBytesValue {return false}
         if _storage._singularMessageSet != rhs_storage._singularMessageSet {return false}
         if _storage._repeatedMessageSet != rhs_storage._repeatedMessageSet {return false}
+        if _storage._singularRequiredMessage != rhs_storage._singularRequiredMessage {return false}
+        if _storage._repeatedRequiredMessage != rhs_storage._repeatedRequiredMessage {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -4883,6 +4937,45 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.M
 
   static func ==(lhs: SwiftProtoTesting_Fuzz_Message.OneofGroup, rhs: SwiftProtoTesting_Fuzz_Message.OneofGroup) -> Bool {
     if lhs._groupField != rhs._groupField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension SwiftProtoTesting_Fuzz_MessageWithRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MessageWithRequired"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}req_int32\0")
+
+  public var isInitialized: Bool {
+    if self._reqInt32 == nil {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._reqInt32) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._reqInt32 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Fuzz_MessageWithRequired, rhs: SwiftProtoTesting_Fuzz_MessageWithRequired) -> Bool {
+    if lhs._reqInt32 != rhs._reqInt32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

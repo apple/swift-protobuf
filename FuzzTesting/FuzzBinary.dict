@@ -1,7 +1,17 @@
 # To generate the data set.
-#   FuzzTesting/make_FuzzBinary_dict Protos/Tests/SwiftProtobufTests/fuzz_testing.proto
+#   ./FuzzTesting/make_FuzzBinary_dict Protos/Tests/SwiftProtobufTests/fuzz_testing.proto
+# (Keep the BinaryFuzzingOptions sample header tokens appended at the bottom.)
 
 # Tags for all the fields
+"\x08"
+"\x10"
+"\x18"
+"\x20"
+"\x28"
+"\x30"
+"\x3d"
+"\x41"
+"\x4d"
 "\x51"
 "\x5d"
 "\x61"
@@ -302,9 +312,14 @@
 "\xaa\x20"
 "\xc2\x25"
 "\xca\x25"
-"\xca\xdf\xf3\x05"
+"\xd2\x25"
+"\xda\x25"
+"\x0b"
+"\x0c"
+"\x1a"
+"\xf9\xbb\x5e"
 "\x52"
-"\x82\x99\xe3\x0f"
+"\x90\xb3\xfc\x01"
 "\xa0\x01"
 "\xc8\x3e"
 "\xd0\x3e"
@@ -406,3 +421,13 @@
 "\x1aabcdefghijklmnopqrstuvwxyz"
 # start/end group just have tags/values after them, no tag specific payload; so
 # nothing to provide as an example.
+
+# Sample BinaryFuzzingOptions headers (leading \x00 + options bitmask + optional depth byte):
+"\x00\x00"
+"\x00\x01\x03"
+"\x00\x02"
+"\x00\x04"
+"\x00\x06"
+"\x00\x08"
+"\x00\x0e"
+"\x00\x0f\x04"
