@@ -1306,6 +1306,48 @@ final class Test_JSON_EnumValue_CustomString: XCTestCase, PBTestHelpers {
         }
         // And still that the raw number also works (like it normally does)
         assertJSONDecodeSucceeds("{\"testCase\":6}") { $0.testCase == .six }
+
+        // Custom string equal to the proto name encodes as the proto name.
+        assertJSONEncode("{\"testCase\":\"ENUM_CUSTOM_JSON_STRING_SAME_AS_NAME\"}") { (o: inout MessageTestType) in
+            o.testCase = .sameAsName
+        }
+        assertJSONDecodeSucceeds("{\"testCase\":7}") { $0.testCase == .sameAsName }
+    }
+
+    func testEmptyOption() {
+        // An empty `(pb.enumvalue.json) = {}` option leaves `.string` unset and
+        // must behave like an omitted option rather than setting `""`.
+        assertJSONEncode("{\"emptyOptionZero\":\"ENUM_EMPTY_JSON_OPTION_ZERO_UNSPECIFIED\"}") {
+            (o: inout MessageTestType) in
+            o.emptyOptionZero = .unspecified
+        }
+        assertJSONEncode("{\"emptyOptionZero\":\"ENUM_EMPTY_JSON_OPTION_ZERO_OTHER\"}") {
+            (o: inout MessageTestType) in
+            o.emptyOptionZero = .other
+        }
+        assertJSONDecodeSucceeds("{\"emptyOptionZero\":0}") { $0.emptyOptionZero == .unspecified }
+        assertJSONDecodeFails("{\"emptyOptionZero\":\"\"}")
+
+        assertJSONEncode("{\"emptyOptionAliased\":\"ENUM_EMPTY_JSON_OPTION_ALIASED_EMPTY_FIRST\"}") {
+            (o: inout MessageTestType) in
+            o.emptyOptionAliased = .emptyFirst
+        }
+        assertJSONDecodeSucceeds("{\"emptyOptionAliased\":\"ENUM_EMPTY_JSON_OPTION_ALIASED_OMITTED_SECOND\"}") {
+            $0.emptyOptionAliased == .emptyFirst
+        }
+        assertJSONDecodeFails("{\"emptyOptionAliased\":\"\"}")
+
+        assertJSONEncode(
+            "{\"emptyOptionAliasOmittedFirst\":\"ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_OMITTED\"}"
+        ) { (o: inout MessageTestType) in
+            o.emptyOptionAliasOmittedFirst = .omitted
+        }
+        assertJSONDecodeSucceeds(
+            "{\"emptyOptionAliasOmittedFirst\":\"ENUM_EMPTY_JSON_OPTION_ALIAS_OMITTED_FIRST_EMPTY\"}"
+        ) {
+            $0.emptyOptionAliasOmittedFirst == .omitted
+        }
+        assertJSONDecodeFails("{\"emptyOptionAliasOmittedFirst\":\"\"}")
     }
 }
 

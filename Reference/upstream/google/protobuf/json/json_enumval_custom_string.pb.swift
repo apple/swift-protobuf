@@ -124,7 +124,7 @@ nonisolated struct JsonEnumvalCustomString_Knight: Sendable {
 fileprivate nonisolated let _protobuf_package = "json_enumval_custom_string"
 
 nonisolated extension JsonEnumvalCustomString_Armor: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ARMOR_UNKNOWN\0\u{5}ARMOR_GREAT_HELM\0gr8 helm\0\u{1}ARMOR_GORGET\0\u{5}ARMOR_GAUNTLET\0a\"b\0\u{5}ARMOR_PLATE\0\"plate\"\0\u{5}ARMOR_COIF\0\0\u{5}ARMOR_PAULDRON\0p\u{9}aul\u{a}dron\0\u{9}ARMOR_SABATON\0\u{1}ARMOR_SOLLERET\0\u{6}\0ARMOR_SABATON\0sabaton\0\u{5}ARMOR_HACHI_MAI_DO\08\0\u{5}ARMOR_GREAVES\0ARMOR_GREAVES\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ARMOR_UNKNOWN\0\u{5}ARMOR_GREAT_HELM\0gr8 helm\0\u{1}ARMOR_GORGET\0\u{5}ARMOR_GAUNTLET\0a\"b\0\u{5}ARMOR_PLATE\0\"plate\"\0\u{5}ARMOR_COIF\0\0\u{5}ARMOR_PAULDRON\0p\u{9}aul\u{a}dron\0\u{9}ARMOR_SABATON\0\u{1}ARMOR_SOLLERET\0\u{6}\0ARMOR_SABATON\0sabaton\0\u{5}ARMOR_HACHI_MAI_DO\08\0\u{1}ARMOR_GREAVES\0")
 }
 
 nonisolated extension JsonEnumvalCustomString_Knight: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
