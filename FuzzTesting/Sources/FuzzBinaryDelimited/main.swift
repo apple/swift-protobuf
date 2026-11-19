@@ -27,6 +27,7 @@ public func FuzzDelimited(_ start: UnsafeRawPointer?, _ count: Int) -> CInt {
     let bytes = UnsafeRawBufferPointer(start: start, count: count)
     let istream = InputStream(data: Data(bytes))
     istream.open()
+    defer { istream.close() }
     var msgCount = 0
     while msgCount < kMaxMessages {
         let msg: SwiftProtoTesting_Fuzz_Message?
@@ -49,6 +50,7 @@ public func FuzzDelimited(_ start: UnsafeRawPointer?, _ count: Int) -> CInt {
             // for each output attempt.
             let ostream = OutputStream.toMemory()
             ostream.open()
+            defer { ostream.close() }
             try! BinaryDelimited.serialize(message: msg, to: ostream)
         }
     }
