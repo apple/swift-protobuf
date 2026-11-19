@@ -46,6 +46,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
   case escapes // = 5
   case six // = 6
   case sameAsName // = 7
+  case customName // = 8
   static let somethingSpecialAlias = somethingSpecial
   case UNRECOGNIZED(Swift.Int)
 
@@ -63,6 +64,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     case 5: self = .escapes
     case 6: self = .six
     case 7: self = .sameAsName
+    case 8: self = .customName
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -77,6 +79,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     case .escapes: return 5
     case .six: return 6
     case .sameAsName: return 7
+    case .customName: return 8
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -91,6 +94,7 @@ nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swi
     .escapes,
     .six,
     .sameAsName,
+    .customName,
   ]
 
 }
@@ -243,6 +247,16 @@ nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMe
   /// Clears the value of `emptyOptionAliasOmittedFirst`. Subsequent reads from it will return its default value.
   mutating func clearEmptyOptionAliasOmittedFirst() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 8)) }
 
+  var repeatedTestCase: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] {
+    get { _storage.value(atIndex: 0, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+  }
+
+  var mapTestCase: [String: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] {
+    get { _storage.value(atIndex: 0, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+  }
+
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
   private var _storage: SwiftProtobuf.MessageStorage
@@ -253,11 +267,78 @@ nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMe
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
+// MARK: - Extension support defined in unittest_json_enumvalue_custom_string.proto.
+
+// MARK: - Extension Properties
+
+// Swift Extensions on the extended Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage {
+
+  var SwiftProtoTesting_EnumValueJsonString_extSingularEnum: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
+    get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum, default: .unknown) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum, to: newValue) }
+  }
+  /// Returns true if extension `SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_EnumValueJsonString_extSingularEnum: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum) }
+  /// Clears the value of extension `SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_EnumValueJsonString_extSingularEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum) }
+
+  var SwiftProtoTesting_EnumValueJsonString_extRepeatedEnum: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] {
+    get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum, default: []) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum, to: newValue) }
+  }
+
+  var SwiftProtoTesting_EnumValueJsonString_extUnpackedEnum: [SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString] {
+    get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum, default: []) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum, to: newValue) }
+  }
+
+}
+
+// MARK: - File's ExtensionMap: SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used in parsing, or it can be combined with other
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftProtoTesting_EnumValueJsonString_UnittestJsonEnumvalueCustomString_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum,
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum,
+  SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum
+]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_singular_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  schema: "\0d\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}<\0swift_proto_testing.enum_value_json_string.ext_singular_enum",
+  extendedMessageResolver: { SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage.messageSchema },
+  submessageOrEnumResolver: { .enum(SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString.enumSchema) }
+)
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_repeated_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  schema: "\0e\0\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}<\0swift_proto_testing.enum_value_json_string.ext_repeated_enum",
+  extendedMessageResolver: { SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage.messageSchema },
+  submessageOrEnumResolver: { .enum(SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString.enumSchema) }
+)
+
+nonisolated let SwiftProtoTesting_EnumValueJsonString_Extensions_ext_unpacked_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>, SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage>(
+  schema: "\0f\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}<\0swift_proto_testing.enum_value_json_string.ext_unpacked_enum",
+  extendedMessageResolver: { SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage.messageSchema },
+  submessageOrEnumResolver: { .enum(SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString.enumSchema) }
+)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{8}\0\0?\0swift_proto_testing.enum_value_json_string.EnumCustomJSONString"
-  private static let _protobuf_reflectionData: Swift.StaticString = "0\u{4}\0\0\0\u{1f}tG885{jr\u{f}XF\u{17}~AV\u{19}\u{18}\u{f}\u{1}jT/6g\u{8}b:\u{12}u+E]841\u{4}\u{16}q\u{b}\roU\u{1e}|nMZ\u{19}4`5\u{8}fD.\u{8}\rt*B?\"_~.h\n\u{12}0.\\ \u{3}\u{7}o \u{13}8m\u{1f}\u{15}\u{13}pE\u{1e}L/\\Q\u{1f}?*Zi\u{1e}/\u{2}\u{8}7?r\u{1e}'\\T\0b)\u{b}\u{1a}h_0?Nd`\u{1}ZI=KGQz#\r&ZV\u{1c}\u{15}\u{1f}]\u{18}kH{0`\n]U)_n[jV:~~DaTP\u{15}k\u{14}\u{15}#\n\u{14}*\u{1}{!P}Mz05~\u{e}^A\u{17}Qs!\u{15}E`s\u{19}w/t:qu\u{2}\u{7}qL\u{6}d!d\u{c}uE:\u{e}hQt\0$\tA\u{11}fQKQ\u{19}Rbsv\u{c}W:\u{4}&o(\r8\u{4}5=@2A@,t\u{7f}\u{4}`<2sY)7~K\u{7f}u:N{d)N\u{5}}\u{4}c\u{1e}\u{17}Q\r\u{11}ye\u{7}k\u{c}g0\u{1}\0\0"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{9}\0\0?\0swift_proto_testing.enum_value_json_string.EnumCustomJSONString"
+  private static let _protobuf_reflectionData: Swift.StaticString = "t\u{4}\0\0 (u_\u{7f}]`]^\nEy[U\u{13}eN|<\u{17}DuJ\u{18}\u{1c}\u{19}@\tD\u{1}pK`$pX2B!M4\u{e}c\u{1d}M\u{19}D~OQ )4 \u{17}eT=;B\u{6}=#w\u{1d}^ B8pS\u{19}Jq-.oY<%n2F\u{11}d\u{1}Fx~xV;mS\u{4}\u{1c}[qJSj[jC\u{12}0c-j\u{1b}\u{5}?\thM\u{1e}lJU_\u{1d}\u{8}X5\u{15}]\u{c}\u{f}^~\u{1b}-W\u{18}\u{1f}\u{13}^\u{1d}hj\u{11}\u{17}M|7\rR!\u{10}\u{3}-(6jH\u{11}H\n\u{1e}{qN\"\u{c}cg[Gz@+\u{1d}$1&j5\u{18}~s,y9\u{b}~P\0[3C`\u{8}y)D\u{1b}:/+Ma&Fwn<uQ\u{1e},xpXj\u{c}[jiZ\u{1a}iQ\u{e}\u{1f}Xf3}\u{18}g\u{16}\u{14}\"6HP\u{7}\u{5}m\u{17}\u{10}\"Q\u{2}!i+Q=6JHR\u{17}x\u{12}\t0\u{e}C \u{19}y]G(]4]AOF\0JIkkvP\u{3}H\u{18}P$l\"\n],\u{1b}b{O\u{17}L%v\u{10}C142\u{1b}\u{5}\u{f}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
@@ -280,8 +361,8 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionA
 }
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{4}\0\u{e}G\0swift_proto_testing.enum_value_json_string.EnumCustomJSONStringsMessage"
-  private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{2}\0\0\0_\u{10}c=ZORHt_LN1,V2\u{7f}7+3m}<\n\u{7}n=\\d5\u{18}5UY \u{6}ARt\u{f}+u:@M#;\u{1f}nqIpY{0@Z+GiA\u{11}57+-\u{b}<Q.{n2m\u{5}1o\u{7}\u{6}r+\u{5}+nX*5X\u{b};\t\u{1d}\\)\u{11}UieU,&l\0=yt\u{1b}]9\tAO<\u{c}us\u{17}s;Lb\u{1f}\u{1f}$j^\u{3}H\u{18}>[~\u{7}\r!@bzs\0\0\0"
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0 \u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{4}\0\u{e}\u{5}\0\0\0\u{a}\0\0\u{10}\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\u{4}\0\0 \u{5}\0\u{5}\0\u{b}G\0swift_proto_testing.enum_value_json_string.EnumCustomJSONStringsMessage"
+  private static let _protobuf_reflectionData: Swift.StaticString = "|\u{2}\0\0 l\u{15}TPSe%wcQ\u{16}\u{c}U[\u{5}VW\u{13}V?yoqo6$V-5\u{7}0\u{15}+\u{1a}0'l:\u{1c}JWM8\u{18}\u{1a}CV2gkaT]yK$N\u{18}hZ!Wzy 3\u{1d}7m\u{1b}n]QP\u{10}QW\u{18}K;Y\u{16}r\u{10}\u{2}*wxi?\u{15}r|\tJ\u{1d}4j7\u{12}C\u{1}\nx-#-\u{1b}\u{16}_nY%U,<\u{19}=Z\u{f}\u{15}a\u{5}T<>Oj\u{15}\u{16}+\u{f},\u{17}\u{c}.]MZOTN\u{12}~\"DX(t\0Z0Wk)e6\u{17}E\u{b}v'^Va3_i<6-h\u{1c}\u{7}\rO\u{16}\u{12}co]E8y}\u{2}(!!tk\t\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
@@ -291,9 +372,12 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString
     case 2: return .enum(SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionZero.enumSchema)
     case 3: return .enum(SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliased.enumSchema)
     case 4: return .enum(SwiftProtoTesting_EnumValueJsonString_EnumEmptyJSONOptionAliasOmittedFirst.enumSchema)
+    case 5: return .message(_protobuf_mapEntrySchema_MapTestCaseEntry)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
+  private static let _protobuf_mapEntrySchema_MapTestCaseEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}X\0swift_proto_testing.enum_value_json_string.EnumCustomJSONStringsMessage.MapTestCaseEntry"
+  private static let _protobuf_mapEntrySchema_MapTestCaseEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapTestCaseEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString>.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
