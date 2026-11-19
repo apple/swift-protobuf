@@ -150,6 +150,67 @@ final class Test_Required: XCTestCase, PBTestHelpers {
         XCTAssertTrue(msg.isInitialized)
     }
 
+    func test_IsInitialized_RepeatedMessageFollowedByUninitializedField() throws {
+        // An initialized repeated message field must not short-circuit checking subsequent
+        // message fields or extensions.
+        var msg = SwiftProtoTesting_Fuzz_Message()
+        msg.repeatedMessage = [SwiftProtoTesting_Fuzz_Message()]
+        msg.singularRequiredMessage = SwiftProtoTesting_Fuzz_MessageWithRequired()
+        XCTAssertFalse(msg.isInitialized)
+
+        var partialEncode = BinaryEncodingOptions()
+        partialEncode.allowPartial = true
+        let encodedWithSingular: [UInt8] = try msg.serializedBytes(options: partialEncode)
+        XCTAssertThrowsError(try SwiftProtoTesting_Fuzz_Message(serializedBytes: encodedWithSingular)) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .missingRequiredFields)
+        }
+
+        msg.singularRequiredMessage.reqInt32 = 1
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.repeatedRequiredMessage = [SwiftProtoTesting_Fuzz_MessageWithRequired()]
+        XCTAssertFalse(msg.isInitialized)
+        let encodedWithRepeated: [UInt8] = try msg.serializedBytes(options: partialEncode)
+        XCTAssertThrowsError(try SwiftProtoTesting_Fuzz_Message(serializedBytes: encodedWithRepeated)) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .missingRequiredFields)
+        }
+
+        msg.repeatedRequiredMessage[0].reqInt32 = 2
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func test_Extensions_isInitialized_RepeatedFollowedByUninitialized() throws {
+        // An initialized repeated message extension must not short-circuit checking other
+        // message extensions in ExtensionStorage.
+        var initializedRequired = SwiftProtoTesting_TestRequired()
+        initializedRequired.a = 1
+        initializedRequired.b = 2
+        initializedRequired.c = 3
+
+        var msg = SwiftProtoTesting_TestAllExtensions()
+        msg.SwiftProtoTesting_repeatedNestedMessageExtension = [SwiftProtoTesting_TestAllTypes.NestedMessage()]
+        msg.SwiftProtoTesting_repeatedForeignMessageExtension = [SwiftProtoTesting_ForeignMessage()]
+        msg.SwiftProtoTesting_repeatedImportMessageExtension = [SwiftProtoTesting_Import_ImportMessage()]
+        msg.SwiftProtoTesting_TestRequired_multi = [initializedRequired]
+        msg.SwiftProtoTesting_TestRequired_single = SwiftProtoTesting_TestRequired()
+        XCTAssertFalse(msg.isInitialized)
+
+        var partialEncode = BinaryEncodingOptions()
+        partialEncode.allowPartial = true
+        let encoded: [UInt8] = try msg.serializedBytes(options: partialEncode)
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_TestAllExtensions(
+                serializedBytes: encoded,
+                extensions: SwiftProtoTesting_Unittest_Extensions
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .missingRequiredFields)
+        }
+
+        msg.SwiftProtoTesting_TestRequired_single = initializedRequired
+        XCTAssertTrue(msg.isInitialized)
+    }
+
     func testRequired1_isNotInitialized() {
         var msg = SwiftProtoTesting_Required1()
         XCTAssertFalse(msg.isInitialized)

@@ -151,6 +151,11 @@ final class Test_FuzzTests: XCTestCase {
             0x8a, 0x41, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0x8a, 0x41, 0x8d,
             0x8c,
         ])
+
+        // FailCases/Binary-repeated-then-required
+        // Field 49 (initialized repeated_message) followed by field 602 (uninitialized
+        // singular_required_message) must fail strict binary decoding.
+        assertBinaryFails([0x8a, 0x03, 0x00, 0xd2, 0x25, 0x00])
     }
 
     func test_JSON() {
