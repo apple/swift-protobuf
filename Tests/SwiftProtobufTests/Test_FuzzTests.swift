@@ -162,6 +162,7 @@ final class Test_FuzzTests: XCTestCase {
 
         // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_debug-4506617283477504
         // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_release-5689942715006976
+        assertJSONFails("{\"[swift_proto_testing.fuzz.singular_sint32_ext]\":null")
         assertJSONFails("{\"[fuzz.testing.singular_sint32_ext]\":null")
 
         // FailCases/JSON-Any
