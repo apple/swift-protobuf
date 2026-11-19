@@ -8,6 +8,7 @@
 
 import Foundation
 import FuzzCommon
+import SwiftProtobuf
 import XCTest
 
 struct TestOptions: SupportsFuzzOptions {
@@ -296,6 +297,69 @@ final class Test_FuzzOptions: XCTestCase {
             XCTAssertEqual(bytes.loadUnaligned(fromByteOffset: 0, as: UInt8.self), 81)
             XCTAssertEqual(bytes.loadUnaligned(fromByteOffset: 1, as: UInt8.self), 92)
             XCTAssertEqual(bytes.loadUnaligned(fromByteOffset: 2, as: UInt8.self), 103)
+        }
+    }
+
+    func test_BinaryFuzzingOptions_allowPartial() throws {
+        // Default (no option header) leaves both decoding and encoding allowPartial false.
+        let noHeader: [UInt8] = [0xd2, 0x25, 0x00]
+        try noHeader.withUnsafeBytes { ptr in
+            let (opts, payload) = try XCTUnwrap(BinaryFuzzingOptions.extractOptions(ptr.baseAddress, noHeader.count))
+            XCTAssertFalse(opts.allowPartial)
+            XCTAssertFalse(opts.decoding.allowPartial)
+            XCTAssertFalse(opts.encoding.allowPartial)
+            XCTAssertEqual(Array(payload), noHeader)
+        }
+
+        // Bit 2 (0x04) sets both decoding.allowPartial and encoding.allowPartial together.
+        let partialInput: [UInt8] = [0x00, 0x04, 0xd2, 0x25, 0x00]
+        try partialInput.withUnsafeBytes { ptr in
+            var (opts, payload) = try XCTUnwrap(
+                BinaryFuzzingOptions.extractOptions(ptr.baseAddress, partialInput.count)
+            )
+            XCTAssertTrue(opts.allowPartial)
+            XCTAssertTrue(opts.decoding.allowPartial)
+            XCTAssertTrue(opts.encoding.allowPartial)
+            XCTAssertFalse(opts.decoding.discardUnknownFields)
+            XCTAssertFalse(opts.encoding.useDeterministicOrdering)
+            XCTAssertEqual(Array(payload), [0xd2, 0x25, 0x00])
+
+            let msg = try SwiftProtoTesting_Fuzz_Message(
+                serializedBytes: Array(payload),
+                extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions,
+                options: opts.decoding
+            )
+            XCTAssertFalse(msg.isInitialized)
+            let roundTripped: [UInt8] = try msg.serializedBytes(options: opts.encoding)
+            XCTAssertEqual(roundTripped, [0xd2, 0x25, 0x00])
+
+            opts.allowPartial = false
+            XCTAssertFalse(opts.allowPartial)
+            XCTAssertFalse(opts.decoding.allowPartial)
+            XCTAssertFalse(opts.encoding.allowPartial)
+        }
+
+        // All four valid option bits (0x0f) parse cleanly with depth byte.
+        let allValidBits: [UInt8] = [0x00, 0x0f, 0x04, 0xaa]
+        try allValidBits.withUnsafeBytes { ptr in
+            let (opts, payload) = try XCTUnwrap(
+                BinaryFuzzingOptions.extractOptions(ptr.baseAddress, allValidBits.count)
+            )
+            XCTAssertEqual(opts.decoding.messageDepthLimit, 4)
+            XCTAssertTrue(opts.decoding.discardUnknownFields)
+            XCTAssertTrue(opts.allowPartial)
+            XCTAssertTrue(opts.decoding.allowPartial)
+            XCTAssertTrue(opts.encoding.allowPartial)
+            XCTAssertTrue(opts.encoding.useDeterministicOrdering)
+            XCTAssertEqual(Array(payload), [0xaa])
+        }
+
+        // Reserved bits 4..7 (0x10..0x80) are rejected, matching main's 4-option layout.
+        for reserved: UInt8 in [0x10, 0x20, 0x40, 0x80] {
+            let bytes: [UInt8] = [0x00, reserved, 0x08, 0x01]
+            bytes.withUnsafeBytes { ptr in
+                XCTAssertNil(BinaryFuzzingOptions.extractOptions(ptr.baseAddress, bytes.count))
+            }
         }
     }
 }
