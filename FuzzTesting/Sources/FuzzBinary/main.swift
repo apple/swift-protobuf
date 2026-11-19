@@ -12,7 +12,7 @@ import SwiftProtobuf
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
     guard let (options, bytes) = BinaryFuzzingOptions.extractOptions(start, count) else {
-        return 1
+        return -1
     }
     var msg: SwiftProtoTesting_Fuzz_Message?
     do {
