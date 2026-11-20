@@ -151,8 +151,11 @@ extension ExtensionStorage {
             case .message:
                 precondition(!isPacked, "a packed message field should not be reachable")
                 try forEachMessage(inAssumedPresentRepeatedMessageField: schema) { subMessageStorage in
-                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-                    encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                    encoder.putFieldVarInt(
+                        fieldNumber: fieldNumber,
+                        wireFormat: .lengthDelimited,
+                        value: subMessageStorage.serializedBytesSize()
+                    )
                     try subMessageStorage.serializeBytes(into: &encoder, options: options)
                     return .continue
                 }
@@ -286,15 +289,16 @@ extension ExtensionStorage {
                 let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: schema)
                 if schema.extendedMessage.extensibilityMode == .messageSet {
                     encoder.startField(tag: messageSetItemStartTag)
-                    encoder.startField(tag: messageSetTypeIDTag)
-                    encoder.putVarInt(value: UInt64(fieldNumber))
-                    encoder.startField(tag: messageSetMessageTag)
-                    encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                    encoder.putFieldVarInt(tag: messageSetTypeIDTag, value: UInt64(fieldNumber))
+                    encoder.putFieldVarInt(tag: messageSetMessageTag, value: subMessageStorage.serializedBytesSize())
                     try subMessageStorage.serializeBytes(into: &encoder, options: options)
                     encoder.startField(tag: messageSetItemEndTag)
                 } else {
-                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-                    encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                    encoder.putFieldVarInt(
+                        fieldNumber: fieldNumber,
+                        wireFormat: .lengthDelimited,
+                        value: subMessageStorage.serializedBytesSize()
+                    )
                     try subMessageStorage.serializeBytes(into: &encoder, options: options)
                 }
 
@@ -343,8 +347,7 @@ extension ExtensionStorage {
                 return .continue
             }
 
-            encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-            encoder.putVarInt(value: length)
+            encoder.putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .lengthDelimited, value: length)
 
             // Then, iterate over them again to encode the actual varints.
             forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { value in
@@ -354,8 +357,7 @@ extension ExtensionStorage {
         } else {
             // Iterate over the raw values and encode each as its own tag and varint.
             forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { value in
-                encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
-                encoder.putVarInt(value: Int64(value))
+                encoder.putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: Int64(value))
                 return .continue
             }
         }
