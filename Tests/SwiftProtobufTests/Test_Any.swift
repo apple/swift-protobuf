@@ -1760,12 +1760,13 @@ final class Test_Any: XCTestCase {
             )
         }
 
-        // Regular message with nested message before @type enforces depth limit.
+        // Regular message with nested message before @type enforces depth limit:
+        // 1 Any + 1 TestAllTypes + 1 NestedMessage = 3 messages.
         do {
             let json =
                 #"{"optionalNestedMessage":{"bb":42},"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes"}"#
             var options = JSONDecodingOptions()
-            options.messageDepthLimit = 1
+            options.messageDepthLimit = 2
             XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options)) { error in
                 let pbError = error as? SwiftProtobufError
                 XCTAssertTrue(
@@ -1774,18 +1775,20 @@ final class Test_Any: XCTestCase {
                 )
             }
 
-            options.messageDepthLimit = 2
+            options.messageDepthLimit = 3
             let decodedAny = try Google_Protobuf_Any(jsonString: json, options: options)
             let unpacked = try SwiftProtoTesting_TestAllTypes(unpackingAny: decodedAny)
             XCTAssertEqual(unpacked.optionalNestedMessage.bb, 42)
+            XCTAssertNoThrow(try decodedAny.jsonString())
         }
 
-        // Nested out-of-order Any chain enforces depth limit at the exact boundary.
+        // Nested out-of-order Any chain enforces depth limit at the exact boundary:
+        // 3 Any + 1 Int32Value = 4 messages.
         do {
             let nestedThree =
                 #"{"value":{"value":{"value":7,"@type":"type.googleapis.com/google.protobuf.Int32Value"},"@type":"type.googleapis.com/google.protobuf.Any"},"@type":"type.googleapis.com/google.protobuf.Any"}"#
             var options = JSONDecodingOptions()
-            options.messageDepthLimit = 2
+            options.messageDepthLimit = 3
             XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: nestedThree, options: options)) { error in
                 let pbError = error as? SwiftProtobufError
                 XCTAssertTrue(
@@ -1794,7 +1797,7 @@ final class Test_Any: XCTestCase {
                 )
             }
 
-            options.messageDepthLimit = 3
+            options.messageDepthLimit = 4
             let outer = try Google_Protobuf_Any(jsonString: nestedThree, options: options)
             let middle = try Google_Protobuf_Any(unpackingAny: outer)
             let inner = try Google_Protobuf_Any(unpackingAny: middle)
@@ -1807,6 +1810,188 @@ final class Test_Any: XCTestCase {
             }
             let decodedDeep = try Google_Protobuf_Any(jsonString: deepOutOfOrder)
             XCTAssertTrue(decodedDeep.textFormatString().contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+            XCTAssertNoThrow(try decodedDeep.jsonString())
+
+            // 100 out-of-order Any wrappers + 1 Int32Value = 101 messages exceeds default limit 100.
+            let tooDeepOutOfOrder = #"{"value":\#(deepOutOfOrder),"@type":"type.googleapis.com/google.protobuf.Any"}"#
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: tooDeepOutOfOrder)) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertTrue(
+                    pbError?.message.hasSuffix(": Message is too deep") == true,
+                    "Unexpected error: \(error)"
+                )
+            }
+        }
+    }
+
+    func test_Any_JSONDepthAccounting() throws {
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_Test3_TestAllTypesProto3.self)
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_Fuzz_Message.self)
+
+        func wrapInFuzzMessages(outerCount: Int, leafField: String) -> String {
+            precondition(outerCount >= 1)
+            let nestedCount = outerCount - 1
+            return String(repeating: #"{"singularMessage":"#, count: nestedCount)
+                + #"{"wktAny":\#(leafField)}"#
+                + String(repeating: "}", count: nestedCount)
+        }
+
+        // 98 outer messages + 1 Any + 1 packed message = 100 messages: decodes and transcodes cleanly.
+        // 99 outer messages + 1 Any + 1 packed message = 101 messages: rejected during JSON decoding.
+        let leafAnys = [
+            #"{"@type":"type.googleapis.com/google.protobuf.Int32Value","value":7}"#,
+            #"{"@type":"type.googleapis.com/swift_proto_testing.TestAllTypes","optionalInt32":7}"#,
+        ]
+        for leaf in leafAnys {
+            let atLimit = wrapInFuzzMessages(outerCount: 98, leafField: leaf)
+            let decoded = try SwiftProtoTesting_Fuzz_Message(jsonString: atLimit)
+            XCTAssertNoThrow(try decoded.jsonString(), "Failed to re-encode depth-100 Any: \(leaf)")
+
+            let overLimit = wrapInFuzzMessages(outerCount: 99, leafField: leaf)
+            XCTAssertThrowsError(try SwiftProtoTesting_Fuzz_Message(jsonString: overLimit), leaf) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertTrue(
+                    pbError?.message.hasSuffix(": Message is too deep") == true,
+                    "Unexpected error for \(leaf): \(error)"
+                )
+            }
+        }
+
+        // Omitted `"value"` on a WKT Any and `ListValue` with `"value": null` still count the packed WKT
+        // message level (1 Any + 1 WKT = 2 messages).
+        for wktAnyJSON in [
+            #"{"@type":"type.googleapis.com/google.protobuf.Int32Value"}"#,
+            #"{"@type":"type.googleapis.com/google.protobuf.ListValue","value":null}"#,
+        ] {
+            var options = JSONDecodingOptions()
+            options.messageDepthLimit = 1
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: wktAnyJSON, options: options), wktAnyJSON) {
+                error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertTrue(
+                    pbError?.message.hasSuffix(": Message is too deep") == true,
+                    "Unexpected error for \(wktAnyJSON): \(error)"
+                )
+            }
+
+            options.messageDepthLimit = 2
+            let decoded = try Google_Protobuf_Any(jsonString: wktAnyJSON, options: options)
+            XCTAssertNoThrow(try decoded.jsonString(), wktAnyJSON)
+        }
+
+        // Alternating Any -> TestAllTypesProto3 -> Any -> ... chains enforce the exact 100-message depth
+        // limit in both JSON decoding and JSON encoding.
+        var alternatingJSON =
+            #"{"@type":"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3","optionalInt32":7}"#
+        for _ in 0..<49 {
+            alternatingJSON =
+                #"{"@type":"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3","optionalAny":\#(alternatingJSON)}"#
+        }
+        // 50 Any + 50 TestAllTypesProto3 = 100 messages total: succeeds in both decode and encode.
+        let decodedAlternating = try Google_Protobuf_Any(jsonString: alternatingJSON)
+        let reencodedAlternating = try decodedAlternating.jsonString()
+        XCTAssertTrue(reencodedAlternating.contains(#""optionalInt32":7"#))
+
+        // 50 Any + 50 TestAllTypesProto3 + 1 NestedMessage = 101 messages: fails JSON decode.
+        var alternatingOverLimitJSON =
+            #"{"@type":"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3","optionalNestedMessage":{"a":7}}"#
+        for _ in 0..<49 {
+            alternatingOverLimitJSON =
+                #"{"@type":"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3","optionalAny":\#(alternatingOverLimitJSON)}"#
+        }
+        XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: alternatingOverLimitJSON)) { error in
+            let pbError = error as? SwiftProtobufError
+            XCTAssertTrue(
+                pbError?.message.hasSuffix(": Message is too deep") == true,
+                "Unexpected error: \(error)"
+            )
+        }
+
+        // Binary-constructed alternating chain enforces the same 100-message boundary during JSON encoding.
+        var leafProto = SwiftProtoTesting_Test3_TestAllTypesProto3()
+        leafProto.optionalInt32 = 7
+        var packedAlternating = try Google_Protobuf_Any(packing: leafProto)
+        for _ in 0..<49 {
+            var holder = SwiftProtoTesting_Test3_TestAllTypesProto3()
+            holder.optionalAny = packedAlternating
+            packedAlternating = try Google_Protobuf_Any(packing: holder)
+        }
+        // 50 Any + 50 TestAllTypesProto3 = 100 messages: succeeds.
+        XCTAssertNoThrow(try packedAlternating.jsonString())
+
+        // 50 Any + 50 TestAllTypesProto3 + 1 NestedMessage = 101 messages: fails JSON encode.
+        var leafWithNested = SwiftProtoTesting_Test3_TestAllTypesProto3()
+        leafWithNested.optionalNestedMessage.a = 7
+        var packedOverLimit = try Google_Protobuf_Any(packing: leafWithNested)
+        for _ in 0..<49 {
+            var holder = SwiftProtoTesting_Test3_TestAllTypesProto3()
+            holder.optionalAny = packedOverLimit
+            packedOverLimit = try Google_Protobuf_Any(packing: holder)
+        }
+        XCTAssertThrowsError(try packedOverLimit.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+
+        // Scalar-JSON well-known types still materialize a protobuf message and must count
+        // toward the recursion budget both directly and when nested inside a regular message
+        // packed in `Any` (otherwise depth-101 payloads decode and fail `jsonString()` with
+        // `anyTranscodeFailure`).
+        let scalarWKTFields = [
+            #""wktBoolValue":true"#,
+            #""wktBytesValue":"AA==""#,
+            #""wktDoubleValue":1.5"#,
+            #""wktDuration":"1s""#,
+            #""wktFieldMask":"a""#,
+            #""wktFloatValue":1.5"#,
+            #""wktInt32Value":1"#,
+            #""wktInt64Value":"1""#,
+            #""wktStringValue":"a""#,
+            #""wktTimestamp":"1970-01-01T00:00:00Z""#,
+            #""wktUint32Value":1"#,
+            #""wktUint64Value":"1""#,
+        ]
+        var limit1 = JSONDecodingOptions()
+        limit1.messageDepthLimit = 1
+        var limit2 = JSONDecodingOptions()
+        limit2.messageDepthLimit = 2
+        XCTAssertEqual(try Google_Protobuf_Int32Value(jsonString: "1", options: limit1).value, 1)
+
+        func nestedScalarWKTInsideAny(nestedCount: Int, fieldJSON: String) -> String {
+            #"{"wktAny":{"@type":"type.googleapis.com/swift_proto_testing.fuzz.Message","#
+                + String(repeating: #""singularMessage":{"#, count: nestedCount)
+                + fieldJSON
+                + String(repeating: "}", count: nestedCount)
+                + "}}"
+        }
+
+        for fieldJSON in scalarWKTFields {
+            // Direct field: root message (1) + scalar WKT message (1) = 2 messages.
+            let directJSON = "{\(fieldJSON)}"
+            XCTAssertThrowsError(try SwiftProtoTesting_Fuzz_Message(jsonString: directJSON, options: limit1)) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertTrue(
+                    pbError?.message.hasSuffix(": Message is too deep") == true,
+                    "Unexpected error for \(directJSON): \(error)"
+                )
+            }
+            let decodedDirect = try SwiftProtoTesting_Fuzz_Message(jsonString: directJSON, options: limit2)
+            XCTAssertNoThrow(try decodedDirect.jsonString(), directJSON)
+
+            // Root (1) + wktAny (1) + packed Message (1) + 96 singularMessage + scalar WKT (1) = 100.
+            let atLimit = nestedScalarWKTInsideAny(nestedCount: 96, fieldJSON: fieldJSON)
+            let decodedAtLimit = try SwiftProtoTesting_Fuzz_Message(jsonString: atLimit)
+            XCTAssertNoThrow(try decodedAtLimit.jsonString(), "Failed to re-encode depth-100 nested WKT: \(fieldJSON)")
+
+            // Root (1) + wktAny (1) + packed Message (1) + 97 singularMessage + scalar WKT (1) = 101.
+            let overLimit = nestedScalarWKTInsideAny(nestedCount: 97, fieldJSON: fieldJSON)
+            XCTAssertThrowsError(try SwiftProtoTesting_Fuzz_Message(jsonString: overLimit), fieldJSON) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertTrue(
+                    pbError?.message.hasSuffix(": Message is too deep") == true,
+                    "Unexpected error for depth-101 nested WKT \(fieldJSON): \(error)"
+                )
+            }
         }
     }
 

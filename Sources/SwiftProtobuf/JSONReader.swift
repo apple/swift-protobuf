@@ -446,16 +446,26 @@ struct JSONReader: TextualParser {
     /// object.
     ///
     /// - Parameters:
+    ///   - impactsRecursionDepth: Whether consuming the object should impact the recursion depth.
+    ///     Defaults to `true`; callers that already accounted for the enclosing message's depth can
+    ///     pass `false`.
     ///   - consumeKeyAndValue: A closure that will be called for each key and value in the object.
     ///   - ifEmpty: A closure that will be called if the object is empty.
     @inline(__always)
     mutating func consumeObject(
+        impactsRecursionDepth: Bool = true,
         consumeKeyAndValue: (inout JSONReader) throws -> Void,
         ifEmpty: () -> Void = {}
     ) throws {
         try consume(.leftBrace)
-        try decrementRecursionBudget()
-        defer { incrementRecursionBudget() }
+        if impactsRecursionDepth {
+            try decrementRecursionBudget()
+        }
+        defer {
+            if impactsRecursionDepth {
+                incrementRecursionBudget()
+            }
+        }
 
         if try consumeIfPresent(.rightBrace) {
             // The object was empty.

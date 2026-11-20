@@ -30,6 +30,12 @@ extension MessageStorage {
             }
         }
 
+        // Count every materialized protobuf message (regular objects, `Any`, `Struct`, `Value`,
+        // `ListValue`, and scalar-JSON well-known types) toward the recursion budget once at entry
+        // so JSON decoding matches binary decoding and JSON encoding.
+        try reader.decrementRecursionBudget()
+        defer { reader.incrementRecursionBudget() }
+
         switch CustomJSONWKTClassification(messageSchema: schema) {
         case .any:
             try parseAsAny(from: &reader)
@@ -103,7 +109,7 @@ extension MessageStorage {
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             var seenFields = FieldBitSet()
 
-            try reader.consumeObject { reader in
+            try reader.consumeObject(impactsRecursionDepth: false) { reader in
                 try decodeKeyValuePair(
                     from: &reader,
                     seenFields: &seenFields,
@@ -595,8 +601,6 @@ extension MessageStorage {
         let valueField = KnownField.anyValue(in: schema)
 
         try reader.consume(.leftBrace)
-        try reader.decrementRecursionBudget()
-        defer { reader.incrementRecursionBudget() }
 
         if try reader.consumeIfPresent(.rightBrace) {
             clearValue(of: typeURLField, type: String.self)
@@ -664,6 +668,12 @@ extension MessageStorage {
         try reader.withReaderForNextObject(expectedSchema: messageSchema) { subReader in
             switch CustomJSONWKTClassification(messageSchema: messageSchema) {
             case .notWellKnown:
+                // Account for the packed message itself in addition to the enclosing `Any`
+                // object so JSON decoding matches the Protobuf-message depth model used by
+                // binary decoding, TextFormat encoding, and JSON encoding.
+                try subReader.decrementRecursionBudget()
+                defer { subReader.incrementRecursionBudget() }
+
                 var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: messageSchema)
                 var seenFields = FieldBitSet()
                 try replayAndStreamAnyFields(
@@ -694,14 +704,18 @@ extension MessageStorage {
                             throw subReader.parsingError(reason: "Field 'value' specified more than once")
                         }
                         sawValueKey = true
-                        // Do not decrement `recursionBudget` again: `parseAsAny` already holds the
-                        // budget for this `{ ... }` object.
                         try messageStorage.merge(byParsingJSONFrom: &subReader)
                     } else if subReader.options.ignoreUnknownFields {
                         try subReader.skipField(wereNameAndColonAlreadyConsumed: true)
                     } else {
                         throw AnyUnpackError.malformedWellKnownTypeJSON
                     }
+                }
+                if !sawValueKey {
+                    // Omitting `"value"` still materializes a default-initialized packed WKT
+                    // message inside the `Any`.
+                    try subReader.decrementRecursionBudget()
+                    subReader.incrementRecursionBudget()
                 }
             }
         }
@@ -741,7 +755,7 @@ extension MessageStorage {
     /// - Precondition: The receiver must be the storage for `google.protobuf.ListValue`.
     private func parseAsListValue(from reader: inout JSONReader) throws {
         let valuesField = KnownField.listValueValues(in: schema)
-        try reader.consumeArray(impactsRecursionDepth: true) { reader in
+        try reader.consumeArray { reader in
             try scanRepeatedMessageField(valuesField, from: &reader)
         }
     }
@@ -754,7 +768,7 @@ extension MessageStorage {
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         let fieldsField = KnownField.structFields(in: schema)
 
-        try reader.consumeObject { reader in
+        try reader.consumeObject(impactsRecursionDepth: false) { reader in
             guard reader.at(.string, .stringWithEscapes) else {
                 throw reader.parsingError(expected: "a string key")
             }
@@ -800,11 +814,6 @@ extension MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Value`.
     private func parseAsValue(from reader: inout JSONReader) throws {
-        // No matter what was in the JSON, when it becomes a `google.protobuf.Value`, we've added a
-        // message to the depth of messages modeled, so count it toward the recursion budget.
-        try reader.decrementRecursionBudget()
-        defer { reader.incrementRecursionBudget() }
-
         if reader.at(.identifier) {
             if try reader.consumeNullIfPresent() {
                 updateValue(of: KnownField.valueNullValue(in: schema), to: Google_Protobuf_NullValue.nullValue)
