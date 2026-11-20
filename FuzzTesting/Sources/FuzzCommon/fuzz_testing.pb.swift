@@ -221,93 +221,93 @@ public nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Senda
 
   /// Repeated
   public var repeatedInt32: [Int32] {
-    get { _storage.value(atIndex: 0, hasBit: (4, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 32)) }
+    get { _storage.value(atIndex: 0, hasBit: (4, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 64)) }
   }
 
   public var repeatedInt64: [Int64] {
-    get { _storage.value(atIndex: 1, hasBit: (4, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 64)) }
+    get { _storage.value(atIndex: 1, hasBit: (4, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 128)) }
   }
 
   public var repeatedUint32: [UInt32] {
-    get { _storage.value(atIndex: 2, hasBit: (4, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 128)) }
+    get { _storage.value(atIndex: 2, hasBit: (5, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 1)) }
   }
 
   public var repeatedUint64: [UInt64] {
-    get { _storage.value(atIndex: 3, hasBit: (5, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 1)) }
+    get { _storage.value(atIndex: 3, hasBit: (5, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 2)) }
   }
 
   public var repeatedSint32: [Int32] {
-    get { _storage.value(atIndex: 4, hasBit: (5, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 2)) }
+    get { _storage.value(atIndex: 4, hasBit: (5, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 4)) }
   }
 
   public var repeatedSint64: [Int64] {
-    get { _storage.value(atIndex: 5, hasBit: (5, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 4)) }
+    get { _storage.value(atIndex: 5, hasBit: (5, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 8)) }
   }
 
   public var repeatedFixed32: [UInt32] {
-    get { _storage.value(atIndex: 6, hasBit: (5, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 8)) }
+    get { _storage.value(atIndex: 6, hasBit: (5, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 16)) }
   }
 
   public var repeatedFixed64: [UInt64] {
-    get { _storage.value(atIndex: 7, hasBit: (5, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 16)) }
+    get { _storage.value(atIndex: 7, hasBit: (5, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 32)) }
   }
 
   public var repeatedSfixed32: [Int32] {
-    get { _storage.value(atIndex: 8, hasBit: (5, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 32)) }
+    get { _storage.value(atIndex: 8, hasBit: (5, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 64)) }
   }
 
   public var repeatedSfixed64: [Int64] {
-    get { _storage.value(atIndex: 9, hasBit: (5, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 64)) }
+    get { _storage.value(atIndex: 9, hasBit: (5, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 128)) }
   }
 
   public var repeatedFloat: [Float] {
-    get { _storage.value(atIndex: 10, hasBit: (5, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 128)) }
+    get { _storage.value(atIndex: 10, hasBit: (6, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 1)) }
   }
 
   public var repeatedDouble: [Double] {
-    get { _storage.value(atIndex: 11, hasBit: (6, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 1)) }
+    get { _storage.value(atIndex: 11, hasBit: (6, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 2)) }
   }
 
   public var repeatedBool: [Bool] {
-    get { _storage.value(atIndex: 12, hasBit: (6, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 2)) }
+    get { _storage.value(atIndex: 12, hasBit: (6, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 4)) }
   }
 
   public var repeatedString: [String] {
-    get { _storage.value(atIndex: 13, hasBit: (6, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 4)) }
+    get { _storage.value(atIndex: 13, hasBit: (6, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 8)) }
   }
 
   public var repeatedBytes: [Data] {
-    get { _storage.value(atIndex: 14, hasBit: (6, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 8)) }
+    get { _storage.value(atIndex: 14, hasBit: (6, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 16)) }
   }
 
   public var repeatedEnum: [SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 15, hasBit: (6, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 16)) }
+    get { _storage.value(atIndex: 15, hasBit: (6, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 32)) }
   }
 
   public var repeatedGroup: [SwiftProtoTesting_Fuzz_Message.RepeatedGroup] {
-    get { _storage.value(atIndex: 16, hasBit: (6, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 32)) }
+    get { _storage.value(atIndex: 16, hasBit: (6, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 64)) }
   }
 
   public var repeatedMessage: [SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 17, hasBit: (6, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 64)) }
+    get { _storage.value(atIndex: 17, hasBit: (6, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 128)) }
   }
 
   /// oneof
@@ -454,1009 +454,1009 @@ public nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Senda
 
   /// Repeated Packed
   public var repeatedPackedInt32: [Int32] {
-    get { _storage.value(atIndex: 18, hasBit: (6, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 128)) }
+    get { _storage.value(atIndex: 18, hasBit: (7, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 1)) }
   }
 
   public var repeatedPackedInt64: [Int64] {
-    get { _storage.value(atIndex: 19, hasBit: (7, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 19, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 1)) }
+    get { _storage.value(atIndex: 19, hasBit: (7, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 19, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 2)) }
   }
 
   public var repeatedPackedUint32: [UInt32] {
-    get { _storage.value(atIndex: 20, hasBit: (7, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 20, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 2)) }
+    get { _storage.value(atIndex: 20, hasBit: (7, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 20, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 4)) }
   }
 
   public var repeatedPackedUint64: [UInt64] {
-    get { _storage.value(atIndex: 21, hasBit: (7, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 21, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 4)) }
+    get { _storage.value(atIndex: 21, hasBit: (7, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 21, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 8)) }
   }
 
   public var repeatedPackedSint32: [Int32] {
-    get { _storage.value(atIndex: 22, hasBit: (7, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 22, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 8)) }
+    get { _storage.value(atIndex: 22, hasBit: (7, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 22, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 16)) }
   }
 
   public var repeatedPackedSint64: [Int64] {
-    get { _storage.value(atIndex: 23, hasBit: (7, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 23, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 16)) }
+    get { _storage.value(atIndex: 23, hasBit: (7, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 23, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 32)) }
   }
 
   public var repeatedPackedFixed32: [UInt32] {
-    get { _storage.value(atIndex: 24, hasBit: (7, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 24, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 32)) }
+    get { _storage.value(atIndex: 24, hasBit: (7, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 24, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 64)) }
   }
 
   public var repeatedPackedFixed64: [UInt64] {
-    get { _storage.value(atIndex: 25, hasBit: (7, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 25, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 64)) }
+    get { _storage.value(atIndex: 25, hasBit: (7, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 25, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 128)) }
   }
 
   public var repeatedPackedSfixed32: [Int32] {
-    get { _storage.value(atIndex: 26, hasBit: (7, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 26, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 128)) }
+    get { _storage.value(atIndex: 26, hasBit: (8, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 26, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 1)) }
   }
 
   public var repeatedPackedSfixed64: [Int64] {
-    get { _storage.value(atIndex: 27, hasBit: (8, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 27, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 1)) }
+    get { _storage.value(atIndex: 27, hasBit: (8, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 27, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 2)) }
   }
 
   public var repeatedPackedFloat: [Float] {
-    get { _storage.value(atIndex: 28, hasBit: (8, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 28, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 2)) }
+    get { _storage.value(atIndex: 28, hasBit: (8, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 28, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 4)) }
   }
 
   public var repeatedPackedDouble: [Double] {
-    get { _storage.value(atIndex: 29, hasBit: (8, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 29, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 4)) }
+    get { _storage.value(atIndex: 29, hasBit: (8, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 29, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 8)) }
   }
 
   public var repeatedPackedBool: [Bool] {
-    get { _storage.value(atIndex: 30, hasBit: (8, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 30, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 8)) }
+    get { _storage.value(atIndex: 30, hasBit: (8, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 30, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 16)) }
   }
 
   public var repeatedPackedEnum: [SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 31, hasBit: (8, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 31, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 16)) }
+    get { _storage.value(atIndex: 31, hasBit: (8, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 31, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 32)) }
   }
 
   /// map<>
   public var mapInt32Int32: [Int32: Int32] {
-    get { _storage.value(atIndex: 0, hasBit: (8, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 32)) }
+    get { _storage.value(atIndex: 0, hasBit: (8, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 64)) }
   }
 
   public var mapInt32Int64: [Int32: Int64] {
-    get { _storage.value(atIndex: 1, hasBit: (8, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 64)) }
+    get { _storage.value(atIndex: 1, hasBit: (8, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 128)) }
   }
 
   public var mapInt32Uint32: [Int32: UInt32] {
-    get { _storage.value(atIndex: 2, hasBit: (8, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 128)) }
+    get { _storage.value(atIndex: 2, hasBit: (9, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 1)) }
   }
 
   public var mapInt32Uint64: [Int32: UInt64] {
-    get { _storage.value(atIndex: 3, hasBit: (9, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 1)) }
+    get { _storage.value(atIndex: 3, hasBit: (9, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 2)) }
   }
 
   public var mapInt32Sint32: [Int32: Int32] {
-    get { _storage.value(atIndex: 4, hasBit: (9, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 2)) }
+    get { _storage.value(atIndex: 4, hasBit: (9, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 4)) }
   }
 
   public var mapInt32Sint64: [Int32: Int64] {
-    get { _storage.value(atIndex: 5, hasBit: (9, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 4)) }
+    get { _storage.value(atIndex: 5, hasBit: (9, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 8)) }
   }
 
   public var mapInt32Fixed32: [Int32: UInt32] {
-    get { _storage.value(atIndex: 6, hasBit: (9, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 8)) }
+    get { _storage.value(atIndex: 6, hasBit: (9, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 16)) }
   }
 
   public var mapInt32Fixed64: [Int32: UInt64] {
-    get { _storage.value(atIndex: 7, hasBit: (9, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 16)) }
+    get { _storage.value(atIndex: 7, hasBit: (9, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 32)) }
   }
 
   public var mapInt32Sfixed32: [Int32: Int32] {
-    get { _storage.value(atIndex: 8, hasBit: (9, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 32)) }
+    get { _storage.value(atIndex: 8, hasBit: (9, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 64)) }
   }
 
   public var mapInt32Sfixed64: [Int32: Int64] {
-    get { _storage.value(atIndex: 9, hasBit: (9, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 64)) }
+    get { _storage.value(atIndex: 9, hasBit: (9, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 128)) }
   }
 
   public var mapInt32Float: [Int32: Float] {
-    get { _storage.value(atIndex: 10, hasBit: (9, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 128)) }
+    get { _storage.value(atIndex: 10, hasBit: (10, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 1)) }
   }
 
   public var mapInt32Double: [Int32: Double] {
-    get { _storage.value(atIndex: 11, hasBit: (10, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 1)) }
+    get { _storage.value(atIndex: 11, hasBit: (10, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 2)) }
   }
 
   public var mapInt32Bool: [Int32: Bool] {
-    get { _storage.value(atIndex: 12, hasBit: (10, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 2)) }
+    get { _storage.value(atIndex: 12, hasBit: (10, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 4)) }
   }
 
   public var mapInt32String: [Int32: String] {
-    get { _storage.value(atIndex: 13, hasBit: (10, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 4)) }
+    get { _storage.value(atIndex: 13, hasBit: (10, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 8)) }
   }
 
   public var mapInt32Bytes: [Int32: Data] {
-    get { _storage.value(atIndex: 14, hasBit: (10, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 8)) }
+    get { _storage.value(atIndex: 14, hasBit: (10, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 16)) }
   }
 
   public var mapInt32AnEnum: [Int32: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 15, hasBit: (10, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 16)) }
+    get { _storage.value(atIndex: 15, hasBit: (10, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 32)) }
   }
 
   public var mapInt32Message: [Int32: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 16, hasBit: (10, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 32)) }
+    get { _storage.value(atIndex: 16, hasBit: (10, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 64)) }
   }
 
   public var mapInt64Int32: [Int64: Int32] {
-    get { _storage.value(atIndex: 17, hasBit: (10, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 64)) }
+    get { _storage.value(atIndex: 17, hasBit: (10, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 128)) }
   }
 
   public var mapInt64Int64: [Int64: Int64] {
-    get { _storage.value(atIndex: 18, hasBit: (10, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 128)) }
+    get { _storage.value(atIndex: 18, hasBit: (11, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 1)) }
   }
 
   public var mapInt64Uint32: [Int64: UInt32] {
-    get { _storage.value(atIndex: 19, hasBit: (11, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 19, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 1)) }
+    get { _storage.value(atIndex: 19, hasBit: (11, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 19, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 2)) }
   }
 
   public var mapInt64Uint64: [Int64: UInt64] {
-    get { _storage.value(atIndex: 20, hasBit: (11, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 20, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 2)) }
+    get { _storage.value(atIndex: 20, hasBit: (11, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 20, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 4)) }
   }
 
   public var mapInt64Sint32: [Int64: Int32] {
-    get { _storage.value(atIndex: 21, hasBit: (11, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 21, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 4)) }
+    get { _storage.value(atIndex: 21, hasBit: (11, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 21, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 8)) }
   }
 
   public var mapInt64Sint64: [Int64: Int64] {
-    get { _storage.value(atIndex: 22, hasBit: (11, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 22, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 8)) }
+    get { _storage.value(atIndex: 22, hasBit: (11, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 22, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 16)) }
   }
 
   public var mapInt64Fixed32: [Int64: UInt32] {
-    get { _storage.value(atIndex: 23, hasBit: (11, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 23, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 16)) }
+    get { _storage.value(atIndex: 23, hasBit: (11, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 23, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 32)) }
   }
 
   public var mapInt64Fixed64: [Int64: UInt64] {
-    get { _storage.value(atIndex: 24, hasBit: (11, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 24, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 32)) }
+    get { _storage.value(atIndex: 24, hasBit: (11, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 24, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 64)) }
   }
 
   public var mapInt64Sfixed32: [Int64: Int32] {
-    get { _storage.value(atIndex: 25, hasBit: (11, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 25, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 64)) }
+    get { _storage.value(atIndex: 25, hasBit: (11, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 25, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 128)) }
   }
 
   public var mapInt64Sfixed64: [Int64: Int64] {
-    get { _storage.value(atIndex: 26, hasBit: (11, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 26, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 128)) }
+    get { _storage.value(atIndex: 26, hasBit: (12, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 26, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 1)) }
   }
 
   public var mapInt64Float: [Int64: Float] {
-    get { _storage.value(atIndex: 27, hasBit: (12, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 27, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 1)) }
+    get { _storage.value(atIndex: 27, hasBit: (12, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 27, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 2)) }
   }
 
   public var mapInt64Double: [Int64: Double] {
-    get { _storage.value(atIndex: 28, hasBit: (12, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 28, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 2)) }
+    get { _storage.value(atIndex: 28, hasBit: (12, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 28, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 4)) }
   }
 
   public var mapInt64Bool: [Int64: Bool] {
-    get { _storage.value(atIndex: 29, hasBit: (12, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 29, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 4)) }
+    get { _storage.value(atIndex: 29, hasBit: (12, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 29, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 8)) }
   }
 
   public var mapInt64String: [Int64: String] {
-    get { _storage.value(atIndex: 30, hasBit: (12, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 30, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 8)) }
+    get { _storage.value(atIndex: 30, hasBit: (12, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 30, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 16)) }
   }
 
   public var mapInt64Bytes: [Int64: Data] {
-    get { _storage.value(atIndex: 31, hasBit: (12, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 31, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 16)) }
+    get { _storage.value(atIndex: 31, hasBit: (12, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 31, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 32)) }
   }
 
   public var mapInt64AnEnum: [Int64: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 32, hasBit: (12, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 32, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 32)) }
+    get { _storage.value(atIndex: 32, hasBit: (12, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 32, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 64)) }
   }
 
   public var mapInt64Message: [Int64: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 33, hasBit: (12, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 33, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 64)) }
+    get { _storage.value(atIndex: 33, hasBit: (12, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 33, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 128)) }
   }
 
   public var mapUint32Int32: [UInt32: Int32] {
-    get { _storage.value(atIndex: 34, hasBit: (12, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 34, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 128)) }
+    get { _storage.value(atIndex: 34, hasBit: (13, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 34, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 1)) }
   }
 
   public var mapUint32Int64: [UInt32: Int64] {
-    get { _storage.value(atIndex: 35, hasBit: (13, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 35, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 1)) }
+    get { _storage.value(atIndex: 35, hasBit: (13, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 35, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 2)) }
   }
 
   public var mapUint32Uint32: [UInt32: UInt32] {
-    get { _storage.value(atIndex: 36, hasBit: (13, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 36, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 2)) }
+    get { _storage.value(atIndex: 36, hasBit: (13, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 36, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 4)) }
   }
 
   public var mapUint32Uint64: [UInt32: UInt64] {
-    get { _storage.value(atIndex: 37, hasBit: (13, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 37, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 4)) }
+    get { _storage.value(atIndex: 37, hasBit: (13, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 37, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 8)) }
   }
 
   public var mapUint32Sint32: [UInt32: Int32] {
-    get { _storage.value(atIndex: 38, hasBit: (13, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 38, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 8)) }
+    get { _storage.value(atIndex: 38, hasBit: (13, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 38, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 16)) }
   }
 
   public var mapUint32Sint64: [UInt32: Int64] {
-    get { _storage.value(atIndex: 39, hasBit: (13, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 39, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 16)) }
+    get { _storage.value(atIndex: 39, hasBit: (13, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 39, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 32)) }
   }
 
   public var mapUint32Fixed32: [UInt32: UInt32] {
-    get { _storage.value(atIndex: 40, hasBit: (13, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 40, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 32)) }
+    get { _storage.value(atIndex: 40, hasBit: (13, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 40, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 64)) }
   }
 
   public var mapUint32Fixed64: [UInt32: UInt64] {
-    get { _storage.value(atIndex: 41, hasBit: (13, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 41, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 64)) }
+    get { _storage.value(atIndex: 41, hasBit: (13, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 41, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 128)) }
   }
 
   public var mapUint32Sfixed32: [UInt32: Int32] {
-    get { _storage.value(atIndex: 42, hasBit: (13, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 42, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 128)) }
+    get { _storage.value(atIndex: 42, hasBit: (14, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 42, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 1)) }
   }
 
   public var mapUint32Sfixed64: [UInt32: Int64] {
-    get { _storage.value(atIndex: 43, hasBit: (14, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 43, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 1)) }
+    get { _storage.value(atIndex: 43, hasBit: (14, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 43, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 2)) }
   }
 
   public var mapUint32Float: [UInt32: Float] {
-    get { _storage.value(atIndex: 44, hasBit: (14, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 44, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 2)) }
+    get { _storage.value(atIndex: 44, hasBit: (14, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 44, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 4)) }
   }
 
   public var mapUint32Double: [UInt32: Double] {
-    get { _storage.value(atIndex: 45, hasBit: (14, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 45, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 4)) }
+    get { _storage.value(atIndex: 45, hasBit: (14, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 45, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 8)) }
   }
 
   public var mapUint32Bool: [UInt32: Bool] {
-    get { _storage.value(atIndex: 46, hasBit: (14, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 46, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 8)) }
+    get { _storage.value(atIndex: 46, hasBit: (14, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 46, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 16)) }
   }
 
   public var mapUint32String: [UInt32: String] {
-    get { _storage.value(atIndex: 47, hasBit: (14, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 47, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 16)) }
+    get { _storage.value(atIndex: 47, hasBit: (14, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 47, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 32)) }
   }
 
   public var mapUint32Bytes: [UInt32: Data] {
-    get { _storage.value(atIndex: 48, hasBit: (14, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 48, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 32)) }
+    get { _storage.value(atIndex: 48, hasBit: (14, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 48, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 64)) }
   }
 
   public var mapUint32AnEnum: [UInt32: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 49, hasBit: (14, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 49, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 64)) }
+    get { _storage.value(atIndex: 49, hasBit: (14, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 49, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 128)) }
   }
 
   public var mapUint32Message: [UInt32: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 50, hasBit: (14, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 50, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 128)) }
+    get { _storage.value(atIndex: 50, hasBit: (15, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 50, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 1)) }
   }
 
   public var mapUint64Int32: [UInt64: Int32] {
-    get { _storage.value(atIndex: 51, hasBit: (15, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 51, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 1)) }
+    get { _storage.value(atIndex: 51, hasBit: (15, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 51, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 2)) }
   }
 
   public var mapUint64Int64: [UInt64: Int64] {
-    get { _storage.value(atIndex: 52, hasBit: (15, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 52, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 2)) }
+    get { _storage.value(atIndex: 52, hasBit: (15, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 52, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 4)) }
   }
 
   public var mapUint64Uint32: [UInt64: UInt32] {
-    get { _storage.value(atIndex: 53, hasBit: (15, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 53, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 4)) }
+    get { _storage.value(atIndex: 53, hasBit: (15, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 53, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 8)) }
   }
 
   public var mapUint64Uint64: [UInt64: UInt64] {
-    get { _storage.value(atIndex: 54, hasBit: (15, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 54, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 8)) }
+    get { _storage.value(atIndex: 54, hasBit: (15, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 54, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 16)) }
   }
 
   public var mapUint64Sint32: [UInt64: Int32] {
-    get { _storage.value(atIndex: 55, hasBit: (15, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 55, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 16)) }
+    get { _storage.value(atIndex: 55, hasBit: (15, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 55, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 32)) }
   }
 
   public var mapUint64Sint64: [UInt64: Int64] {
-    get { _storage.value(atIndex: 56, hasBit: (15, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 56, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 32)) }
+    get { _storage.value(atIndex: 56, hasBit: (15, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 56, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 64)) }
   }
 
   public var mapUint64Fixed32: [UInt64: UInt32] {
-    get { _storage.value(atIndex: 57, hasBit: (15, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 57, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 64)) }
+    get { _storage.value(atIndex: 57, hasBit: (15, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 57, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 128)) }
   }
 
   public var mapUint64Fixed64: [UInt64: UInt64] {
-    get { _storage.value(atIndex: 58, hasBit: (15, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 58, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 128)) }
+    get { _storage.value(atIndex: 58, hasBit: (16, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 58, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 1)) }
   }
 
   public var mapUint64Sfixed32: [UInt64: Int32] {
-    get { _storage.value(atIndex: 59, hasBit: (16, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 59, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 1)) }
+    get { _storage.value(atIndex: 59, hasBit: (16, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 59, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 2)) }
   }
 
   public var mapUint64Sfixed64: [UInt64: Int64] {
-    get { _storage.value(atIndex: 60, hasBit: (16, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 60, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 2)) }
+    get { _storage.value(atIndex: 60, hasBit: (16, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 60, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 4)) }
   }
 
   public var mapUint64Float: [UInt64: Float] {
-    get { _storage.value(atIndex: 61, hasBit: (16, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 61, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 4)) }
+    get { _storage.value(atIndex: 61, hasBit: (16, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 61, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 8)) }
   }
 
   public var mapUint64Double: [UInt64: Double] {
-    get { _storage.value(atIndex: 62, hasBit: (16, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 62, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 8)) }
+    get { _storage.value(atIndex: 62, hasBit: (16, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 62, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 16)) }
   }
 
   public var mapUint64Bool: [UInt64: Bool] {
-    get { _storage.value(atIndex: 63, hasBit: (16, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 63, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 16)) }
+    get { _storage.value(atIndex: 63, hasBit: (16, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 63, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 32)) }
   }
 
   public var mapUint64String: [UInt64: String] {
-    get { _storage.value(atIndex: 64, hasBit: (16, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 64, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 32)) }
+    get { _storage.value(atIndex: 64, hasBit: (16, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 64, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 64)) }
   }
 
   public var mapUint64Bytes: [UInt64: Data] {
-    get { _storage.value(atIndex: 65, hasBit: (16, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 65, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 64)) }
+    get { _storage.value(atIndex: 65, hasBit: (16, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 65, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 128)) }
   }
 
   public var mapUint64AnEnum: [UInt64: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 66, hasBit: (16, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 66, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (16, 128)) }
+    get { _storage.value(atIndex: 66, hasBit: (17, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 66, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 1)) }
   }
 
   public var mapUint64Message: [UInt64: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 67, hasBit: (17, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 67, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 1)) }
+    get { _storage.value(atIndex: 67, hasBit: (17, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 67, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 2)) }
   }
 
   public var mapSint32Int32: [Int32: Int32] {
-    get { _storage.value(atIndex: 68, hasBit: (17, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 68, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 2)) }
+    get { _storage.value(atIndex: 68, hasBit: (17, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 68, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 4)) }
   }
 
   public var mapSint32Int64: [Int32: Int64] {
-    get { _storage.value(atIndex: 69, hasBit: (17, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 69, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 4)) }
+    get { _storage.value(atIndex: 69, hasBit: (17, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 69, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 8)) }
   }
 
   public var mapSint32Uint32: [Int32: UInt32] {
-    get { _storage.value(atIndex: 70, hasBit: (17, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 70, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 8)) }
+    get { _storage.value(atIndex: 70, hasBit: (17, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 70, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 16)) }
   }
 
   public var mapSint32Uint64: [Int32: UInt64] {
-    get { _storage.value(atIndex: 71, hasBit: (17, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 71, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 16)) }
+    get { _storage.value(atIndex: 71, hasBit: (17, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 71, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 32)) }
   }
 
   public var mapSint32Sint32: [Int32: Int32] {
-    get { _storage.value(atIndex: 72, hasBit: (17, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 72, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 32)) }
+    get { _storage.value(atIndex: 72, hasBit: (17, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 72, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 64)) }
   }
 
   public var mapSint32Sint64: [Int32: Int64] {
-    get { _storage.value(atIndex: 73, hasBit: (17, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 73, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 64)) }
+    get { _storage.value(atIndex: 73, hasBit: (17, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 73, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 128)) }
   }
 
   public var mapSint32Fixed32: [Int32: UInt32] {
-    get { _storage.value(atIndex: 74, hasBit: (17, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 74, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (17, 128)) }
+    get { _storage.value(atIndex: 74, hasBit: (18, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 74, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 1)) }
   }
 
   public var mapSint32Fixed64: [Int32: UInt64] {
-    get { _storage.value(atIndex: 75, hasBit: (18, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 75, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 1)) }
+    get { _storage.value(atIndex: 75, hasBit: (18, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 75, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 2)) }
   }
 
   public var mapSint32Sfixed32: [Int32: Int32] {
-    get { _storage.value(atIndex: 76, hasBit: (18, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 76, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 2)) }
+    get { _storage.value(atIndex: 76, hasBit: (18, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 76, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 4)) }
   }
 
   public var mapSint32Sfixed64: [Int32: Int64] {
-    get { _storage.value(atIndex: 77, hasBit: (18, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 77, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 4)) }
+    get { _storage.value(atIndex: 77, hasBit: (18, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 77, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 8)) }
   }
 
   public var mapSint32Float: [Int32: Float] {
-    get { _storage.value(atIndex: 78, hasBit: (18, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 78, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 8)) }
+    get { _storage.value(atIndex: 78, hasBit: (18, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 78, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 16)) }
   }
 
   public var mapSint32Double: [Int32: Double] {
-    get { _storage.value(atIndex: 79, hasBit: (18, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 79, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 16)) }
+    get { _storage.value(atIndex: 79, hasBit: (18, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 79, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 32)) }
   }
 
   public var mapSint32Bool: [Int32: Bool] {
-    get { _storage.value(atIndex: 80, hasBit: (18, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 80, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 32)) }
+    get { _storage.value(atIndex: 80, hasBit: (18, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 80, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 64)) }
   }
 
   public var mapSint32String: [Int32: String] {
-    get { _storage.value(atIndex: 81, hasBit: (18, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 81, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 64)) }
+    get { _storage.value(atIndex: 81, hasBit: (18, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 81, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 128)) }
   }
 
   public var mapSint32Bytes: [Int32: Data] {
-    get { _storage.value(atIndex: 82, hasBit: (18, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 82, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (18, 128)) }
+    get { _storage.value(atIndex: 82, hasBit: (19, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 82, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 1)) }
   }
 
   public var mapSint32AnEnum: [Int32: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 83, hasBit: (19, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 83, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 1)) }
+    get { _storage.value(atIndex: 83, hasBit: (19, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 83, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 2)) }
   }
 
   public var mapSint32Message: [Int32: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 84, hasBit: (19, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 84, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 2)) }
+    get { _storage.value(atIndex: 84, hasBit: (19, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 84, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 4)) }
   }
 
   public var mapSint64Int32: [Int64: Int32] {
-    get { _storage.value(atIndex: 85, hasBit: (19, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 85, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 4)) }
+    get { _storage.value(atIndex: 85, hasBit: (19, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 85, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 8)) }
   }
 
   public var mapSint64Int64: [Int64: Int64] {
-    get { _storage.value(atIndex: 86, hasBit: (19, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 86, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 8)) }
+    get { _storage.value(atIndex: 86, hasBit: (19, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 86, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 16)) }
   }
 
   public var mapSint64Uint32: [Int64: UInt32] {
-    get { _storage.value(atIndex: 87, hasBit: (19, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 87, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 16)) }
+    get { _storage.value(atIndex: 87, hasBit: (19, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 87, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 32)) }
   }
 
   public var mapSint64Uint64: [Int64: UInt64] {
-    get { _storage.value(atIndex: 88, hasBit: (19, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 88, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 32)) }
+    get { _storage.value(atIndex: 88, hasBit: (19, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 88, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 64)) }
   }
 
   public var mapSint64Sint32: [Int64: Int32] {
-    get { _storage.value(atIndex: 89, hasBit: (19, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 89, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 64)) }
+    get { _storage.value(atIndex: 89, hasBit: (19, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 89, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 128)) }
   }
 
   public var mapSint64Sint64: [Int64: Int64] {
-    get { _storage.value(atIndex: 90, hasBit: (19, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 90, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (19, 128)) }
+    get { _storage.value(atIndex: 90, hasBit: (20, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 90, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 1)) }
   }
 
   public var mapSint64Fixed32: [Int64: UInt32] {
-    get { _storage.value(atIndex: 91, hasBit: (20, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 91, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 1)) }
+    get { _storage.value(atIndex: 91, hasBit: (20, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 91, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 2)) }
   }
 
   public var mapSint64Fixed64: [Int64: UInt64] {
-    get { _storage.value(atIndex: 92, hasBit: (20, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 92, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 2)) }
+    get { _storage.value(atIndex: 92, hasBit: (20, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 92, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 4)) }
   }
 
   public var mapSint64Sfixed32: [Int64: Int32] {
-    get { _storage.value(atIndex: 93, hasBit: (20, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 93, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 4)) }
+    get { _storage.value(atIndex: 93, hasBit: (20, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 93, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 8)) }
   }
 
   public var mapSint64Sfixed64: [Int64: Int64] {
-    get { _storage.value(atIndex: 94, hasBit: (20, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 94, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 8)) }
+    get { _storage.value(atIndex: 94, hasBit: (20, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 94, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 16)) }
   }
 
   public var mapSint64Float: [Int64: Float] {
-    get { _storage.value(atIndex: 95, hasBit: (20, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 95, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 16)) }
+    get { _storage.value(atIndex: 95, hasBit: (20, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 95, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 32)) }
   }
 
   public var mapSint64Double: [Int64: Double] {
-    get { _storage.value(atIndex: 96, hasBit: (20, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 96, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 32)) }
+    get { _storage.value(atIndex: 96, hasBit: (20, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 96, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 64)) }
   }
 
   public var mapSint64Bool: [Int64: Bool] {
-    get { _storage.value(atIndex: 97, hasBit: (20, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 97, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 64)) }
+    get { _storage.value(atIndex: 97, hasBit: (20, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 97, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 128)) }
   }
 
   public var mapSint64String: [Int64: String] {
-    get { _storage.value(atIndex: 98, hasBit: (20, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 98, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (20, 128)) }
+    get { _storage.value(atIndex: 98, hasBit: (21, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 98, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 1)) }
   }
 
   public var mapSint64Bytes: [Int64: Data] {
-    get { _storage.value(atIndex: 99, hasBit: (21, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 99, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 1)) }
+    get { _storage.value(atIndex: 99, hasBit: (21, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 99, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 2)) }
   }
 
   public var mapSint64AnEnum: [Int64: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 100, hasBit: (21, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 100, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 2)) }
+    get { _storage.value(atIndex: 100, hasBit: (21, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 100, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 4)) }
   }
 
   public var mapSint64Message: [Int64: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 101, hasBit: (21, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 101, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 4)) }
+    get { _storage.value(atIndex: 101, hasBit: (21, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 101, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 8)) }
   }
 
   public var mapFixed32Int32: [UInt32: Int32] {
-    get { _storage.value(atIndex: 102, hasBit: (21, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 102, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 8)) }
+    get { _storage.value(atIndex: 102, hasBit: (21, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 102, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 16)) }
   }
 
   public var mapFixed32Int64: [UInt32: Int64] {
-    get { _storage.value(atIndex: 103, hasBit: (21, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 103, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 16)) }
+    get { _storage.value(atIndex: 103, hasBit: (21, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 103, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 32)) }
   }
 
   public var mapFixed32Uint32: [UInt32: UInt32] {
-    get { _storage.value(atIndex: 104, hasBit: (21, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 104, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 32)) }
+    get { _storage.value(atIndex: 104, hasBit: (21, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 104, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 64)) }
   }
 
   public var mapFixed32Uint64: [UInt32: UInt64] {
-    get { _storage.value(atIndex: 105, hasBit: (21, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 105, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 64)) }
+    get { _storage.value(atIndex: 105, hasBit: (21, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 105, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 128)) }
   }
 
   public var mapFixed32Sint32: [UInt32: Int32] {
-    get { _storage.value(atIndex: 106, hasBit: (21, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 106, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (21, 128)) }
+    get { _storage.value(atIndex: 106, hasBit: (22, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 106, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 1)) }
   }
 
   public var mapFixed32Sint64: [UInt32: Int64] {
-    get { _storage.value(atIndex: 107, hasBit: (22, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 107, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 1)) }
+    get { _storage.value(atIndex: 107, hasBit: (22, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 107, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 2)) }
   }
 
   public var mapFixed32Fixed32: [UInt32: UInt32] {
-    get { _storage.value(atIndex: 108, hasBit: (22, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 108, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 2)) }
+    get { _storage.value(atIndex: 108, hasBit: (22, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 108, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 4)) }
   }
 
   public var mapFixed32Fixed64: [UInt32: UInt64] {
-    get { _storage.value(atIndex: 109, hasBit: (22, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 109, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 4)) }
+    get { _storage.value(atIndex: 109, hasBit: (22, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 109, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 8)) }
   }
 
   public var mapFixed32Sfixed32: [UInt32: Int32] {
-    get { _storage.value(atIndex: 110, hasBit: (22, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 110, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 8)) }
+    get { _storage.value(atIndex: 110, hasBit: (22, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 110, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 16)) }
   }
 
   public var mapFixed32Sfixed64: [UInt32: Int64] {
-    get { _storage.value(atIndex: 111, hasBit: (22, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 111, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 16)) }
+    get { _storage.value(atIndex: 111, hasBit: (22, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 111, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 32)) }
   }
 
   public var mapFixed32Float: [UInt32: Float] {
-    get { _storage.value(atIndex: 112, hasBit: (22, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 112, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 32)) }
+    get { _storage.value(atIndex: 112, hasBit: (22, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 112, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 64)) }
   }
 
   public var mapFixed32Double: [UInt32: Double] {
-    get { _storage.value(atIndex: 113, hasBit: (22, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 113, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 64)) }
+    get { _storage.value(atIndex: 113, hasBit: (22, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 113, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 128)) }
   }
 
   public var mapFixed32Bool: [UInt32: Bool] {
-    get { _storage.value(atIndex: 114, hasBit: (22, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 114, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (22, 128)) }
+    get { _storage.value(atIndex: 114, hasBit: (23, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 114, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 1)) }
   }
 
   public var mapFixed32String: [UInt32: String] {
-    get { _storage.value(atIndex: 115, hasBit: (23, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 115, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 1)) }
+    get { _storage.value(atIndex: 115, hasBit: (23, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 115, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 2)) }
   }
 
   public var mapFixed32Bytes: [UInt32: Data] {
-    get { _storage.value(atIndex: 116, hasBit: (23, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 116, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 2)) }
+    get { _storage.value(atIndex: 116, hasBit: (23, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 116, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 4)) }
   }
 
   public var mapFixed32AnEnum: [UInt32: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 117, hasBit: (23, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 117, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 4)) }
+    get { _storage.value(atIndex: 117, hasBit: (23, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 117, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 8)) }
   }
 
   public var mapFixed32Message: [UInt32: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 118, hasBit: (23, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 118, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 8)) }
+    get { _storage.value(atIndex: 118, hasBit: (23, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 118, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 16)) }
   }
 
   public var mapFixed64Int32: [UInt64: Int32] {
-    get { _storage.value(atIndex: 119, hasBit: (23, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 119, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 16)) }
+    get { _storage.value(atIndex: 119, hasBit: (23, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 119, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 32)) }
   }
 
   public var mapFixed64Int64: [UInt64: Int64] {
-    get { _storage.value(atIndex: 120, hasBit: (23, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 120, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 32)) }
+    get { _storage.value(atIndex: 120, hasBit: (23, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 120, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 64)) }
   }
 
   public var mapFixed64Uint32: [UInt64: UInt32] {
-    get { _storage.value(atIndex: 121, hasBit: (23, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 121, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 64)) }
+    get { _storage.value(atIndex: 121, hasBit: (23, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 121, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 128)) }
   }
 
   public var mapFixed64Uint64: [UInt64: UInt64] {
-    get { _storage.value(atIndex: 122, hasBit: (23, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 122, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (23, 128)) }
+    get { _storage.value(atIndex: 122, hasBit: (24, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 122, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 1)) }
   }
 
   public var mapFixed64Sint32: [UInt64: Int32] {
-    get { _storage.value(atIndex: 123, hasBit: (24, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 123, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 1)) }
+    get { _storage.value(atIndex: 123, hasBit: (24, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 123, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 2)) }
   }
 
   public var mapFixed64Sint64: [UInt64: Int64] {
-    get { _storage.value(atIndex: 124, hasBit: (24, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 124, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 2)) }
+    get { _storage.value(atIndex: 124, hasBit: (24, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 124, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 4)) }
   }
 
   public var mapFixed64Fixed32: [UInt64: UInt32] {
-    get { _storage.value(atIndex: 125, hasBit: (24, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 125, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 4)) }
+    get { _storage.value(atIndex: 125, hasBit: (24, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 125, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 8)) }
   }
 
   public var mapFixed64Fixed64: [UInt64: UInt64] {
-    get { _storage.value(atIndex: 126, hasBit: (24, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 126, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 8)) }
+    get { _storage.value(atIndex: 126, hasBit: (24, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 126, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 16)) }
   }
 
   public var mapFixed64Sfixed32: [UInt64: Int32] {
-    get { _storage.value(atIndex: 127, hasBit: (24, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 127, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 16)) }
+    get { _storage.value(atIndex: 127, hasBit: (24, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 127, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 32)) }
   }
 
   public var mapFixed64Sfixed64: [UInt64: Int64] {
-    get { _storage.value(atIndex: 128, hasBit: (24, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 128, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 32)) }
+    get { _storage.value(atIndex: 128, hasBit: (24, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 128, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 64)) }
   }
 
   public var mapFixed64Float: [UInt64: Float] {
-    get { _storage.value(atIndex: 129, hasBit: (24, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 129, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 64)) }
+    get { _storage.value(atIndex: 129, hasBit: (24, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 129, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 128)) }
   }
 
   public var mapFixed64Double: [UInt64: Double] {
-    get { _storage.value(atIndex: 130, hasBit: (24, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 130, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (24, 128)) }
+    get { _storage.value(atIndex: 130, hasBit: (25, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 130, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 1)) }
   }
 
   public var mapFixed64Bool: [UInt64: Bool] {
-    get { _storage.value(atIndex: 131, hasBit: (25, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 131, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 1)) }
+    get { _storage.value(atIndex: 131, hasBit: (25, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 131, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 2)) }
   }
 
   public var mapFixed64String: [UInt64: String] {
-    get { _storage.value(atIndex: 132, hasBit: (25, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 132, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 2)) }
+    get { _storage.value(atIndex: 132, hasBit: (25, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 132, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 4)) }
   }
 
   public var mapFixed64Bytes: [UInt64: Data] {
-    get { _storage.value(atIndex: 133, hasBit: (25, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 133, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 4)) }
+    get { _storage.value(atIndex: 133, hasBit: (25, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 133, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 8)) }
   }
 
   public var mapFixed64AnEnum: [UInt64: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 134, hasBit: (25, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 134, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 8)) }
+    get { _storage.value(atIndex: 134, hasBit: (25, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 134, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 16)) }
   }
 
   public var mapFixed64Message: [UInt64: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 135, hasBit: (25, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 135, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 16)) }
+    get { _storage.value(atIndex: 135, hasBit: (25, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 135, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 32)) }
   }
 
   public var mapSfixed32Int32: [Int32: Int32] {
-    get { _storage.value(atIndex: 136, hasBit: (25, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 136, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 32)) }
+    get { _storage.value(atIndex: 136, hasBit: (25, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 136, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 64)) }
   }
 
   public var mapSfixed32Int64: [Int32: Int64] {
-    get { _storage.value(atIndex: 137, hasBit: (25, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 137, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 64)) }
+    get { _storage.value(atIndex: 137, hasBit: (25, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 137, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 128)) }
   }
 
   public var mapSfixed32Uint32: [Int32: UInt32] {
-    get { _storage.value(atIndex: 138, hasBit: (25, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 138, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (25, 128)) }
+    get { _storage.value(atIndex: 138, hasBit: (26, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 138, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 1)) }
   }
 
   public var mapSfixed32Uint64: [Int32: UInt64] {
-    get { _storage.value(atIndex: 139, hasBit: (26, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 139, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 1)) }
+    get { _storage.value(atIndex: 139, hasBit: (26, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 139, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 2)) }
   }
 
   public var mapSfixed32Sint32: [Int32: Int32] {
-    get { _storage.value(atIndex: 140, hasBit: (26, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 140, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 2)) }
+    get { _storage.value(atIndex: 140, hasBit: (26, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 140, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 4)) }
   }
 
   public var mapSfixed32Sint64: [Int32: Int64] {
-    get { _storage.value(atIndex: 141, hasBit: (26, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 141, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 4)) }
+    get { _storage.value(atIndex: 141, hasBit: (26, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 141, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 8)) }
   }
 
   public var mapSfixed32Fixed32: [Int32: UInt32] {
-    get { _storage.value(atIndex: 142, hasBit: (26, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 142, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 8)) }
+    get { _storage.value(atIndex: 142, hasBit: (26, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 142, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 16)) }
   }
 
   public var mapSfixed32Fixed64: [Int32: UInt64] {
-    get { _storage.value(atIndex: 143, hasBit: (26, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 143, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 16)) }
+    get { _storage.value(atIndex: 143, hasBit: (26, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 143, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 32)) }
   }
 
   public var mapSfixed32Sfixed32: [Int32: Int32] {
-    get { _storage.value(atIndex: 144, hasBit: (26, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 144, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 32)) }
+    get { _storage.value(atIndex: 144, hasBit: (26, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 144, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 64)) }
   }
 
   public var mapSfixed32Sfixed64: [Int32: Int64] {
-    get { _storage.value(atIndex: 145, hasBit: (26, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 145, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 64)) }
+    get { _storage.value(atIndex: 145, hasBit: (26, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 145, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 128)) }
   }
 
   public var mapSfixed32Float: [Int32: Float] {
-    get { _storage.value(atIndex: 146, hasBit: (26, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 146, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (26, 128)) }
+    get { _storage.value(atIndex: 146, hasBit: (27, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 146, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 1)) }
   }
 
   public var mapSfixed32Double: [Int32: Double] {
-    get { _storage.value(atIndex: 147, hasBit: (27, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 147, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 1)) }
+    get { _storage.value(atIndex: 147, hasBit: (27, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 147, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 2)) }
   }
 
   public var mapSfixed32Bool: [Int32: Bool] {
-    get { _storage.value(atIndex: 148, hasBit: (27, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 148, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 2)) }
+    get { _storage.value(atIndex: 148, hasBit: (27, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 148, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 4)) }
   }
 
   public var mapSfixed32String: [Int32: String] {
-    get { _storage.value(atIndex: 149, hasBit: (27, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 149, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 4)) }
+    get { _storage.value(atIndex: 149, hasBit: (27, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 149, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 8)) }
   }
 
   public var mapSfixed32Bytes: [Int32: Data] {
-    get { _storage.value(atIndex: 150, hasBit: (27, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 150, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 8)) }
+    get { _storage.value(atIndex: 150, hasBit: (27, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 150, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 16)) }
   }
 
   public var mapSfixed32AnEnum: [Int32: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 151, hasBit: (27, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 151, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 16)) }
+    get { _storage.value(atIndex: 151, hasBit: (27, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 151, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 32)) }
   }
 
   public var mapSfixed32Message: [Int32: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 152, hasBit: (27, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 152, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 32)) }
+    get { _storage.value(atIndex: 152, hasBit: (27, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 152, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 64)) }
   }
 
   public var mapSfixed64Int32: [Int64: Int32] {
-    get { _storage.value(atIndex: 153, hasBit: (27, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 153, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 64)) }
+    get { _storage.value(atIndex: 153, hasBit: (27, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 153, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 128)) }
   }
 
   public var mapSfixed64Int64: [Int64: Int64] {
-    get { _storage.value(atIndex: 154, hasBit: (27, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 154, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (27, 128)) }
+    get { _storage.value(atIndex: 154, hasBit: (28, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 154, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 1)) }
   }
 
   public var mapSfixed64Uint32: [Int64: UInt32] {
-    get { _storage.value(atIndex: 155, hasBit: (28, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 155, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 1)) }
+    get { _storage.value(atIndex: 155, hasBit: (28, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 155, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 2)) }
   }
 
   public var mapSfixed64Uint64: [Int64: UInt64] {
-    get { _storage.value(atIndex: 156, hasBit: (28, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 156, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 2)) }
+    get { _storage.value(atIndex: 156, hasBit: (28, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 156, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 4)) }
   }
 
   public var mapSfixed64Sint32: [Int64: Int32] {
-    get { _storage.value(atIndex: 157, hasBit: (28, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 157, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 4)) }
+    get { _storage.value(atIndex: 157, hasBit: (28, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 157, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 8)) }
   }
 
   public var mapSfixed64Sint64: [Int64: Int64] {
-    get { _storage.value(atIndex: 158, hasBit: (28, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 158, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 8)) }
+    get { _storage.value(atIndex: 158, hasBit: (28, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 158, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 16)) }
   }
 
   public var mapSfixed64Fixed32: [Int64: UInt32] {
-    get { _storage.value(atIndex: 159, hasBit: (28, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 159, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 16)) }
+    get { _storage.value(atIndex: 159, hasBit: (28, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 159, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 32)) }
   }
 
   public var mapSfixed64Fixed64: [Int64: UInt64] {
-    get { _storage.value(atIndex: 160, hasBit: (28, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 160, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 32)) }
+    get { _storage.value(atIndex: 160, hasBit: (28, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 160, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 64)) }
   }
 
   public var mapSfixed64Sfixed32: [Int64: Int32] {
-    get { _storage.value(atIndex: 161, hasBit: (28, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 161, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 64)) }
+    get { _storage.value(atIndex: 161, hasBit: (28, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 161, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 128)) }
   }
 
   public var mapSfixed64Sfixed64: [Int64: Int64] {
-    get { _storage.value(atIndex: 162, hasBit: (28, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 162, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (28, 128)) }
+    get { _storage.value(atIndex: 162, hasBit: (29, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 162, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 1)) }
   }
 
   public var mapSfixed64Float: [Int64: Float] {
-    get { _storage.value(atIndex: 163, hasBit: (29, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 163, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 1)) }
+    get { _storage.value(atIndex: 163, hasBit: (29, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 163, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 2)) }
   }
 
   public var mapSfixed64Double: [Int64: Double] {
-    get { _storage.value(atIndex: 164, hasBit: (29, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 164, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 2)) }
+    get { _storage.value(atIndex: 164, hasBit: (29, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 164, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 4)) }
   }
 
   public var mapSfixed64Bool: [Int64: Bool] {
-    get { _storage.value(atIndex: 165, hasBit: (29, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 165, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 4)) }
+    get { _storage.value(atIndex: 165, hasBit: (29, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 165, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 8)) }
   }
 
   public var mapSfixed64String: [Int64: String] {
-    get { _storage.value(atIndex: 166, hasBit: (29, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 166, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 8)) }
+    get { _storage.value(atIndex: 166, hasBit: (29, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 166, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 16)) }
   }
 
   public var mapSfixed64Bytes: [Int64: Data] {
-    get { _storage.value(atIndex: 167, hasBit: (29, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 167, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 16)) }
+    get { _storage.value(atIndex: 167, hasBit: (29, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 167, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 32)) }
   }
 
   public var mapSfixed64AnEnum: [Int64: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 168, hasBit: (29, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 168, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 32)) }
+    get { _storage.value(atIndex: 168, hasBit: (29, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 168, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 64)) }
   }
 
   public var mapSfixed64Message: [Int64: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 169, hasBit: (29, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 169, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 64)) }
+    get { _storage.value(atIndex: 169, hasBit: (29, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 169, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 128)) }
   }
 
   public var mapBoolInt32: [Bool: Int32] {
-    get { _storage.value(atIndex: 170, hasBit: (29, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 170, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (29, 128)) }
+    get { _storage.value(atIndex: 170, hasBit: (30, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 170, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 1)) }
   }
 
   public var mapBoolInt64: [Bool: Int64] {
-    get { _storage.value(atIndex: 171, hasBit: (30, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 171, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 1)) }
+    get { _storage.value(atIndex: 171, hasBit: (30, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 171, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 2)) }
   }
 
   public var mapBoolUint32: [Bool: UInt32] {
-    get { _storage.value(atIndex: 172, hasBit: (30, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 172, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 2)) }
+    get { _storage.value(atIndex: 172, hasBit: (30, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 172, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 4)) }
   }
 
   public var mapBoolUint64: [Bool: UInt64] {
-    get { _storage.value(atIndex: 173, hasBit: (30, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 173, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 4)) }
+    get { _storage.value(atIndex: 173, hasBit: (30, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 173, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 8)) }
   }
 
   public var mapBoolSint32: [Bool: Int32] {
-    get { _storage.value(atIndex: 174, hasBit: (30, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 174, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 8)) }
+    get { _storage.value(atIndex: 174, hasBit: (30, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 174, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 16)) }
   }
 
   public var mapBoolSint64: [Bool: Int64] {
-    get { _storage.value(atIndex: 175, hasBit: (30, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 175, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 16)) }
+    get { _storage.value(atIndex: 175, hasBit: (30, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 175, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 32)) }
   }
 
   public var mapBoolFixed32: [Bool: UInt32] {
-    get { _storage.value(atIndex: 176, hasBit: (30, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 176, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 32)) }
+    get { _storage.value(atIndex: 176, hasBit: (30, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 176, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 64)) }
   }
 
   public var mapBoolFixed64: [Bool: UInt64] {
-    get { _storage.value(atIndex: 177, hasBit: (30, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 177, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 64)) }
+    get { _storage.value(atIndex: 177, hasBit: (30, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 177, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 128)) }
   }
 
   public var mapBoolSfixed32: [Bool: Int32] {
-    get { _storage.value(atIndex: 178, hasBit: (30, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 178, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (30, 128)) }
+    get { _storage.value(atIndex: 178, hasBit: (31, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 178, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 1)) }
   }
 
   public var mapBoolSfixed64: [Bool: Int64] {
-    get { _storage.value(atIndex: 179, hasBit: (31, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 179, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 1)) }
+    get { _storage.value(atIndex: 179, hasBit: (31, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 179, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 2)) }
   }
 
   public var mapBoolFloat: [Bool: Float] {
-    get { _storage.value(atIndex: 180, hasBit: (31, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 180, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 2)) }
+    get { _storage.value(atIndex: 180, hasBit: (31, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 180, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 4)) }
   }
 
   public var mapBoolDouble: [Bool: Double] {
-    get { _storage.value(atIndex: 181, hasBit: (31, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 181, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 4)) }
+    get { _storage.value(atIndex: 181, hasBit: (31, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 181, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 8)) }
   }
 
   public var mapBoolBool: [Bool: Bool] {
-    get { _storage.value(atIndex: 182, hasBit: (31, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 182, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 8)) }
+    get { _storage.value(atIndex: 182, hasBit: (31, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 182, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 16)) }
   }
 
   public var mapBoolString: [Bool: String] {
-    get { _storage.value(atIndex: 183, hasBit: (31, 16)) }
-    set { _uniqueStorage().updateValue(atIndex: 183, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 16)) }
+    get { _storage.value(atIndex: 183, hasBit: (31, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 183, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 32)) }
   }
 
   public var mapBoolBytes: [Bool: Data] {
-    get { _storage.value(atIndex: 184, hasBit: (31, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 184, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 32)) }
+    get { _storage.value(atIndex: 184, hasBit: (31, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 184, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 64)) }
   }
 
   public var mapBoolAnEnum: [Bool: SwiftProtoTesting_Fuzz_AnEnum] {
-    get { _storage.value(atIndex: 185, hasBit: (31, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 185, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 64)) }
+    get { _storage.value(atIndex: 185, hasBit: (31, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 185, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 128)) }
   }
 
   public var mapBoolMessage: [Bool: SwiftProtoTesting_Fuzz_Message] {
-    get { _storage.value(atIndex: 186, hasBit: (31, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 186, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (31, 128)) }
+    get { _storage.value(atIndex: 186, hasBit: (32, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 186, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (32, 1)) }
   }
 
   /// WKTs since some get special handing in JSON.
@@ -1633,8 +1633,23 @@ public nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Senda
   public mutating func clearSingularMessageSet() { _uniqueStorage().clearValue(atIndex: 22, type: SwiftProtoTesting_Fuzz_AMessageSetMessage.self, hasBit: (4, 16)) }
 
   public var repeatedMessageSet: [SwiftProtoTesting_Fuzz_AMessageSetMessage] {
-    get { _storage.value(atIndex: 32, hasBit: (32, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 32, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (32, 1)) }
+    get { _storage.value(atIndex: 32, hasBit: (32, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 32, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (32, 2)) }
+  }
+
+  /// Get some coverage for required fields and partial decoding/encoding.
+  public var singularRequiredMessage: SwiftProtoTesting_Fuzz_MessageWithRequired {
+    get { _storage.messageValue(atIndex: 23, hasBit: (4, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 23, to: newValue, willBeSet: true, hasBit: (4, 32)) }
+  }
+  /// Returns true if `singularRequiredMessage` has been explicitly set.
+  public var hasSingularRequiredMessage: Swift.Bool { _storage.isPresent(hasBit: (4, 32)) }
+  /// Clears the value of `singularRequiredMessage`. Subsequent reads from it will return its default value.
+  public mutating func clearSingularRequiredMessage() { _uniqueStorage().clearValue(atIndex: 23, type: SwiftProtoTesting_Fuzz_MessageWithRequired.self, hasBit: (4, 32)) }
+
+  public var repeatedRequiredMessage: [SwiftProtoTesting_Fuzz_MessageWithRequired] {
+    get { _storage.value(atIndex: 33, hasBit: (32, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 33, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (32, 4)) }
   }
 
   /// oneof
@@ -1730,6 +1745,32 @@ public nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Senda
     }
     public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
+
+  public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+}
+
+/// A message with a required field so partial decoding/encoding and isInitialized
+/// checks are exercised when referenced from Message.
+public nonisolated struct SwiftProtoTesting_Fuzz_MessageWithRequired: @unchecked Swift.Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var reqInt32: Int32 {
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+  }
+  /// Returns true if `reqInt32` has been explicitly set.
+  public var hasReqInt32: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
+  /// Clears the value of `reqInt32`. Subsequent reads from it will return its default value.
+  public mutating func clearReqInt32() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -2606,8 +2647,8 @@ nonisolated extension SwiftProtoTesting_Fuzz_AnEnum {
 }
 
 nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\u{2} \u{13}\u{2}\0\0\0\0%\0\0\u{12}\0\0!\0\0;\u{1}\0\u{17}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0t\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0x\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0|\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\0\u{1}\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{4}\u{1}\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0l\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\0P\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\u{8}\u{1}\0\u{f}\0\u{1}\0\u{e}\u{11}\0\0\0\0\0\00\u{10}\0@\u{1}\u{a}\u{13}\0\0\0\0\u{1}\00\u{11}\0\u{3}\0\u{b}\u{1f}\0\0\0\u{2}\0\0\u{10}%\0\0\0\u{5} \0\0\0\u{2}\u{1}\0\u{10}&\0\0\0\u{3}!\0\0\0\u{2}\u{2}\0\u{10}'\0\0\0\u{d}\"\0\0\0\u{2}\u{3}\0\u{10}(\0\0\0\u{4}#\0\0\0\u{2}\u{4}\0\u{10})\0\0\0\u{11}$\0\0\0\u{2}\u{5}\0\u{10}*\0\0\0\u{12}%\0\0\0\u{2}\u{6}\0\u{10}+\0\0\0\u{7}&\0\0\0\u{2}\u{7}\0\u{10},\0\0\0\u{6}'\0\0\0\u{2}\u{8}\0\u{10}-\0\0\0\u{f}(\0\0\0\u{2}\u{9}\0\u{10}.\0\0\0\u{10})\0\0\0\u{2}\u{a}\0\u{10}/\0\0\0\u{2}*\0\0\0\u{2}\u{b}\0\u{10}0\0\0\0\u{1}+\0\0\0\u{2}\u{c}\0\u{10}1\0\0\0\u{8},\0\0\0\u{2}\u{d}\0\u{10}2\0\0\0\u{9}-\0\0\0\u{2}\u{e}\0\u{10}3\0\0\0\u{c}.\0\0\0\u{2}\u{f}\0\u{10}4\0\u{1}\0\u{e}/\0\0\0\u{2}\u{10}\0\u{10}5\0\u{2}\0\u{a}1\0\0\0\u{2}\u{11}\0\u{10}6\0\u{3}\0\u{b}=\0\0\0\0\u{c}\u{1}\0[\u{7f}\0\0\u{5}>\0\0\0\0X\u{1}\0[\u{7f}\0\0\u{3}?\0\0\0\0\u{10}\u{1}\0[\u{7f}\0\0\u{d}@\0\0\0\0`\u{1}\0[\u{7f}\0\0\u{4}A\0\0\0\0\u{14}\u{1}\0[\u{7f}\0\0\u{11}B\0\0\0\0h\u{1}\0[\u{7f}\0\0\u{12}C\0\0\0\0\u{18}\u{1}\0[\u{7f}\0\0\u{7}D\0\0\0\0p\u{1}\0[\u{7f}\0\0\u{6}E\0\0\0\0\u{1c}\u{1}\0[\u{7f}\0\0\u{f}F\0\0\0\0x\u{1}\0[\u{7f}\0\0\u{10}G\0\0\0\0 \u{1}\0[\u{7f}\0\0\u{2}H\0\0\0\0\0\u{2}\0[\u{7f}\0\0\u{1}I\0\0\0\0m\0\0[\u{7f}\0\0\u{8}J\0\0\0\0\u{1}\0@[\u{7f}\0\0\u{9}K\0\0\0\0\u{1}\0P[\u{7f}\0\0\u{c}L\0\0\0\0$\u{1}\0[\u{7f}\u{1}\0\u{e}M\0\0\0\0\u{2}\00[\u{7f}A\u{1}\u{a}O\0\0\0\0\u{3}\00[\u{7f}\u{3}\0\u{b}Q\0\0\0\u{a}\u{12}\0\u{10}7\0\0\0\u{5}R\0\0\0\u{a}\u{13}\0\u{10}8\0\0\0\u{3}S\0\0\0\u{a}\u{14}\0\u{10}9\0\0\0\u{d}T\0\0\0\u{a}\u{15}\0\u{10}:\0\0\0\u{4}U\0\0\0\u{a}\u{16}\0\u{10};\0\0\0\u{11}V\0\0\0\u{a}\u{17}\0\u{10}<\0\0\0\u{12}W\0\0\0\u{a}\u{18}\0\u{10}=\0\0\0\u{7}X\0\0\0\u{a}\u{19}\0\u{10}>\0\0\0\u{6}Y\0\0\0\u{a}\u{1a}\0\u{10}?\0\0\0\u{f}Z\0\0\0\u{a}\u{1b}\0\u{10}@\0\0\0\u{10}[\0\0\0\u{a}\u{1c}\0\u{10}A\0\0\0\u{2}\\\0\0\0\u{a}\u{1d}\0\u{10}B\0\0\0\u{1}]\0\0\0\u{a}\u{1e}\0\u{10}C\0\0\0\u{8}^\0\0\0\u{a}\u{1f}\0\u{10}D\0\u{1}\0\u{e}d\0\0\0\u{4}\0\0 E\0\u{5}\0\u{b}e\0\0\0\u{4}\u{1}\0 F\0\u{6}\0\u{b}f\0\0\0\u{4}\u{2}\0 G\0\u{7}\0\u{b}g\0\0\0\u{4}\u{3}\0 H\0\u{8}\0\u{b}h\0\0\0\u{4}\u{4}\0 I\0\u{9}\0\u{b}i\0\0\0\u{4}\u{5}\0 J\0\u{a}\0\u{b}j\0\0\0\u{4}\u{6}\0 K\0\u{b}\0\u{b}k\0\0\0\u{4}\u{7}\0 L\0\u{c}\0\u{b}l\0\0\0\u{4}\u{8}\0 M\0\u{d}\0\u{b}m\0\0\0\u{4}\u{9}\0 N\0\u{e}\0\u{b}n\0\0\0\u{4}\u{a}\0 O\0\u{f}\0\u{b}o\0\0\0\u{4}\u{b}\0 P\0\u{10}\0\u{b}p\0\0\0\u{4}\u{c}\0 Q\0\u{11}\0\u{b}q\0\0\0\u{4}\u{d}\0 R\0\u{12}\0\u{b}r\0\0\0\u{4}\u{e}\0 S\0\u{13}\0\u{b}s\0\0\0\u{4}\u{f}\0 T\0\u{14}\0\u{b}t\0\0\0\u{4}\u{10}\0 U\0\u{15}\0\u{b}u\0\0\0\u{4}\u{11}\0 V\0\u{16}\0\u{b}v\0\0\0\u{4}\u{12}\0 W\0\u{17}\0\u{b}w\0\0\0\u{4}\u{13}\0 X\0\u{18}\0\u{b}x\0\0\0\u{4}\u{14}\0 Y\0\u{19}\0\u{b}y\0\0\0\u{4}\u{15}\0 Z\0\u{1a}\0\u{b}z\0\0\0\u{4}\u{16}\0 [\0\u{1b}\0\u{b}{\0\0\0\u{4}\u{17}\0 \\\0\u{1c}\0\u{b}|\0\0\0\u{4}\u{18}\0 ]\0\u{1d}\0\u{b}}\0\0\0\u{4}\u{19}\0 ^\0\u{1e}\0\u{b}~\0\0\0\u{4}\u{1a}\0 _\0\u{1f}\0\u{b}\u{7f}\0\0\0\u{4}\u{1b}\0 `\0 \0\u{b}\0\u{1}\0\0\u{4}\u{1c}\0 a\0!\0\u{b}\u{1}\u{1}\0\0\u{4}\u{1d}\0 b\0\"\0\u{b}\u{2}\u{1}\0\0\u{4}\u{1e}\0 c\0#\0\u{b}\u{3}\u{1}\0\0\u{4}\u{1f}\0 d\0$\0\u{b}\u{4}\u{1}\0\0\u{4} \0 e\0%\0\u{b}\u{5}\u{1}\0\0\u{4}!\0 f\0&\0\u{b}\u{6}\u{1}\0\0\u{4}\"\0 g\0'\0\u{b}\u{7}\u{1}\0\0\u{4}#\0 h\0(\0\u{b}\u{8}\u{1}\0\0\u{4}$\0 i\0)\0\u{b}\u{9}\u{1}\0\0\u{4}%\0 j\0*\0\u{b}\u{a}\u{1}\0\0\u{4}&\0 k\0+\0\u{b}\u{b}\u{1}\0\0\u{4}'\0 l\0,\0\u{b}\u{c}\u{1}\0\0\u{4}(\0 m\0-\0\u{b}\u{d}\u{1}\0\0\u{4})\0 n\0.\0\u{b}\u{e}\u{1}\0\0\u{4}*\0 o\0/\0\u{b}\u{f}\u{1}\0\0\u{4}+\0 p\00\0\u{b}\u{10}\u{1}\0\0\u{4},\0 q\01\0\u{b}\u{11}\u{1}\0\0\u{4}-\0 r\02\0\u{b}\u{12}\u{1}\0\0\u{4}.\0 s\03\0\u{b}\u{13}\u{1}\0\0\u{4}/\0 t\04\0\u{b}\u{14}\u{1}\0\0\u{4}0\0 u\05\0\u{b}\u{15}\u{1}\0\0\u{4}1\0 v\06\0\u{b}\u{16}\u{1}\0\0\u{4}2\0 w\07\0\u{b}\u{17}\u{1}\0\0\u{4}3\0 x\08\0\u{b}\u{18}\u{1}\0\0\u{4}4\0 y\09\0\u{b}\u{19}\u{1}\0\0\u{4}5\0 z\0:\0\u{b}\u{1a}\u{1}\0\0\u{4}6\0 {\0;\0\u{b}\u{1b}\u{1}\0\0\u{4}7\0 |\0<\0\u{b}\u{1c}\u{1}\0\0\u{4}8\0 }\0=\0\u{b}\u{1d}\u{1}\0\0\u{4}9\0 ~\0>\0\u{b}\u{1e}\u{1}\0\0\u{4}:\0 \u{7f}\0?\0\u{b}\u{1f}\u{1}\0\0\u{4};\0 \0\u{1}@\0\u{b} \u{1}\0\0\u{4}<\0 \u{1}\u{1}A\0\u{b}!\u{1}\0\0\u{4}=\0 \u{2}\u{1}B\0\u{b}\"\u{1}\0\0\u{4}>\0 \u{3}\u{1}C\0\u{b}#\u{1}\0\0\u{4}?\0 \u{4}\u{1}D\0\u{b}$\u{1}\0\0\u{4}@\0 \u{5}\u{1}E\0\u{b}%\u{1}\0\0\u{4}A\0 \u{6}\u{1}F\0\u{b}&\u{1}\0\0\u{4}B\0 \u{7}\u{1}G\0\u{b}'\u{1}\0\0\u{4}C\0 \u{8}\u{1}H\0\u{b}(\u{1}\0\0\u{4}D\0 \u{9}\u{1}I\0\u{b})\u{1}\0\0\u{4}E\0 \u{a}\u{1}J\0\u{b}*\u{1}\0\0\u{4}F\0 \u{b}\u{1}K\0\u{b}+\u{1}\0\0\u{4}G\0 \u{c}\u{1}L\0\u{b},\u{1}\0\0\u{4}H\0 \u{d}\u{1}M\0\u{b}-\u{1}\0\0\u{4}I\0 \u{e}\u{1}N\0\u{b}.\u{1}\0\0\u{4}J\0 \u{f}\u{1}O\0\u{b}/\u{1}\0\0\u{4}K\0 \u{10}\u{1}P\0\u{b}0\u{1}\0\0\u{4}L\0 \u{11}\u{1}Q\0\u{b}1\u{1}\0\0\u{4}M\0 \u{12}\u{1}R\0\u{b}2\u{1}\0\0\u{4}N\0 \u{13}\u{1}S\0\u{b}3\u{1}\0\0\u{4}O\0 \u{14}\u{1}T\0\u{b}4\u{1}\0\0\u{4}P\0 \u{15}\u{1}U\0\u{b}5\u{1}\0\0\u{4}Q\0 \u{16}\u{1}V\0\u{b}6\u{1}\0\0\u{4}R\0 \u{17}\u{1}W\0\u{b}7\u{1}\0\0\u{4}S\0 \u{18}\u{1}X\0\u{b}8\u{1}\0\0\u{4}T\0 \u{19}\u{1}Y\0\u{b}9\u{1}\0\0\u{4}U\0 \u{1a}\u{1}Z\0\u{b}:\u{1}\0\0\u{4}V\0 \u{1b}\u{1}[\0\u{b};\u{1}\0\0\u{4}W\0 \u{1c}\u{1}\\\0\u{b}<\u{1}\0\0\u{4}X\0 \u{1d}\u{1}]\0\u{b}=\u{1}\0\0\u{4}Y\0 \u{1e}\u{1}^\0\u{b}>\u{1}\0\0\u{4}Z\0 \u{1f}\u{1}_\0\u{b}?\u{1}\0\0\u{4}[\0  \u{1}`\0\u{b}@\u{1}\0\0\u{4}\\\0 !\u{1}a\0\u{b}A\u{1}\0\0\u{4}]\0 \"\u{1}b\0\u{b}B\u{1}\0\0\u{4}^\0 #\u{1}c\0\u{b}C\u{1}\0\0\u{4}_\0 $\u{1}d\0\u{b}D\u{1}\0\0\u{4}`\0 %\u{1}e\0\u{b}E\u{1}\0\0\u{4}a\0 &\u{1}f\0\u{b}F\u{1}\0\0\u{4}b\0 '\u{1}g\0\u{b}G\u{1}\0\0\u{4}c\0 (\u{1}h\0\u{b}H\u{1}\0\0\u{4}d\0 )\u{1}i\0\u{b}I\u{1}\0\0\u{4}e\0 *\u{1}j\0\u{b}J\u{1}\0\0\u{4}f\0 +\u{1}k\0\u{b}K\u{1}\0\0\u{4}g\0 ,\u{1}l\0\u{b}L\u{1}\0\0\u{4}h\0 -\u{1}m\0\u{b}M\u{1}\0\0\u{4}i\0 .\u{1}n\0\u{b}N\u{1}\0\0\u{4}j\0 /\u{1}o\0\u{b}O\u{1}\0\0\u{4}k\0 0\u{1}p\0\u{b}P\u{1}\0\0\u{4}l\0 1\u{1}q\0\u{b}Q\u{1}\0\0\u{4}m\0 2\u{1}r\0\u{b}R\u{1}\0\0\u{4}n\0 3\u{1}s\0\u{b}S\u{1}\0\0\u{4}o\0 4\u{1}t\0\u{b}T\u{1}\0\0\u{4}p\0 5\u{1}u\0\u{b}U\u{1}\0\0\u{4}q\0 6\u{1}v\0\u{b}V\u{1}\0\0\u{4}r\0 7\u{1}w\0\u{b}W\u{1}\0\0\u{4}s\0 8\u{1}x\0\u{b}X\u{1}\0\0\u{4}t\0 9\u{1}y\0\u{b}Y\u{1}\0\0\u{4}u\0 :\u{1}z\0\u{b}Z\u{1}\0\0\u{4}v\0 ;\u{1}{\0\u{b}[\u{1}\0\0\u{4}w\0 <\u{1}|\0\u{b}\\\u{1}\0\0\u{4}x\0 =\u{1}}\0\u{b}]\u{1}\0\0\u{4}y\0 >\u{1}~\0\u{b}^\u{1}\0\0\u{4}z\0 ?\u{1}\u{7f}\0\u{b}_\u{1}\0\0\u{4}{\0 @\u{1}\0\u{1}\u{b}`\u{1}\0\0\u{4}|\0 A\u{1}\u{1}\u{1}\u{b}a\u{1}\0\0\u{4}}\0 B\u{1}\u{2}\u{1}\u{b}b\u{1}\0\0\u{4}~\0 C\u{1}\u{3}\u{1}\u{b}c\u{1}\0\0\u{4}\u{7f}\0 D\u{1}\u{4}\u{1}\u{b}d\u{1}\0\0\u{4}\0\u{1} E\u{1}\u{5}\u{1}\u{b}e\u{1}\0\0\u{4}\u{1}\u{1} F\u{1}\u{6}\u{1}\u{b}f\u{1}\0\0\u{4}\u{2}\u{1} G\u{1}\u{7}\u{1}\u{b}g\u{1}\0\0\u{4}\u{3}\u{1} H\u{1}\u{8}\u{1}\u{b}h\u{1}\0\0\u{4}\u{4}\u{1} I\u{1}\u{9}\u{1}\u{b}i\u{1}\0\0\u{4}\u{5}\u{1} J\u{1}\u{a}\u{1}\u{b}j\u{1}\0\0\u{4}\u{6}\u{1} K\u{1}\u{b}\u{1}\u{b}k\u{1}\0\0\u{4}\u{7}\u{1} L\u{1}\u{c}\u{1}\u{b}l\u{1}\0\0\u{4}\u{8}\u{1} M\u{1}\u{d}\u{1}\u{b}m\u{1}\0\0\u{4}\u{9}\u{1} N\u{1}\u{e}\u{1}\u{b}n\u{1}\0\0\u{4}\u{a}\u{1} O\u{1}\u{f}\u{1}\u{b}o\u{1}\0\0\u{4}\u{b}\u{1} P\u{1}\u{10}\u{1}\u{b}p\u{1}\0\0\u{4}\u{c}\u{1} Q\u{1}\u{11}\u{1}\u{b}q\u{1}\0\0\u{4}\u{d}\u{1} R\u{1}\u{12}\u{1}\u{b}r\u{1}\0\0\u{4}\u{e}\u{1} S\u{1}\u{13}\u{1}\u{b}s\u{1}\0\0\u{4}\u{f}\u{1} T\u{1}\u{14}\u{1}\u{b}t\u{1}\0\0\u{4}\u{10}\u{1} U\u{1}\u{15}\u{1}\u{b}u\u{1}\0\0\u{4}\u{11}\u{1} V\u{1}\u{16}\u{1}\u{b}v\u{1}\0\0\u{4}\u{12}\u{1} W\u{1}\u{17}\u{1}\u{b}w\u{1}\0\0\u{4}\u{13}\u{1} X\u{1}\u{18}\u{1}\u{b}x\u{1}\0\0\u{4}\u{14}\u{1} Y\u{1}\u{19}\u{1}\u{b}y\u{1}\0\0\u{4}\u{15}\u{1} Z\u{1}\u{1a}\u{1}\u{b}z\u{1}\0\0\u{4}\u{16}\u{1} [\u{1}\u{1b}\u{1}\u{b}{\u{1}\0\0\u{4}\u{17}\u{1} \\\u{1}\u{1c}\u{1}\u{b}|\u{1}\0\0\u{4}\u{18}\u{1} ]\u{1}\u{1d}\u{1}\u{b}}\u{1}\0\0\u{4}\u{19}\u{1} ^\u{1}\u{1e}\u{1}\u{b}~\u{1}\0\0\u{4}\u{1a}\u{1} _\u{1}\u{1f}\u{1}\u{b}\u{7f}\u{1}\0\0\u{4}\u{1b}\u{1} `\u{1} \u{1}\u{b}\0\u{2}\0\0\u{4}\u{1c}\u{1} a\u{1}!\u{1}\u{b}\u{1}\u{2}\0\0\u{4}\u{1d}\u{1} b\u{1}\"\u{1}\u{b}\u{2}\u{2}\0\0\u{4}\u{1e}\u{1} c\u{1}#\u{1}\u{b}\u{3}\u{2}\0\0\u{4}\u{1f}\u{1} d\u{1}$\u{1}\u{b}\u{4}\u{2}\0\0\u{4} \u{1} e\u{1}%\u{1}\u{b}\u{5}\u{2}\0\0\u{4}!\u{1} f\u{1}&\u{1}\u{b}\u{6}\u{2}\0\0\u{4}\"\u{1} g\u{1}'\u{1}\u{b}\u{7}\u{2}\0\0\u{4}#\u{1} h\u{1}(\u{1}\u{b}\u{8}\u{2}\0\0\u{4}$\u{1} i\u{1})\u{1}\u{b}\u{9}\u{2}\0\0\u{4}%\u{1} j\u{1}*\u{1}\u{b}\u{a}\u{2}\0\0\u{4}&\u{1} k\u{1}+\u{1}\u{b}\u{b}\u{2}\0\0\u{4}'\u{1} l\u{1},\u{1}\u{b}\u{c}\u{2}\0\0\u{4}(\u{1} m\u{1}-\u{1}\u{b}\u{d}\u{2}\0\0\u{4})\u{1} n\u{1}.\u{1}\u{b}\u{e}\u{2}\0\0\u{4}*\u{1} o\u{1}/\u{1}\u{b}\u{f}\u{2}\0\0\u{4}+\u{1} p\u{1}0\u{1}\u{b}\u{10}\u{2}\0\0\u{4},\u{1} q\u{1}1\u{1}\u{b}\u{11}\u{2}\0\0\u{4}-\u{1} r\u{1}2\u{1}\u{b}\u{12}\u{2}\0\0\u{4}.\u{1} s\u{1}3\u{1}\u{b}\u{13}\u{2}\0\0\u{4}/\u{1} t\u{1}4\u{1}\u{b}\u{14}\u{2}\0\0\u{4}0\u{1} u\u{1}5\u{1}\u{b}\u{15}\u{2}\0\0\u{4}1\u{1} v\u{1}6\u{1}\u{b}\u{16}\u{2}\0\0\u{4}2\u{1} w\u{1}7\u{1}\u{b}\u{17}\u{2}\0\0\u{4}3\u{1} x\u{1}8\u{1}\u{b}\u{18}\u{2}\0\0\u{4}4\u{1} y\u{1}9\u{1}\u{b}\u{19}\u{2}\0\0\u{4}5\u{1} z\u{1}:\u{1}\u{b}\u{1a}\u{2}\0\0\u{4}6\u{1} {\u{1};\u{1}\u{b}\u{1b}\u{2}\0\0\u{4}7\u{1} |\u{1}<\u{1}\u{b}\u{1c}\u{2}\0\0\u{4}8\u{1} }\u{1}=\u{1}\u{b}\u{1d}\u{2}\0\0\u{4}9\u{1} ~\u{1}>\u{1}\u{b}\u{1e}\u{2}\0\0\u{4}:\u{1} \u{7f}\u{1}?\u{1}\u{b}t\u{3}\0\0\0\u{4}\00\u{12}\0B\u{1}\u{b}u\u{3}\0\0\0\u{5}\00\u{13}\0C\u{1}\u{b}v\u{3}\0\0\0\u{6}\00\u{14}\0D\u{1}\u{b}w\u{3}\0\0\0\u{7}\00\u{15}\0E\u{1}\u{b}x\u{3}\0\0\0\u{8}\00\u{16}\0F\u{1}\u{b}y\u{3}\0\0\0\u{9}\00\u{17}\0G\u{1}\u{b}z\u{3}\0\0\0\u{a}\00\u{18}\0H\u{1}\u{b}{\u{3}\0\0\0\u{b}\00\u{19}\0I\u{1}\u{b}|\u{3}\0\0\0\u{c}\00\u{1a}\0J\u{1}\u{b}}\u{3}\0\0\0\u{d}\00\u{1b}\0K\u{1}\u{b}~\u{3}\0\0\0\u{e}\00\u{1c}\0L\u{1}\u{b}\u{7f}\u{3}\0\0\0\u{f}\00\u{1d}\0M\u{1}\u{b}\0\u{4}\0\0\0\u{10}\00\u{1e}\0N\u{1}\u{b}\u{1}\u{4}\0\0\0\u{11}\00\u{1f}\0O\u{1}\u{b}\u{2}\u{4}\0\0\0\u{12}\00 \0P\u{1}\u{b}\u{3}\u{4}\0\0\0\u{13}\00!\0Q\u{1}\u{b}\u{4}\u{4}\0\0\0\u{14}\00\"\0R\u{1}\u{b}\u{5}\u{4}\0\0\0\u{15}\00#\0S\u{1}\u{b}X\u{4}\0\0\0\u{16}\00$\0\u{4}\0\u{b}Y\u{4}\0\0\u{2} \0\u{10}\0\u{2}\u{4}\0\u{b} \0swift_proto_testing.fuzz.Message"
-  private static let _protobuf_reflectionData: Swift.StaticString = ",{\0\0 \u{1f}.z?coQ\u{1b}\u{1d}0\u{10}=I|R$j\u{7f}\u{1e}%<I\u{1}G},9fj^\u{1a},\u{1e}@'\u{19}% A$N\u{3}nh4q=\u{15}\u{1e}\u{1c}$e<~W\u{7}\u{1a}\u{2}D3[;\u{1a}4n,%!\u{1d}\u{15}[_V\u{10}l`dNg^\u{15}\u{17}z\u{14}\u{6}\u{8}\u{1a}Qt#QpN*Z+umP\u{f}\0d_kE(\u{17}Z5s\u{16}qVy8%gt\u{e}9\u{14}p~t];m'y9\u{17}z\u{f}XLg@\u{15}BN({m4<\t}6l\u{1d}qR\u{17}Zw\u{1e}\n\u{1f}g\u{7f}^(+\u{8}0f-fdNK\u{1c}'.IjS*.ss9<\u{3}X\u{15}`2sZ\u{11}0\u{12}p9\0t`\u{11}}\u{6}cb5(O\0wP Zg\t|?\u{1a}vG_>n2\u{17}\0\u{12}P~\u{1}1_\n\u{c})|F+\u{2}Q([\u{17}&q^\u{15}\u{13}\u{18}B(!y\u{e}\"g\";\u{7f}7\u{c}\u{19}\rL\r~FF\u{1a}s=.'U^\u{11}\u{6}\u{6}a|&AE\0&aw\u{17}~@-EV\u{16}l\u{1e}n4ug\"4Wb=\u{1c}I2+\u{1c}\u{13}4\u{8}&\u{1}F\u{7}`r\u{5}<\u{1d}m*o\u{13}:\u{1f}GX47pE5\"w:y=A0G6y\u{15}XI\u{15}1\u{8}[\u{11}cKPD\u{11}U-$Z;\rYl\u{1b}ze\u{1a}h$Y\"\u{b}M,+8L2\0O V5$/-s\u{1f}N7[Z\u{1}\u{c}vE\u{e}73.\u{7}}x\u{19}\u{1c}Wq \u{f}yOS+;z(eE%?1i\u{b}PR\u{3}L\n\u{13}SA!FXB\u{13}\n\u{5}^\u{17}Q\u{5}izs-.vZ(\u{2}O_\u{12}J^v\u{5}\u{10}elxR\t7|\u{c}TM*\n\u{1d}~Ub'go\\xDI\u{12}a\0spX\u{2}~\u{1c}O! M{T%G{'i\u{c}\u{1f}T}hP8F\u{1}%-\u{b}\rx\u{e}{/fj'\u{12}CA<x2\u{b}O&Hs\\\u{13}Dh7\u{1a}%(kq\u{e}\u{16}\u{5}IFL\u{4}HW\n^ep!`\u{1c}a&O?E\u{16}-NF\u{4}!{y\u{7f}h-\u{1}r@\u{14}V\u{1e}\u{14}@f\u{1e}\u{1e}z<0ti\u{f}P\nXf_\u{1a}>Z]a2m\\V]F7\u{13}\0!c\u{c}jO^WBGigKb\u{4}\u{e}M%\u{15}+T\u{c}%u\u{1c}\rLp)\u{12}\u{1c}D:\nLJ&x%]GN0O\u{4}pm\u{10}eJ\u{1b}\t{H\u{13})-9z9'\u{14};\u{7}*1!\u{1f}$$\u{14}\u{15}L\u{10}8\n\u{17}Fi\06\u{15}H\u{5}:p]hw*y\u{4}_5C9|Kf|*QnVhbnmHG{\\h\u{1}B6j\u{17}\u{7}xPpL$\u{c}5[rb=4\u{e}6\u{11}Uv6U\u{4}\u{1b}\u{1e}-*\u{1}M\u{e}&\u{12}N{y7\u{4}e\u{2}\0JNWg[5ix<MX\u{1c}/YFr\u{17}(L7g}\u{2}\0dg\u{10}(\u{1}b\u{1c}PY\u{8}Hc\u{1c}6P(wF)z\u{b}\u{1d}tu\u{7}4z\u{8}\\|\u{c} a\u{17}sh\u{f}d_0SH7d=M[L\u{1b}8]l=:>IVt'zU^\u{4}zjI~1.Jj0yT[HF3Cx\u{1c}?\u{16}JnCN**{>\u{1d}\n9s)\n\u{f}Yu7CI*U/#\u{16}+sGYyxn\u{7}3=\u{17}[_\u{12}\u{b}_h\rg2\u{3}FxN]^zt2i\u{1}fl\u{5}M\u{12}Yp-=*o :>C\u{1d}o\roj\u{17}I!\u{1b}{;S|\u{1d}Jl\u{4}\u{1d})\u{1f}5c){{M{\u{e}T:r7\u{13}vxU\r\u{18}\u{c}\"HjA@NJ[|^0\u{7f}sECl|SfK[MjQ\u{5}4D|\"@@szo[z'gG0B\u{15}O+\u{1}@vi7I#Hmtl5xZs\u{8}TcP\u{7f}K5ZA$$\ng@\u{2}\u{1e}\u{12}t\u{12}e'Ft\u{1d}$`;Oed\u{10}2,\u{b}zM\u{1e}HVp,\u{4}\u{5}A0Z*\u{18}\u{10}ZiU*O\u{1f}\u{10}\u{b}^>bj1\u{13}g\"xz%27Rbh\u{1}H\u{c}&\u{18}\u{7}V~g\u{15}T,>\"6-1-2\u{15}4&xWm'GU\u{11}\n\u{c}C$\u{16}4E?-a4 \u{5}\u{4}Rf|If@\u{1f})\nu>\u{19},N]\u{1c}\u{17}4uQn1)D4-\u{1f}{hv0s'E9\u{4}{4R\u{17}A:{*\u{1e}\u{f}\"j6\u{7},Yz\u{19}\u{3}\u{5},\nCo\u{e}abx(\u{19}\u{15}gV1S&_fe\u{16}Wx3K|6\n\\SBVFV\u{15}\n'j7Ah\u{17}.3TE-ND\nvv\u{11}%\u{13}~zNQ>9`fo[$J+@>F\u{15}\u{4}-\"31\u{7f}?Vl\u{12}\u{1f}yDKZ\u{1d}\u{7f}k$\u{1}\u{17}JM0d2Ka&-Y*\u{11})r|;:\u{1b}|2y\u{5}1g\u{e}Z\u{1}\u{1}3S\u{4}\u{18}6OUm'DiqeubM:\\ }D\u{1f}lDn5G\rr\u{c}w]^Y_#\u{f}_A\rdDXU\u{19}\u{2}_\u{1}\tpi\u{17}]\u{b}hA6=Bv\u{17}H3\u{10}\u{3}#o\u{1a}\"\u{b}\u{8}G7Rx2hS\t1\u{1a}7'(\"\"(\u{13}.A5'a\u{6}~r\u{17}\u{12}2\u{e}X%\u{7f}\u{7f}\u{1f}\0z\u{16}eO\u{f}bH]h4\r\u{5}}\u{f}\\*$of\u{1f}^\u{1}n\u{19}\u{c}H\n}\u{1b}r{7\u{1d}^'\u{15}\\\u{3}sd\u{1}\u{1d}c0E 8\u{14}{c\u{7}2rf'ae\0]\u{18}\u{1c}n4t\u{4}?\n\u{1c}\u{13}5/7\u{11}.;\u{1c}whc\u{1b}Q\u{1}Y\u{11}\u{4}kSb=*Ub}pnG\u{e}8bs\u{b}3\u{1}R\u{7}rhc\u{b}v++)\u{1a}\u{b}\u{2},Y\u{11}H\u{1b}2E\u{17}\u{e}\u{1a}0+)gs(hA1\u{2}s0g*PJs\u{5}\u{1b}\u{3}\u{7f}2\u{13}U=3k\t'@UJjuh0phMm\u{1f}\u{15}\u{7f}*apx=\u{7}(\u{e}\u{3}NgBom\u{7f}U\u{1c}V9\u{1b}v?n4K\r6r5\n\u{2}B\u{e}@G4m\u{15} \0f\u{10}5\u{1f}g[h1\u{18}!MxT0v\u{7}c6!uR1oRtjMLw\u{1}J8#L1(-w\0!KVMZ8fNN0_>\u{16}d/hlHO^q,smEb\u{b}{[\u{6}WW=P@cO+~{[St%\u{6}\r\u{7f}\u{1}\u{f}<N`\u{7f} EHk+{1a<!H?Wui\u{7f}\u{2}%+[S5Jui\\\rX}2a/)8=Y\u{19}red\r\u{4}\u{b}g>\u{1d}e][&:e\u{18}~)B\u{19}\u{15}3m\u{6}\u{18}%r\r\u{12}@\u{e}Z;WUGjM\u{1c}\u{17}/eD\"TD`^ims\"G\u{1a}m^v\u{1b}e3*lSq\\l]6%ro\u{7f}'kbk4\u{5}ZPN)~Mt9LU<+'_?\u{17};Cu3iW\r^(\u{10}#@~Y\u{1d}vJE=\u{10}\u{5}]2nkidZb<\u{8}T\u{c}\u{11}+E%+M=S\n\u{1c}F7R\u{1d}ql#\u{18}\u{8}\u{7f}b\nNS\u{2}\"M:Az7vP\u{1}=X*~\u{1}@mJb\u{1d}*W\u{17}\u{5}]\u{13}#O5;Q\rRKF=-\nI1\u{10}7{!)4\u{6}v\tDSsW.\u{14}\u{15}\u{1b}\u{e}OFqP=}h2[\u{1f}\u{1}\"]KA\u{17}2)pw\tc\u{3}M1 ow,Ym}59wzEo\u{13}c*lN3Io\\8\u{c}(T<?Jh3jDV\u{1f} `_[EN\u{13}\\\u{1c}|\u{8}[R@sh5[A(w\u{18}J+\n{l\u{13}\np@99p\u{e}t\u{2}%{.X5JoZZdeys%Lz8\rYk\u{17}s\u{1}\0\u{12}.)HNOCZ\u{13}<p\u{1a}sp\u{1b}L1\u{b}\u{8}E'A\"\u{16}a\"1y\"S\u{f}\u{10}-T@?/\u{16}\u{b}&}\u{2}1QD\u{14}\u{1e}7CY8.&S`vb\u{7}Rs{/:2O\u{16}Ye, \u{7f}-]=\u{12}L@\u{17}\\]\u{13} \u{2}\u{15}\u{e}~\u{7f}w\u{7f}Ua`%\u{18}7E}Xhr-9IMRrmz7\"?m\u{6}k\u{11}\r\\(\"w\u{14}Z=*>\u{18}#Z(j`G\u{1c}*G(\u{7}L\u{13}Ce0jGAZL\u{8}WAi^X\u{1}\u{4}\u{7},dq*l_b%\u{f}$\u{13}Z~VS[\u{1b}\u{1e}g\u{b}E7&]\u{15}nfm2\u{1a}< /X=6\u{7f}~~\u{1b}|\u{1c}S\u{3}#gAo\n\u{1d}90;-kT\u{2}P5XhCp\u{1e}}l\u{8}~@\u{10}>&\u{1}[\u{3}\u{7}s\u{15}IU}9=\u{1e}\u{17}1}[\r%{e\u{12}!\u{12}_\u{6}G&Q@){p\u{10}e[W? b/m5{/}*u\u{2}uz\u{7}[l~!M(R/\u{16},DW\\s\u{3}\"jz!`_`<OL\u{4}\u{11}#S]\u{19}gWY\u{6}N7x\u{1d}\u{3}\r(Y=C6\u{1c}N\u{10}Y\nO2'I?d?EMu%>?s:u\u{e}{\0<\t#OQ\"pO&ER4^\u{5}\u{5}t\u{1}P:~{NroI)KKtEhl\u{19}|0*\u{1e}\u{1c}3d\u{3}!Y'\u{1c}2W\t#\u{f}|=k\u{c}FF'?07-Q\u{e}b'Q2\u{13}>\u{1}\u{5}\u{10}\u{1c}\u{8} \0r+\u{1b}xN/Z{jJv&w{\u{7}\tg?oU;Wk\u{18}yI*e6 \u{4}\u{17}MO\u{1f}0\u{1a}J\u{1c}TJ\u{11}`G9#jy~{\u{1b}}rn\0\u{7f}J\t+z;\u{11}-_6<BQ\0MG&l\u{1b}\u{5}\u{8}$30aEq-Tr|k\u{e}-7\u{5}\u{11}yJg>i]Y\u{1e}\u{7f}K7!\u{f}\u{14}_k$pbBb}87t0&\u{7}\u{1e}K\u{5}}F%gD/s\\q\u{1c}<n Ma/'4~{oxH$q\u{18}\u{18}\u{14}\u{1d}_#$>0tm&\u{1f}[0p\u{14}\u{1d},qs\u{1}\u{7}ELKd\u{17}\u{12};E\u{16}\u{1c}^m\u{18}H]dl_\u{7f}\u{2}\u{1f}\t\u{1d}$oVX#VM87K`tJ\u{7}/~)8R\u{11}\u{12}z?+Ju}8fj{\u{1e}\u{3}nq{fy\n]R\u{f}\t38p\u{c}\u{16}5A\u{7}&b\u{5}7Lq\u{5}\u{19}/\u{1}\u{11}A\u{e}\u{1}'\"@w\u{1d}\u{1d}ov\"-\u{1d}WH\u{3}\u{f}\u{12}<`0j#SgP\n(|\u{1e}a\u{1e}8j,fx\t(\u{16}94m\u{19}xNJMQ\u{14}\u{16}+P4\u{1e}-\rj]pb7\u{18}\u{e}4!\0<AWm,N&,F?@W\08|\t;EYI}L\u{1c}W>\u{5}U+\u{1d}2\u{5}Q)ky\u{2}X9\u{11}\u{16}.\u{1b}l[i/\u{f}.g\u{1f}$f\u{13}Q\u{12}z?W4QP#E}\u{1f})Bplre\u{19}P,Lq\u{e}B\u{3}S)\u{17}B\"\u{1d}4\u{11}\u{1e}zqmv\u{18}s^6\u{1}\u{1e}\u{16}/- \u{b}LQH\u{e}I9DW2W\u{1b}&N\u{1}R\u{1c}T\u{17}e!\u{15}t5Qd[MBB%tZ-\u{8}g\u{1f}T*wi\u{e}^B\u{10}\u{7f}~3\\\u{14}\u{16}\u{19}h'^x\u{4}S\u{11}*}wN\\dcOu\u{2}$\u{b}q,dO\u{1b}$\0\u{2}q{?.z\u{13}p|!u4\u{3}=4k\u{19}yP\u{15}\u{5}\u{1c}\u{c}\u{18}\u{10}_\u{16}\u{c}DX\u{1a}\u{1c}{ub{\u{2}>Gu+9RFXvX!GU|\u{b}Ozg4K:`ue(bbPp2-l\u{1f})f+|D-B\r7Q\u{4}yi^FT`^*\u{4}\u{1c}h\u{12}xh\u{16}v\u{1b}_h?:%\t\u{7f}H}5?T{aWn)uH?B!\u{1}^\u{8}o/ \u{2}T%\u{e}e`*I\u{b}5{!\u{10}1iN\u{5}\n[\u{17}QmoO\u{19}#-AK]U\u{2}\\G\u{13}'rqzN>5\u{15}&v^\u{7f}1\u{10}MhE-@eV7\u{c}k\u{1}\u{12}\u{1c}=7pRfXM?{{@**\tFIx\u{1a}\u{1f}og+{\u{19}ly\u{7}922\u{13}\u{17}!1\nWF<6|\u{11}I63T.=sSl=.mv\u{e}+\u{b}\u{b}ss\u{13}\u{c}:\u{1f}H\u{1e}\u{19}X\u{7}>\u{1b}>!3j8[Rir\u{6}\u{16}\u{3}3F\u{15}Wh\u{15}\u{1e}cv)\u{15}H/Ou'hNt\u{c}rKd[6@=`q>M\u{5}>x&\u{1c}d'f8R\\E>buP,\u{e}OS\u{11}\u{1f}->\u{17}m\\)wn49T5FQ\u{1e}:FwC:,\u{1f}6;o At\u{4}\t:s\u{c}RmO^{xjBUmq\u{1a}S\u{3}r\u{4}mX\u{1d}\u{19}/qf)\u{19}bg?0_{B}\u{1b}.\u{c}h\u{1}(J\u{10}c\u{c}\u{1b}cU@\u{1c}B\u{c}ft\u{19};\u{13}\n02w\\2tAs!+y7?\u{b}sg>(b\u{1b}sL\no\u{16}dR%5RAqoZ\u{1}>~~t 6\u{6}\u{15}1BJd~MY\r\u{8}wM2\\rnu\"z#_aIS?#E2<7|'\u{18}]\u{1a}3`\u{e}\u{15}\u{8}g#\u{1f}D3\0\u{19}V~XxyU\u{8}\n\u{18}'v\u{18}vzC~e\u{14}zu\u{b}oFjl=##}g\u{6}).K/\u{19}s^BQdK\u{18}Ld\u{1d}\u{8}0\u{11}\u{12}),.LU1\u{12}-yH6T-Qa\u{8}Z\u{1}nRSAvU[\u{e}SC.jYJEI9[H,y\u{6}H\u{b}\u{e}\u{16}&\u{7}{B\u{c}CA\u{8}\u{15}\u{19}zY\u{8}-=p\u{3}\u{3}\u{1c}\u{4}3z~PNXs\u{18}!\u{16}m2tFm/\\\u{12}w$Y\u{19}gm@b%\u{8}\u{1e}\\Z\u{6}Z 6\u{16}\u{19}\u{7}/v7|\u{1e}&\u{10}\u{f}!\u{4}S\u{1e}\u{1a}b2\"=\u{3}Tj\r$:)l\u{17}s\u{4}p4r-\u{e}\u{1e}3|}\u{3}}tBCika\ny3z\u{14}@\u{11}Ixr#`\u{10}\u{f}i\u{1c}\u{1e}]24xyK\"r#K80)pWcW&,:E\rb/\n\r)'upp\u{17}(\nP&q>6$p_[T\u{2}x=\u{1}\u{3}\u{6}@|RNwBr\u{1e}DKX/\u{19}j`WTz\u{12}\"\u{4}\u{b}Qj\u{19}E\u{1a}\u{1b}8n\u{11}\u{1d}|~of%gYaRo#^i+\u{7f}\u{12}[k)\nq<\u{15}g/3Y\u{4}\u{5}\u{4}:)P~\u{14}!@r\u{c}a@A`JZe(IOO\u{8}.S\tk(!E^WU4!U8$$Rt.\u{10}\u{16}o}\u{1f}Ql\u{6}gU?X\u{2}N2yK\u{f}\u{7f}\0\u{19}\u{2}X[ln\u{14}'\u{6}:\u{4}\u{1}\u{19}\u{7f}=e1f\r\u{2}\u{b}!w\u{12}%oO9l\rf\u{7}}\u{b}G=y\u{16}\u{7}6zVTubV%*[szDQ\u{f}\u{2})\\\u{7f}\u{6}m\u{1a}}JUR\u{3}\u{19},\"P{V4?-b?\u{1d}\u{13}\u{c}B\u{7f}^\u{1c}yNE`p|uO\n*VqYt*\u{1a}B[)clDf~'6)$?e6[_tS/H$?\t\u{1c}`ZtY\u{14}Cp/sS_\u{4}Di\u{3}6\u{c}\u{7}\u{1b}\u{1c}\u{19}jSErgSq\u{1a}b\u{5}VAlSZ-FtvUb:X}p04*}Ic?$q\u{b}w@Yz\u{16}5\\\u{1a}\u{2}\u{19}uqO\u{12}!e\u{f}b_\u{6}pRZ'8\u{15}tbH@\u{19}\u{8}}L\u{7f}AZ^\t\nxV+Fw{\u{19}\u{1b}+J9\u{e}\\\u{1b}\u{1a}&BIk\u{c}\u{f}\u{e}&\u{1b}k\u{3}\u{7}L9\u{2}\u{8}\u{11}\u{f}V\u{8}g\0qUOe\u{1d}\tmh5'\u{1f}4\t6;\0_#706KO%xi\u{12}\u{1}f'9\u{1b}\u{11}AsaIH\n\u{1f}|9\u{4}M\u{4}\u{6}\\`y#N\u{b}Pki\u{3}D\u{5}\u{13}[$&p\u{10}\u{b}\u{1d}\u{18}/@`@TC\u{13}Z%&\0J\u{1d}I2X7A!\u{13}/c,F!xW\u{15}xbK7@\u{5}5\u{c}&1ji\nT=<?/k]\r\0@\u{6}b/\u{2}\u{3}S1o2j\u{b}5^i_*~}\u{2}\u{1d}\u{18}Q`E\u{3}\u{16}V\u{11}s\n\u{8},\u{f}D\u{15}N&r;=MKg\u{10}nW\u{1f}=+q\u{14}\u{1e}oxT\u{1d}mh\u{c}mS%?.\u{1a}R.sF;?ry\u{e}y)}whb\0\n\n>Qo\u{2}+uK_r\u{15}X\u{1f}M3H#)\u{11}\u{2}@;0&#\u{b}\u{1a}ZjlL}07k\u{f}Cs\u{10}godw<\u{1b}Y\u{3}FhW6D>p.tQS\u{11}!Qc\u{14}twd\u{5}978CUf+5|}F\u{13}s_U\u{14}/,\u{b}Z0'Fyso\u{5}3=5HlSw+Vgd%#\u{15}I\"O.*;H@|OMa\u{1e}\u{6}8+qccpgP\u{10}\u{2}M>\\\"\u{1b}=\u{e}($m}QSag\u{1b}\u{17}!W\u{c}YQ\u{1e}U\u{6}iJ~\u{6}ghf.z*hi\u{10}K\u{b}i?nYiEb8Yh9\u{14}J{{,\u{1}OZ\u{13}CB.\u{4}\u{11}@\u{13}U\u{4}\0k7/!d@\u{6}O7x\u{14}y`9hk\nn[gb\u{1d}'aX!|e\02`1\u{1b}\u{4}*M/P*{tE\u{1d}Z\u{4}D{x\u{e}BR\u{16}\u{15}\u{7}a@fr?k\u{14}rZN<\u{1d}2m\u{18}0:\t\u{6}\nD3YRV` 6\"wuB&\u{1b}{Q\u{1a}m\u{1b}_&}\u{6}j+E\tE\u{c}9}\u{17}d/&O,\u{c}\u{1c}\u{15}RE[g\u{19};pFm[.\u{1c}Q1&)^F\0xd?7AX$T)-]nLd\u{7}Lwq{Y\u{e}h#=8>cw0Fl#l6\u{15}\u{7}Y?\u{17}oh\u{12}\u{1a}>/\u{4}8v;\u{1a}}\u{7}B\tuW\u{1b}|QVv\u{19}reO\u{b}\nP\u{c}c\u{10}\u{10}\u{b}D#Ot\u{19}B\r4}_X\t\0jDi6dbo\u{7}{Y)&N\u{1b}2C'-,lA#j,nDNn\u{10}r)Oh`W\u{5}\u{5}DPGu<\u{2}l\u{1a}>\u{1c}\u{1}`e:x\u{7}u\u{f}&Vc\nWHA\u{16}!A`:j|\u{1f}\u{15}B\u{4}\u{1c}?}&;]8qf}&gg(w\u{2}\u{1d}*_\u{14}q\u{e}x'\"6B\u{12}u\u{1a}7K\u{1b}\u{c}\u{1a}\u{6}\u{e}bX\u{1c}]LNB\u{e}qw.\u{8}J\u{12}S!|\u{1d}[3+}&Sw\u{7f}\"`R(/Qb\u{11}X-z{\u{14}#!^\u{17}*r\u{15}\u{3}YB\u{1b}\u{7}/\u{8}\u{17}j$\u{13})\u{4}D\u{c}\u{2}c8\u{8}ry\u{17}\u{1e}bWv\u{7}El\\.\n\nc<8 V$\u{7f}\u{1f}+_F\u{1f}=d{'< !9@F~0}Ote3\tO!\u{14}[v4]g8\rU\0k<FX=<}a1}6CS.r]^}\u{8}^r'{E4\u{1f}@\u{10}xBk\u{7}\u{12}\0f\u{14};cp\u{4}9|W\u{4}JZ7I-\u{3}gj)4[2;K7.\u{1}j?\u{15}<\u{17}\u{6}c\u{19}'\u{1a}\\\n3Av4e]2\u{1b}A\u{12}HMUe\u{1d}$1/\u{13}\u{1c}2T\u{5};r_2 T-|-yjp\\\u{1d}D5W\0\u{15}>PuU-l+\t'<\u{1c}\u{8}U4B\u{14}1r\u{7f}!@%\u{19}#+T0\u{18}Y\u{b}\u{1a}@j{c\u{12}T+8F@\u{17}nR:\u{f}\u{18}!\u{1a}s?KT,\u{1e}#|PSV[Kp2\u{b}i9qYLdo7\u{8}E\u{c}h\u{5}\u{1}&DJ[|P\u{15}\u{6}ZYq\u{1f}\u{3}cmX^\u{1a}!`~HU\t}*:Z{%?qZDUE]n\u{1}PG\u{15}1\"b9)\tj&@\u{1}T\u{16}LNZd3y\u{1e}Oz;;P=1Mhs/b\u{13}\u{c}Fr\u{1a}y\u{1a}\u{3}\u{19}H\0j}M|<\u{3}*;8\u{16}I$9AHX\u{17}u\u{10}^CEsmT\u{13}\u{15}\u{15}C.\u{13}%j9~hU\u{4};q~2\u{7},\u{c}Sb\u{1f}M\r\u{1e}oW\u{11}\nV0>OH\u{e}DV](ap\u{5}'#Q?!\u{19} \u{1b}LvY62xVB\u{1c}UEmX>9<\tKD@GL}lz\u{14}'Q\u{15}\0$\tt^x\u{14}Y \nqG\u{2}d\r/~JlLi\u{f}\u{7}z\u{3}E[\u{17}5|\u{b}N\u{4}\u{f}G\n^\u{11}%V\u{1}:.\n\u{b}C\u{13}P\u{15}\u{1c}\u{11}\nt\u{11}~\u{7}\u{f}j \u{19}!RR\u{f}8v(a\u{1f}Y9}L\u{19}l}'\u{1e}\u{14}G?cN;\u{11}[PliR1\u{13}\0%\u{4}'p6O\u{14}tY\u{c}5$,%J&UI^\u{19}w}+w1OdsJ,r\u{10}\u{1a}\u{1a}4EV\u{1a}oLBt\u{8}FIu\u{b}\u{8}E&oG2oz~I6 \u{1c}\\\u{4}8xTuq\u{13}\u{10}tjAmp<X\u{10}@\u{4}\u{1d}t:!\u{1c}hz\tpE;YnZ>p]\\\u{17}\u{12}\u{1b}_e\n\u{17}\u{1a}TipT\u{13}yj ]c\u{1f}\0b\rhZ\u{10}\u{7f}\u{8}Tk\u{b}OC\u{7f}psri\u{7f}*:Tt\u{1f}\u{15}_(<7\u{15}|\u{1a}\u{1a}\u{1c};{P\nVD\u{1e}$?py'\u{e}\0\u{1b}\t\u{b}\u{11}h\u{8}\u{16}\u{17}8\u{1a}\u{1d}\0}\u{1a}wHB\u{11}TQs\nio/?3g6\u{2}f\u{1f}Rz|A\u{e}UE::5jav\u{8}\r;{\u{1d}\\dEUWV\t}5I\u{1f}zb\u{13}O.\\'Kt\u{14}kv\u{19}\u{14}q\u{7f}tao\u{7}\u{5}8FH~\u{1a}/\u{e}\u{12}e^)9B\u{13}\u{13}q~!au\u{1a}\u{1a}{s.&\u{14}\\XAr7Qu,@1F\u{1f}\u{7f}x\u{15}t:\u{18}:$\0\u{14}LO,p\u{b}\u{1c}_u\u{c};b|\u{c}!izZ(|'d @n(*\u{13}QE\u{5}\\6\tATUm|7d7u%\u{1e}8Enka9\u{1f}e\u{e}c\u{8},\u{3}\u{1c}l%\u{1b}\u{1a}r`\u{4} |^muL]L}0B{\u{1a}W'O\u{1e}8oMs1$@ofPWu_#$i\u{c}%ar-P#n\u{15}-N\u{10};f}Q>Jas9-{KIK\u{1e}\u{1c}~'[\03)>UB,l2\u{8}\05\u{7f}w?\u{17}EI$uKRwIz\rWrnp\u{b}s\u{19}C/\u{1e}\u{3}.\u{7}L\0\u{8}^\u{1b}qu\u{4}D\u{b}q\u{3}$.}u<5pQ]+;jo$.[-t\u{14}D>Da@l\u{1b}\u{f}5{@\u{14}Mo4:\u{1}NA\u{11}/Y4f.Y[hK\u{1b} ]\u{1}Hr-Yw\u{1e}r=A*2\u{4}\u{c};|*;U\u{c}\u{4}dDl\u{17}^$av+ d\u{19}D\to?A\u{13}\\-0\u{e}!\u{4}{$aT)(3VQ\u{1c}RhyqYocQ=xrE\u{2}\u{1f}\u{1d}\u{3}C%aJ\u{12}a\u{6}h\u{16}\u{b}2%W;];\u{19},=l\u{8}y\u{1b}vy\u{11}rs&JJ\u{b}E:\u{1e}F\u{7f}\u{5}x\u{1c}v\u{e}7e\u{10}1R\rZ}7$i8G\u{8}K\u{1f}*fm\u{17}s\u{3}f0C\0\0\0"
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\u{2} \u{15}\u{2}\0\0\0\0&\0\0\u{12}\0\0\"\0\0;\u{1}\0\u{18}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0t\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0x\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0|\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\0\u{1}\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{4}\u{1}\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0l\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\0P\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\u{8}\u{1}\0\u{f}\0\u{1}\0\u{e}\u{11}\0\0\0\0\0\00\u{10}\0A\u{1}\u{a}\u{13}\0\0\0\0\u{1}\00\u{11}\0\u{3}\0\u{b}\u{1f}\0\0\0\u{2}\0\0\u{10}&\0\0\0\u{5} \0\0\0\u{2}\u{1}\0\u{10}'\0\0\0\u{3}!\0\0\0\u{2}\u{2}\0\u{10}(\0\0\0\u{d}\"\0\0\0\u{2}\u{3}\0\u{10})\0\0\0\u{4}#\0\0\0\u{2}\u{4}\0\u{10}*\0\0\0\u{11}$\0\0\0\u{2}\u{5}\0\u{10}+\0\0\0\u{12}%\0\0\0\u{2}\u{6}\0\u{10},\0\0\0\u{7}&\0\0\0\u{2}\u{7}\0\u{10}-\0\0\0\u{6}'\0\0\0\u{2}\u{8}\0\u{10}.\0\0\0\u{f}(\0\0\0\u{2}\u{9}\0\u{10}/\0\0\0\u{10})\0\0\0\u{2}\u{a}\0\u{10}0\0\0\0\u{2}*\0\0\0\u{2}\u{b}\0\u{10}1\0\0\0\u{1}+\0\0\0\u{2}\u{c}\0\u{10}2\0\0\0\u{8},\0\0\0\u{2}\u{d}\0\u{10}3\0\0\0\u{9}-\0\0\0\u{2}\u{e}\0\u{10}4\0\0\0\u{c}.\0\0\0\u{2}\u{f}\0\u{10}5\0\u{1}\0\u{e}/\0\0\0\u{2}\u{10}\0\u{10}6\0\u{2}\0\u{a}1\0\0\0\u{2}\u{11}\0\u{10}7\0\u{3}\0\u{b}=\0\0\0\0\u{c}\u{1}\0[\u{7f}\0\0\u{5}>\0\0\0\0X\u{1}\0[\u{7f}\0\0\u{3}?\0\0\0\0\u{10}\u{1}\0[\u{7f}\0\0\u{d}@\0\0\0\0`\u{1}\0[\u{7f}\0\0\u{4}A\0\0\0\0\u{14}\u{1}\0[\u{7f}\0\0\u{11}B\0\0\0\0h\u{1}\0[\u{7f}\0\0\u{12}C\0\0\0\0\u{18}\u{1}\0[\u{7f}\0\0\u{7}D\0\0\0\0p\u{1}\0[\u{7f}\0\0\u{6}E\0\0\0\0\u{1c}\u{1}\0[\u{7f}\0\0\u{f}F\0\0\0\0x\u{1}\0[\u{7f}\0\0\u{10}G\0\0\0\0 \u{1}\0[\u{7f}\0\0\u{2}H\0\0\0\0\0\u{2}\0[\u{7f}\0\0\u{1}I\0\0\0\0m\0\0[\u{7f}\0\0\u{8}J\0\0\0\0\u{1}\0@[\u{7f}\0\0\u{9}K\0\0\0\0\u{1}\0P[\u{7f}\0\0\u{c}L\0\0\0\0$\u{1}\0[\u{7f}\u{1}\0\u{e}M\0\0\0\0\u{2}\00[\u{7f}B\u{1}\u{a}O\0\0\0\0\u{3}\00[\u{7f}\u{3}\0\u{b}Q\0\0\0\u{a}\u{12}\0\u{10}8\0\0\0\u{5}R\0\0\0\u{a}\u{13}\0\u{10}9\0\0\0\u{3}S\0\0\0\u{a}\u{14}\0\u{10}:\0\0\0\u{d}T\0\0\0\u{a}\u{15}\0\u{10};\0\0\0\u{4}U\0\0\0\u{a}\u{16}\0\u{10}<\0\0\0\u{11}V\0\0\0\u{a}\u{17}\0\u{10}=\0\0\0\u{12}W\0\0\0\u{a}\u{18}\0\u{10}>\0\0\0\u{7}X\0\0\0\u{a}\u{19}\0\u{10}?\0\0\0\u{6}Y\0\0\0\u{a}\u{1a}\0\u{10}@\0\0\0\u{f}Z\0\0\0\u{a}\u{1b}\0\u{10}A\0\0\0\u{10}[\0\0\0\u{a}\u{1c}\0\u{10}B\0\0\0\u{2}\\\0\0\0\u{a}\u{1d}\0\u{10}C\0\0\0\u{1}]\0\0\0\u{a}\u{1e}\0\u{10}D\0\0\0\u{8}^\0\0\0\u{a}\u{1f}\0\u{10}E\0\u{1}\0\u{e}d\0\0\0\u{4}\0\0 F\0\u{6}\0\u{b}e\0\0\0\u{4}\u{1}\0 G\0\u{7}\0\u{b}f\0\0\0\u{4}\u{2}\0 H\0\u{8}\0\u{b}g\0\0\0\u{4}\u{3}\0 I\0\u{9}\0\u{b}h\0\0\0\u{4}\u{4}\0 J\0\u{a}\0\u{b}i\0\0\0\u{4}\u{5}\0 K\0\u{b}\0\u{b}j\0\0\0\u{4}\u{6}\0 L\0\u{c}\0\u{b}k\0\0\0\u{4}\u{7}\0 M\0\u{d}\0\u{b}l\0\0\0\u{4}\u{8}\0 N\0\u{e}\0\u{b}m\0\0\0\u{4}\u{9}\0 O\0\u{f}\0\u{b}n\0\0\0\u{4}\u{a}\0 P\0\u{10}\0\u{b}o\0\0\0\u{4}\u{b}\0 Q\0\u{11}\0\u{b}p\0\0\0\u{4}\u{c}\0 R\0\u{12}\0\u{b}q\0\0\0\u{4}\u{d}\0 S\0\u{13}\0\u{b}r\0\0\0\u{4}\u{e}\0 T\0\u{14}\0\u{b}s\0\0\0\u{4}\u{f}\0 U\0\u{15}\0\u{b}t\0\0\0\u{4}\u{10}\0 V\0\u{16}\0\u{b}u\0\0\0\u{4}\u{11}\0 W\0\u{17}\0\u{b}v\0\0\0\u{4}\u{12}\0 X\0\u{18}\0\u{b}w\0\0\0\u{4}\u{13}\0 Y\0\u{19}\0\u{b}x\0\0\0\u{4}\u{14}\0 Z\0\u{1a}\0\u{b}y\0\0\0\u{4}\u{15}\0 [\0\u{1b}\0\u{b}z\0\0\0\u{4}\u{16}\0 \\\0\u{1c}\0\u{b}{\0\0\0\u{4}\u{17}\0 ]\0\u{1d}\0\u{b}|\0\0\0\u{4}\u{18}\0 ^\0\u{1e}\0\u{b}}\0\0\0\u{4}\u{19}\0 _\0\u{1f}\0\u{b}~\0\0\0\u{4}\u{1a}\0 `\0 \0\u{b}\u{7f}\0\0\0\u{4}\u{1b}\0 a\0!\0\u{b}\0\u{1}\0\0\u{4}\u{1c}\0 b\0\"\0\u{b}\u{1}\u{1}\0\0\u{4}\u{1d}\0 c\0#\0\u{b}\u{2}\u{1}\0\0\u{4}\u{1e}\0 d\0$\0\u{b}\u{3}\u{1}\0\0\u{4}\u{1f}\0 e\0%\0\u{b}\u{4}\u{1}\0\0\u{4} \0 f\0&\0\u{b}\u{5}\u{1}\0\0\u{4}!\0 g\0'\0\u{b}\u{6}\u{1}\0\0\u{4}\"\0 h\0(\0\u{b}\u{7}\u{1}\0\0\u{4}#\0 i\0)\0\u{b}\u{8}\u{1}\0\0\u{4}$\0 j\0*\0\u{b}\u{9}\u{1}\0\0\u{4}%\0 k\0+\0\u{b}\u{a}\u{1}\0\0\u{4}&\0 l\0,\0\u{b}\u{b}\u{1}\0\0\u{4}'\0 m\0-\0\u{b}\u{c}\u{1}\0\0\u{4}(\0 n\0.\0\u{b}\u{d}\u{1}\0\0\u{4})\0 o\0/\0\u{b}\u{e}\u{1}\0\0\u{4}*\0 p\00\0\u{b}\u{f}\u{1}\0\0\u{4}+\0 q\01\0\u{b}\u{10}\u{1}\0\0\u{4},\0 r\02\0\u{b}\u{11}\u{1}\0\0\u{4}-\0 s\03\0\u{b}\u{12}\u{1}\0\0\u{4}.\0 t\04\0\u{b}\u{13}\u{1}\0\0\u{4}/\0 u\05\0\u{b}\u{14}\u{1}\0\0\u{4}0\0 v\06\0\u{b}\u{15}\u{1}\0\0\u{4}1\0 w\07\0\u{b}\u{16}\u{1}\0\0\u{4}2\0 x\08\0\u{b}\u{17}\u{1}\0\0\u{4}3\0 y\09\0\u{b}\u{18}\u{1}\0\0\u{4}4\0 z\0:\0\u{b}\u{19}\u{1}\0\0\u{4}5\0 {\0;\0\u{b}\u{1a}\u{1}\0\0\u{4}6\0 |\0<\0\u{b}\u{1b}\u{1}\0\0\u{4}7\0 }\0=\0\u{b}\u{1c}\u{1}\0\0\u{4}8\0 ~\0>\0\u{b}\u{1d}\u{1}\0\0\u{4}9\0 \u{7f}\0?\0\u{b}\u{1e}\u{1}\0\0\u{4}:\0 \0\u{1}@\0\u{b}\u{1f}\u{1}\0\0\u{4};\0 \u{1}\u{1}A\0\u{b} \u{1}\0\0\u{4}<\0 \u{2}\u{1}B\0\u{b}!\u{1}\0\0\u{4}=\0 \u{3}\u{1}C\0\u{b}\"\u{1}\0\0\u{4}>\0 \u{4}\u{1}D\0\u{b}#\u{1}\0\0\u{4}?\0 \u{5}\u{1}E\0\u{b}$\u{1}\0\0\u{4}@\0 \u{6}\u{1}F\0\u{b}%\u{1}\0\0\u{4}A\0 \u{7}\u{1}G\0\u{b}&\u{1}\0\0\u{4}B\0 \u{8}\u{1}H\0\u{b}'\u{1}\0\0\u{4}C\0 \u{9}\u{1}I\0\u{b}(\u{1}\0\0\u{4}D\0 \u{a}\u{1}J\0\u{b})\u{1}\0\0\u{4}E\0 \u{b}\u{1}K\0\u{b}*\u{1}\0\0\u{4}F\0 \u{c}\u{1}L\0\u{b}+\u{1}\0\0\u{4}G\0 \u{d}\u{1}M\0\u{b},\u{1}\0\0\u{4}H\0 \u{e}\u{1}N\0\u{b}-\u{1}\0\0\u{4}I\0 \u{f}\u{1}O\0\u{b}.\u{1}\0\0\u{4}J\0 \u{10}\u{1}P\0\u{b}/\u{1}\0\0\u{4}K\0 \u{11}\u{1}Q\0\u{b}0\u{1}\0\0\u{4}L\0 \u{12}\u{1}R\0\u{b}1\u{1}\0\0\u{4}M\0 \u{13}\u{1}S\0\u{b}2\u{1}\0\0\u{4}N\0 \u{14}\u{1}T\0\u{b}3\u{1}\0\0\u{4}O\0 \u{15}\u{1}U\0\u{b}4\u{1}\0\0\u{4}P\0 \u{16}\u{1}V\0\u{b}5\u{1}\0\0\u{4}Q\0 \u{17}\u{1}W\0\u{b}6\u{1}\0\0\u{4}R\0 \u{18}\u{1}X\0\u{b}7\u{1}\0\0\u{4}S\0 \u{19}\u{1}Y\0\u{b}8\u{1}\0\0\u{4}T\0 \u{1a}\u{1}Z\0\u{b}9\u{1}\0\0\u{4}U\0 \u{1b}\u{1}[\0\u{b}:\u{1}\0\0\u{4}V\0 \u{1c}\u{1}\\\0\u{b};\u{1}\0\0\u{4}W\0 \u{1d}\u{1}]\0\u{b}<\u{1}\0\0\u{4}X\0 \u{1e}\u{1}^\0\u{b}=\u{1}\0\0\u{4}Y\0 \u{1f}\u{1}_\0\u{b}>\u{1}\0\0\u{4}Z\0  \u{1}`\0\u{b}?\u{1}\0\0\u{4}[\0 !\u{1}a\0\u{b}@\u{1}\0\0\u{4}\\\0 \"\u{1}b\0\u{b}A\u{1}\0\0\u{4}]\0 #\u{1}c\0\u{b}B\u{1}\0\0\u{4}^\0 $\u{1}d\0\u{b}C\u{1}\0\0\u{4}_\0 %\u{1}e\0\u{b}D\u{1}\0\0\u{4}`\0 &\u{1}f\0\u{b}E\u{1}\0\0\u{4}a\0 '\u{1}g\0\u{b}F\u{1}\0\0\u{4}b\0 (\u{1}h\0\u{b}G\u{1}\0\0\u{4}c\0 )\u{1}i\0\u{b}H\u{1}\0\0\u{4}d\0 *\u{1}j\0\u{b}I\u{1}\0\0\u{4}e\0 +\u{1}k\0\u{b}J\u{1}\0\0\u{4}f\0 ,\u{1}l\0\u{b}K\u{1}\0\0\u{4}g\0 -\u{1}m\0\u{b}L\u{1}\0\0\u{4}h\0 .\u{1}n\0\u{b}M\u{1}\0\0\u{4}i\0 /\u{1}o\0\u{b}N\u{1}\0\0\u{4}j\0 0\u{1}p\0\u{b}O\u{1}\0\0\u{4}k\0 1\u{1}q\0\u{b}P\u{1}\0\0\u{4}l\0 2\u{1}r\0\u{b}Q\u{1}\0\0\u{4}m\0 3\u{1}s\0\u{b}R\u{1}\0\0\u{4}n\0 4\u{1}t\0\u{b}S\u{1}\0\0\u{4}o\0 5\u{1}u\0\u{b}T\u{1}\0\0\u{4}p\0 6\u{1}v\0\u{b}U\u{1}\0\0\u{4}q\0 7\u{1}w\0\u{b}V\u{1}\0\0\u{4}r\0 8\u{1}x\0\u{b}W\u{1}\0\0\u{4}s\0 9\u{1}y\0\u{b}X\u{1}\0\0\u{4}t\0 :\u{1}z\0\u{b}Y\u{1}\0\0\u{4}u\0 ;\u{1}{\0\u{b}Z\u{1}\0\0\u{4}v\0 <\u{1}|\0\u{b}[\u{1}\0\0\u{4}w\0 =\u{1}}\0\u{b}\\\u{1}\0\0\u{4}x\0 >\u{1}~\0\u{b}]\u{1}\0\0\u{4}y\0 ?\u{1}\u{7f}\0\u{b}^\u{1}\0\0\u{4}z\0 @\u{1}\0\u{1}\u{b}_\u{1}\0\0\u{4}{\0 A\u{1}\u{1}\u{1}\u{b}`\u{1}\0\0\u{4}|\0 B\u{1}\u{2}\u{1}\u{b}a\u{1}\0\0\u{4}}\0 C\u{1}\u{3}\u{1}\u{b}b\u{1}\0\0\u{4}~\0 D\u{1}\u{4}\u{1}\u{b}c\u{1}\0\0\u{4}\u{7f}\0 E\u{1}\u{5}\u{1}\u{b}d\u{1}\0\0\u{4}\0\u{1} F\u{1}\u{6}\u{1}\u{b}e\u{1}\0\0\u{4}\u{1}\u{1} G\u{1}\u{7}\u{1}\u{b}f\u{1}\0\0\u{4}\u{2}\u{1} H\u{1}\u{8}\u{1}\u{b}g\u{1}\0\0\u{4}\u{3}\u{1} I\u{1}\u{9}\u{1}\u{b}h\u{1}\0\0\u{4}\u{4}\u{1} J\u{1}\u{a}\u{1}\u{b}i\u{1}\0\0\u{4}\u{5}\u{1} K\u{1}\u{b}\u{1}\u{b}j\u{1}\0\0\u{4}\u{6}\u{1} L\u{1}\u{c}\u{1}\u{b}k\u{1}\0\0\u{4}\u{7}\u{1} M\u{1}\u{d}\u{1}\u{b}l\u{1}\0\0\u{4}\u{8}\u{1} N\u{1}\u{e}\u{1}\u{b}m\u{1}\0\0\u{4}\u{9}\u{1} O\u{1}\u{f}\u{1}\u{b}n\u{1}\0\0\u{4}\u{a}\u{1} P\u{1}\u{10}\u{1}\u{b}o\u{1}\0\0\u{4}\u{b}\u{1} Q\u{1}\u{11}\u{1}\u{b}p\u{1}\0\0\u{4}\u{c}\u{1} R\u{1}\u{12}\u{1}\u{b}q\u{1}\0\0\u{4}\u{d}\u{1} S\u{1}\u{13}\u{1}\u{b}r\u{1}\0\0\u{4}\u{e}\u{1} T\u{1}\u{14}\u{1}\u{b}s\u{1}\0\0\u{4}\u{f}\u{1} U\u{1}\u{15}\u{1}\u{b}t\u{1}\0\0\u{4}\u{10}\u{1} V\u{1}\u{16}\u{1}\u{b}u\u{1}\0\0\u{4}\u{11}\u{1} W\u{1}\u{17}\u{1}\u{b}v\u{1}\0\0\u{4}\u{12}\u{1} X\u{1}\u{18}\u{1}\u{b}w\u{1}\0\0\u{4}\u{13}\u{1} Y\u{1}\u{19}\u{1}\u{b}x\u{1}\0\0\u{4}\u{14}\u{1} Z\u{1}\u{1a}\u{1}\u{b}y\u{1}\0\0\u{4}\u{15}\u{1} [\u{1}\u{1b}\u{1}\u{b}z\u{1}\0\0\u{4}\u{16}\u{1} \\\u{1}\u{1c}\u{1}\u{b}{\u{1}\0\0\u{4}\u{17}\u{1} ]\u{1}\u{1d}\u{1}\u{b}|\u{1}\0\0\u{4}\u{18}\u{1} ^\u{1}\u{1e}\u{1}\u{b}}\u{1}\0\0\u{4}\u{19}\u{1} _\u{1}\u{1f}\u{1}\u{b}~\u{1}\0\0\u{4}\u{1a}\u{1} `\u{1} \u{1}\u{b}\u{7f}\u{1}\0\0\u{4}\u{1b}\u{1} a\u{1}!\u{1}\u{b}\0\u{2}\0\0\u{4}\u{1c}\u{1} b\u{1}\"\u{1}\u{b}\u{1}\u{2}\0\0\u{4}\u{1d}\u{1} c\u{1}#\u{1}\u{b}\u{2}\u{2}\0\0\u{4}\u{1e}\u{1} d\u{1}$\u{1}\u{b}\u{3}\u{2}\0\0\u{4}\u{1f}\u{1} e\u{1}%\u{1}\u{b}\u{4}\u{2}\0\0\u{4} \u{1} f\u{1}&\u{1}\u{b}\u{5}\u{2}\0\0\u{4}!\u{1} g\u{1}'\u{1}\u{b}\u{6}\u{2}\0\0\u{4}\"\u{1} h\u{1}(\u{1}\u{b}\u{7}\u{2}\0\0\u{4}#\u{1} i\u{1})\u{1}\u{b}\u{8}\u{2}\0\0\u{4}$\u{1} j\u{1}*\u{1}\u{b}\u{9}\u{2}\0\0\u{4}%\u{1} k\u{1}+\u{1}\u{b}\u{a}\u{2}\0\0\u{4}&\u{1} l\u{1},\u{1}\u{b}\u{b}\u{2}\0\0\u{4}'\u{1} m\u{1}-\u{1}\u{b}\u{c}\u{2}\0\0\u{4}(\u{1} n\u{1}.\u{1}\u{b}\u{d}\u{2}\0\0\u{4})\u{1} o\u{1}/\u{1}\u{b}\u{e}\u{2}\0\0\u{4}*\u{1} p\u{1}0\u{1}\u{b}\u{f}\u{2}\0\0\u{4}+\u{1} q\u{1}1\u{1}\u{b}\u{10}\u{2}\0\0\u{4},\u{1} r\u{1}2\u{1}\u{b}\u{11}\u{2}\0\0\u{4}-\u{1} s\u{1}3\u{1}\u{b}\u{12}\u{2}\0\0\u{4}.\u{1} t\u{1}4\u{1}\u{b}\u{13}\u{2}\0\0\u{4}/\u{1} u\u{1}5\u{1}\u{b}\u{14}\u{2}\0\0\u{4}0\u{1} v\u{1}6\u{1}\u{b}\u{15}\u{2}\0\0\u{4}1\u{1} w\u{1}7\u{1}\u{b}\u{16}\u{2}\0\0\u{4}2\u{1} x\u{1}8\u{1}\u{b}\u{17}\u{2}\0\0\u{4}3\u{1} y\u{1}9\u{1}\u{b}\u{18}\u{2}\0\0\u{4}4\u{1} z\u{1}:\u{1}\u{b}\u{19}\u{2}\0\0\u{4}5\u{1} {\u{1};\u{1}\u{b}\u{1a}\u{2}\0\0\u{4}6\u{1} |\u{1}<\u{1}\u{b}\u{1b}\u{2}\0\0\u{4}7\u{1} }\u{1}=\u{1}\u{b}\u{1c}\u{2}\0\0\u{4}8\u{1} ~\u{1}>\u{1}\u{b}\u{1d}\u{2}\0\0\u{4}9\u{1} \u{7f}\u{1}?\u{1}\u{b}\u{1e}\u{2}\0\0\u{4}:\u{1} \0\u{2}@\u{1}\u{b}t\u{3}\0\0\0\u{4}\00\u{12}\0C\u{1}\u{b}u\u{3}\0\0\0\u{5}\00\u{13}\0D\u{1}\u{b}v\u{3}\0\0\0\u{6}\00\u{14}\0E\u{1}\u{b}w\u{3}\0\0\0\u{7}\00\u{15}\0F\u{1}\u{b}x\u{3}\0\0\0\u{8}\00\u{16}\0G\u{1}\u{b}y\u{3}\0\0\0\u{9}\00\u{17}\0H\u{1}\u{b}z\u{3}\0\0\0\u{a}\00\u{18}\0I\u{1}\u{b}{\u{3}\0\0\0\u{b}\00\u{19}\0J\u{1}\u{b}|\u{3}\0\0\0\u{c}\00\u{1a}\0K\u{1}\u{b}}\u{3}\0\0\0\u{d}\00\u{1b}\0L\u{1}\u{b}~\u{3}\0\0\0\u{e}\00\u{1c}\0M\u{1}\u{b}\u{7f}\u{3}\0\0\0\u{f}\00\u{1d}\0N\u{1}\u{b}\0\u{4}\0\0\0\u{10}\00\u{1e}\0O\u{1}\u{b}\u{1}\u{4}\0\0\0\u{11}\00\u{1f}\0P\u{1}\u{b}\u{2}\u{4}\0\0\0\u{12}\00 \0Q\u{1}\u{b}\u{3}\u{4}\0\0\0\u{13}\00!\0R\u{1}\u{b}\u{4}\u{4}\0\0\0\u{14}\00\"\0S\u{1}\u{b}\u{5}\u{4}\0\0\0\u{15}\00#\0T\u{1}\u{b}X\u{4}\0\0\0\u{16}\00$\0\u{4}\0\u{b}Y\u{4}\0\0\u{2} \0\u{10}\u{1}\u{2}\u{4}\0\u{b}Z\u{4}\0\0\0\u{17}\00%\0\u{5}\0\u{b}[\u{4}\0\0\u{2}!\0\u{10}\u{2}\u{2}\u{5}\0\u{b} \0swift_proto_testing.fuzz.Message"
+  private static let _protobuf_reflectionData: Swift.StaticString = "@|\0\0\u{10}\u{7f}\u{3}Mh*\u{b}E`\u{f}=e%\u{15}LJs8C\u{11}`du\u{b}Ulg\u{14} nVbS\u{f}\u{6}d\r0?hu_\u{19}%\u{6}pJf>L\u{4}BRV\u{1}u1\u{15}?+f\u{12}?-KMHz+A\u{5}$RS\u{10}\t6\n\0\u{14}AG\u{15}\u{12}@ T_zjB\u{b}%'~oID'&[L}V,!?un6=H\u{14}ly#N\u{1a}\u{4}\u{10}`58L\tuEG'NT|tL?\u{6},B(^Wz\u{14}bQR!tPuB )f\u{3}\0C\u{1c};f\u{7f}\u{12}yj]\u{1a}\tz\u{10}oy4\u{19}J\u{7}\u{8}U\u{5}`\u{7}0n9\u{7}M4x\u{13}^Ry\u{7f}\u{14}\u{7}t-c\u{17}\u{7f}%Dz&1\u{1a}\u{2}'u/5\u{7}pxx9D\u{1b}`q$~pgltN\u{4}\u{16}7T[C1X\u{15}\u{5}\u{4}\"\u{5}\rwD(rqFsKCR>3{Qg\u{e}\u{1a}\u{b}\u{5}*9\n\u{4}kgBEJ\tb4t\"@=k\u{1b}\u{1}<k*j0}+?-0A\u{c}3Cdza\u{8}z\u{1a}&M&\u{18}\u{1a};0\u{7f}]L \u{1f}].k9A\u{10}*,3\u{7f}~<\u{19}\u{2}$X\0\u{11}\u{1}\u{19}1h\u{2}mXo \u{e}cH\u{11}\u{15}2 hrz\u{16}!jAV\\p\u{1d}0\u{c}YJ\u{15}&\u{12}\u{6}\u{7f}s\r`\u{15}'S\u{1c}aVa\\v\u{2}0P,hE6\u{1f}\u{1d}-4y#\n7v\u{6}Hb4%o\u{13}r\u{1c}\0V;D\u{f}))95;Y\u{8}bf\u{7}\u{17}qW7\u{10}hq\n\u{c}\u{e}P;+;jv\u{1f}\nQq\u{5}90%v3mZ\u{e}Za[\u{1}q\u{13}\u{b}ufJ!\u{1d}`dg\u{12}pe^,\rA\u{4}O3|oLl\u{1c},Na\u{7}DU\tH_L\u{14}\u{14}\0\u{7f}fxBN\u{14}5)e\u{b}hx\u{16}65\"\r#5S)\r$\u{8}\u{6}\u{7}\reu`\u{1d}f}F\r\u{e}\u{e}\u{13}\u{13}3\u{7}!C\u{17}\tt3Ek^I\\g93YP>i\u{13}/v#7Ee5l8xv\\\u{1}Xjw$&p\u{16}E\u{c}MnD*t%\u{1a}\u{2}lrmlD]}\u{4}>WwK@z\u{19}s1'hjo;\r\u{4}]\u{1b}RE\u{1}8[\u{e}\u{1b}a1FE\u{f}f$\u{1c}*Z;^r\u{b}SB\u{19}dW\u{19}\u{2}|!\u{4}R\u{14}3}#&>\u{17}B[@u\u{1f}\u{6}p\u{8}p@k:\u{1a}L]Ne1\u{8}{\u{c}\u{17}T\u{13}CFKgSd]\u{1f}i_Y\u{1a}vKvXS:V.%-\\Dyv\u{1}-Ld2\u{11}M1:HE-'o\u{7f}a\u{1}KEKqGFKn\u{11}5\t4\u{2}u6l\u{8}Iq\u{10}!=zx\u{1d}R:]V\u{1a}NfbQ\u{11}btDKT\u{19}El\nazoyd\u{b}\u{10}@X\u{15}u0b\"TkkC\u{1d}\u{18}DN\\\u{1c}v7U\r[r2s/\u{17}q,%\u{19}a>w/[G(;\u{2}x\rZ_ 7tp\u{5}-V.\u{1};E[/\u{4}Q\\\u{15}bC\\5\u{1a}RX\u{5}\0{%&/?b\r'\u{e}\u{1e}\u{6},;\u{f}% \u{7f}Ngm]\u{15}KA968&/\u{1a}\u{18}j!*50i@7,\u{5}B,f\u{c}-/\u{b}`\0\u{f}EQb+\u{b}f}2#nM;r+\"\u{17}hfD\u{18})p\u{5}4`&\u{14}\"\u{8}#~eozF$\u{1a}\u{4}\u{1a}\u{e}InQ\"B\u{1e}CWqg\u{e}d4?\u{7}f\u{14}NnZcm;'()\u{1b}l\u{1f}2[\u{2}QI:\u{8}\u{b}z2A\u{19}Cb-3lk+=KSa\0\u{1e}]\u{10}sjIT\u{13}g\\\\?`d\u{15}cl1C\u{6}W@^^LU\u{3}Hv m1u\u{1c}Gd0!DAQz\u{1a}\u{5}\u{7f}4\"!msd\u{4}\u{c}<S$\u{1b}\u{8}cp\u{12}DWS)+X@\u{17}Tr\"\u{1a}j\u{10}O^ty,;ZP>F=\u{15}6Ls(^\u{5}x\u{b}\u{5}f\\Eq,52e~Xl_4\u{11}\u{1b}e@\u{8}\u{17}\u{16}\u{6} &zm&\u{13}/u\u{5}\u{7f}R\u{16}zm.\u{13} 4\"v\u{8}5.5\\J\u{5}laF'\u{8}\u{1a}UHcu:6`4S|,\u{1f}\u{1a}cr|{.\u{14}\u{2}W\u{19}t;'Ql~K\nLv\u{17}phK\u{16}#zyik}\tIpKj{4C\0:\0D&LJ6Y\u{1e}$\u{13}\u{c}\u{3}!\u{6}5\0m\u{1b}k )s=gR_Z\u{5}Wf\u{e}SE)1KP1\u{e}|\u{c}\u{11}\u{15}i\u{f}kCbv_\u{1b}\n7/4\r\0Ch`Ij?\u{1c}kf&t:P\u{f}\u{1}{\u{14}\u{f}\u{10}^v?=/\u{7}iC1JTt\u{6}\0o\u{16}}\t\u{1c}i\u{c}\u{16}Wh\u{1f}\n\u{5}\u{1e}HUW<Mv\u{17}3T\u{b}\u{6}@\n7/.\u{19}*\u{18}_Z#9=..2QA>'\u{1}ds01b<Ehh\u{4}FC*\u{8}AN0<7T\u{1b}\u{16}(\u{1c}4\u{1b}#lTQ\"gtCJF\u{6}>\u{1c}\u{16}\u{16}\u{4}\u{3}Y\u{7f}6.Ypd*\u{17}pn\u{e}\"7`\u{1a}\u{7})\u{1b}6\u{f}\u{18}\t\u{b}\u{b}\u{17}L2tE\nF30Kw\u{16}\u{f}k<_&\u{11}\u{b}\u{2}*zOnXgS\u{14}#!l0}k6Dr7\u{7f}mwtlUX@E$\u{3}\u{3}\u{1e}\u{10}\rJP\u{12}\u{1c}G\u{7f}dNhE zk\u{5}6\u{f}aoP\r:\u{18}P\u{15}6\u{19}}aZ1\u{14}\u{1e}^\u{19}Q8>$\t6F\u{3}\u{17}\u{16}\u{1c},\u{14}poK8.\u{1e}\u{1e}.\u{19}\u{3}\u{2}\u{1}\u{19}>ofv|u\u{13}>(}&e\u{17}\u{17}\u{7}<f\\]I%!q#)\u{1}%+\u{15}W}\u{4}\"MQ]\u{13}]XVO\u{3}{\u{8}rnG!$\u{1d}]\u{1e}^3\u{12}?l^N\nD\u{11}-\u{7}'Lbz{:MD\u{1f}\u{10}.T\u{1}E.\u{1c}\t3B#2~s@7{2\u{1b}\u{12}SN\u{c}SI{/\u{1d}\u{1a}_\u{c}T_Cw#<uSf:B}(FBgkQu;H\u{14}7OXT}H$W,wyfRY\"OvIO)su9\u{10}\"<34x\u{1f}L\r/(0\u{1f}I2!\u{7f}S\u{1a}\u{12}\u{1e}e\u{5}Kx\u{16}Nx|p\r)s#CZNMV+?\u{13}o..1E1A\u{8}5\u{e}+L^s@\u{e}/ n=eG=fEi]V.\u{c}}*9rm\u{c}=pvFi\tw%M\u{6}EU\u{f}[5T<83eB\u{13}CM\u{1}\"i\u{16}?{\u{1a}\"-\u{1}\t\u{1c}0*\u{1b}XF\u{1}\u{e}\u{11}tK\u{1e}\u{17}P\u{10}X_n\u{1f}\u{13}C\u{14}\\[?1H\u{13}3>\t\u{11}w\u{18}n\u{1f}!xc)Lfl\u{10}:DtQ\u{1a}Qg/}odhx:\\\r\u{3}dQ(\u{1}4\u{b}XWD?3k\0H\u{19}\u{19}y,v}-\u{14}Xtcs\u{16}\u{18}CyL5s86\u{19}!:HV1N\u{c}ga\"\u{7f}b{E(\u{19}+\u{1}z\n\u{16}-|p%b>p>\u{17}\\SNFC`\u{2}\u{f}\u{1c}Fvt)T\u{3}8$FQ-81%&D\u{4}\u{11}#{9\u{1}\u{10}=l\u{1}\"\\<\u{16}4\u{17}?C\u{16}\u{1a}\u{2}\u{6}*xMciA\u{4}6\u{6}Y+wo\u{10}B*H1+j\n<kb[)Q\u{7}\0:fC=\u{12}+]*Q4#613VhflS_\u{1b}wb:Z|b)&M}K\\e9IS=A\u{17}M\0*X\u{8}:]\u{7f}=\u{f}&RQ^\u{b}\u{1c}ck#\u{7f}\tLDo@;`doQzRN0]\u{1c}JjP6Cg\u{8})|}\u{2}p\nf+)\\9\u{12}\u{16}@\u{10}k\u{16}\u{12}+\u{1}W'zRm]bror^2,\\7Y*[Hr[)DDCqh[\u{16},Xg}%\u{1e}p$\u{1d}|.k\u{14}\u{1a} N;\u{1a}#D3N)\u{6}e#xx:#\\\u{5}zft8i\u{13}_\u{13}=$.4QDA\u{13}\u{2}Uj8R%UPqy\u{5}\u{b}}\u{3}/ioHZ2NzfHt\u{1d}6s\u{7}wL\\qt<:f\t1pH(\r37gn\ntH[}bX2\u{b}m.\u{4}K\u{14}:P\u{2}ewr-~\u{1b}n\u{5}Bl_b>/Tm^0AR\u{15}iNygyr|O]B\u{c}J\\1\u{10}^\u{1}\u{15}[\u{7}WJ\t2= #\u{f}]-\u{10}Gy^AW5S8{hS\u{1b}\u{5}[\u{6}/kNAo!Y%6wQG=/\u{1a}\u{11}R&WIiyl\u{4}A\u{7f}Q+KNOz~THE6#O4m\u{3}p_N[j%ROeS%AB\u{7}\0N,S$V*c\u{1e}\"VP(!uk\u{17}@\u{1c}z\u{e}(<3D,\u{1e};arRN l\u{18}s?\u{3}~k~)\u{17}10\u{8}\u{2}xO*\\\\Q;]\u{1c}g\u{13}B5\u{1b}\u{1e}>xDP)2;)!\u{7}yJ\u{b}oWW$\u{1c}k\u{12},Z$\u{15}8~\u{11}\u{1d}URij\"2o\"_g6~\"j$~\0c^H@2<\u{7f}\u{6}(w\u{5}\u{5}\u{19}?x`\u{f}BCy\u{4}uQl0\u{12}\u{3}K)>L\"\u{2}cx?j\tr%c\nd\u{7f}q\u{15}H\u{12}EJ~A\t\u{15}RnbA-A]\u{f}S\u{8}UY\u{7f}W\u{14}\u{1b}(\u{4}xD\u{1e}%9J[\u{3}3\u{16}\u{18}qV}\u{6}v}\u{12}n#jL`\u{6}aq\u{7}\u{17}\u{14}\u{1a}-4D\u{10}\u{1e}\u{c}/+8!7\u{1d}PX|^\r\u{b}\u{f}\u{12}Vg,}\0ZuFTR\u{4}Lf|%\u{1f}!\0\u{1}m'8Cl\u{1a}|0PF>\n\u{7}HQ$Q\u{1b} x;5b\u{11}a#\u{2}RsuN\u{3}swU2j\u{8}5\u{12}Q/2Z?\u{10}E\u{12}\\O\u{7f}\u{1c}\u{2}k\u{e}|_]}e\u{19}\u{b}nr,T1]&;Ke\u{1a}\u{5}cOa\u{1e}W\u{e}\u{1f}T\u{1a}A\u{2}\u{19}2(\u{7f}.vVsq-2Mf-\u{1c}G_\u{19}D?D;*$x\u{1}<\u{13}\u{14}b\u{1e}y\u{15}q\u{5}\"/\u{1b}\u{1f}*\u{5}\u{7f}k\u{17}\t81\u{5}R6Rh&#xMN-]\02\u{1c}Z?\u{15}$w\u{1b}pm0\u{f}12\u{17}9|\u{5}4\u{5}@\u{5}pUGX'{W'UP8n\u{c}|wR^\rGx!?\u{1a}ZkQhm~nG'\0I/\u{1a}/\u{17}1j\02w3Kkal\u{7}3YKB7>TO<,[JD8+)a6D}\u{1e}%F\u{1f}[Fb\u{b}-+zEM\u{11}2N+\u{11}9Y[\u{13}v\u{15}\u{6}p[d\u{13}:iG\u{e}Bi5>\u{17}^\u{7f} U)l\u{e};5WtAbr.+\u{6}g^'\u{11}~\u{1d}\u{4}\nx\0m~\u{1c}%GN\u{14}<53cl\u{3}\u{1d}Ta#|eyh`N\u{3}\u{19}/Xrivw\u{1d}6=c+4@N\u{7f}\0z~E%Z\u{6}k\u{f}39W\u{3}\u{7}0\u{6}'\u{1}_U\">\nMI(tCu\u{19}B&!2\u{12}\u{f}k_yR\u{f}-RC|{;`\u{19}\u{10}+p\u{3}\u{13}EF7CL5\u{19}\u{17}\u{18}&}\u{5}Zb#+1E\n*b94b@\u{11}d8Ba,!Ses~w(A:;^\t==l\u{16}\u{5}-JT\u{1a}\u{14}1`\t\u{1a}a\u{7f}\tS8\u{16}J@\u{1e}\u{12}>y\u{1b}=m.\u{6}'P~\u{2}'du#\u{1c}$@BA_\u{1e};Y\u{14}\u{18}\u{15}\u{13}C\u{e}\u{13}\u{14}|i\u{16}4q/\u{1c}kUg\u{17}59\0\u{1b}\u{17}E[2=K$Qsh^t#h\u{f}Aqw1tI&%f~$I\u{1e}\u{b}$_Sn0bA@<FTf(\u{b}\u{f}\u{1d}do\u{11}\u{15}\u{6}A)\u{f}#\u{14}Y5k5a\u{18}Q\u{19}\u{8}\u{18}*Q\u{c}\u{2},H@\u{2}\\e2z\u{14}\"x0\u{4}p\u{3}2@d_(\u{1e}\u{1a}\r&\u{19}3l:\u{1b}\u{1e}<)\u{f}[\u{8}\"r\u{18}na\u{b}_W%*Aj*osX!7&p\u{e}1V9P \")$\u{19}\\w6+?!c<ed{j:Rs9\"\u{1f} ?eF%97pie}q`\u{1c}U5+ &}go\n\u{1b}\u{16}'TCR{\u{1c}q\u{14}\u{11},ckEcl|\\6V\u{5}TRg)I\u{e}x)l\nD:\u{1}\u{16}G`\u{1c}\u{1c}D9d$\u{1f}o\u{13}Qr5TTIOF<z1}\rRi4^.4nx(nn!XA\u{1e}G\n\0r5q[\u{2}\u{8}ii\u{f}\u{e}4`%\u{1}c\u{1d}\u{7}\0Zgd*azO\u{b}ym\u{14}8a\u{7f}\u{1f}.V\u{14})\u{5}st*L.\"\u{f}eZch.M\u{11}N\u{10}TL>\u{18}MD\u{1e}\u{14}H\u{e}o\u{14}D8!V{+Tg\u{1d}wM~l\u{14}:5^D'I,Y\tXqOQ#NN0>\u{11}$IYxhK8L\u{14}\u{6}3j;\u{f}\u{7f}e\u{19}Vp4G2\"cxDm\u{11}\u{8}\u{7f}^\t\u{12}\tL XS\"Y\u{18}j1IU\u{3}\u{3}z\u{8}_Kpz\u{6}\u{e}&24+\u{1}u\u{17}\"c5=\u{1f}|Un|3}1z\u{7f}F$)A\u{4}-hSi\u{17}~UDy1n5xm*]1lQ\u{c}P\u{8}t\u{8}2\u{17}\u{19}\u{f}\u{7}@HUAxn\u{1}Fy)V\u{1f}*p\u{1d}\u{7}yYS7,<Vk!M\u{17}\0=TPV\u{1e}3x C8r\u{8}IT#\u{1c}15\u{7f}cU`q\"q\rp-VwmVN\"\"LU\u{18}\u{6}o\u{19}f_\u{1f}\u{1b}V}l\u{1e}99IRw_\"D%\u{e}^/.\"3[\u{c}\r\u{1e}\u{19}\u{7f}/8j]?\u{15}\u{1}p}\u{14}tU\u{1f}<Hz1b]{V\03N\"NyD)y\u{7}\u{14}+RT'iF6\u{1f}k\u{7f}0av,I>k}\u{e}\u{1b}V\u{7}\u{16}@\u{11}O\u{1a}@N%\u{11}\"\u{1c}\u{12}C\\\u{2}\u{1e}\u{1}SBU,)\0F\u{8}\u{18}L\0zBhB\u{f}Q\0|Z$\\\u{19}8R#]\u{b}0t(9aEBm\u{17}v|KY:\u{1c}\u{7f}zPLJ\u{c}R\u{1f}_j_gfHPr}86.\u{15}\u{c}5cC2yZ\u{18}$\n>j'\u{5}o%^h\u{17}\u{5}P\\\n$y4p`,.}SI\u{1b}0\\\u{6}1(DwdzsJpc,R:v\u{15}R<\u{c}!\u{e}^=Xy(R mJ\u{2}dp\u{11}-\u{6}\u{8}P\u{12}*\u{1f}]9\u{2}ox'P(\u{14}\u{e}\u{7f}\"v\u{1a}^\t^0[okCpZ\u{5}=p\t\u{13}5RD\u{1c}h\u{12}$\u{f}amS\u{c}twq\u{1a}hNLo]:N@p\u{1f}\u{10}Z\u{19}pH\u{1}.OJ1lt\u{15}\u{3}ORcr\u{10}{1^\u{f}a\u{15}3#\u{1f}3\u{f}FcpW0aQk4p|G[z\u{c}48\u{1a}q*\u{4}\r\u{e}\u{7}y8_f-8\u{b}\u{3}h\"5IsM>\u{3}:\u{4}<E[.w,s=oYe#>B\u{10}$\u{7f}s?@Y\u{1f}%\u{7f}P\u{19}\u{12}mgd=\u{c}ji5\u{f}`h{\u{c}a@]&o/\u{1}7gwMr`x|\u{4}$Y\0!n\u{14}_\u{1e}\u{2}R\"0#2\u{e}(R@vUrm\u{16}U\u{10}~2qcl]S&\r(IK+\\e{&KX\u{7}.Ucb\u{1a}cs#@Q\u{6}WE*mr2\u{e}I\u{1b}!giP\u{18}v\u{1c}\u{1}\u{1b}\u{7f}3[f]/LL#9g4Zrx)\u{16}d(3\u{1f}c\u{13}xIOvt\"RQ\u{7}/<=/l}<w:p9'\u{4}\u{11}AF`\u{1b}G#T?\u{7}OQXj\u{b}Vl0\u{c}\u{7f}@l@\u{b}Mw{\u{14}\"]\u{15}\u{e}U{0LaL\u{f}(B}\u{18}\u{10}\u{14}sUQi?Q.\u{10}LFuD\t\u{1b},H{L\u{1a}`FL\u{11}\u{1d}^\u{11}sP\u{1f}-R\u{10}K)\u{1d}+U;\"\u{1}_~5p\u{1e}u!w\u{1b}\u{1}\u{c}Z[|MNEc\u{f}\u{11}\t{\u{b}KGgT]hlHZnP\u{6}|\u{1d}zG!+\u{4}\u{12}=$8\\\u{7f}\"eL@&d[7c,rZ\\\u{6}\u{1e}w?Abl;rd'qz5\u{c}Q*=W$>\u{11}rb^\r\u{19}oa@-;edt\u{5}cS\u{e}\u{1e}\u{15}\u{1c}S\u{b}\u{11}\u{c}\u{c}7j_Y\n!R@l@z+,<)\u{1b}\u{16}CYMuHJ<8OQk\u{e}\u{1f}j\u{4}x\n\u{1}D2P4d\"'A\u{b}\0s)G}#:A\u{2}s*\u{11}\u{18}TZ\u{c}!X%oy9\u{f}e\r=\u{5}$s7+rHU\u{13}T\u{18}46~Bq\u{1}d\\*\u{1d}S8O&\u{15},\n@]W|\u{13}M\\5w\u{12}_\u{1d}X\u{18}1\u{10}\u{1}-\u{8}\u{4} c\u{b}j\u{1f}/Y\u{10}Hu\u{f}\u{b}zf\u{19}\u{8}d:H-\u{7}3T uCW,,hPX\u{6}5XM\0X\u{5}]rJ\u{12}N\u{4}_\0gum9t\u{11}z$U\u{10}8?X'A3/Q\u{7f}E0#yiRhAO(J\u{8}`Vs4/\u{e}\u{1}\u{1f}Cr.& 7^$)C}GOj`\u{11}5\u{4}c\u{4}\u{13}Xp(hvPLc\u{e}%\u{4}P_3}cH>\nU\u{5}\u{1b}{G\u{1c}Nghb.\u{2}\u{1f}w/y=2rs+s\u{17}+,\u{1a}-pjs\u{6}o\u{1d}\u{b}\u{b}$s7id(G.MM\u{14}b{|ZWQ\u{19}KQf#=C,&W{EiuH\u{3}Z\u{7}X~q6&_P:0jAdKh\\\u{4}\u{1a}[%e$,\u{7f}pI4=7\u{c}.\u{e}CPYq-\u{18}O#\u{10}0=\u{1d}R4iDr<\u{2}\u{7f}VQ\u{17}V)\tM0*Eu85U5\u{1b}.n\u{2}G0<.\\@sA_p]2Jf\u{11}-=5hZ\tM;tD\u{1e}[.pN=@[8\u{16}<c+[Kvd\u{8}^\u{17}t\u{1e}\u{4}('i-K\u{1b}e|3_\u{f}A<\u{13}u!@\"\u{2}_?|.T\u{1}\r1v%\u{e} %\u{f}{ReQ4\u{15}+\u{c}\u{7}?k\\s\u{2}\u{4}5\u{11}\0#d\ry~S\u{10}Eh\u{16}tLy-\u{f}9h\u{1}(VsZq\u{19}!N d1\u{f}PZ|\u{c}CVj\u{4}.E|d:\u{1}7\t1MT\u{e}E\u{8}\u{7}\0\u{12}\u{10}AbyLxP\u{17}\u{1c}+;ZP\0d\u{2}X\u{4}~*h\u{8}M~d\r6h[c2}Lqr\u{4}U?\u{2}uD\u{15}k$t~\u{11}z?5-aD/Hh}KwaAf`BnM\u{7}JO\u{1c}VNP\u{7}I0j#\u{12}\u{f}d@A4\u{17}y@}j&48\"%\u{1a}M$b\u{19}In\\_KF\u{1d}\u{13}8$<g\u{f})\u{1b}X+xKo#7\u{7f}pw\"G\u{16}bEc^\u{3}E.X\u{1}e\u{19}\u{12}&3`']\0UiT\u{1}#4\u{3}\u{7}D\u{16}\u{13}$\u{6}$D\u{1}\u{17}\u{2}`v>U27ZUpm^vB|cC\u{4}8mtnL\u{4}+4\u{17}aP`X\u{f}O3\u{13}\u{1c}]@E~\u{14}!#nzk\u{7}&\u{11}.\u{7}\u{1f}ZNs{+#\u{1e}\u{5}\u{1f}\u{f}\u{b}mE=u\t\u{11}O,\u{16}rFy\u{12}\"q\u{14}/F}-ouT\u{1a}7yJP!W\u{8}j\u{16}\u{13}\u{f}_l|%s\u{7}\"dtD)h=S\u{18}\u{8}1:TpO\u{15}G;]]ur\u{1f};'0\u{14})}\u{b}u2+99\u{f}\u{e}\u{f}IsO\taa\u{1b}=VF\t\u{19}\u{7}~('*x\u{18}*\u{5}P!\u{13}B8\rflW\u{11}#\u{1e}[\u{15}\u{c}\u{6}Jo8\u{5}\u{4}u\u{8}vB3%1nVIFT*\u{3}C[8GkzQ&c(E4\rW,6\nn5la\u{6}}pofP\u{1e}\r\u{1d}i$'bGPX\u{1f}aiR-^\tA(N+\u{16}tU :LMpy3tnQeJRQ\u{7}z\\RZBrv7u}S,\u{1d}\u{1a}g<z\u{8}l\u{2}43\u{3}i9LJ\u{1e}\u{14}> J'L0\u{3}\u{e}F\n\u{18}=\u{1a}\u{1c}4\u{1c}[\u{14}\u{1d}>\u{5}&d\u{1b}z fCnTU\u{e}\u{1}\u{1c}]0-$9($E\u{7f}<\u{e}M\0dv%E\\wWK\u{e}>V=Lu\u{1e}]:A\u{e}5N=\u{1a}\u{11}\u{14}\u{13}\u{14}i|uA\u{5}O,6-\u{18}w\u{f}BZn\u{17}c\0zW\u{2}y=\u{1d}p4\u{b}C\u{1c}\u{15}\u{7}X\0A\u{17}_e,\u{7f}@in\u{b}Cht ^Q\u{7}kCu}\u{12}^I\u{7}lpd>Pk\u{f}-\u{11}qc\u{19}b~Oga\u{1c}\u{b}\u{1d}\u{1d}O\u{15}HS6W&\u{6}u:\n=Q=\u{7f}\u{e}\u{7f}.C\u{1a}oO\u{13}7v\t\u{f}\r\u{f}\"\\\u{e}1\u{4}SWl:w;GV^\u{18}H;d A+M\u{19}\u{3}\u{14}L8VIhm\u{11}^Z>\u{5}*dB\n!7KbFi2'_6\u{10}vi]\u{12}ZPG \u{1b}I\u{11}T\u{c}Q\tt`r<1\u{1b}\u{7f}Mx\u{1}\u{e}#f\u{18}\u{1f}/N\u{1}\\t`\u{12}\u{14}A\u{1b}gGX[jBHyBC&\u{13}d\u{1a}):'M{f:nsd8\u{15}\u{17}\r.w\u{e}x3r-Dp\u{13}8\u{f}`:3}5\"\u{17}t\u{1b}[\"\n8=\u{18}?^Lu\u{17}nSjX?@2o(\u{1d}yv=M{\rR=o\u{4}v%\0N8[\u{1f}4q\u{8}\u{1b}\u{17}lWzc\u{4}\u{1c}AC!\u{1a}\u{11}i<\u{13}\u{7})\rFm\u{1c}\u{1d}Ov.wa|L\u{17}HJ\u{11}\u{13}kO\u{f}pZC%\u{1a}IiUNP+@jJV\u{8}+TjSxZ\u{1f}7\u{1}U\"\r_\u{7f}q*<Dmf`A-F\u{1b}5~YSo\u{8}^hWL\u{19}p7\u{14}.v\0Ey.\u{4}/\u{7}N&./9\u{10},\u{1}MP\rx;q:Tk}\u{1a}\u{15}t-[l8f<G\u{7f}rOK-\u{1b}Z4\u{4}\u{15}\u{5}`\u{1d}\u{1c}i>\u{f}@.,l\u{7f}|@\u{13}yH\u{15}KmI\u{1b}v]%\nLwjq%W55\u{1f}vv\"\rsW}fC\u{13}\u{c}fB>k:M:h*KlB!\ra\u{12}6m\u{2}\te>hBW;2\u{1b}HA|\u{8}\u{1b} V{d3\r\u{5}_~aOTF=TBj%6KM*qF\u{1d}F\"8rFd8b\n/\u{2}*371\u{19}P\u{1f}\0nYS\u{7}?{k\u{13}\0_%w\u{1c}i)T!t\u{c}?rnw VE\u{1d}d\u{14}Pj\u{18}mv\u{1f}\u{12}ih\u{f}\u{12}Z\u{19}k\u{c}<d`\nyo)Uzh#D`\tJAaR!#\u{e}d\u{f}4\u{1b}\u{19}TA[Rl\u{13}9s\u{3}Y#\u{17}\u{10}jce\u{f}J\u{11} D\u{7f}\u{e}\u{12}w>\"e3\u{8}T\u{13}\u{f}\u{1c}Q\u{10}l2dpvZ!_Hs\u{12}\u{11}Xn*\u{13}\u{6}%h\u{1b}c8\u{17}\"\nqYl:%\u{1b}b d\u{7}H\nz9)*\u{1}6:*u|\u{1c} \\sSIb\u{10}umpU5_\u{1}J{>jiy[\u{1a}\u{8}o6LL\u{12}'o\u{4}@9|$1+lm{[\u{2}\0LFD,:\u{4}\u{e}|cS.H\u{19}KC6\u{6}#\u{7}_;9!\u{17}\u{b})}EE}E\\\u{2}\u{4}f\u{1c}R\u{15}<\u{13}d\u{c}\u{17})*8L9'nb6\u{14}d\u{e}o;\u{2}tM_#wS9Wu\r\0\0\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
@@ -2617,213 +2658,214 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.GeneratedMes
     case 2: return .message(SwiftProtoTesting_Fuzz_Message.RepeatedGroup.messageSchema)
     case 3: return .message(SwiftProtoTesting_Fuzz_Message.messageSchema)
     case 4: return .message(SwiftProtoTesting_Fuzz_AMessageSetMessage.messageSchema)
-    case 5: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
-    case 6: return .message(_protobuf_mapEntrySchema_MapInt32Int64Entry)
-    case 7: return .message(_protobuf_mapEntrySchema_MapInt32Uint32Entry)
-    case 8: return .message(_protobuf_mapEntrySchema_MapInt32Uint64Entry)
-    case 9: return .message(_protobuf_mapEntrySchema_MapInt32Sint32Entry)
-    case 10: return .message(_protobuf_mapEntrySchema_MapInt32Sint64Entry)
-    case 11: return .message(_protobuf_mapEntrySchema_MapInt32Fixed32Entry)
-    case 12: return .message(_protobuf_mapEntrySchema_MapInt32Fixed64Entry)
-    case 13: return .message(_protobuf_mapEntrySchema_MapInt32Sfixed32Entry)
-    case 14: return .message(_protobuf_mapEntrySchema_MapInt32Sfixed64Entry)
-    case 15: return .message(_protobuf_mapEntrySchema_MapInt32FloatEntry)
-    case 16: return .message(_protobuf_mapEntrySchema_MapInt32DoubleEntry)
-    case 17: return .message(_protobuf_mapEntrySchema_MapInt32BoolEntry)
-    case 18: return .message(_protobuf_mapEntrySchema_MapInt32StringEntry)
-    case 19: return .message(_protobuf_mapEntrySchema_MapInt32BytesEntry)
-    case 20: return .message(_protobuf_mapEntrySchema_MapInt32AnEnumEntry)
-    case 21: return .message(_protobuf_mapEntrySchema_MapInt32MessageEntry)
-    case 22: return .message(_protobuf_mapEntrySchema_MapInt64Int32Entry)
-    case 23: return .message(_protobuf_mapEntrySchema_MapInt64Int64Entry)
-    case 24: return .message(_protobuf_mapEntrySchema_MapInt64Uint32Entry)
-    case 25: return .message(_protobuf_mapEntrySchema_MapInt64Uint64Entry)
-    case 26: return .message(_protobuf_mapEntrySchema_MapInt64Sint32Entry)
-    case 27: return .message(_protobuf_mapEntrySchema_MapInt64Sint64Entry)
-    case 28: return .message(_protobuf_mapEntrySchema_MapInt64Fixed32Entry)
-    case 29: return .message(_protobuf_mapEntrySchema_MapInt64Fixed64Entry)
-    case 30: return .message(_protobuf_mapEntrySchema_MapInt64Sfixed32Entry)
-    case 31: return .message(_protobuf_mapEntrySchema_MapInt64Sfixed64Entry)
-    case 32: return .message(_protobuf_mapEntrySchema_MapInt64FloatEntry)
-    case 33: return .message(_protobuf_mapEntrySchema_MapInt64DoubleEntry)
-    case 34: return .message(_protobuf_mapEntrySchema_MapInt64BoolEntry)
-    case 35: return .message(_protobuf_mapEntrySchema_MapInt64StringEntry)
-    case 36: return .message(_protobuf_mapEntrySchema_MapInt64BytesEntry)
-    case 37: return .message(_protobuf_mapEntrySchema_MapInt64AnEnumEntry)
-    case 38: return .message(_protobuf_mapEntrySchema_MapInt64MessageEntry)
-    case 39: return .message(_protobuf_mapEntrySchema_MapUint32Int32Entry)
-    case 40: return .message(_protobuf_mapEntrySchema_MapUint32Int64Entry)
-    case 41: return .message(_protobuf_mapEntrySchema_MapUint32Uint32Entry)
-    case 42: return .message(_protobuf_mapEntrySchema_MapUint32Uint64Entry)
-    case 43: return .message(_protobuf_mapEntrySchema_MapUint32Sint32Entry)
-    case 44: return .message(_protobuf_mapEntrySchema_MapUint32Sint64Entry)
-    case 45: return .message(_protobuf_mapEntrySchema_MapUint32Fixed32Entry)
-    case 46: return .message(_protobuf_mapEntrySchema_MapUint32Fixed64Entry)
-    case 47: return .message(_protobuf_mapEntrySchema_MapUint32Sfixed32Entry)
-    case 48: return .message(_protobuf_mapEntrySchema_MapUint32Sfixed64Entry)
-    case 49: return .message(_protobuf_mapEntrySchema_MapUint32FloatEntry)
-    case 50: return .message(_protobuf_mapEntrySchema_MapUint32DoubleEntry)
-    case 51: return .message(_protobuf_mapEntrySchema_MapUint32BoolEntry)
-    case 52: return .message(_protobuf_mapEntrySchema_MapUint32StringEntry)
-    case 53: return .message(_protobuf_mapEntrySchema_MapUint32BytesEntry)
-    case 54: return .message(_protobuf_mapEntrySchema_MapUint32AnEnumEntry)
-    case 55: return .message(_protobuf_mapEntrySchema_MapUint32MessageEntry)
-    case 56: return .message(_protobuf_mapEntrySchema_MapUint64Int32Entry)
-    case 57: return .message(_protobuf_mapEntrySchema_MapUint64Int64Entry)
-    case 58: return .message(_protobuf_mapEntrySchema_MapUint64Uint32Entry)
-    case 59: return .message(_protobuf_mapEntrySchema_MapUint64Uint64Entry)
-    case 60: return .message(_protobuf_mapEntrySchema_MapUint64Sint32Entry)
-    case 61: return .message(_protobuf_mapEntrySchema_MapUint64Sint64Entry)
-    case 62: return .message(_protobuf_mapEntrySchema_MapUint64Fixed32Entry)
-    case 63: return .message(_protobuf_mapEntrySchema_MapUint64Fixed64Entry)
-    case 64: return .message(_protobuf_mapEntrySchema_MapUint64Sfixed32Entry)
-    case 65: return .message(_protobuf_mapEntrySchema_MapUint64Sfixed64Entry)
-    case 66: return .message(_protobuf_mapEntrySchema_MapUint64FloatEntry)
-    case 67: return .message(_protobuf_mapEntrySchema_MapUint64DoubleEntry)
-    case 68: return .message(_protobuf_mapEntrySchema_MapUint64BoolEntry)
-    case 69: return .message(_protobuf_mapEntrySchema_MapUint64StringEntry)
-    case 70: return .message(_protobuf_mapEntrySchema_MapUint64BytesEntry)
-    case 71: return .message(_protobuf_mapEntrySchema_MapUint64AnEnumEntry)
-    case 72: return .message(_protobuf_mapEntrySchema_MapUint64MessageEntry)
-    case 73: return .message(_protobuf_mapEntrySchema_MapSint32Int32Entry)
-    case 74: return .message(_protobuf_mapEntrySchema_MapSint32Int64Entry)
-    case 75: return .message(_protobuf_mapEntrySchema_MapSint32Uint32Entry)
-    case 76: return .message(_protobuf_mapEntrySchema_MapSint32Uint64Entry)
-    case 77: return .message(_protobuf_mapEntrySchema_MapSint32Sint32Entry)
-    case 78: return .message(_protobuf_mapEntrySchema_MapSint32Sint64Entry)
-    case 79: return .message(_protobuf_mapEntrySchema_MapSint32Fixed32Entry)
-    case 80: return .message(_protobuf_mapEntrySchema_MapSint32Fixed64Entry)
-    case 81: return .message(_protobuf_mapEntrySchema_MapSint32Sfixed32Entry)
-    case 82: return .message(_protobuf_mapEntrySchema_MapSint32Sfixed64Entry)
-    case 83: return .message(_protobuf_mapEntrySchema_MapSint32FloatEntry)
-    case 84: return .message(_protobuf_mapEntrySchema_MapSint32DoubleEntry)
-    case 85: return .message(_protobuf_mapEntrySchema_MapSint32BoolEntry)
-    case 86: return .message(_protobuf_mapEntrySchema_MapSint32StringEntry)
-    case 87: return .message(_protobuf_mapEntrySchema_MapSint32BytesEntry)
-    case 88: return .message(_protobuf_mapEntrySchema_MapSint32AnEnumEntry)
-    case 89: return .message(_protobuf_mapEntrySchema_MapSint32MessageEntry)
-    case 90: return .message(_protobuf_mapEntrySchema_MapSint64Int32Entry)
-    case 91: return .message(_protobuf_mapEntrySchema_MapSint64Int64Entry)
-    case 92: return .message(_protobuf_mapEntrySchema_MapSint64Uint32Entry)
-    case 93: return .message(_protobuf_mapEntrySchema_MapSint64Uint64Entry)
-    case 94: return .message(_protobuf_mapEntrySchema_MapSint64Sint32Entry)
-    case 95: return .message(_protobuf_mapEntrySchema_MapSint64Sint64Entry)
-    case 96: return .message(_protobuf_mapEntrySchema_MapSint64Fixed32Entry)
-    case 97: return .message(_protobuf_mapEntrySchema_MapSint64Fixed64Entry)
-    case 98: return .message(_protobuf_mapEntrySchema_MapSint64Sfixed32Entry)
-    case 99: return .message(_protobuf_mapEntrySchema_MapSint64Sfixed64Entry)
-    case 100: return .message(_protobuf_mapEntrySchema_MapSint64FloatEntry)
-    case 101: return .message(_protobuf_mapEntrySchema_MapSint64DoubleEntry)
-    case 102: return .message(_protobuf_mapEntrySchema_MapSint64BoolEntry)
-    case 103: return .message(_protobuf_mapEntrySchema_MapSint64StringEntry)
-    case 104: return .message(_protobuf_mapEntrySchema_MapSint64BytesEntry)
-    case 105: return .message(_protobuf_mapEntrySchema_MapSint64AnEnumEntry)
-    case 106: return .message(_protobuf_mapEntrySchema_MapSint64MessageEntry)
-    case 107: return .message(_protobuf_mapEntrySchema_MapFixed32Int32Entry)
-    case 108: return .message(_protobuf_mapEntrySchema_MapFixed32Int64Entry)
-    case 109: return .message(_protobuf_mapEntrySchema_MapFixed32Uint32Entry)
-    case 110: return .message(_protobuf_mapEntrySchema_MapFixed32Uint64Entry)
-    case 111: return .message(_protobuf_mapEntrySchema_MapFixed32Sint32Entry)
-    case 112: return .message(_protobuf_mapEntrySchema_MapFixed32Sint64Entry)
-    case 113: return .message(_protobuf_mapEntrySchema_MapFixed32Fixed32Entry)
-    case 114: return .message(_protobuf_mapEntrySchema_MapFixed32Fixed64Entry)
-    case 115: return .message(_protobuf_mapEntrySchema_MapFixed32Sfixed32Entry)
-    case 116: return .message(_protobuf_mapEntrySchema_MapFixed32Sfixed64Entry)
-    case 117: return .message(_protobuf_mapEntrySchema_MapFixed32FloatEntry)
-    case 118: return .message(_protobuf_mapEntrySchema_MapFixed32DoubleEntry)
-    case 119: return .message(_protobuf_mapEntrySchema_MapFixed32BoolEntry)
-    case 120: return .message(_protobuf_mapEntrySchema_MapFixed32StringEntry)
-    case 121: return .message(_protobuf_mapEntrySchema_MapFixed32BytesEntry)
-    case 122: return .message(_protobuf_mapEntrySchema_MapFixed32AnEnumEntry)
-    case 123: return .message(_protobuf_mapEntrySchema_MapFixed32MessageEntry)
-    case 124: return .message(_protobuf_mapEntrySchema_MapFixed64Int32Entry)
-    case 125: return .message(_protobuf_mapEntrySchema_MapFixed64Int64Entry)
-    case 126: return .message(_protobuf_mapEntrySchema_MapFixed64Uint32Entry)
-    case 127: return .message(_protobuf_mapEntrySchema_MapFixed64Uint64Entry)
-    case 128: return .message(_protobuf_mapEntrySchema_MapFixed64Sint32Entry)
-    case 129: return .message(_protobuf_mapEntrySchema_MapFixed64Sint64Entry)
-    case 130: return .message(_protobuf_mapEntrySchema_MapFixed64Fixed32Entry)
-    case 131: return .message(_protobuf_mapEntrySchema_MapFixed64Fixed64Entry)
-    case 132: return .message(_protobuf_mapEntrySchema_MapFixed64Sfixed32Entry)
-    case 133: return .message(_protobuf_mapEntrySchema_MapFixed64Sfixed64Entry)
-    case 134: return .message(_protobuf_mapEntrySchema_MapFixed64FloatEntry)
-    case 135: return .message(_protobuf_mapEntrySchema_MapFixed64DoubleEntry)
-    case 136: return .message(_protobuf_mapEntrySchema_MapFixed64BoolEntry)
-    case 137: return .message(_protobuf_mapEntrySchema_MapFixed64StringEntry)
-    case 138: return .message(_protobuf_mapEntrySchema_MapFixed64BytesEntry)
-    case 139: return .message(_protobuf_mapEntrySchema_MapFixed64AnEnumEntry)
-    case 140: return .message(_protobuf_mapEntrySchema_MapFixed64MessageEntry)
-    case 141: return .message(_protobuf_mapEntrySchema_MapSfixed32Int32Entry)
-    case 142: return .message(_protobuf_mapEntrySchema_MapSfixed32Int64Entry)
-    case 143: return .message(_protobuf_mapEntrySchema_MapSfixed32Uint32Entry)
-    case 144: return .message(_protobuf_mapEntrySchema_MapSfixed32Uint64Entry)
-    case 145: return .message(_protobuf_mapEntrySchema_MapSfixed32Sint32Entry)
-    case 146: return .message(_protobuf_mapEntrySchema_MapSfixed32Sint64Entry)
-    case 147: return .message(_protobuf_mapEntrySchema_MapSfixed32Fixed32Entry)
-    case 148: return .message(_protobuf_mapEntrySchema_MapSfixed32Fixed64Entry)
-    case 149: return .message(_protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry)
-    case 150: return .message(_protobuf_mapEntrySchema_MapSfixed32Sfixed64Entry)
-    case 151: return .message(_protobuf_mapEntrySchema_MapSfixed32FloatEntry)
-    case 152: return .message(_protobuf_mapEntrySchema_MapSfixed32DoubleEntry)
-    case 153: return .message(_protobuf_mapEntrySchema_MapSfixed32BoolEntry)
-    case 154: return .message(_protobuf_mapEntrySchema_MapSfixed32StringEntry)
-    case 155: return .message(_protobuf_mapEntrySchema_MapSfixed32BytesEntry)
-    case 156: return .message(_protobuf_mapEntrySchema_MapSfixed32AnEnumEntry)
-    case 157: return .message(_protobuf_mapEntrySchema_MapSfixed32MessageEntry)
-    case 158: return .message(_protobuf_mapEntrySchema_MapSfixed64Int32Entry)
-    case 159: return .message(_protobuf_mapEntrySchema_MapSfixed64Int64Entry)
-    case 160: return .message(_protobuf_mapEntrySchema_MapSfixed64Uint32Entry)
-    case 161: return .message(_protobuf_mapEntrySchema_MapSfixed64Uint64Entry)
-    case 162: return .message(_protobuf_mapEntrySchema_MapSfixed64Sint32Entry)
-    case 163: return .message(_protobuf_mapEntrySchema_MapSfixed64Sint64Entry)
-    case 164: return .message(_protobuf_mapEntrySchema_MapSfixed64Fixed32Entry)
-    case 165: return .message(_protobuf_mapEntrySchema_MapSfixed64Fixed64Entry)
-    case 166: return .message(_protobuf_mapEntrySchema_MapSfixed64Sfixed32Entry)
-    case 167: return .message(_protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry)
-    case 168: return .message(_protobuf_mapEntrySchema_MapSfixed64FloatEntry)
-    case 169: return .message(_protobuf_mapEntrySchema_MapSfixed64DoubleEntry)
-    case 170: return .message(_protobuf_mapEntrySchema_MapSfixed64BoolEntry)
-    case 171: return .message(_protobuf_mapEntrySchema_MapSfixed64StringEntry)
-    case 172: return .message(_protobuf_mapEntrySchema_MapSfixed64BytesEntry)
-    case 173: return .message(_protobuf_mapEntrySchema_MapSfixed64AnEnumEntry)
-    case 174: return .message(_protobuf_mapEntrySchema_MapSfixed64MessageEntry)
-    case 175: return .message(_protobuf_mapEntrySchema_MapBoolInt32Entry)
-    case 176: return .message(_protobuf_mapEntrySchema_MapBoolInt64Entry)
-    case 177: return .message(_protobuf_mapEntrySchema_MapBoolUint32Entry)
-    case 178: return .message(_protobuf_mapEntrySchema_MapBoolUint64Entry)
-    case 179: return .message(_protobuf_mapEntrySchema_MapBoolSint32Entry)
-    case 180: return .message(_protobuf_mapEntrySchema_MapBoolSint64Entry)
-    case 181: return .message(_protobuf_mapEntrySchema_MapBoolFixed32Entry)
-    case 182: return .message(_protobuf_mapEntrySchema_MapBoolFixed64Entry)
-    case 183: return .message(_protobuf_mapEntrySchema_MapBoolSfixed32Entry)
-    case 184: return .message(_protobuf_mapEntrySchema_MapBoolSfixed64Entry)
-    case 185: return .message(_protobuf_mapEntrySchema_MapBoolFloatEntry)
-    case 186: return .message(_protobuf_mapEntrySchema_MapBoolDoubleEntry)
-    case 187: return .message(_protobuf_mapEntrySchema_MapBoolBoolEntry)
-    case 188: return .message(_protobuf_mapEntrySchema_MapBoolStringEntry)
-    case 189: return .message(_protobuf_mapEntrySchema_MapBoolBytesEntry)
-    case 190: return .message(_protobuf_mapEntrySchema_MapBoolAnEnumEntry)
-    case 191: return .message(_protobuf_mapEntrySchema_MapBoolMessageEntry)
-    case 192: return .message(SwiftProtoTesting_Fuzz_Message.SingularGroup.messageSchema)
-    case 193: return .message(SwiftProtoTesting_Fuzz_Message.OneofGroup.messageSchema)
-    case 194: return .message(SwiftProtobuf.Google_Protobuf_Any.messageSchema)
-    case 195: return .message(SwiftProtobuf.Google_Protobuf_Api.messageSchema)
-    case 196: return .message(SwiftProtobuf.Google_Protobuf_Duration.messageSchema)
-    case 197: return .message(SwiftProtobuf.Google_Protobuf_Empty.messageSchema)
-    case 198: return .message(SwiftProtobuf.Google_Protobuf_FieldMask.messageSchema)
-    case 199: return .message(SwiftProtobuf.Google_Protobuf_SourceContext.messageSchema)
-    case 200: return .message(SwiftProtobuf.Google_Protobuf_Struct.messageSchema)
-    case 201: return .message(SwiftProtobuf.Google_Protobuf_Timestamp.messageSchema)
-    case 202: return .message(SwiftProtobuf.Google_Protobuf_Type.messageSchema)
-    case 203: return .message(SwiftProtobuf.Google_Protobuf_DoubleValue.messageSchema)
-    case 204: return .message(SwiftProtobuf.Google_Protobuf_FloatValue.messageSchema)
-    case 205: return .message(SwiftProtobuf.Google_Protobuf_Int64Value.messageSchema)
-    case 206: return .message(SwiftProtobuf.Google_Protobuf_UInt64Value.messageSchema)
-    case 207: return .message(SwiftProtobuf.Google_Protobuf_Int32Value.messageSchema)
-    case 208: return .message(SwiftProtobuf.Google_Protobuf_UInt32Value.messageSchema)
-    case 209: return .message(SwiftProtobuf.Google_Protobuf_BoolValue.messageSchema)
-    case 210: return .message(SwiftProtobuf.Google_Protobuf_StringValue.messageSchema)
-    case 211: return .message(SwiftProtobuf.Google_Protobuf_BytesValue.messageSchema)
+    case 5: return .message(SwiftProtoTesting_Fuzz_MessageWithRequired.messageSchema)
+    case 6: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
+    case 7: return .message(_protobuf_mapEntrySchema_MapInt32Int64Entry)
+    case 8: return .message(_protobuf_mapEntrySchema_MapInt32Uint32Entry)
+    case 9: return .message(_protobuf_mapEntrySchema_MapInt32Uint64Entry)
+    case 10: return .message(_protobuf_mapEntrySchema_MapInt32Sint32Entry)
+    case 11: return .message(_protobuf_mapEntrySchema_MapInt32Sint64Entry)
+    case 12: return .message(_protobuf_mapEntrySchema_MapInt32Fixed32Entry)
+    case 13: return .message(_protobuf_mapEntrySchema_MapInt32Fixed64Entry)
+    case 14: return .message(_protobuf_mapEntrySchema_MapInt32Sfixed32Entry)
+    case 15: return .message(_protobuf_mapEntrySchema_MapInt32Sfixed64Entry)
+    case 16: return .message(_protobuf_mapEntrySchema_MapInt32FloatEntry)
+    case 17: return .message(_protobuf_mapEntrySchema_MapInt32DoubleEntry)
+    case 18: return .message(_protobuf_mapEntrySchema_MapInt32BoolEntry)
+    case 19: return .message(_protobuf_mapEntrySchema_MapInt32StringEntry)
+    case 20: return .message(_protobuf_mapEntrySchema_MapInt32BytesEntry)
+    case 21: return .message(_protobuf_mapEntrySchema_MapInt32AnEnumEntry)
+    case 22: return .message(_protobuf_mapEntrySchema_MapInt32MessageEntry)
+    case 23: return .message(_protobuf_mapEntrySchema_MapInt64Int32Entry)
+    case 24: return .message(_protobuf_mapEntrySchema_MapInt64Int64Entry)
+    case 25: return .message(_protobuf_mapEntrySchema_MapInt64Uint32Entry)
+    case 26: return .message(_protobuf_mapEntrySchema_MapInt64Uint64Entry)
+    case 27: return .message(_protobuf_mapEntrySchema_MapInt64Sint32Entry)
+    case 28: return .message(_protobuf_mapEntrySchema_MapInt64Sint64Entry)
+    case 29: return .message(_protobuf_mapEntrySchema_MapInt64Fixed32Entry)
+    case 30: return .message(_protobuf_mapEntrySchema_MapInt64Fixed64Entry)
+    case 31: return .message(_protobuf_mapEntrySchema_MapInt64Sfixed32Entry)
+    case 32: return .message(_protobuf_mapEntrySchema_MapInt64Sfixed64Entry)
+    case 33: return .message(_protobuf_mapEntrySchema_MapInt64FloatEntry)
+    case 34: return .message(_protobuf_mapEntrySchema_MapInt64DoubleEntry)
+    case 35: return .message(_protobuf_mapEntrySchema_MapInt64BoolEntry)
+    case 36: return .message(_protobuf_mapEntrySchema_MapInt64StringEntry)
+    case 37: return .message(_protobuf_mapEntrySchema_MapInt64BytesEntry)
+    case 38: return .message(_protobuf_mapEntrySchema_MapInt64AnEnumEntry)
+    case 39: return .message(_protobuf_mapEntrySchema_MapInt64MessageEntry)
+    case 40: return .message(_protobuf_mapEntrySchema_MapUint32Int32Entry)
+    case 41: return .message(_protobuf_mapEntrySchema_MapUint32Int64Entry)
+    case 42: return .message(_protobuf_mapEntrySchema_MapUint32Uint32Entry)
+    case 43: return .message(_protobuf_mapEntrySchema_MapUint32Uint64Entry)
+    case 44: return .message(_protobuf_mapEntrySchema_MapUint32Sint32Entry)
+    case 45: return .message(_protobuf_mapEntrySchema_MapUint32Sint64Entry)
+    case 46: return .message(_protobuf_mapEntrySchema_MapUint32Fixed32Entry)
+    case 47: return .message(_protobuf_mapEntrySchema_MapUint32Fixed64Entry)
+    case 48: return .message(_protobuf_mapEntrySchema_MapUint32Sfixed32Entry)
+    case 49: return .message(_protobuf_mapEntrySchema_MapUint32Sfixed64Entry)
+    case 50: return .message(_protobuf_mapEntrySchema_MapUint32FloatEntry)
+    case 51: return .message(_protobuf_mapEntrySchema_MapUint32DoubleEntry)
+    case 52: return .message(_protobuf_mapEntrySchema_MapUint32BoolEntry)
+    case 53: return .message(_protobuf_mapEntrySchema_MapUint32StringEntry)
+    case 54: return .message(_protobuf_mapEntrySchema_MapUint32BytesEntry)
+    case 55: return .message(_protobuf_mapEntrySchema_MapUint32AnEnumEntry)
+    case 56: return .message(_protobuf_mapEntrySchema_MapUint32MessageEntry)
+    case 57: return .message(_protobuf_mapEntrySchema_MapUint64Int32Entry)
+    case 58: return .message(_protobuf_mapEntrySchema_MapUint64Int64Entry)
+    case 59: return .message(_protobuf_mapEntrySchema_MapUint64Uint32Entry)
+    case 60: return .message(_protobuf_mapEntrySchema_MapUint64Uint64Entry)
+    case 61: return .message(_protobuf_mapEntrySchema_MapUint64Sint32Entry)
+    case 62: return .message(_protobuf_mapEntrySchema_MapUint64Sint64Entry)
+    case 63: return .message(_protobuf_mapEntrySchema_MapUint64Fixed32Entry)
+    case 64: return .message(_protobuf_mapEntrySchema_MapUint64Fixed64Entry)
+    case 65: return .message(_protobuf_mapEntrySchema_MapUint64Sfixed32Entry)
+    case 66: return .message(_protobuf_mapEntrySchema_MapUint64Sfixed64Entry)
+    case 67: return .message(_protobuf_mapEntrySchema_MapUint64FloatEntry)
+    case 68: return .message(_protobuf_mapEntrySchema_MapUint64DoubleEntry)
+    case 69: return .message(_protobuf_mapEntrySchema_MapUint64BoolEntry)
+    case 70: return .message(_protobuf_mapEntrySchema_MapUint64StringEntry)
+    case 71: return .message(_protobuf_mapEntrySchema_MapUint64BytesEntry)
+    case 72: return .message(_protobuf_mapEntrySchema_MapUint64AnEnumEntry)
+    case 73: return .message(_protobuf_mapEntrySchema_MapUint64MessageEntry)
+    case 74: return .message(_protobuf_mapEntrySchema_MapSint32Int32Entry)
+    case 75: return .message(_protobuf_mapEntrySchema_MapSint32Int64Entry)
+    case 76: return .message(_protobuf_mapEntrySchema_MapSint32Uint32Entry)
+    case 77: return .message(_protobuf_mapEntrySchema_MapSint32Uint64Entry)
+    case 78: return .message(_protobuf_mapEntrySchema_MapSint32Sint32Entry)
+    case 79: return .message(_protobuf_mapEntrySchema_MapSint32Sint64Entry)
+    case 80: return .message(_protobuf_mapEntrySchema_MapSint32Fixed32Entry)
+    case 81: return .message(_protobuf_mapEntrySchema_MapSint32Fixed64Entry)
+    case 82: return .message(_protobuf_mapEntrySchema_MapSint32Sfixed32Entry)
+    case 83: return .message(_protobuf_mapEntrySchema_MapSint32Sfixed64Entry)
+    case 84: return .message(_protobuf_mapEntrySchema_MapSint32FloatEntry)
+    case 85: return .message(_protobuf_mapEntrySchema_MapSint32DoubleEntry)
+    case 86: return .message(_protobuf_mapEntrySchema_MapSint32BoolEntry)
+    case 87: return .message(_protobuf_mapEntrySchema_MapSint32StringEntry)
+    case 88: return .message(_protobuf_mapEntrySchema_MapSint32BytesEntry)
+    case 89: return .message(_protobuf_mapEntrySchema_MapSint32AnEnumEntry)
+    case 90: return .message(_protobuf_mapEntrySchema_MapSint32MessageEntry)
+    case 91: return .message(_protobuf_mapEntrySchema_MapSint64Int32Entry)
+    case 92: return .message(_protobuf_mapEntrySchema_MapSint64Int64Entry)
+    case 93: return .message(_protobuf_mapEntrySchema_MapSint64Uint32Entry)
+    case 94: return .message(_protobuf_mapEntrySchema_MapSint64Uint64Entry)
+    case 95: return .message(_protobuf_mapEntrySchema_MapSint64Sint32Entry)
+    case 96: return .message(_protobuf_mapEntrySchema_MapSint64Sint64Entry)
+    case 97: return .message(_protobuf_mapEntrySchema_MapSint64Fixed32Entry)
+    case 98: return .message(_protobuf_mapEntrySchema_MapSint64Fixed64Entry)
+    case 99: return .message(_protobuf_mapEntrySchema_MapSint64Sfixed32Entry)
+    case 100: return .message(_protobuf_mapEntrySchema_MapSint64Sfixed64Entry)
+    case 101: return .message(_protobuf_mapEntrySchema_MapSint64FloatEntry)
+    case 102: return .message(_protobuf_mapEntrySchema_MapSint64DoubleEntry)
+    case 103: return .message(_protobuf_mapEntrySchema_MapSint64BoolEntry)
+    case 104: return .message(_protobuf_mapEntrySchema_MapSint64StringEntry)
+    case 105: return .message(_protobuf_mapEntrySchema_MapSint64BytesEntry)
+    case 106: return .message(_protobuf_mapEntrySchema_MapSint64AnEnumEntry)
+    case 107: return .message(_protobuf_mapEntrySchema_MapSint64MessageEntry)
+    case 108: return .message(_protobuf_mapEntrySchema_MapFixed32Int32Entry)
+    case 109: return .message(_protobuf_mapEntrySchema_MapFixed32Int64Entry)
+    case 110: return .message(_protobuf_mapEntrySchema_MapFixed32Uint32Entry)
+    case 111: return .message(_protobuf_mapEntrySchema_MapFixed32Uint64Entry)
+    case 112: return .message(_protobuf_mapEntrySchema_MapFixed32Sint32Entry)
+    case 113: return .message(_protobuf_mapEntrySchema_MapFixed32Sint64Entry)
+    case 114: return .message(_protobuf_mapEntrySchema_MapFixed32Fixed32Entry)
+    case 115: return .message(_protobuf_mapEntrySchema_MapFixed32Fixed64Entry)
+    case 116: return .message(_protobuf_mapEntrySchema_MapFixed32Sfixed32Entry)
+    case 117: return .message(_protobuf_mapEntrySchema_MapFixed32Sfixed64Entry)
+    case 118: return .message(_protobuf_mapEntrySchema_MapFixed32FloatEntry)
+    case 119: return .message(_protobuf_mapEntrySchema_MapFixed32DoubleEntry)
+    case 120: return .message(_protobuf_mapEntrySchema_MapFixed32BoolEntry)
+    case 121: return .message(_protobuf_mapEntrySchema_MapFixed32StringEntry)
+    case 122: return .message(_protobuf_mapEntrySchema_MapFixed32BytesEntry)
+    case 123: return .message(_protobuf_mapEntrySchema_MapFixed32AnEnumEntry)
+    case 124: return .message(_protobuf_mapEntrySchema_MapFixed32MessageEntry)
+    case 125: return .message(_protobuf_mapEntrySchema_MapFixed64Int32Entry)
+    case 126: return .message(_protobuf_mapEntrySchema_MapFixed64Int64Entry)
+    case 127: return .message(_protobuf_mapEntrySchema_MapFixed64Uint32Entry)
+    case 128: return .message(_protobuf_mapEntrySchema_MapFixed64Uint64Entry)
+    case 129: return .message(_protobuf_mapEntrySchema_MapFixed64Sint32Entry)
+    case 130: return .message(_protobuf_mapEntrySchema_MapFixed64Sint64Entry)
+    case 131: return .message(_protobuf_mapEntrySchema_MapFixed64Fixed32Entry)
+    case 132: return .message(_protobuf_mapEntrySchema_MapFixed64Fixed64Entry)
+    case 133: return .message(_protobuf_mapEntrySchema_MapFixed64Sfixed32Entry)
+    case 134: return .message(_protobuf_mapEntrySchema_MapFixed64Sfixed64Entry)
+    case 135: return .message(_protobuf_mapEntrySchema_MapFixed64FloatEntry)
+    case 136: return .message(_protobuf_mapEntrySchema_MapFixed64DoubleEntry)
+    case 137: return .message(_protobuf_mapEntrySchema_MapFixed64BoolEntry)
+    case 138: return .message(_protobuf_mapEntrySchema_MapFixed64StringEntry)
+    case 139: return .message(_protobuf_mapEntrySchema_MapFixed64BytesEntry)
+    case 140: return .message(_protobuf_mapEntrySchema_MapFixed64AnEnumEntry)
+    case 141: return .message(_protobuf_mapEntrySchema_MapFixed64MessageEntry)
+    case 142: return .message(_protobuf_mapEntrySchema_MapSfixed32Int32Entry)
+    case 143: return .message(_protobuf_mapEntrySchema_MapSfixed32Int64Entry)
+    case 144: return .message(_protobuf_mapEntrySchema_MapSfixed32Uint32Entry)
+    case 145: return .message(_protobuf_mapEntrySchema_MapSfixed32Uint64Entry)
+    case 146: return .message(_protobuf_mapEntrySchema_MapSfixed32Sint32Entry)
+    case 147: return .message(_protobuf_mapEntrySchema_MapSfixed32Sint64Entry)
+    case 148: return .message(_protobuf_mapEntrySchema_MapSfixed32Fixed32Entry)
+    case 149: return .message(_protobuf_mapEntrySchema_MapSfixed32Fixed64Entry)
+    case 150: return .message(_protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry)
+    case 151: return .message(_protobuf_mapEntrySchema_MapSfixed32Sfixed64Entry)
+    case 152: return .message(_protobuf_mapEntrySchema_MapSfixed32FloatEntry)
+    case 153: return .message(_protobuf_mapEntrySchema_MapSfixed32DoubleEntry)
+    case 154: return .message(_protobuf_mapEntrySchema_MapSfixed32BoolEntry)
+    case 155: return .message(_protobuf_mapEntrySchema_MapSfixed32StringEntry)
+    case 156: return .message(_protobuf_mapEntrySchema_MapSfixed32BytesEntry)
+    case 157: return .message(_protobuf_mapEntrySchema_MapSfixed32AnEnumEntry)
+    case 158: return .message(_protobuf_mapEntrySchema_MapSfixed32MessageEntry)
+    case 159: return .message(_protobuf_mapEntrySchema_MapSfixed64Int32Entry)
+    case 160: return .message(_protobuf_mapEntrySchema_MapSfixed64Int64Entry)
+    case 161: return .message(_protobuf_mapEntrySchema_MapSfixed64Uint32Entry)
+    case 162: return .message(_protobuf_mapEntrySchema_MapSfixed64Uint64Entry)
+    case 163: return .message(_protobuf_mapEntrySchema_MapSfixed64Sint32Entry)
+    case 164: return .message(_protobuf_mapEntrySchema_MapSfixed64Sint64Entry)
+    case 165: return .message(_protobuf_mapEntrySchema_MapSfixed64Fixed32Entry)
+    case 166: return .message(_protobuf_mapEntrySchema_MapSfixed64Fixed64Entry)
+    case 167: return .message(_protobuf_mapEntrySchema_MapSfixed64Sfixed32Entry)
+    case 168: return .message(_protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry)
+    case 169: return .message(_protobuf_mapEntrySchema_MapSfixed64FloatEntry)
+    case 170: return .message(_protobuf_mapEntrySchema_MapSfixed64DoubleEntry)
+    case 171: return .message(_protobuf_mapEntrySchema_MapSfixed64BoolEntry)
+    case 172: return .message(_protobuf_mapEntrySchema_MapSfixed64StringEntry)
+    case 173: return .message(_protobuf_mapEntrySchema_MapSfixed64BytesEntry)
+    case 174: return .message(_protobuf_mapEntrySchema_MapSfixed64AnEnumEntry)
+    case 175: return .message(_protobuf_mapEntrySchema_MapSfixed64MessageEntry)
+    case 176: return .message(_protobuf_mapEntrySchema_MapBoolInt32Entry)
+    case 177: return .message(_protobuf_mapEntrySchema_MapBoolInt64Entry)
+    case 178: return .message(_protobuf_mapEntrySchema_MapBoolUint32Entry)
+    case 179: return .message(_protobuf_mapEntrySchema_MapBoolUint64Entry)
+    case 180: return .message(_protobuf_mapEntrySchema_MapBoolSint32Entry)
+    case 181: return .message(_protobuf_mapEntrySchema_MapBoolSint64Entry)
+    case 182: return .message(_protobuf_mapEntrySchema_MapBoolFixed32Entry)
+    case 183: return .message(_protobuf_mapEntrySchema_MapBoolFixed64Entry)
+    case 184: return .message(_protobuf_mapEntrySchema_MapBoolSfixed32Entry)
+    case 185: return .message(_protobuf_mapEntrySchema_MapBoolSfixed64Entry)
+    case 186: return .message(_protobuf_mapEntrySchema_MapBoolFloatEntry)
+    case 187: return .message(_protobuf_mapEntrySchema_MapBoolDoubleEntry)
+    case 188: return .message(_protobuf_mapEntrySchema_MapBoolBoolEntry)
+    case 189: return .message(_protobuf_mapEntrySchema_MapBoolStringEntry)
+    case 190: return .message(_protobuf_mapEntrySchema_MapBoolBytesEntry)
+    case 191: return .message(_protobuf_mapEntrySchema_MapBoolAnEnumEntry)
+    case 192: return .message(_protobuf_mapEntrySchema_MapBoolMessageEntry)
+    case 193: return .message(SwiftProtoTesting_Fuzz_Message.SingularGroup.messageSchema)
+    case 194: return .message(SwiftProtoTesting_Fuzz_Message.OneofGroup.messageSchema)
+    case 195: return .message(SwiftProtobuf.Google_Protobuf_Any.messageSchema)
+    case 196: return .message(SwiftProtobuf.Google_Protobuf_Api.messageSchema)
+    case 197: return .message(SwiftProtobuf.Google_Protobuf_Duration.messageSchema)
+    case 198: return .message(SwiftProtobuf.Google_Protobuf_Empty.messageSchema)
+    case 199: return .message(SwiftProtobuf.Google_Protobuf_FieldMask.messageSchema)
+    case 200: return .message(SwiftProtobuf.Google_Protobuf_SourceContext.messageSchema)
+    case 201: return .message(SwiftProtobuf.Google_Protobuf_Struct.messageSchema)
+    case 202: return .message(SwiftProtobuf.Google_Protobuf_Timestamp.messageSchema)
+    case 203: return .message(SwiftProtobuf.Google_Protobuf_Type.messageSchema)
+    case 204: return .message(SwiftProtobuf.Google_Protobuf_DoubleValue.messageSchema)
+    case 205: return .message(SwiftProtobuf.Google_Protobuf_FloatValue.messageSchema)
+    case 206: return .message(SwiftProtobuf.Google_Protobuf_Int64Value.messageSchema)
+    case 207: return .message(SwiftProtobuf.Google_Protobuf_UInt64Value.messageSchema)
+    case 208: return .message(SwiftProtobuf.Google_Protobuf_Int32Value.messageSchema)
+    case 209: return .message(SwiftProtobuf.Google_Protobuf_UInt32Value.messageSchema)
+    case 210: return .message(SwiftProtobuf.Google_Protobuf_BoolValue.messageSchema)
+    case 211: return .message(SwiftProtobuf.Google_Protobuf_StringValue.messageSchema)
+    case 212: return .message(SwiftProtobuf.Google_Protobuf_BytesValue.messageSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
@@ -3229,6 +3271,16 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobu
 nonisolated extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0N\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.fuzz.Message.OneofGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#DKlMYua[\0a'wEn\u{12}i:\u{6}x\u{14}ay\u{13}\u{16}D?\u{11}/tA\u{8}\u{b}/ML\u{14}|-\u{2}\0"
+
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+
+}
+
+nonisolated extension SwiftProtoTesting_Fuzz_MessageWithRequired: SwiftProtobuf.GeneratedMessage {
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.fuzz.MessageWithRequired"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hIZL >GE;\\ |P\u{1a}a\u{e}\u{16}\u{4}\u{e}y\u{7}\u{e}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 

@@ -408,8 +408,8 @@ extension MessageStorage {
         let bytes = assumedPresentValue(at: schema.byteOffset(of: valueField)) as Data
         try bytes.withUnsafeBytes { buffer in
             let messageStorage = MessageStorage(schema: messageSchema)
-            // TODO: Should we keep the original behavior of failing for required fields in JSON?
             var decodingOptions = BinaryDecodingOptions()
+            decodingOptions.allowPartial = true
             decodingOptions.messageDepthLimit = encoder.recursionBudget
             do {
                 try messageStorage.merge(

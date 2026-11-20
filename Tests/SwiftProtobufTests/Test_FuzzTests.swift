@@ -151,6 +151,11 @@ final class Test_FuzzTests: XCTestCase {
             0x8a, 0x41, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0x8a, 0x41, 0x8d,
             0x8c,
         ])
+
+        // FailCases/Binary-repeated-then-required
+        // Field 49 (initialized repeated_message) followed by field 602 (uninitialized
+        // singular_required_message) must fail strict binary decoding.
+        assertBinaryFails([0x8a, 0x03, 0x00, 0xd2, 0x25, 0x00])
     }
 
     func test_JSON() {
@@ -162,6 +167,7 @@ final class Test_FuzzTests: XCTestCase {
 
         // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_debug-4506617283477504
         // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_release-5689942715006976
+        assertJSONFails("{\"[swift_proto_testing.fuzz.singular_sint32_ext]\":null")
         assertJSONFails("{\"[fuzz.testing.singular_sint32_ext]\":null")
 
         // FailCases/JSON-Any
@@ -174,6 +180,14 @@ final class Test_FuzzTests: XCTestCase {
 
         // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_debug-6286338012282880
         assertJSONFails("{\"wktTimestamp\":\"9999-12-31T23:59:60Z\"}")
+
+        // FailCases/JSON-Any-partial-required
+        // Any wrapping a message with a missing required field must re-encode to JSON cleanly.
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_Fuzz_Message.self)
+        let partialAnyJSON =
+            #"{"wktAny":{"@type":"type.googleapis.com/swift_proto_testing.fuzz.Message","singularRequiredMessage":{}}}"#
+        let partialAnyMsg = try! SwiftProtoTesting_Fuzz_Message(jsonString: partialAnyJSON)
+        XCTAssertEqual(try! partialAnyMsg.jsonString(), partialAnyJSON)
     }
 
     func test_TextFormat() {

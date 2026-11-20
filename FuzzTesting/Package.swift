@@ -37,7 +37,7 @@ let package = Package(
         ),
         .testTarget(
             name: "FuzzCommonTests",
-            dependencies: ["FuzzCommon"]
+            dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
     ]
 )

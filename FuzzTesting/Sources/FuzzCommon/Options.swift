@@ -25,23 +25,26 @@ public protocol SupportsFuzzOptions {
     init()
 }
 
+private let reportDecodeInfo = ProcessInfo.processInfo.environment["DUMP_DECODE_INFO"] == "1"
+
 extension SupportsFuzzOptions {
     public static func extractOptions(
-        _ start: UnsafeRawPointer,
+        _ start: UnsafeRawPointer?,
         _ count: Int
     ) -> (Self, UnsafeRawBufferPointer)? {
-        var start = start
+        guard count >= 0, start != nil || count == 0 else {
+            return nil
+        }
         let initialCount = count
         var count = count
         var options = Self()
-        let reportInfo = ProcessInfo.processInfo.environment["DUMP_DECODE_INFO"] == "1"
 
         // No format can start with zero (invalid tag, not really UTF-8), so use that to
         // indicate there are decoding options. The one case that can start with a zero
         // would be length delimited binary, but since that's a zero length message, we
         // can go ahead and use that one also.
-        guard count >= 2, start.loadUnaligned(as: UInt8.self) == 0 else {
-            if reportInfo {
+        guard count >= 2, var start = start, start.loadUnaligned(as: UInt8.self) == 0 else {
+            if reportDecodeInfo {
                 print("No options to decode")
             }
             return (options, UnsafeRawBufferPointer(start: start, count: count))
@@ -66,7 +69,7 @@ extension SupportsFuzzOptions {
                     break
                 }
                 guard count >= 1 else {
-                    if reportInfo {
+                    if reportDecodeInfo {
                         print("Continuation options, but no more data, count as invalid.")
                     }
                     return nil  // No data left to read bits
@@ -85,7 +88,7 @@ extension SupportsFuzzOptions {
                 assert(mod >= 1 && mod <= UInt8.max)
                 if isSet {
                     guard count >= 1 else {
-                        if reportInfo {
+                        if reportDecodeInfo {
                             print(".byte, but no more data to read, count as invalid.")
                         }
                         return nil  // No more bytes to get a value, fail
@@ -103,7 +106,7 @@ extension SupportsFuzzOptions {
         // Ensure the any remaining bits are zero so they can be used in the future
         while bit < 8 {
             if optionsBits & (1 << bit) != 0 {
-                if reportInfo {
+                if reportDecodeInfo {
                     print("Reserved options bit non zero, count as invalid.")
                 }
                 return nil
@@ -111,7 +114,7 @@ extension SupportsFuzzOptions {
             bit += 1
         }
 
-        if reportInfo {
+        if reportDecodeInfo {
             print("\(initialCount - count) bytes consumed off front for options: \(options)")
         }
         return (options, UnsafeRawBufferPointer(start: start, count: count))
@@ -122,6 +125,14 @@ extension SupportsFuzzOptions {
 public struct BinaryFuzzingOptions: SupportsFuzzOptions {
     public var decoding = BinaryDecodingOptions()
     public var encoding = BinaryEncodingOptions()
+
+    public var allowPartial: Bool {
+        get { decoding.allowPartial }
+        set {
+            decoding.allowPartial = newValue
+            encoding.allowPartial = newValue
+        }
+    }
 
     public init() {}
 
@@ -134,9 +145,8 @@ public struct BinaryFuzzingOptions: SupportsFuzzOptions {
             // avoid allowing larger depths that could timeout.
             .byte(\.decoding.messageDepthLimit, mod: 8),
             .boolean(\.decoding.discardUnknownFields),
-            .boolean(\.decoding.allowPartial),
+            .boolean(\.allowPartial),
             .boolean(\.encoding.useDeterministicOrdering),
-            .boolean(\.encoding.allowPartial),
         ]
     }
 }
@@ -145,7 +155,9 @@ public struct JSONFuzzingOptions: SupportsFuzzOptions {
     public var decoding = JSONDecodingOptions()
     public var encoding = JSONEncodingOptions()
 
-    public init() {}
+    public init() {
+        encoding.extensions = SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
+    }
 
     public static var fuzzOptionsList: [FuzzOption<Self>] {
         [
@@ -168,7 +180,9 @@ public struct TextFormatFuzzingOptions: SupportsFuzzOptions {
     public var decoding = TextFormatDecodingOptions()
     public var encoding = TextFormatEncodingOptions()
 
-    public init() {}
+    public init() {
+        encoding.extensions = SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
+    }
 
     public static var fuzzOptionsList: [FuzzOption<Self>] {
         [

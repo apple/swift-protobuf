@@ -1810,6 +1810,26 @@ final class Test_Any: XCTestCase {
         }
     }
 
+    func test_Any_JSONTranscodeMissingRequiredFields() throws {
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestRequired.self)
+
+        // Decoding JSON into Any packs partial binary bytes (missing required fields `b` and `c`);
+        // transcoding back to JSON should succeed rather than failing with anyTranscodeFailure.
+        let json = #"{"@type":"type.googleapis.com/swift_proto_testing.TestRequired","a":1}"#
+        let decoded = try Google_Protobuf_Any(jsonString: json)
+        XCTAssertEqual(try decoded.jsonString(), json)
+
+        var partial = SwiftProtoTesting_TestRequired()
+        partial.a = 42
+        var encodingOptions = BinaryEncodingOptions()
+        encodingOptions.allowPartial = true
+        let packed = try Google_Protobuf_Any(packing: partial, options: encodingOptions)
+        XCTAssertEqual(
+            try packed.jsonString(),
+            #"{"@type":"type.googleapis.com/swift_proto_testing.TestRequired","a":42}"#
+        )
+    }
+
     func test_Any_unregisteredTypeURLWithFields() throws {
         // Fields before and/or after an unregistered @type report unknownAnyTypeURL once syntax is valid.
         for json in [

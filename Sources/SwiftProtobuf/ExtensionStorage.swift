@@ -146,7 +146,9 @@ public final class ExtensionStorage {
                         }
                         return .continue
                     }
-                    return areAllInitialized
+                    guard areAllInitialized else {
+                        return false
+                    }
 
                 case .scalar:
                     let storage = messageStorage(forAssumedPresentSingularMessageField: ext)
