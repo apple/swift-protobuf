@@ -96,9 +96,20 @@ extension MessageStorage {
             try emitAsValue(into: &encoder, options: options)
 
         case .notWellKnown:
-            // This is the common case.
-            if !shouldInlineFields {
+            // This is the common case. When inlining fields inside an enclosing `Any`,
+            // no extra `{ ... }` object is emitted, so decrement `recursionBudget`
+            // directly to account for the packed message itself.
+            if shouldInlineFields {
+                encoder.recursionBudget -= 1
+            } else {
                 encoder.startObject()
+            }
+            defer {
+                if shouldInlineFields {
+                    encoder.recursionBudget += 1
+                } else {
+                    encoder.endObject()
+                }
             }
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             for field in schema.fields {
@@ -106,9 +117,6 @@ extension MessageStorage {
                 try serializeField(field, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
             }
             try extensionStorage.serializeJSON(into: &encoder, options: options)
-            if !shouldInlineFields {
-                encoder.endObject()
-            }
         }
     }
 
