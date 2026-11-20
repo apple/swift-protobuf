@@ -55,6 +55,27 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         }
     }
 
+    func testDecoding_comments_carriageReturn() {
+        // Only '\n' ends a comment; a lone '\r' does not.
+        assertTextFormatDecodeSucceeds("optional_int32: 41#c\roptional_int64: 8\n") {
+            (o: MessageTestType) in
+            o.optionalInt32 == 41 && o.optionalInt64 == 0
+        }
+        assertTextFormatDecodeSucceeds("optional_int32: 41#c\roptional_int32: 42\n") {
+            (o: MessageTestType) in
+            o.optionalInt32 == 41
+        }
+        assertTextFormatDecodeSucceeds("#c\roptional_int32: 42") {
+            (o: MessageTestType) in
+            o.optionalInt32 == 0
+        }
+        // "\r\n" still ends the comment.
+        assertTextFormatDecodeSucceeds("optional_int32: 41#c\r\noptional_int64: 8\r\n") {
+            (o: MessageTestType) in
+            o.optionalInt32 == 41 && o.optionalInt64 == 8
+        }
+    }
+
     func testDecoding_comments_numbers() {
         assertTextFormatDecodeSucceeds("1: 41#optional_int32: 42\n2: 8") {
             (o: MessageTestType) in

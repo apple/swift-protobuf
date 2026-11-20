@@ -315,9 +315,10 @@ internal struct TextFormatScanner {
                     // Skip until end of line
                     let c = p[0]
                     p += 1
-                    // NOTE: The support for asciiCarriageReturn (13) to end the comment is not
-                    // actually to spec.
-                    if c == asciiNewLine || c == asciiCarriageReturn {
+                    // Only '\n' ends a comment, matching the spec and the C++
+                    // tokenizer (io/tokenizer.cc ConsumeLineComment()). A lone
+                    // '\r' is part of the comment; for "\r\n" the '\n' ends it.
+                    if c == asciiNewLine {
                         break
                     }
                 }
