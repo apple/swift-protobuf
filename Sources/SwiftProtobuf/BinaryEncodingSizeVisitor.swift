@@ -368,7 +368,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
             fieldNumber: fieldNumber,
             wireFormat: .lengthDelimited
         ).encodedSize
-        let messageSize = try value.serializedDataSize()
+        let messageSize = try BinaryEncodingSizeVisitor.serializedSize(of: value)
         serializedSize +=
             tagSize + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
     }
@@ -384,7 +384,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
         ).encodedSize
         serializedSize += value.count * tagSize
         let dataSize = try value.reduce(0) {
-            let messageSize = try $1.serializedDataSize()
+            let messageSize = try BinaryEncodingSizeVisitor.serializedSize(of: $1)
             return $0 + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
         }
         serializedSize += dataSize
@@ -481,6 +481,36 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
         var sizer = BinaryEncodingMessageSetSizeVisitor()
         try fields.traverse(visitor: &sizer, start: start, end: end)
         serializedSize += sizer.serializedSize
+    }
+
+    /// Returns the binary-encoded size of `message`, matching what
+    /// `BinaryEncodingVisitor.encode(message:)` writes.
+    ///
+    /// A `Google_Protobuf_Any` holding a message (rather than bytes) is sized
+    /// from that message directly instead of building its `value` bytes, so
+    /// nested Anys don't get reserialized by every enclosing pass.
+    static func serializedSize<M: Message>(of message: M) throws -> Int {
+        guard M.self == Google_Protobuf_Any.self else {
+            return try message.serializedDataSize()
+        }
+        let any = message as! Google_Protobuf_Any
+        guard let valueMessage = try any._storage.messageForBinaryEncoding() else {
+            return try message.serializedDataSize()
+        }
+        var size = 0
+        let typeURL = any._storage._typeURL
+        if !typeURL.isEmpty {
+            var sizer = BinaryEncodingSizeVisitor()
+            try sizer.visitSingularStringField(value: typeURL, fieldNumber: 1)
+            size += sizer.serializedSize
+        }
+        let valueSize = try serializedSize(of: valueMessage)
+        if valueSize > 0 {
+            let tagSize = FieldTag(fieldNumber: 2, wireFormat: .lengthDelimited).encodedSize
+            size += tagSize + Varint.encodedSize(of: UInt64(valueSize)) + valueSize
+        }
+        size += any.unknownFields.data.count
+        return size
     }
 }
 

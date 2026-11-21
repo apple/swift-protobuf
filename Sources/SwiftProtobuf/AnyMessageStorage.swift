@@ -81,6 +81,23 @@ private func canUseVerboseTextForm(typeURL: String) -> Bool {
     return true
 }
 
+// Binary encoding of a message used as an Any value. Equivalent to
+// `message.serializedBytes(partial: true)`, but any Any inside `message`
+// (including `message` itself) is encoded in place instead of having its
+// `value` bytes rebuilt by every enclosing size and write pass.
+private func serializedAnyValueBytes(_ message: any Message) throws -> Data {
+    let size = try BinaryEncodingSizeVisitor.serializedSize(of: message)
+    var data = Data(count: size)
+    if size > 0 {
+        try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
+            var visitor = BinaryEncodingVisitor(forWritingInto: body, options: BinaryEncodingOptions())
+            try visitor.encode(message: message)
+            assert(visitor.encoder.remainder.count == 0)
+        }
+    }
+    return data
+}
+
 private func asJSONObject(body: [UInt8]) -> Data {
     let asciiOpenCurlyBracket = UInt8(ascii: "{")
     let asciiCloseCurlyBracket = UInt8(ascii: "}")
@@ -150,7 +167,7 @@ internal class AnyMessageStorage {
                 return value
             case .message(let message):
                 do {
-                    return try message.serializedBytes(partial: true)
+                    return try serializedAnyValueBytes(message)
                 } catch {
                     return Data()
                 }
@@ -165,7 +182,7 @@ internal class AnyMessageStorage {
                         options: options,
                         as: messageType
                     )
-                    return try m.serializedBytes(partial: true)
+                    return try serializedAnyValueBytes(m)
                 } catch {
                     return Data()
                 }
@@ -173,6 +190,37 @@ internal class AnyMessageStorage {
         }
         set {
             state = .binary(newValue)
+        }
+    }
+
+    /// The message the binary encoders should write in place of `_value`, or
+    /// nil if the value is already held as bytes.
+    ///
+    /// Building `_value` for a `.message` or `.contentJSON` state serializes the
+    /// contained message, and the binary encoders read it during both the size
+    /// and the write pass (and the generated `traverse` reads it twice). If that
+    /// message contains another such Any, every level multiplies the work, so
+    /// nested Anys are instead encoded in place through this message.
+    internal func messageForBinaryEncoding() throws -> (any Message)? {
+        switch state {
+        case .binary:
+            return nil
+        case .message(let message):
+            return message
+        case .contentJSON(let contentJSON, let options):
+            guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
+                throw BinaryEncodingError.anyTranscodeFailure
+            }
+            do {
+                return try unpack(
+                    contentJSON: contentJSON,
+                    extensions: SimpleExtensionMap(),
+                    options: options,
+                    as: messageType
+                )
+            } catch {
+                throw BinaryEncodingError.anyTranscodeFailure
+            }
         }
     }
 
