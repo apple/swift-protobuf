@@ -85,6 +85,8 @@ final class Test_JSONDecodingOptions: XCTestCase {
             (true, "{\"unknown\": [3, {}, \"5\"]}"),
             (true, "{\"unknown\": {}}"),
             (true, "{\"unknown\": {\"foo\": 1}}"),
+            (true, "{\"unknown\": \"\\\" \\\\ \\/ \\b \\f \\n \\r \\t \\u00e9 \\ud83d\\ude00\"}"),
+            (true, "{\"unknown\": {\"k\\u00e9y\": [\"\\n\"]}}"),
             // multiple fields, fails on first.
             (true, "{\"unknown\": 7, \"also_unknown\": 8}"),
             (true, "{\"unknown\": 7, \"zz_unknown\": 8}"),
@@ -121,6 +123,15 @@ final class Test_JSONDecodingOptions: XCTestCase {
             (false, "{\"unknown\": [[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]}"),
             (false, "{\"unknown\": [[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]}"),
             (false, "{\"unknown\": [[[[[[[[[[[[[[[[[[[[[[,]]]]]]]]]]]]]]]]]]]]]]}"),
+            // Skipped strings must be valid JSON strings.
+            (false, "{\"unknown\": \"\\q\"}"),
+            (false, "{\"unknown\": \"\\x41\"}"),
+            (false, "{\"unknown\": \"\\u12\"}"),
+            (false, "{\"unknown\": \"\\ud800\"}"),
+            (false, "{\"unknown\": \"\\udc00\"}"),
+            (false, "{\"unknown\": \"a\u{01}b\"}"),
+            (false, "{\"unknown\": [\"\\q\"]}"),
+            (false, "{\"unknown\": {\"\\q\": 1}}"),
             // Generally malformed JSON still errors on the field name
             (false, "{\"unknown\": }"),
             (false, "{\"unknown\": null true}"),
@@ -160,6 +171,21 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     "Input \(i): Error \(e): Should have been able to parse: \(jsonInput)"
                 )
             }
+        }
+    }
+
+    func testIgnoreUnknownFieldsInvalidUTF8() {
+        var options = JSONDecodingOptions()
+        options.ignoreUnknownFields = true
+        let jsonInputs: [[UInt8]] = [
+            Array("{\"unknown\": \"a".utf8) + [0xff] + Array("b\"}".utf8),
+            Array("{\"unknown\": {\"a".utf8) + [0xc3] + Array("\": 1}}".utf8),
+        ]
+        for jsonInput in jsonInputs {
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_TestEmptyMessage(jsonUTF8Bytes: jsonInput, options: options),
+                "Input: \(jsonInput)"
+            )
         }
     }
 

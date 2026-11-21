@@ -225,6 +225,29 @@ final class Test_Any: XCTestCase {
         XCTAssertThrowsError(try decoded.serializedBytes() as [UInt8])
     }
 
+    func test_Any_UnknownUserMessage_JSON_MalformedString() throws {
+        // The JSON for an unregistered type is kept and written back out
+        // as-is, so it has to be valid JSON when it is decoded.
+        let malformed = [
+            "\"\\q\"",
+            "\"\\x41\"",
+            "\"\\u12\"",
+            "\"\\udc00\"",
+            "\"a\u{01}b\"",
+            "[\"\\q\"]",
+            "{\"\\q\":1}",
+        ]
+        for value in malformed {
+            let json = "{\"anyValue\":{\"@type\":\"type.googleapis.com/UNKNOWN\",\"optionalString\":\(value)}}"
+            XCTAssertThrowsError(try SwiftProtoTesting_TestAny(jsonString: json), "Input: \(json)")
+        }
+
+        let start =
+            "{\"anyValue\":{\"@type\":\"type.googleapis.com/UNKNOWN\",\"optionalString\":\"\\u00e9\\n\\ud83d\\ude00\"}}"
+        let decoded = try SwiftProtoTesting_TestAny(jsonString: start)
+        XCTAssertEqual(try decoded.jsonString(), start)
+    }
+
     func test_Any_UnknownUserMessage_protobuf() throws {
         Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
         let start: [UInt8] = [
