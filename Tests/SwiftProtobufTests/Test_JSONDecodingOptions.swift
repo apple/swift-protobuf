@@ -296,4 +296,126 @@ final class Test_JSONDecodingOptions: XCTestCase {
         }
     }
 
+    func testIgnoreUnknownFields_enumStringUTF8Validation() throws {
+        var ignoreOptions = JSONDecodingOptions()
+        ignoreOptions.ignoreUnknownFields = true
+        let strictOptions = JSONDecodingOptions()
+
+        // Valid unknown UTF-8 enum strings are ignored when ignoreUnknownFields = true
+        // and rejected with unrecognizedEnumValue when ignoreUnknownFields = false.
+        let validUnknownEnumBytes: [[UInt8]] = [
+            Array("UNKNOWN_ENUM_VALUE".utf8),
+            Array("UNKNOWN_".utf8) + [0xC3, 0xA9],  // é
+            Array("UNKNOWN_".utf8) + [0xF0, 0x9F, 0x98, 0x80],  // 😀
+        ]
+        for unknownName in validUnknownEnumBytes {
+            // Singular enum field
+            var singularBytes = Array("{\"optionalNestedEnum\":\"".utf8)
+            singularBytes.append(contentsOf: unknownName)
+            singularBytes.append(contentsOf: "\"}".utf8)
+            let singularMsg = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonUTF8Bytes: singularBytes,
+                options: ignoreOptions
+            )
+            XCTAssertEqual(singularMsg.optionalNestedEnum, .foo)
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                    jsonUTF8Bytes: singularBytes,
+                    options: strictOptions
+                )
+            ) { error in
+                guard case JSONDecodingError.unrecognizedEnumValue = error else {
+                    XCTFail("Expected JSONDecodingError.unrecognizedEnumValue, got \(error)")
+                    return
+                }
+            }
+
+            // Repeated enum field
+            var repeatedBytes = Array("{\"repeatedNestedEnum\":[\"BAR\",\"".utf8)
+            repeatedBytes.append(contentsOf: unknownName)
+            repeatedBytes.append(contentsOf: "\",\"BAZ\"]}".utf8)
+            let repeatedMsg = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonUTF8Bytes: repeatedBytes,
+                options: ignoreOptions
+            )
+            XCTAssertEqual(repeatedMsg.repeatedNestedEnum, [.bar, .baz])
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                    jsonUTF8Bytes: repeatedBytes,
+                    options: strictOptions
+                )
+            ) { error in
+                guard case JSONDecodingError.unrecognizedEnumValue = error else {
+                    XCTFail("Expected JSONDecodingError.unrecognizedEnumValue, got \(error)")
+                    return
+                }
+            }
+
+            // Map enum value
+            var mapBytes = Array("{\"mapStringNestedEnum\":{\"a\":\"BAR\",\"b\":\"".utf8)
+            mapBytes.append(contentsOf: unknownName)
+            mapBytes.append(contentsOf: "\"}}".utf8)
+            let mapMsg = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonUTF8Bytes: mapBytes,
+                options: ignoreOptions
+            )
+            XCTAssertEqual(mapMsg.mapStringNestedEnum, ["a": .bar])
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                    jsonUTF8Bytes: mapBytes,
+                    options: strictOptions
+                )
+            ) { error in
+                guard case JSONDecodingError.unrecognizedEnumValue = error else {
+                    XCTFail("Expected JSONDecodingError.unrecognizedEnumValue, got \(error)")
+                    return
+                }
+            }
+        }
+
+        // Invalid UTF-8 bytes in an unrecognized enum string must throw malformedString
+        // on singular, repeated, and map enum fields regardless of ignoreUnknownFields.
+        let invalidUTF8Sequences: [[UInt8]] = [
+            [0xFF],
+            [0xC3],
+            [0xED, 0xA0, 0x80],
+        ]
+        let enumContainers: [(prefix: String, suffix: String)] = [
+            ("{\"optionalNestedEnum\":\"", "\"}"),
+            ("{\"repeatedNestedEnum\":[\"", "\"]}"),
+            ("{\"repeatedNestedEnum\":[\"BAR\",\"", "\",\"BAZ\"]}"),
+            ("{\"mapStringNestedEnum\":{\"a\":\"BAR\",\"b\":\"", "\"}}"),
+        ]
+        for badBytes in invalidUTF8Sequences {
+            for container in enumContainers {
+                var bytes = Array(container.prefix.utf8)
+                bytes.append(contentsOf: badBytes)
+                bytes.append(contentsOf: container.suffix.utf8)
+                for options in [ignoreOptions, strictOptions] {
+                    XCTAssertThrowsError(
+                        try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                            jsonUTF8Bytes: bytes,
+                            options: options
+                        )
+                    ) { error in
+                        guard case JSONDecodingError.malformedString = error else {
+                            XCTFail("Expected JSONDecodingError.malformedString, got \(error)")
+                            return
+                        }
+                    }
+                }
+            }
+        }
+
+        // Recognized enum values (both fast-path unescaped and escaped) continue to decode cleanly.
+        let knownMsg = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+            jsonString:
+                "{\"optionalNestedEnum\":\"BAR\",\"repeatedNestedEnum\":[\"BA\\u0052\",\"BAZ\"],\"mapStringNestedEnum\":{\"k\":\"BAR\"}}",
+            options: ignoreOptions
+        )
+        XCTAssertEqual(knownMsg.optionalNestedEnum, .bar)
+        XCTAssertEqual(knownMsg.repeatedNestedEnum, [.bar, .baz])
+        XCTAssertEqual(knownMsg.mapStringNestedEnum, ["k": .bar])
+    }
+
 }

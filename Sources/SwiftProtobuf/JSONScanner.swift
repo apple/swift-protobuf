@@ -1446,6 +1446,9 @@ internal struct JSONScanner {
                 if let e = E(forJSONName: name) {
                     return e
                 } else {
+                    guard isValidUTF8(bytes: name) else {
+                        throw JSONDecodingError.malformedString
+                    }
                     return try throwOrIgnore()
                 }
             }
