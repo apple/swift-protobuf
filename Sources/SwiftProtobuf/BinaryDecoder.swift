@@ -248,7 +248,7 @@ internal struct BinaryDecoder: Decoder {
                 if bodyBytes % itemSize != 0 || bodyBytes > available {
                     throw BinaryDecodingError.truncated
                 }
-                value.reserveCapacity(value.count + Int(truncatingIfNeeded: itemCount))
+                value.reservePackedCapacity(Int(truncatingIfNeeded: itemCount))
                 for _ in 1...itemCount {
                     value.append(try decodeFloat())
                 }
@@ -289,7 +289,7 @@ internal struct BinaryDecoder: Decoder {
                 if bodyBytes % itemSize != 0 || bodyBytes > available {
                     throw BinaryDecodingError.truncated
                 }
-                value.reserveCapacity(value.count + Int(truncatingIfNeeded: itemCount))
+                value.reservePackedCapacity(Int(truncatingIfNeeded: itemCount))
                 for _ in 1...itemCount {
                     let i = try decodeDouble()
                     value.append(i)
@@ -329,7 +329,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             let ints = Varint.countVarintsInBuffer(start: p, count: n)
-            value.reserveCapacity(value.count + ints)
+            value.reservePackedCapacity(ints)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let varint = try decoder.decodeVarint()
@@ -369,7 +369,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             let ints = Varint.countVarintsInBuffer(start: p, count: n)
-            value.reserveCapacity(value.count + ints)
+            value.reservePackedCapacity(ints)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let varint = try decoder.decodeVarint()
@@ -409,7 +409,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             let ints = Varint.countVarintsInBuffer(start: p, count: n)
-            value.reserveCapacity(value.count + ints)
+            value.reservePackedCapacity(ints)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let t = try decoder.decodeVarint()
@@ -447,7 +447,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             let ints = Varint.countVarintsInBuffer(start: p, count: n)
-            value.reserveCapacity(value.count + ints)
+            value.reservePackedCapacity(ints)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let t = try decoder.decodeVarint()
@@ -490,7 +490,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             let ints = Varint.countVarintsInBuffer(start: p, count: n)
-            value.reserveCapacity(value.count + ints)
+            value.reservePackedCapacity(ints)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let varint = try decoder.decodeVarint()
@@ -531,7 +531,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             let ints = Varint.countVarintsInBuffer(start: p, count: n)
-            value.reserveCapacity(value.count + ints)
+            value.reservePackedCapacity(ints)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let varint = try decoder.decodeVarint()
@@ -567,7 +567,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<UInt32>.size)
+            value.reservePackedCapacity(n / MemoryLayout<UInt32>.size)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 value.append(try decoder.decodeLittleEndianInteger())
@@ -602,7 +602,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<UInt64>.size)
+            value.reservePackedCapacity(n / MemoryLayout<UInt64>.size)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 value.append(try decoder.decodeLittleEndianInteger())
@@ -637,7 +637,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<Int32>.size)
+            value.reservePackedCapacity(n / MemoryLayout<Int32>.size)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 value.append(try decoder.decodeLittleEndianInteger())
@@ -672,7 +672,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<Int64>.size)
+            value.reservePackedCapacity(n / MemoryLayout<Int64>.size)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 value.append(try decoder.decodeLittleEndianInteger())
@@ -709,7 +709,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             let ints = Varint.countVarintsInBuffer(start: p, count: n)
-            value.reserveCapacity(value.count + ints)
+            value.reservePackedCapacity(ints)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let t = try decoder.decodeVarint()
@@ -832,7 +832,7 @@ internal struct BinaryDecoder: Decoder {
             var extras: [Int32]?
             let p = try getFieldBodyBytes(count: &n)
             let ints = Varint.countVarintsInBuffer(start: p, count: n)
-            value.reserveCapacity(value.count + ints)
+            value.reservePackedCapacity(ints)
             var subdecoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !subdecoder.complete {
                 let u64 = try subdecoder.decodeVarint()
@@ -1523,5 +1523,20 @@ internal struct BinaryDecoder: Decoder {
         let body = p
         consume(length: count)
         return body
+    }
+}
+
+extension Array {
+    /// Reserves room for the elements of one chunk of a packed field.
+    ///
+    /// `reserveCapacity(_:)` grows the storage to exactly the requested size, so
+    /// reserving `count + n` for every chunk makes a field that is split into
+    /// many small chunks reallocate and copy the whole array each time. Only
+    /// reserve for the first chunk and let `append(_:)` grow the storage
+    /// geometrically after that.
+    fileprivate mutating func reservePackedCapacity(_ n: Int) {
+        if isEmpty {
+            reserveCapacity(n)
+        }
     }
 }
