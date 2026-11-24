@@ -225,6 +225,111 @@ final class Test_Any: XCTestCase {
         XCTAssertThrowsError(try decoded.serializedBytes() as [UInt8])
     }
 
+    func test_Any_UnknownUserMessage_JSONStringValidation() throws {
+        // Valid escapes, surrogate pairs, and nested containers decode and re-encode cleanly.
+        let validInputs: [String] = [
+            "{\"@type\":\"type.googleapis.com/example.Unregistered\",\"s\":\"\"}",
+            "{\"@type\":\"type.googleapis.com/example.Unregistered\",\"s\":\"plain string longer than inline capacity\"}",
+            "{\"@type\":\"type.googleapis.com/example.Unregistered\",\"s\":\"\\\"\\\\\\/\\b\\f\\n\\r\\t\"}",
+            "{\"@type\":\"type.googleapis.com/example.Unregistered\",\"s\":\"\\u0000\\u0041\\u00e9\\uffff\"}",
+            "{\"@type\":\"type.googleapis.com/example.Unregistered\",\"s\":\"\\ud83d\\ude00\\uD834\\uDD1E\"}",
+            "{\"@type\":\"type.googleapis.com/example.Unregistered\",\"nested\":{\"k\\n\":[\"a\\\"b\",\"\\u00e9\",\"\\ud83d\\ude00\",{\"inner\":\"ok\\t!\"}]}}",
+        ]
+        for json in validInputs {
+            let decoded = try Google_Protobuf_Any(jsonString: json)
+            let recoded = try decoded.jsonString()
+            XCTAssertEqual(recoded, json, "Round-trip mismatch for \(json)")
+        }
+
+        // Malformed escapes, broken surrogates, and unescaped C0 controls are rejected
+        // in top-level values, nested arrays, nested object values, and nested object keys.
+        let invalidPayloads: [String] = [
+            // Malformed escapes
+            "\"bad\\qescape\"",
+            "\"bad\\x41hex\"",
+            "\"short\\u12\"",
+            "\"nonhex\\u123g\"",
+            "\"upper\\U0041\"",
+            // Unpaired and misordered surrogates
+            "\"\\ud800\"",
+            "\"\\udc00\"",
+            "\"\\ude00\\ud83d\"",
+            "\"\\ud800\\u0041\"",
+            "\"\\ud800\\ud800\"",
+            "\"\\ud800\\u123\"",
+            // Unescaped C0 control characters (including immediately after backslash)
+            "\"a\u{00}b\"",
+            "\"a\u{01}b\"",
+            "\"a\u{09}b\"",
+            "\"a\u{0a}b\"",
+            "\"a\u{1f}b\"",
+            "\"a\\\u{01}b\"",
+            "\"a\\\u{00}b\"",
+            "\"a\\\\\u{01}b\"",
+            // Nested array and object values
+            "[\"ok\",\"bad\\q\"]",
+            "[\"ok\",\"\\ud800\"]",
+            "{\"inner\":\"bad\\x41\"}",
+            "{\"inner\":\"a\\\u{01}b\"}",
+            // Nested object keys
+            "{\"bad\\q\":1}",
+            "{\"\\ude00\\ud83d\":1}",
+            "{\"a\u{01}b\":1}",
+            "{\"a\\\u{01}b\":1}",
+        ]
+        for payload in invalidPayloads {
+            let json = "{\"@type\":\"type.googleapis.com/example.Unregistered\",\"v\":\(payload)}"
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), "Expected failure for \(json)") { error in
+                guard case JSONDecodingError.malformedString = error else {
+                    XCTFail("Expected JSONDecodingError.malformedString for \(json), got \(error)")
+                    return
+                }
+            }
+        }
+
+        // Valid raw UTF-8 bytes succeed via jsonUTF8Bytes.
+        let validUTF8Payloads: [[UInt8]] = [
+            [0xC3, 0xA9],  // é
+            [0xF0, 0x9F, 0x98, 0x80],  // 😀
+        ]
+        for payloadBytes in validUTF8Payloads {
+            var bytes = Array("{\"@type\":\"type.googleapis.com/example.Unregistered\",\"v\":\"".utf8)
+            bytes.append(contentsOf: payloadBytes)
+            bytes.append(contentsOf: "\"}".utf8)
+            let decoded = try Google_Protobuf_Any(jsonUTF8Bytes: bytes)
+            XCTAssertEqual(try decoded.jsonUTF8Bytes(), bytes)
+        }
+
+        // Invalid raw UTF-8 bytes (0xFF, truncated 0xC3, UTF-8 surrogate 0xED 0xA0 0x80,
+        // and invalid UTF-8 alongside a valid escape) are rejected in values, nested arrays,
+        // nested object values, and nested object keys.
+        let invalidUTF8Sequences: [[UInt8]] = [
+            [0xFF],
+            [0xC3],
+            [0xED, 0xA0, 0x80],
+            [UInt8(ascii: "\\"), UInt8(ascii: "n"), 0xFF],
+        ]
+        let utf8Containers: [(prefix: String, suffix: String)] = [
+            ("{\"@type\":\"type.googleapis.com/example.Unregistered\",\"v\":\"", "\"}"),
+            ("{\"@type\":\"type.googleapis.com/example.Unregistered\",\"v\":[\"ok\",\"", "\"]}"),
+            ("{\"@type\":\"type.googleapis.com/example.Unregistered\",\"v\":{\"inner\":\"", "\"}}"),
+            ("{\"@type\":\"type.googleapis.com/example.Unregistered\",\"v\":{\"", "\":1}}"),
+        ]
+        for badBytes in invalidUTF8Sequences {
+            for container in utf8Containers {
+                var bytes = Array(container.prefix.utf8)
+                bytes.append(contentsOf: badBytes)
+                bytes.append(contentsOf: container.suffix.utf8)
+                XCTAssertThrowsError(try Google_Protobuf_Any(jsonUTF8Bytes: bytes)) { error in
+                    guard case JSONDecodingError.malformedString = error else {
+                        XCTFail("Expected JSONDecodingError.malformedString, got \(error)")
+                        return
+                    }
+                }
+            }
+        }
+    }
+
     func test_Any_UnknownUserMessage_protobuf() throws {
         Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
         let start: [UInt8] = [

@@ -66,6 +66,21 @@ internal func utf8ToString(
     utf8ToString(bytes: bytes.baseAddress! + start, count: end - start)
 }
 
+internal func isValidUTF8(bytes: UnsafeRawBufferPointer) -> Bool {
+    var parser = Unicode.UTF8.ForwardParser()
+    var iterator = bytes.makeIterator()
+    while true {
+        switch parser.parseScalar(from: &iterator) {
+        case .valid:
+            break
+        case .error:
+            return false
+        case .emptyInput:
+            return true
+        }
+    }
+}
+
 // Swift 4 introduced new faster String facilities
 // that seem to work consistently across all platforms.
 
@@ -86,25 +101,15 @@ internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
         return String()
     }
     let codeUnits = UnsafeRawBufferPointer(start: bytes, count: count)
-    let sourceEncoding = Unicode.UTF8.self
 
     // Verify that the UTF-8 is valid.
-    var p = sourceEncoding.ForwardParser()
-    var i = codeUnits.makeIterator()
-    Loop: while true {
-        switch p.parseScalar(from: &i) {
-        case .valid(_):
-            break
-        case .error:
-            return nil
-        case .emptyInput:
-            break Loop
-        }
+    guard isValidUTF8(bytes: codeUnits) else {
+        return nil
     }
 
     // This initializer is fast but does not reject broken
     // UTF-8 (which is why we validate the UTF-8 above).
-    return String(decoding: codeUnits, as: sourceEncoding)
+    return String(decoding: codeUnits, as: Unicode.UTF8.self)
 }
 
 extension Unicode.Scalar {
