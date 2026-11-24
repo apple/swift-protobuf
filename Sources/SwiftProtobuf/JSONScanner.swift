@@ -56,6 +56,7 @@ private let asciiLowerB = UInt8(ascii: "b")
 private let asciiLowerE = UInt8(ascii: "e")
 private let asciiUpperE = UInt8(ascii: "E")
 private let asciiLowerF = UInt8(ascii: "f")
+private let asciiUpperF = UInt8(ascii: "F")
 private let asciiUpperI = UInt8(ascii: "I")
 private let asciiLowerL = UInt8(ascii: "l")
 private let asciiLowerN = UInt8(ascii: "n")
@@ -67,21 +68,27 @@ private let asciiLowerU = UInt8(ascii: "u")
 private let asciiLowerZ = UInt8(ascii: "z")
 private let asciiUpperZ = UInt8(ascii: "Z")
 
-private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
-    let n = c.value
-    if n >= 48 && n <= 57 {
-        return UInt32(n - 48)
+/// Parses 4 ASCII hexadecimal digits starting at `bytes`.
+///
+/// Caller must guarantee at least 4 readable bytes starting at `bytes`.
+private func parseFourHexDigits(_ bytes: UnsafeRawPointer) -> UInt32? {
+    var result: UInt32 = 0
+    for i in 0..<4 {
+        let byte = bytes.load(fromByteOffset: i, as: UInt8.self)
+        let digit: UInt32
+        switch byte {
+        case asciiZero...asciiNine:
+            digit = UInt32(byte - asciiZero)
+        case asciiUpperA...asciiUpperF:
+            digit = UInt32(byte - asciiUpperA) + 10
+        case asciiLowerA...asciiLowerF:
+            digit = UInt32(byte - asciiLowerA) + 10
+        default:
+            return nil
+        }
+        result = (result << 4) | digit
     }
-    switch n {
-    case 65, 97: return 10
-    case 66, 98: return 11
-    case 67, 99: return 12
-    case 68, 100: return 13
-    case 69, 101: return 14
-    case 70, 102: return 15
-    default:
-        return nil
-    }
+    return result
 }
 
 // Decode both the RFC 4648 section 4 Base 64 encoding and the RFC
@@ -278,98 +285,132 @@ private func parseBytes(
     return value
 }
 
-// JSON encoding allows a variety of \-escapes, including
-// escaping UTF-16 code points (which may be surrogate pairs).
-private func decodeString(_ s: String) -> String? {
-    var out = String.UnicodeScalarView()
-    var chars = s.unicodeScalars.makeIterator()
-    while let c = chars.next() {
-        switch c.value {
-        case UInt32(asciiBackslash):  // backslash
-            if let escaped = chars.next() {
-                switch escaped.value {
-                case UInt32(asciiLowerU):  // "\u"
-                    // Exactly 4 hex digits:
-                    if let digit1 = chars.next(),
-                        let d1 = fromHexDigit(digit1),
-                        let digit2 = chars.next(),
-                        let d2 = fromHexDigit(digit2),
-                        let digit3 = chars.next(),
-                        let d3 = fromHexDigit(digit3),
-                        let digit4 = chars.next(),
-                        let d4 = fromHexDigit(digit4)
-                    {
-                        let codePoint = ((d1 * 16 + d2) * 16 + d3) * 16 + d4
-                        if let scalar = UnicodeScalar(codePoint) {
-                            out.append(scalar)
-                        } else if codePoint < 0xD800 || codePoint >= 0xE000 {
-                            // Not a valid Unicode scalar.
-                            return nil
-                        } else if codePoint >= 0xDC00 {
-                            // Low surrogate without a preceding high surrogate.
-                            return nil
-                        } else {
-                            // We have a high surrogate (in the range 0xD800..<0xDC00), so
-                            // verify that it is followed by a low surrogate.
-                            guard chars.next() == "\\", chars.next() == "u" else {
-                                // High surrogate was not followed by a Unicode escape sequence.
-                                return nil
-                            }
-                            if let digit1 = chars.next(),
-                                let d1 = fromHexDigit(digit1),
-                                let digit2 = chars.next(),
-                                let d2 = fromHexDigit(digit2),
-                                let digit3 = chars.next(),
-                                let d3 = fromHexDigit(digit3),
-                                let digit4 = chars.next(),
-                                let d4 = fromHexDigit(digit4)
-                            {
-                                let follower = ((d1 * 16 + d2) * 16 + d3) * 16 + d4
-                                guard 0xDC00 <= follower && follower < 0xE000 else {
-                                    // High surrogate was not followed by a low surrogate.
-                                    return nil
-                                }
-                                let high = codePoint - 0xD800
-                                let low = follower - 0xDC00
-                                let composed = 0x10000 | high << 10 | low
-                                guard let composedScalar = UnicodeScalar(composed) else {
-                                    // Composed value is not a valid Unicode scalar.
-                                    return nil
-                                }
-                                out.append(composedScalar)
-                            } else {
-                                // Malformed \u escape for low surrogate
-                                return nil
-                            }
-                        }
-                    } else {
-                        // Malformed \u escape
-                        return nil
-                    }
-                case UInt32(asciiLowerB):  // \b
-                    out.append("\u{08}")
-                case UInt32(asciiLowerF):  // \f
-                    out.append("\u{0c}")
-                case UInt32(asciiLowerN):  // \n
-                    out.append("\u{0a}")
-                case UInt32(asciiLowerR):  // \r
-                    out.append("\u{0d}")
-                case UInt32(asciiLowerT):  // \t
-                    out.append("\u{09}")
-                case UInt32(asciiDoubleQuote), UInt32(asciiBackslash),
-                    UInt32(asciiForwardSlash):  // " \ /
-                    out.append(escaped)
-                default:
-                    return nil  // Unrecognized escape
+/// Validates and decodes RFC 8259 backslash escapes in `rawBytes` in a single pass.
+///
+/// Precondition: `rawBytes` has already been verified as valid UTF-8, and when
+/// `out != nil`, `out` points to at least `rawBytes.count` writable bytes.
+/// `rawBytes.count` always upper-bounds the decoded UTF-8 length because
+/// unescaped bytes copy 1:1 and every valid JSON escape sequence is strictly
+/// longer than its decoded UTF-8 representation:
+/// - 2-byte escapes (`\"`, `\\`, `\/`, `\b`, `\f`, `\n`, `\r`, `\t`) -> 1 byte
+/// - 6-byte BMP `\uXXXX` escapes -> 1 to 3 bytes
+/// - 12-byte surrogate pair `\uXXXX\uYYYY` escapes -> 4 bytes
+///
+/// When `out == nil`, escapes are validated without writing output.
+/// Returns the number of decoded UTF-8 bytes, or `nil` if any escape is malformed.
+private func decodeEscapedUTF8(
+    rawBytes: UnsafeRawBufferPointer,
+    into out: UnsafeMutablePointer<UInt8>?
+) -> Int? {
+    guard let rawBase = rawBytes.baseAddress else {
+        return 0
+    }
+    let count = rawBytes.count
+    var i = 0
+    var written = 0
+
+    while i < count {
+        // Scan a contiguous run of non-backslash bytes. Because `rawBytes` is
+        // already valid UTF-8 and ASCII backslash (0x5C) never occurs as part
+        // of a multi-byte UTF-8 sequence, each run is valid UTF-8 and copies
+        // verbatim.
+        let runStart = i
+        while i < count && rawBase.load(fromByteOffset: i, as: UInt8.self) != asciiBackslash {
+            i += 1
+        }
+        let runLength = i - runStart
+        if runLength > 0 {
+            if let out = out {
+                UnsafeMutableRawPointer(out + written).copyMemory(
+                    from: rawBase + runStart,
+                    byteCount: runLength
+                )
+            }
+            written += runLength
+        }
+        if i == count {
+            break
+        }
+
+        // Consume '\' and inspect the escaped byte.
+        i += 1
+        guard i < count else {
+            return nil  // Input ends with backslash
+        }
+        let escaped = rawBase.load(fromByteOffset: i, as: UInt8.self)
+        i += 1
+
+        if escaped == asciiLowerU {  // "\u"
+            // Exactly 4 hex digits:
+            guard count - i >= 4, let codePoint = parseFourHexDigits(rawBase + i) else {
+                return nil
+            }
+            i += 4
+
+            let scalar: UnicodeScalar
+            if let directScalar = UnicodeScalar(codePoint) {
+                scalar = directScalar
+            } else if codePoint < 0xD800 || codePoint >= 0xE000 {
+                // Not a valid Unicode scalar.
+                return nil
+            } else if codePoint >= 0xDC00 {
+                // Low surrogate without a preceding high surrogate.
+                return nil
+            } else {
+                // We have a high surrogate (in the range 0xD800..<0xDC00), so
+                // verify that it is followed by \u and a low surrogate.
+                guard count - i >= 6,
+                    rawBase.load(fromByteOffset: i, as: UInt8.self) == asciiBackslash,
+                    rawBase.load(fromByteOffset: i + 1, as: UInt8.self) == asciiLowerU,
+                    let follower = parseFourHexDigits(rawBase + i + 2),
+                    0xDC00 <= follower && follower < 0xE000
+                else {
+                    return nil
+                }
+                i += 6
+                let high = codePoint - 0xD800
+                let low = follower - 0xDC00
+                let composed = 0x1_0000 + (high << 10) + low
+                guard let composedScalar = UnicodeScalar(composed) else {
+                    // Composed value is not a valid Unicode scalar.
+                    return nil
+                }
+                scalar = composedScalar
+            }
+
+            if let out = out {
+                for byte in scalar.utf8 {
+                    (out + written).initialize(to: byte)
+                    written += 1
                 }
             } else {
-                return nil  // Input ends with backslash
+                written += scalar.utf8.count
             }
-        default:
-            out.append(c)
+        } else {
+            let decodedByte: UInt8
+            switch escaped {
+            case asciiLowerB:  // \b
+                decodedByte = asciiBackspace
+            case asciiLowerF:  // \f
+                decodedByte = asciiFormFeed
+            case asciiLowerN:  // \n
+                decodedByte = asciiNewLine
+            case asciiLowerR:  // \r
+                decodedByte = asciiCarriageReturn
+            case asciiLowerT:  // \t
+                decodedByte = asciiTab
+            case asciiDoubleQuote, asciiBackslash, asciiForwardSlash:  // " \ /
+                decodedByte = escaped
+            default:
+                return nil  // Unrecognized escape
+            }
+            if let out = out {
+                (out + written).initialize(to: decodedByte)
+            }
+            written += 1
         }
     }
-    return String(out)
+    return written
 }
 
 ///
@@ -786,11 +827,14 @@ internal struct JSONScanner {
         }
     }
 
-    /// Returns a fully-parsed string with all backslash escapes
-    /// correctly processed, or nil if next token is not a string.
+    /// Scans a quoted JSON string starting at the opening `"`, advancing past
+    /// the closing `"`. Returns the raw byte slice inside the quotes and
+    /// whether any backslash escape was seen, or `nil` if the string is
+    /// unterminated or contains an unescaped control character.
     ///
-    /// Assumes the leading quote has been verified (but not consumed)
-    private mutating func parseOptionalQuotedString() -> String? {
+    /// Assumes the leading quote has been verified (but not consumed).
+    @inline(__always)
+    private mutating func scanQuotedStringSlice() -> (UnsafeRawBufferPointer, Bool)? {
         // Caller has already asserted that currentByte == quote here
         var sawBackslash = false
         advance()
@@ -798,18 +842,10 @@ internal struct JSONScanner {
         while hasMoreContent {
             switch currentByte {
             case asciiDoubleQuote:  // "
-                let s = utf8ToString(bytes: source, start: start, end: index)
+                let slice = UnsafeRawBufferPointer(rebasing: source[start..<index])
                 advance()
-                if let t = s {
-                    if sawBackslash {
-                        return decodeString(t)
-                    } else {
-                        return t
-                    }
-                } else {
-                    return nil  // Invalid UTF8
-                }
-            case asciiBackslash:  //  \
+                return (slice, sawBackslash)
+            case asciiBackslash:  // \
                 advance()
                 guard hasMoreContent else {
                     return nil  // Unterminated escape
@@ -825,6 +861,50 @@ internal struct JSONScanner {
             advance()
         }
         return nil  // Unterminated quoted string
+    }
+
+    /// Returns a fully-parsed string with all backslash escapes
+    /// correctly processed, or nil if next token is not a string.
+    ///
+    /// Assumes the leading quote has been verified (but not consumed)
+    private mutating func parseOptionalQuotedString() -> String? {
+        guard let (slice, sawBackslash) = scanQuotedStringSlice() else {
+            return nil
+        }
+        if !sawBackslash {
+            guard let base = slice.baseAddress else {
+                return String()
+            }
+            return utf8ToString(bytes: base, count: slice.count)
+        }
+        guard isValidUTF8(bytes: slice) else {
+            return nil
+        }
+        if #available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *) {
+            var ok = false
+            let str = String(unsafeUninitializedCapacity: slice.count) { buf in
+                guard let base = buf.baseAddress,
+                    let written = decodeEscapedUTF8(rawBytes: slice, into: base)
+                else {
+                    return 0
+                }
+                ok = true
+                return written
+            }
+            return ok ? str : nil
+        } else {
+            let buf = UnsafeMutableBufferPointer<UInt8>.allocate(capacity: slice.count)
+            defer { buf.deallocate() }
+            guard let base = buf.baseAddress,
+                let written = decodeEscapedUTF8(rawBytes: slice, into: base)
+            else {
+                return nil
+            }
+            return String(
+                decoding: UnsafeBufferPointer(start: base, count: written),
+                as: Unicode.UTF8.self
+            )
+        }
     }
 
     /// Parse an unsigned integer, whether or not its quoted.
@@ -1366,6 +1446,9 @@ internal struct JSONScanner {
                 if let e = E(forJSONName: name) {
                     return e
                 } else {
+                    guard isValidUTF8(bytes: name) else {
+                        throw JSONDecodingError.malformedString
+                    }
                     return try throwOrIgnore()
                 }
             }
@@ -1554,41 +1637,21 @@ internal struct JSONScanner {
         }
     }
 
-    /// Advance the index past the next complete quoted string.
-    ///
-    // Caveat:  This does not fully validate; it will accept
-    // strings that have malformed \ escapes.
-    //
-    // It would be nice to do better, but I don't think it's critical,
-    // since there are many reasons that strings (and other tokens for
-    // that matter) may be skippable but not parsable.  For example:
-    // Old clients that don't know new field types will skip fields
-    // they don't know; newer clients may reject the same input due to
-    // schema mismatches or other issues.
+    /// Advance the index past the next complete quoted string, validating
+    /// UTF-8, control characters, and backslash escape sequences without
+    /// allocating a `String`.
     private mutating func skipString() throws {
         guard hasMoreContent else {
             throw JSONDecodingError.truncated
         }
-        if currentByte != asciiDoubleQuote {
+        guard currentByte == asciiDoubleQuote,
+            let (slice, sawBackslash) = scanQuotedStringSlice(),
+            isValidUTF8(bytes: slice)
+        else {
             throw JSONDecodingError.malformedString
         }
-        advance()
-        while hasMoreContent {
-            let c = currentByte
-            switch c {
-            case asciiDoubleQuote:
-                advance()
-                return
-            case asciiBackslash:
-                advance()
-                guard hasMoreContent else {
-                    throw JSONDecodingError.truncated
-                }
-                advance()
-            default:
-                advance()
-            }
+        if sawBackslash && decodeEscapedUTF8(rawBytes: slice, into: nil) == nil {
+            throw JSONDecodingError.malformedString
         }
-        throw JSONDecodingError.truncated
     }
 }

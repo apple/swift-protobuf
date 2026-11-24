@@ -769,6 +769,71 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"optionalString\":\"\\t\"}") { $0.optionalString == "\u{09}" }
     }
 
+    func testOptionalString_escapedDecoding() throws {
+        // Simple escapes, UTF-8 length boundaries (1, 2, 3, and 4 bytes), embedded NUL,
+        // and long mixed UTF-8 + escaped strings exceeding inline string capacity.
+        assertJSONDecodeSucceeds("{\"optionalString\":\"\\\"\\\\\\/\\b\\f\\n\\r\\t\"}") {
+            $0.optionalString == "\"\\/\u{08}\u{0c}\n\r\t"
+        }
+        assertJSONDecodeSucceeds("{\"optionalString\":\"a\\u0000b\"}") {
+            $0.optionalString == "a\u{00}b"
+        }
+        assertJSONDecodeSucceeds(
+            "{\"optionalString\":\"\\u007f\\u0080\\u07ff\\u0800\\ud7ff\\ue000\\uffff\"}"
+        ) {
+            $0.optionalString == "\u{7f}\u{80}\u{7ff}\u{800}\u{d7ff}\u{e000}\u{ffff}"
+        }
+        assertJSONDecodeSucceeds("{\"optionalString\":\"\\ud800\\udc00\\ud83d\\ude00\\ud840\\udc00\\udbff\\udfff\"}") {
+            $0.optionalString == "\u{10000}😀\u{20000}\u{10ffff}"
+        }
+        assertJSONDecodeSucceeds(
+            "{\"optionalString\":\"long prefix café 𝄞 \\n \\u00e9 \\ud83d\\ude00 trailing text\"}"
+        ) {
+            $0.optionalString == "long prefix café 𝄞 \n é 😀 trailing text"
+        }
+
+        // Malformed escapes, broken surrogates, and control bytes after backslash.
+        let malformedInputs: [String] = [
+            "{\"optionalString\":\"\\q\"}",
+            "{\"optionalString\":\"\\x41\"}",
+            "{\"optionalString\":\"\\u12\"}",
+            "{\"optionalString\":\"\\u123g\"}",
+            "{\"optionalString\":\"\\U0041\"}",
+            "{\"optionalString\":\"\\ud800\\u0041\"}",
+            "{\"optionalString\":\"\\ud800\\ud800\"}",
+            "{\"optionalString\":\"\\ud800\\u123\"}",
+            "{\"optionalString\":\"a\\\u{01}b\"}",
+            "{\"optionalString\":\"a\\\u{00}b\"}",
+            "{\"optionalString\":\"a\\\\\u{01}b\"}",
+        ]
+        for json in malformedInputs {
+            XCTAssertThrowsError(try MessageTestType(jsonString: json), json) { error in
+                guard case JSONDecodingError.malformedString = error else {
+                    XCTFail("Expected JSONDecodingError.malformedString for \(json), got \(error)")
+                    return
+                }
+            }
+        }
+
+        // Invalid raw UTF-8 combined with a valid escape must fail rather than producing U+FFFD.
+        let invalidUTF8WithEscape: [[UInt8]] = [
+            [0xFF],
+            [0xC3],
+            [0xED, 0xA0, 0x80],
+        ]
+        for badBytes in invalidUTF8WithEscape {
+            var bytes = Array("{\"optionalString\":\"prefix\\n".utf8)
+            bytes.append(contentsOf: badBytes)
+            bytes.append(contentsOf: "\"}".utf8)
+            XCTAssertThrowsError(try MessageTestType(jsonUTF8Bytes: bytes)) { error in
+                guard case JSONDecodingError.malformedString = error else {
+                    XCTFail("Expected JSONDecodingError.malformedString, got \(error)")
+                    return
+                }
+            }
+        }
+    }
+
     func testOptionalBytes() throws {
         // Empty bytes is default, so proto3 omits it
         var a = MessageTestType()
