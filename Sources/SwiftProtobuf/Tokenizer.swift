@@ -265,6 +265,7 @@ package struct Tokenizer {
     /// - Throws: A `SwiftProtobufError` if the string is malformed.
     mutating func consumeString(delimiter: UInt8) throws -> Token.Kind {
         var hasEscapes = false
+        var awaitingLowSurrogate = false
         while true {
             guard let c = currentChar else {
                 throw makeError("Unexpected end of string")
@@ -279,15 +280,39 @@ package struct Tokenizer {
                 hasEscapes = true
                 advance()
                 if tryConsumeOne(mode == .json ? Tokenizer.isJSONEscape : Tokenizer.isEscape) {
-                    // Valid
+                    guard !awaitingLowSurrogate else {
+                        throw makeError("Invalid surrogate pairing")
+                    }
                 } else if tryConsume(UInt8(ascii: "u")) {
                     guard
-                        tryConsumeOne(Tokenizer.isHexDigit)
-                            && tryConsumeOne(Tokenizer.isHexDigit)
-                            && tryConsumeOne(Tokenizer.isHexDigit)
-                            && tryConsumeOne(Tokenizer.isHexDigit)
+                        let d0 = consumeHexDigitValue(),
+                        let d1 = consumeHexDigitValue(),
+                        let d2 = consumeHexDigitValue(),
+                        let d3 = consumeHexDigitValue()
                     else {
                         throw makeError("Expected four hex digits for '\\u' escape sequence")
+                    }
+                    let cp = (d0 << 12) | (d1 << 8) | (d2 << 4) | d3
+                    if cp >= 0xD800 && cp <= 0xDBFF {
+                        guard mode == .json else {
+                            throw makeError("Surrogate code points are not allowed here")
+                        }
+                        guard !awaitingLowSurrogate else {
+                            throw makeError("Invalid surrogate pairing")
+                        }
+                        awaitingLowSurrogate = true
+                    } else if cp >= 0xDC00 && cp <= 0xDFFF {
+                        guard mode == .json else {
+                            throw makeError("Surrogate code points are not allowed here")
+                        }
+                        guard awaitingLowSurrogate else {
+                            throw makeError("Invalid surrogate pairing")
+                        }
+                        awaitingLowSurrogate = false
+                    } else {
+                        guard !awaitingLowSurrogate else {
+                            throw makeError("Invalid surrogate pairing")
+                        }
                     }
                 } else if mode == .textFormat && tryConsumeOne(Tokenizer.isOctalDigit) {
                     // Valid
@@ -312,6 +337,9 @@ package struct Tokenizer {
                     throw makeError("Invalid escape sequence in string literal")
                 }
             default:
+                guard !awaitingLowSurrogate else {
+                    throw makeError("Invalid surrogate pairing")
+                }
                 if c == delimiter {
                     advance()
                     return hasEscapes ? .stringWithEscapes : .string
@@ -319,6 +347,25 @@ package struct Tokenizer {
                 advance()
             }
         }
+    }
+
+    /// Consumes a single ASCII hexadecimal digit and returns its numeric value (`0...15`), or
+    /// returns `nil` without advancing if the current character is not a hex digit.
+    private mutating func consumeHexDigitValue() -> UInt32? {
+        guard let c = currentChar else { return nil }
+        let digit: UInt32
+        switch c {
+        case UInt8(ascii: "0")...UInt8(ascii: "9"):
+            digit = UInt32(c - UInt8(ascii: "0"))
+        case UInt8(ascii: "A")...UInt8(ascii: "F"):
+            digit = UInt32(c - UInt8(ascii: "A")) + 10
+        case UInt8(ascii: "a")...UInt8(ascii: "f"):
+            digit = UInt32(c - UInt8(ascii: "a")) + 10
+        default:
+            return nil
+        }
+        advance()
+        return digit
     }
 
     /// Consumes a number, handling optional leading zero and optional decimal point.
@@ -748,6 +795,29 @@ package struct Token: Equatable {
         )
     }
 
+    /// Validates a JSON string token's raw UTF-8 bytes without allocating a `String` or `Data`
+    /// buffer.
+    ///
+    /// Expects `self` to be a `.string` or `.stringWithEscapes` token produced in JSON mode (where
+    /// `Tokenizer.consumeString(delimiter:)` has already rejected unescaped C0 control characters,
+    /// unrecognized escapes, incomplete `\u` hex sequences, and invalid surrogate pairing).
+    ///
+    /// - Parameter errorCode: The error code to attach to any thrown parsing error.
+    /// - Throws: A `SwiftProtobufError` if the token contains invalid UTF-8.
+    package func validateJSONString(errorCode: SwiftProtobufError.Code) throws {
+        precondition(kind == .string || kind == .stringWithEscapes)
+        guard text.count > 2 else { return }
+        let content = UnsafeBufferPointer(rebasing: text[1..<text.count - 1])
+        guard isValidUTF8(bytes: UnsafeRawBufferPointer(content)) else {
+            throw SwiftProtobufError.parsingError(
+                code: errorCode,
+                message: "Invalid UTF-8 in string",
+                inputLine: line,
+                inputColumn: column
+            )
+        }
+    }
+
     /// Returns the string value of the token.
     ///
     /// - Throws: An error if the token is not a valid UTF-8 string of if it contained surrogates
@@ -820,6 +890,10 @@ package struct Token: Equatable {
 
                 let next = content[index]
                 index += 1
+
+                if next != UInt8(ascii: "u") && highSurrogate != nil {
+                    throw makeError("Invalid surrogate pairing")
+                }
 
                 switch next {
                 case UInt8(ascii: "a"): outputBytes.append(0x07)
@@ -909,7 +983,6 @@ package struct Token: Equatable {
 
                 default:
                     outputBytes.append(next)
-                    highSurrogate = nil
                 }
             } else {
                 // Not an escaped character; copy an entire run.

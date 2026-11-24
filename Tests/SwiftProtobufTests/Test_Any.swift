@@ -207,6 +207,254 @@ final class Test_Any: XCTestCase {
         XCTAssertThrowsError(try SwiftProtoTesting_TestAny(jsonString: start))
     }
 
+    func test_Any_UnknownUserMessage_JSONStringValidation() throws {
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+
+        let registeredTypeURL = "type.googleapis.com/swift_proto_testing.TestAllTypes"
+        let unregisteredTypeURL = "type.googleapis.com/example.Unregistered"
+        let expectedUnknownTypeError = SwiftProtobufError.JSONDecoding.unknownAnyTypeURL(
+            type_url: unregisteredTypeURL
+        )
+
+        var ignoreOptions = JSONDecodingOptions()
+        ignoreOptions.ignoreUnknownFields = true
+
+        func assertStringValidationError(
+            _ error: any Error,
+            notUnknownTypeURL: Bool = false,
+            context: String
+        ) {
+            guard let swiftError = error as? SwiftProtobufError else {
+                XCTFail("Expected SwiftProtobufError for \(context), got \(error)")
+                return
+            }
+            XCTAssertEqual(swiftError.code, .jsonDecodingError, "Unexpected code for \(context): \(swiftError)")
+            if notUnknownTypeURL {
+                XCTAssertFalse(
+                    self.isSwiftProtobufErrorEqual(swiftError, expectedUnknownTypeError),
+                    "Expected string validation error rather than unknownAnyTypeURL for \(context), got \(swiftError)"
+                )
+            }
+        }
+
+        let validPayloads: [String] = [
+            "\"\"",
+            "\"plain string longer than inline capacity\"",
+            "\"\\\"\\\\\\/\\b\\f\\n\\r\\t\"",
+            "\"\\u0000\\u0041\\u00e9\\uffff\"",
+            "\"\\ud83d\\ude00\\uD834\\uDD1E\\udbff\\udfff\"",
+            "{\"k\\n\":[\"a\\\"b\",\"\\u00e9\",\"\\ud83d\\ude00\",{\"inner\":\"ok\\t!\"}]}",
+        ]
+
+        // Malformed escapes, broken surrogates, and unescaped C0 controls are rejected
+        // in top-level values, nested arrays, nested object values, and nested object keys.
+        let invalidPayloads: [String] = [
+            // Malformed escapes
+            "\"bad\\qescape\"",
+            "\"bad\\x41hex\"",
+            "\"short\\u12\"",
+            "\"nonhex\\u123g\"",
+            "\"upper\\U0041\"",
+            // Unpaired and misordered surrogates
+            "\"\\ud800\"",
+            "\"\\udc00\"",
+            "\"\\ude00\\ud83d\"",
+            "\"\\ud800\\u0041\"",
+            "\"\\ud800\\ud800\"",
+            "\"\\ud800\\u123\"",
+            "\"\\ud800\\/\"",
+            "\"\\ud800\\n\\udc00\"",
+            "\"\\ud800\\\\\\udc00\"",
+            // Unescaped C0 control characters (including immediately after backslash)
+            "\"a\u{00}b\"",
+            "\"a\u{01}b\"",
+            "\"a\u{09}b\"",
+            "\"a\u{0a}b\"",
+            "\"a\u{1f}b\"",
+            "\"a\\\u{01}b\"",
+            "\"a\\\u{00}b\"",
+            "\"a\\\\\u{01}b\"",
+            // Nested array and object values
+            "[\"ok\",\"bad\\q\"]",
+            "[\"ok\",\"\\ud800\"]",
+            "{\"inner\":\"bad\\x41\"}",
+            "{\"inner\":\"a\\\u{01}b\"}",
+            // Nested object keys
+            "{\"bad\\q\":1}",
+            "{\"\\ude00\\ud83d\":1}",
+            "{\"a\u{01}b\":1}",
+            "{\"a\\\u{01}b\":1}",
+        ]
+
+        let validUTF8Payloads: [[UInt8]] = [
+            [0xC3, 0xA9],  // é
+            [0xF0, 0x9F, 0x98, 0x80],  // 😀
+        ]
+
+        let invalidUTF8Sequences: [[UInt8]] = [
+            [0xFF],
+            [0xC3],
+            [0xED, 0xA0, 0x80],
+            [UInt8(ascii: "\\"), UInt8(ascii: "n"), 0xFF],
+        ]
+
+        // (a) Registered type with ignoreUnknownFields = true: valid skipped strings before and
+        // after @type decode cleanly and preserve known fields, while malformed skipped strings
+        // before or after @type fail with jsonDecodingError.
+        for payload in validPayloads {
+            let jsons = [
+                "{\"@type\":\"\(registeredTypeURL)\",\"optionalInt32\":42,\"unknownSkipped\":\(payload),\"optionalString\":\"kept\"}",
+                "{\"optionalInt32\":42,\"unknownSkipped\":\(payload),\"@type\":\"\(registeredTypeURL)\",\"optionalString\":\"kept\"}",
+            ]
+            for json in jsons {
+                let any = try Google_Protobuf_Any(jsonString: json, options: ignoreOptions)
+                let unpacked = try SwiftProtoTesting_TestAllTypes(unpackingAny: any)
+                XCTAssertEqual(unpacked.optionalInt32, 42, "Known int32 lost for \(json)")
+                XCTAssertEqual(unpacked.optionalString, "kept", "Known string lost for \(json)")
+            }
+        }
+        for payloadBytes in validUTF8Payloads {
+            let containers: [(prefix: String, suffix: String)] = [
+                (
+                    "{\"@type\":\"\(registeredTypeURL)\",\"optionalInt32\":42,\"unknownSkipped\":\"",
+                    "\",\"optionalString\":\"kept\"}"
+                ),
+                (
+                    "{\"optionalInt32\":42,\"unknownSkipped\":\"",
+                    "\",\"@type\":\"\(registeredTypeURL)\",\"optionalString\":\"kept\"}"
+                ),
+            ]
+            for container in containers {
+                var bytes = Array(container.prefix.utf8)
+                bytes.append(contentsOf: payloadBytes)
+                bytes.append(contentsOf: container.suffix.utf8)
+                let any = try Google_Protobuf_Any(jsonUTF8Bytes: bytes, options: ignoreOptions)
+                let unpacked = try SwiftProtoTesting_TestAllTypes(unpackingAny: any)
+                XCTAssertEqual(unpacked.optionalInt32, 42)
+                XCTAssertEqual(unpacked.optionalString, "kept")
+            }
+        }
+        for payload in invalidPayloads {
+            let jsons = [
+                "{\"@type\":\"\(registeredTypeURL)\",\"unknownSkipped\":\(payload)}",
+                "{\"unknownSkipped\":\(payload),\"@type\":\"\(registeredTypeURL)\"}",
+            ]
+            for json in jsons {
+                XCTAssertThrowsError(
+                    try Google_Protobuf_Any(jsonString: json, options: ignoreOptions),
+                    "Expected failure for \(json)"
+                ) { error in
+                    assertStringValidationError(error, context: json)
+                }
+            }
+        }
+        let registeredUTF8Containers: [(prefix: String, suffix: String)] = [
+            ("{\"@type\":\"\(registeredTypeURL)\",\"unknownSkipped\":\"", "\"}"),
+            ("{\"@type\":\"\(registeredTypeURL)\",\"unknownSkipped\":[\"ok\",\"", "\"]}"),
+            ("{\"@type\":\"\(registeredTypeURL)\",\"unknownSkipped\":{\"inner\":\"", "\"}}"),
+            ("{\"@type\":\"\(registeredTypeURL)\",\"unknownSkipped\":{\"", "\":1}}"),
+            ("{\"unknownSkipped\":\"", "\",\"@type\":\"\(registeredTypeURL)\"}"),
+            ("{\"unknownSkipped\":[\"ok\",\"", "\"],\"@type\":\"\(registeredTypeURL)\"}"),
+            ("{\"unknownSkipped\":{\"inner\":\"", "\"},\"@type\":\"\(registeredTypeURL)\"}"),
+            ("{\"unknownSkipped\":{\"", "\":1},\"@type\":\"\(registeredTypeURL)\"}"),
+        ]
+        for badBytes in invalidUTF8Sequences {
+            for container in registeredUTF8Containers {
+                var bytes = Array(container.prefix.utf8)
+                bytes.append(contentsOf: badBytes)
+                bytes.append(contentsOf: container.suffix.utf8)
+                XCTAssertThrowsError(
+                    try Google_Protobuf_Any(jsonUTF8Bytes: bytes, options: ignoreOptions)
+                ) { error in
+                    assertStringValidationError(error, context: "\(container.prefix)...\(container.suffix)")
+                }
+            }
+        }
+
+        // (b) Unregistered type URL: valid skipped fields before and after @type fail with
+        // unknownAnyTypeURL, while malformed skipped strings before or after @type fail with a
+        // string-validation jsonDecodingError rather than unknownAnyTypeURL.
+        for payload in validPayloads {
+            let jsons = [
+                "{\"@type\":\"\(unregisteredTypeURL)\",\"v\":\(payload)}",
+                "{\"v\":\(payload),\"@type\":\"\(unregisteredTypeURL)\"}",
+            ]
+            for json in jsons {
+                XCTAssertThrowsError(
+                    try Google_Protobuf_Any(jsonString: json),
+                    "Expected unknownAnyTypeURL for \(json)"
+                ) {
+                    error in
+                    guard let swiftError = error as? SwiftProtobufError else {
+                        XCTFail("Expected SwiftProtobufError for \(json), got \(error)")
+                        return
+                    }
+                    XCTAssertTrue(
+                        self.isSwiftProtobufErrorEqual(swiftError, expectedUnknownTypeError),
+                        "Expected unknownAnyTypeURL for \(json), got \(swiftError)"
+                    )
+                }
+            }
+        }
+        for payloadBytes in validUTF8Payloads {
+            let containers: [(prefix: String, suffix: String)] = [
+                ("{\"@type\":\"\(unregisteredTypeURL)\",\"v\":\"", "\"}"),
+                ("{\"v\":\"", "\",\"@type\":\"\(unregisteredTypeURL)\"}"),
+            ]
+            for container in containers {
+                var bytes = Array(container.prefix.utf8)
+                bytes.append(contentsOf: payloadBytes)
+                bytes.append(contentsOf: container.suffix.utf8)
+                XCTAssertThrowsError(try Google_Protobuf_Any(jsonUTF8Bytes: bytes)) { error in
+                    guard let swiftError = error as? SwiftProtobufError else {
+                        XCTFail("Expected SwiftProtobufError, got \(error)")
+                        return
+                    }
+                    XCTAssertTrue(
+                        self.isSwiftProtobufErrorEqual(swiftError, expectedUnknownTypeError),
+                        "Expected unknownAnyTypeURL, got \(swiftError)"
+                    )
+                }
+            }
+        }
+        for payload in invalidPayloads {
+            let jsons = [
+                "{\"@type\":\"\(unregisteredTypeURL)\",\"v\":\(payload)}",
+                "{\"v\":\(payload),\"@type\":\"\(unregisteredTypeURL)\"}",
+            ]
+            for json in jsons {
+                XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), "Expected failure for \(json)") {
+                    error in
+                    assertStringValidationError(error, notUnknownTypeURL: true, context: json)
+                }
+            }
+        }
+        let unregisteredUTF8Containers: [(prefix: String, suffix: String)] = [
+            ("{\"@type\":\"\(unregisteredTypeURL)\",\"v\":\"", "\"}"),
+            ("{\"@type\":\"\(unregisteredTypeURL)\",\"v\":[\"ok\",\"", "\"]}"),
+            ("{\"@type\":\"\(unregisteredTypeURL)\",\"v\":{\"inner\":\"", "\"}}"),
+            ("{\"@type\":\"\(unregisteredTypeURL)\",\"v\":{\"", "\":1}}"),
+            ("{\"v\":\"", "\",\"@type\":\"\(unregisteredTypeURL)\"}"),
+            ("{\"v\":[\"ok\",\"", "\"],\"@type\":\"\(unregisteredTypeURL)\"}"),
+            ("{\"v\":{\"inner\":\"", "\"},\"@type\":\"\(unregisteredTypeURL)\"}"),
+            ("{\"v\":{\"", "\":1},\"@type\":\"\(unregisteredTypeURL)\"}"),
+        ]
+        for badBytes in invalidUTF8Sequences {
+            for container in unregisteredUTF8Containers {
+                var bytes = Array(container.prefix.utf8)
+                bytes.append(contentsOf: badBytes)
+                bytes.append(contentsOf: container.suffix.utf8)
+                XCTAssertThrowsError(try Google_Protobuf_Any(jsonUTF8Bytes: bytes)) { error in
+                    assertStringValidationError(
+                        error,
+                        notUnknownTypeURL: true,
+                        context: "\(container.prefix)...\(container.suffix)"
+                    )
+                }
+            }
+        }
+    }
+
     func test_Any_UnknownUserMessage_protobuf() throws {
         Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
         let start: [UInt8] = [
