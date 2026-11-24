@@ -831,7 +831,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftP
 
     init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
   }
 
   /// groups
@@ -869,7 +869,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftP
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct ProtobufTestMessages_Editions_ForeignMessageEdition2023: Sendable {

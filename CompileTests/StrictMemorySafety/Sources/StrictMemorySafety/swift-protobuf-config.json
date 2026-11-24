@@ -1,0 +1,9 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "Protos/strict_memory.proto"
+            ]
+        }
+    ]
+}

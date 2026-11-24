@@ -415,7 +415,7 @@ nonisolated struct CustomFeatures_TestCustomFeatures: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_custom_features.proto.

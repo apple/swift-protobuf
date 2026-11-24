@@ -1756,7 +1756,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessa
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 /// A message with a required field so partial decoding/encoding and isInitialized
