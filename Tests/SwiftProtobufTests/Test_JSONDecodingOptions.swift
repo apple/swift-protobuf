@@ -194,7 +194,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
         }
 
         // Malformed escapes, broken surrogates, and unescaped C0 controls must fail
-        // with malformedString even when ignoreUnknownFields is true.
+        // with jsonDecodingError even when ignoreUnknownFields is true.
         let invalidPayloads: [String] = [
             // Malformed escapes
             "\"bad\\qescape\"",
@@ -209,6 +209,9 @@ final class Test_JSONDecodingOptions: XCTestCase {
             "\"\\ud800\\u0041\"",
             "\"\\ud800\\ud800\"",
             "\"\\ud800\\u123\"",
+            "\"\\ud800\\/\"",
+            "\"\\ud800\\n\\udc00\"",
+            "\"\\ud800\\\\\\udc00\"",
             // Unescaped C0 control characters (including after backslash)
             "\"a\u{00}b\"",
             "\"a\u{01}b\"",
@@ -234,30 +237,21 @@ final class Test_JSONDecodingOptions: XCTestCase {
                 try SwiftProtoTesting_TestEmptyMessage(jsonString: json, options: options),
                 "Expected failure for \(json)"
             ) { error in
-                guard case JSONDecodingError.malformedString = error else {
-                    XCTFail("Expected JSONDecodingError.malformedString for \(json), got \(error)")
-                    return
-                }
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError, json)
             }
         }
 
-        // Truncated input before opening quote of a nested object key stays `.truncated`,
-        // while an unterminated skipped string throws `.malformedString`.
+        // Truncated input before opening quote of a nested object key and an unterminated
+        // skipped string both throw `.jsonDecodingError`.
         XCTAssertThrowsError(
             try SwiftProtoTesting_TestEmptyMessage(jsonString: "{\"unknown\":{", options: options)
         ) { error in
-            guard case JSONDecodingError.truncated = error else {
-                XCTFail("Expected JSONDecodingError.truncated, got \(error)")
-                return
-            }
+            XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
         }
         XCTAssertThrowsError(
             try SwiftProtoTesting_TestEmptyMessage(jsonString: "{\"unknown\":\"unterminated", options: options)
         ) { error in
-            guard case JSONDecodingError.malformedString = error else {
-                XCTFail("Expected JSONDecodingError.malformedString, got \(error)")
-                return
-            }
+            XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
         }
 
         // Valid raw UTF-8 bytes succeed via jsonUTF8Bytes.
@@ -295,10 +289,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                 XCTAssertThrowsError(
                     try SwiftProtoTesting_TestEmptyMessage(jsonUTF8Bytes: bytes, options: options)
                 ) { error in
-                    guard case JSONDecodingError.malformedString = error else {
-                        XCTFail("Expected JSONDecodingError.malformedString, got \(error)")
-                        return
-                    }
+                    XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
                 }
             }
         }
@@ -310,7 +301,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
         let strictOptions = JSONDecodingOptions()
 
         // Valid unknown UTF-8 enum strings are ignored when ignoreUnknownFields = true
-        // and rejected with unrecognizedEnumValue when ignoreUnknownFields = false.
+        // and rejected with jsonDecodingError when ignoreUnknownFields = false.
         let validUnknownEnumBytes: [[UInt8]] = [
             Array("UNKNOWN_ENUM_VALUE".utf8),
             Array("UNKNOWN_".utf8) + [0xC3, 0xA9],  // é
@@ -332,10 +323,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     options: strictOptions
                 )
             ) { error in
-                guard case JSONDecodingError.unrecognizedEnumValue = error else {
-                    XCTFail("Expected JSONDecodingError.unrecognizedEnumValue, got \(error)")
-                    return
-                }
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
             }
 
             // Repeated enum field
@@ -353,10 +341,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     options: strictOptions
                 )
             ) { error in
-                guard case JSONDecodingError.unrecognizedEnumValue = error else {
-                    XCTFail("Expected JSONDecodingError.unrecognizedEnumValue, got \(error)")
-                    return
-                }
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
             }
 
             // Map enum value
@@ -374,14 +359,11 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     options: strictOptions
                 )
             ) { error in
-                guard case JSONDecodingError.unrecognizedEnumValue = error else {
-                    XCTFail("Expected JSONDecodingError.unrecognizedEnumValue, got \(error)")
-                    return
-                }
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
             }
         }
 
-        // Invalid UTF-8 bytes in an unrecognized enum string must throw malformedString
+        // Invalid UTF-8 bytes in an unrecognized enum string must throw jsonDecodingError
         // on singular, repeated, and map enum fields regardless of ignoreUnknownFields.
         let invalidUTF8Sequences: [[UInt8]] = [
             [0xFF],
@@ -406,10 +388,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                             options: options
                         )
                     ) { error in
-                        guard case JSONDecodingError.malformedString = error else {
-                            XCTFail("Expected JSONDecodingError.malformedString, got \(error)")
-                            return
-                        }
+                        XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
                     }
                 }
             }

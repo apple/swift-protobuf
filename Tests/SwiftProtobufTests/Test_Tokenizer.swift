@@ -291,13 +291,19 @@ func expectThrowsError<T>(
         return result
     }
 
-    func parseString(_ input: String, allowSurrogates: Bool = true) throws -> String {
+    func parseString(
+        _ input: String,
+        mode: Tokenizer.Mode = .textFormat,
+        allowSurrogates: Bool = true
+    ) throws -> String {
         var result: String = ""
-        try withTokenizer(for: input) { tokenizer in
+        let errorCode: SwiftProtobufError.Code =
+            (mode == .json) ? .jsonDecodingError : .textFormatDecodingError
+        try withTokenizer(for: input, mode: mode, errorCode: errorCode) { tokenizer in
             try expectNext(&tokenizer)
             result = try tokenizer.current.stringValue(
                 allowSurrogates: allowSurrogates,
-                errorCode: .textFormatDecodingError
+                errorCode: errorCode
             )
         }
         return result
@@ -374,6 +380,7 @@ func expectThrowsError<T>(
     struct StringTestCase {
         var input: String
         var expected: String
+        var mode: Tokenizer.Mode = .textFormat
     }
 
     @Test(arguments: [
@@ -383,10 +390,10 @@ func expectThrowsError<T>(
         StringTestCase(input: "\"\\u0041\"", expected: "A"),
         StringTestCase(input: "'\\101'", expected: "A"),
         StringTestCase(input: "'\\u0024\\u00a2\\u20ac\\U00024b62XX'", expected: "$¢€𤭢XX"),
-        StringTestCase(input: "'\\u0024\\u00a2\\u20ac\\ud852\\udf62XX'", expected: "$¢€𤭢XX"),
+        StringTestCase(input: "\"\\u0024\\u00a2\\u20ac\\ud852\\udf62XX\"", expected: "$¢€𤭢XX", mode: .json),
     ])
     func stringParsing(testCase: StringTestCase) throws {
-        #expect(try parseString(testCase.input) == testCase.expected)
+        #expect(try parseString(testCase.input, mode: testCase.mode) == testCase.expected)
     }
 
     @Test func bytesParsing() throws {
@@ -618,17 +625,17 @@ func expectThrowsError<T>(
             guard let scalar = UnicodeScalar(codePoint) else { continue }
             let expected = String(scalar)
 
-            func expectFormat(_ formatted: String) throws {
-                #expect(try parseString(formatted) == expected)
+            func expectFormat(_ formatted: String, mode: Tokenizer.Mode = .textFormat) throws {
+                #expect(try parseString(formatted, mode: mode) == expected)
             }
 
             try expectFormat(String(format: "'\\U%08x'", codePoint))
             try expectFormat(String(format: "'\\U%08X'", codePoint))
 
-            // surrogate pairs
+            // surrogate pairs (JSON mode only)
             let high = 0xD800 + ((codePoint - 0x10000) >> 10)
             let low = 0xDC00 + ((codePoint - 0x10000) & 0x3FF)
-            try expectFormat(String(format: "'\\u%04x\\u%04x'", high, low))
+            try expectFormat(String(format: "\"\\u%04x\\u%04x\"", high, low), mode: .json)
         }
     }
 
@@ -705,27 +712,83 @@ func expectThrowsError<T>(
     }
 
     @Test(arguments: [
-        SurrogateErrorCase(input: "'\\uD834\\uD834'", expectedError: "1:1: Invalid surrogate pairing"),
-        SurrogateErrorCase(input: "'\\uDD1E'", expectedError: "1:1: Invalid surrogate pairing"),
-        SurrogateErrorCase(input: "'\\uD834\\u0041'", expectedError: "1:1: Invalid surrogate pairing"),
-        SurrogateErrorCase(input: "'\\uD834A'", expectedError: "1:1: Invalid surrogate pairing"),
-        SurrogateErrorCase(input: "'\\uD834'", expectedError: "1:1: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uD834\\uD834\"", expectedError: "1:14: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uDD1E\"", expectedError: "1:8: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uDD1E\\uD834\"", expectedError: "1:8: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uD834\\u0041\"", expectedError: "1:14: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uD834A\"", expectedError: "1:8: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uD834\\/\"", expectedError: "1:10: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uD834\\n\\uDD1E\"", expectedError: "1:10: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uD834\\\\\\uDD1E\"", expectedError: "1:10: Invalid surrogate pairing"),
+        SurrogateErrorCase(input: "\"\\uD834\"", expectedError: "1:8: Invalid surrogate pairing"),
     ])
     func surrogatePairsValidation(testCase: SurrogateErrorCase) throws {
         expectThrowsError(
-            try parseString(testCase.input),
+            try withTokenizer(for: testCase.input, mode: .json, errorCode: .jsonDecodingError) { tokenizer in
+                try tokenizer.next()
+            },
             matching: testCase.expectedError
         )
     }
 
     @Test(arguments: [
-        SurrogateErrorCase(input: "'\\uD834'", expectedError: "1:1: Surrogate code points are not allowed here"),
-        SurrogateErrorCase(input: "'\\uDD1E'", expectedError: "1:1: Surrogate code points are not allowed here"),
+        SurrogateErrorCase(input: "'\\uD834'", expectedError: "1:8: Surrogate code points are not allowed here"),
+        SurrogateErrorCase(input: "'\\uDD1E'", expectedError: "1:8: Surrogate code points are not allowed here"),
+        SurrogateErrorCase(
+            input: "'\\uD834\\uDD1E'",
+            expectedError: "1:8: Surrogate code points are not allowed here"
+        ),
     ])
-    func allowSurrogatesFalse(testCase: SurrogateErrorCase) throws {
+    func textFormatRejectsSurrogatesAtLexTime(testCase: SurrogateErrorCase) throws {
         expectThrowsError(
-            try parseString(testCase.input, allowSurrogates: false),
+            try withTokenizer(for: testCase.input, mode: .textFormat, errorCode: .textFormatDecodingError) {
+                tokenizer in
+                try tokenizer.next()
+            },
             matching: testCase.expectedError
+        )
+    }
+
+    @Test(arguments: [
+        "\"\"",
+        "\"plain ascii\"",
+        "\"café 𝄞 😀\"",
+        "\"\\\"\\\\\\/\\b\\f\\n\\r\\t\"",
+        "\"\\u0000\\u0041\\u00e9\\uffff\"",
+        "\"\\ud800\\udc00\\ud83d\\ude00\\udbff\\udfff\"",
+        "\"prefix café \\n \\ud83d\\ude00 suffix\"",
+    ])
+    func validateJSONStringValid(input: String) throws {
+        try withTokenizer(for: input, mode: .json, errorCode: .jsonDecodingError) { tokenizer in
+            try expectNext(&tokenizer)
+            try tokenizer.current.validateJSONString(errorCode: .jsonDecodingError)
+        }
+    }
+
+    @Test(arguments: [
+        [UInt8(0xFF)],
+        [UInt8(0xC3)],
+        [UInt8(0xED), 0xA0, 0x80],
+        [UInt8(ascii: "\\"), UInt8(ascii: "n"), 0xFF],
+    ])
+    func validateJSONStringInvalidUTF8(badBytes: [UInt8]) throws {
+        var bytes: [UInt8] = [UInt8(ascii: "\"")]
+        bytes.append(contentsOf: badBytes)
+        bytes.append(UInt8(ascii: "\""))
+        try bytes.withUnsafeBufferPointer { buffer in
+            var tokenizer = Tokenizer(buffer: buffer, mode: .json, errorCode: .jsonDecodingError)
+            try expectNext(&tokenizer)
+            expectThrowsError(
+                try tokenizer.current.validateJSONString(errorCode: .jsonDecodingError),
+                matching: "1:1: Invalid UTF-8 in string"
+            )
+        }
+    }
+
+    @Test func allowSurrogatesFalse() throws {
+        expectThrowsError(
+            try parseString("\"\\uD834\\uDD1E\"", mode: .json, allowSurrogates: false),
+            matching: "1:1: Surrogate code points are not allowed here"
         )
     }
 

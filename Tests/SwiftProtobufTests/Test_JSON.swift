@@ -829,16 +829,16 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
             "{\"optionalString\":\"\\ud800\\u0041\"}",
             "{\"optionalString\":\"\\ud800\\ud800\"}",
             "{\"optionalString\":\"\\ud800\\u123\"}",
+            "{\"optionalString\":\"\\ud800\\/\"}",
+            "{\"optionalString\":\"\\ud800\\n\\udc00\"}",
+            "{\"optionalString\":\"\\ud800\\\\\\udc00\"}",
             "{\"optionalString\":\"a\\\u{01}b\"}",
             "{\"optionalString\":\"a\\\u{00}b\"}",
             "{\"optionalString\":\"a\\\\\u{01}b\"}",
         ]
         for json in malformedInputs {
             XCTAssertThrowsError(try MessageTestType(jsonString: json), json) { error in
-                guard case JSONDecodingError.malformedString = error else {
-                    XCTFail("Expected JSONDecodingError.malformedString for \(json), got \(error)")
-                    return
-                }
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError, json)
             }
         }
 
@@ -853,10 +853,7 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
             bytes.append(contentsOf: badBytes)
             bytes.append(contentsOf: "\"}".utf8)
             XCTAssertThrowsError(try MessageTestType(jsonUTF8Bytes: bytes)) { error in
-                guard case JSONDecodingError.malformedString = error else {
-                    XCTFail("Expected JSONDecodingError.malformedString, got \(error)")
-                    return
-                }
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
             }
         }
     }

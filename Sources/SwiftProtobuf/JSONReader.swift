@@ -523,13 +523,23 @@ struct JSONReader: TextualParser {
         }
     }
 
+    /// Validates the current JSON string token's UTF-8 without allocating a `String`, then advances
+    /// past it.
+    private mutating func skipValidatedString() throws {
+        guard at(.string, .stringWithEscapes) else {
+            throw parsingError(expected: "a string")
+        }
+        try tokenizer.current.validateJSONString(errorCode: errorCode)
+        try tokenizer.next()
+    }
+
     /// Skips the current field in the input.
     ///
     /// - Parameter wereNameAndColonAlreadyConsumed: Whether the field name and colon have already been consumed (and
     ///   thus should not be skipped by this function).
     mutating func skipField(wereNameAndColonAlreadyConsumed: Bool) throws {
         if !wereNameAndColonAlreadyConsumed {
-            try consume(anyOf: .string, .stringWithEscapes)
+            try skipValidatedString()
             try consume(.colon)
         }
 
@@ -545,9 +555,9 @@ struct JSONReader: TextualParser {
 
     /// Skips a field value which is not a message.
     mutating func skipFieldValue() throws {
-        // If it's a string, consume it.
+        // If it's a string, validate and consume it without allocating.
         if at(.string, .stringWithEscapes) {
-            _ = try tokenizer.next()
+            try skipValidatedString()
             return
         }
 
