@@ -80,13 +80,14 @@ internal struct BinaryEncoder {
         putVarInt(value: UInt64(tag.rawValue))
     }
 
+    @inline(__always)
     mutating func putVarInt(value: UInt64) {
-        var v = value
-        while v > 127 {
-            append(UInt8(v & 0x7f | 0x80))
-            v >>= 7
+        if value < 0x80 {
+            pointer.storeBytes(of: UInt8(truncatingIfNeeded: value), as: UInt8.self)
+            pointer += 1
+        } else {
+            pointer = Self.putVarIntSlow(value, to: pointer)
         }
-        append(UInt8(v))
     }
 
     mutating func putVarInt(value: Int64) {
@@ -100,6 +101,97 @@ internal struct BinaryEncoder {
     mutating func putZigZagVarInt(value: Int64) {
         let coded = UInt64(zigZagEncoded: value)
         putVarInt(value: coded)
+    }
+
+    /// Writes a field tag followed by a varint value (or length-delimited byte count).
+    ///
+    /// Fusing the common 1-byte tag and 1-byte value case into a single `(rawTag | value) < 0x80`
+    /// check, one 2-byte store, and one cold fallback avoids back-to-back branches, duplicate cold
+    /// calls, and callee-saved register spills across `MessageStorage` and `ExtensionStorage`.
+    @inline(__always)
+    internal mutating func putFieldVarInt(tag: FieldTag, value: UInt64) {
+        let rawTag = UInt64(tag.rawValue)
+        if (rawTag | value) < 0x80 {
+            let pair = UInt16(truncatingIfNeeded: rawTag | (value << 8))
+            pointer.storeBytes(of: pair.littleEndian, as: UInt16.self)
+            pointer += 2
+        } else {
+            pointer = Self.putTagAndVarIntSlow(rawTag, value, to: pointer)
+        }
+    }
+
+    internal mutating func putFieldVarInt(tag: FieldTag, value: Int) {
+        putFieldVarInt(tag: tag, value: UInt64(bitPattern: Int64(value)))
+    }
+
+    @inline(__always)
+    internal mutating func putFieldVarInt(fieldNumber: Int, wireFormat: WireFormat, value: UInt64) {
+        putFieldVarInt(tag: FieldTag(fieldNumber: fieldNumber, wireFormat: wireFormat), value: value)
+    }
+
+    internal mutating func putFieldVarInt(fieldNumber: Int, wireFormat: WireFormat, value: Int64) {
+        putFieldVarInt(
+            fieldNumber: fieldNumber,
+            wireFormat: wireFormat,
+            value: UInt64(bitPattern: value)
+        )
+    }
+
+    internal mutating func putFieldVarInt(fieldNumber: Int, wireFormat: WireFormat, value: Int) {
+        putFieldVarInt(
+            fieldNumber: fieldNumber,
+            wireFormat: wireFormat,
+            value: UInt64(bitPattern: Int64(value))
+        )
+    }
+
+    /// Outlined slow path for multi-byte varints (`value >= 0x80`).
+    ///
+    /// Taking and returning the write pointer via a `private static` function rather than a
+    /// `mutating` method preserves caller SROA on `BinaryEncoder` and avoids `inout self`
+    /// pointer-alias reloads across the cold call. Encodes two 7-bit groups per iteration and
+    /// writes exact `Varint.encodedSize` bytes because `MessageStorage.serializedBytes` allocates
+    /// exact `requiredSize` bytes with zero trailing slop.
+    @inline(never)
+    private static func putVarIntSlow(
+        _ value: UInt64,
+        to pointer: UnsafeMutableRawPointer
+    ) -> UnsafeMutableRawPointer {
+        var v = value
+        var p = pointer
+        while v >= 0x4000 {
+            let pair = UInt16(truncatingIfNeeded: (v & 0x7f) | ((v & 0x3f80) << 1) | 0x8080)
+            p.storeBytes(of: pair.littleEndian, as: UInt16.self)
+            p += 2
+            v >>= 14
+        }
+        if v >= 0x80 {
+            let pair = UInt16(truncatingIfNeeded: (v & 0x7f) | ((v & 0x3f80) << 1) | 0x0080)
+            p.storeBytes(of: pair.littleEndian, as: UInt16.self)
+            return p + 2
+        }
+        p.storeBytes(of: UInt8(truncatingIfNeeded: v), as: UInt8.self)
+        return p + 1
+    }
+
+    @inline(never)
+    private static func putTagAndVarIntSlow(
+        _ rawTag: UInt64,
+        _ value: UInt64,
+        to pointer: UnsafeMutableRawPointer
+    ) -> UnsafeMutableRawPointer {
+        let p: UnsafeMutableRawPointer
+        if rawTag < 0x80 {
+            pointer.storeBytes(of: UInt8(truncatingIfNeeded: rawTag), as: UInt8.self)
+            p = pointer + 1
+        } else {
+            p = putVarIntSlow(rawTag, to: pointer)
+        }
+        if value < 0x80 {
+            p.storeBytes(of: UInt8(truncatingIfNeeded: value), as: UInt8.self)
+            return p + 1
+        }
+        return putVarIntSlow(value, to: p)
     }
 
     mutating func putBoolValue(value: Bool) {
@@ -134,27 +226,34 @@ internal struct BinaryEncoder {
         pointer = pointer.advanced(by: n)
     }
 
-    // Write a string field, including the leading index/tag value.
-    mutating func putStringValue(value: String) {
+    private mutating func putFieldStringValue(fieldNumber: Int, value: String) {
         let utf8 = value.utf8
         // If the String does not support an internal representation in a form
         // of contiguous storage, body is not called and nil is returned.
         let isAvailable = utf8.withContiguousStorageIfAvailable { (body: UnsafeBufferPointer<UInt8>) -> Int in
-            putVarInt(value: body.count)
+            putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .lengthDelimited, value: body.count)
             return append(contentsOf: UnsafeRawBufferPointer(body))
         }
         if isAvailable == nil {
             let count = utf8.count
-            putVarInt(value: count)
+            putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .lengthDelimited, value: count)
             for b in utf8 {
                 pointer.storeBytes(of: b, as: UInt8.self)
-                pointer = pointer.advanced(by: 1)
+                pointer += 1
             }
         }
     }
 
     mutating func putBytesValue<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
         putVarInt(value: value.count)
+        append(contentsOf: value)
+    }
+
+    private mutating func putFieldBytesValue<Bytes: SwiftProtobufContiguousBytes>(
+        fieldNumber: Int,
+        value: Bytes
+    ) {
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .lengthDelimited, value: value.count)
         append(contentsOf: value)
     }
 }
@@ -164,15 +263,13 @@ extension BinaryEncoder {
     /// Serializes the field tag and value for a singular or unpacked `bool` field.
     @inline(__always)
     mutating func serializeBoolField(_ value: Bool, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: value ? 1 : 0)
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: UInt64(value ? 1 : 0))
     }
 
     /// Serializes the field tag and value for a singular `bytes` field.
     @inline(__always)
     mutating func serializeBytesField(_ value: Data, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-        putBytesValue(value: value)
+        putFieldBytesValue(fieldNumber: fieldNumber, value: value)
     }
 
     /// Serializes the field tag and value for a singular or unpacked `double` field.
@@ -206,15 +303,13 @@ extension BinaryEncoder {
     /// Serializes the field tag and value for a singular or unpacked `int32` field.
     @inline(__always)
     mutating func serializeInt32Field(_ value: Int32, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: UInt64(bitPattern: Int64(value)))
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: UInt64(bitPattern: Int64(value)))
     }
 
     /// Serializes the field tag and value for a singular or unpacked `int64` field.
     @inline(__always)
     mutating func serializeInt64Field(_ value: Int64, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: UInt64(bitPattern: value))
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: UInt64(bitPattern: value))
     }
 
     /// Serializes the field tag and value for a singular or unpacked `sfixed32` field.
@@ -234,36 +329,31 @@ extension BinaryEncoder {
     /// Serializes the field tag and value for a singular or unpacked `sint32` field.
     @inline(__always)
     mutating func serializeSInt32Field(_ value: Int32, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: UInt64(UInt32(zigZagEncoded: value)))
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: UInt64(UInt32(zigZagEncoded: value)))
     }
 
     /// Serializes the field tag and value for a singular or unpacked `sint64` field.
     @inline(__always)
     mutating func serializeSInt64Field(_ value: Int64, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: UInt64(zigZagEncoded: value))
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: UInt64(zigZagEncoded: value))
     }
 
     /// Serializes the field tag and value for a singular `string` field.
     @inline(__always)
     mutating func serializeStringField(_ value: String, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-        putStringValue(value: value)
+        putFieldStringValue(fieldNumber: fieldNumber, value: value)
     }
 
     /// Serializes the field tag and value for a singular or unpacked `uint32` field.
     @inline(__always)
     mutating func serializeUInt32Field(_ value: UInt32, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: UInt64(value))
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: UInt64(value))
     }
 
     /// Serializes the field tag and value for a singular or unpacked `uint64` field.
     @inline(__always)
     mutating func serializeUInt64Field(_ value: UInt64, for fieldNumber: Int) {
-        startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: value)
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: value)
     }
 
     /// Serializes a packed repeated field of fixed-size values by writing the tag and
@@ -274,8 +364,11 @@ extension BinaryEncoder {
         for fieldNumber: Int,
         encode: (T, inout BinaryEncoder) -> Void
     ) {
-        startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-        putVarInt(value: values.count * MemoryLayout<T>.size)
+        putFieldVarInt(
+            fieldNumber: fieldNumber,
+            wireFormat: .lengthDelimited,
+            value: values.count * MemoryLayout<T>.size
+        )
         for value in values {
             encode(value, &self)
         }
@@ -289,12 +382,11 @@ extension BinaryEncoder {
         encode: (T, inout BinaryEncoder) -> Void,
         lengthOfElement: (T) -> Int
     ) {
-        startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
         var length = 0
         for value in values {
             length += lengthOfElement(value)
         }
-        putVarInt(value: length)
+        putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .lengthDelimited, value: length)
         for value in values {
             encode(value, &self)
         }

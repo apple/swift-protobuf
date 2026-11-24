@@ -86,8 +86,11 @@ extension MessageStorage {
                 useDeterministicOrdering: options.useDeterministicOrdering,
                 workingSpace: workingSpace
             ) {
-                encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-                encoder.putVarInt(value: $0.serializedBytesSize())
+                encoder.putFieldVarInt(
+                    fieldNumber: fieldNumber,
+                    wireFormat: .lengthDelimited,
+                    value: $0.serializedBytesSize()
+                )
                 try $0.serializeBytes(into: &encoder, options: options)
                 return .continue
             }
@@ -204,8 +207,11 @@ extension MessageStorage {
             case .message:
                 precondition(!isPacked, "a packed message field should not be reachable")
                 try forEachMessage(inAssumedPresentRepeatedMessageField: field) { subMessageStorage in
-                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-                    encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                    encoder.putFieldVarInt(
+                        fieldNumber: fieldNumber,
+                        wireFormat: .lengthDelimited,
+                        value: subMessageStorage.serializedBytesSize()
+                    )
                     try subMessageStorage.serializeBytes(into: &encoder, options: options)
                     return .continue
                 }
@@ -337,8 +343,11 @@ extension MessageStorage {
 
             case .message:
                 let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: field)
-                encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-                encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                encoder.putFieldVarInt(
+                    fieldNumber: fieldNumber,
+                    wireFormat: .lengthDelimited,
+                    value: subMessageStorage.serializedBytesSize()
+                )
                 try subMessageStorage.serializeBytes(into: &encoder, options: options)
 
             case .sfixed32:
@@ -385,8 +394,7 @@ extension MessageStorage {
                 return .continue
             }
 
-            encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-            encoder.putVarInt(value: length)
+            encoder.putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .lengthDelimited, value: length)
 
             // Then, iterate over them again to encode the actual varints.
             forEachRawValue(inAssumedPresentRepeatedEnumField: field) { value in
@@ -396,8 +404,7 @@ extension MessageStorage {
         } else {
             // Iterate over the raw values and encode each as its own tag and varint.
             forEachRawValue(inAssumedPresentRepeatedEnumField: field) { value in
-                encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
-                encoder.putVarInt(value: Int64(value))
+                encoder.putFieldVarInt(fieldNumber: fieldNumber, wireFormat: .varint, value: Int64(value))
                 return .continue
             }
         }
