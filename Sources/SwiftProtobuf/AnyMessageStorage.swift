@@ -81,23 +81,6 @@ private func canUseVerboseTextForm(typeURL: String) -> Bool {
     return true
 }
 
-// Binary encoding of a message used as an Any value. Equivalent to
-// `message.serializedBytes(partial: true)`, but any Any inside `message`
-// (including `message` itself) is encoded in place instead of having its
-// `value` bytes rebuilt by every enclosing size and write pass.
-private func serializedAnyValueBytes(_ message: any Message) throws -> Data {
-    let size = try BinaryEncodingSizeVisitor.serializedSize(of: message)
-    var data = Data(count: size)
-    if size > 0 {
-        try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
-            var visitor = BinaryEncodingVisitor(forWritingInto: body, options: BinaryEncodingOptions())
-            try visitor.encode(message: message)
-            assert(visitor.encoder.remainder.count == 0)
-        }
-    }
-    return data
-}
-
 private func asJSONObject(body: [UInt8]) -> Data {
     let asciiOpenCurlyBracket = UInt8(ascii: "{")
     let asciiCloseCurlyBracket = UInt8(ascii: "}")
@@ -167,7 +150,7 @@ internal class AnyMessageStorage {
                 return value
             case .message(let message):
                 do {
-                    return try serializedAnyValueBytes(message)
+                    return try message.serializedBytes(partial: true)
                 } catch {
                     return Data()
                 }
@@ -182,7 +165,7 @@ internal class AnyMessageStorage {
                         options: options,
                         as: messageType
                     )
-                    return try serializedAnyValueBytes(m)
+                    return try m.serializedBytes(partial: true)
                 } catch {
                     return Data()
                 }

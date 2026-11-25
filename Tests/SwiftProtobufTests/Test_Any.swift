@@ -389,6 +389,44 @@ final class Test_Any: XCTestCase {
         XCTAssertEqual(fieldsFromJSON.value, testAnyChain.value)
     }
 
+    func test_Any_topLevel_nestedTranscodeFailure() throws {
+        // A top-level Any whose nested Any can't be transcoded has to throw the
+        // same way it does when that Any is a field on another message.
+        // `preTraverse()` only checks one level of `.contentJSON` and nothing
+        // for `.message`, so this relies on the binary encoders reaching the
+        // nested Any themselves.
+        let anyURL = "type.googleapis.com/google.protobuf.Any"
+        let unknownJSON = "{\"@type\":\"type.googleapis.com/UNKNOWN\",\"optionalInt32\":7}"
+
+        // Nested Any is `.contentJSON` with an unregistered type, under a
+        // top-level Any in `.contentJSON` state.
+        let fromJSON = try Google_Protobuf_Any(jsonString: "{\"@type\":\"\(anyURL)\",\"value\":\(unknownJSON)}")
+        XCTAssertThrowsError(try fromJSON.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+
+        // Same nested Any, but the top-level Any is in `.message` state.
+        let unknown = try Google_Protobuf_Any(jsonString: unknownJSON)
+        let fromMessage = try Google_Protobuf_Any(message: unknown)
+        XCTAssertThrowsError(try fromMessage.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+
+        // Nested two levels down, so the failing Any isn't the direct payload.
+        var holder = SwiftProtoTesting_TestAny()
+        holder.int32Value = 7
+        holder.anyValue = unknown
+        let fromMessageField = try Google_Protobuf_Any(message: holder)
+        XCTAssertThrowsError(try fromMessageField.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+
+        // Which is how it already behaved for an Any on another message.
+        XCTAssertThrowsError(try holder.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+    }
+
     func test_Any_Duration_JSON_roundtrip() throws {
         let start =
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\"}}"
