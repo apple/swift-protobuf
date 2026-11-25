@@ -433,6 +433,105 @@ final class Test_Any: XCTestCase {
         XCTAssertEqual(encoded.count, 214)
     }
 
+    func test_Any_deeplyNestedTranscode() throws {
+        // An Any holding a message (decoded from JSON or TextFormat, or built
+        // with init(message:)) used to rebuild the value bytes of every nested
+        // Any once per enclosing size/write pass, roughly 4x the work per
+        // level, so these took far too long to serialize at this depth.
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAny.self)
+        let depth = 20
+        let int32URL = "type.googleapis.com/google.protobuf.Int32Value"
+        let anyURL = "type.googleapis.com/google.protobuf.Any"
+        let testAnyURL = "type.googleapis.com/swift_proto_testing.TestAny"
+
+        // Expected encodings, built from Anys that already hold bytes.
+        var anyChain = Google_Protobuf_Any()
+        anyChain.typeURL = int32URL
+        anyChain.value = try Google_Protobuf_Int32Value(1).serializedData()
+        var testAnyChain = anyChain
+        for _ in 0..<depth {
+            var outer = Google_Protobuf_Any()
+            outer.typeURL = anyURL
+            outer.value = try anyChain.serializedData()
+            anyChain = outer
+
+            var msg = SwiftProtoTesting_TestAny()
+            msg.int32Value = 7
+            msg.anyValue = testAnyChain
+            var outerTestAny = Google_Protobuf_Any()
+            outerTestAny.typeURL = testAnyURL
+            outerTestAny.value = try msg.serializedData()
+            testAnyChain = outerTestAny
+        }
+        let expectedAnyChain: [UInt8] = try anyChain.serializedBytes()
+        let expectedTestAnyChain: [UInt8] = try testAnyChain.serializedBytes()
+
+        // Any directly inside Any, decoded from JSON and from TextFormat.
+        var json = "{\"@type\":\"\(int32URL)\",\"value\":1}"
+        var text = "[\(int32URL)] {value: 1}"
+        for _ in 0..<depth {
+            json = "{\"@type\":\"\(anyURL)\",\"value\":\(json)}"
+            text = "[\(anyURL)] {\(text)}"
+        }
+        let fromJSON = try Google_Protobuf_Any(jsonString: json)
+        XCTAssertEqual(try fromJSON.serializedBytes() as [UInt8], expectedAnyChain)
+        XCTAssertEqual(fromJSON.value, anyChain.value)
+        let fromText = try Google_Protobuf_Any(textFormatString: text)
+        XCTAssertEqual(try fromText.serializedBytes() as [UInt8], expectedAnyChain)
+
+        // Any inside a message field inside Any, built with init(message:) and
+        // round-tripped through JSON.
+        var fromMessage = try Google_Protobuf_Any(message: Google_Protobuf_Int32Value(1))
+        for _ in 0..<depth {
+            var msg = SwiftProtoTesting_TestAny()
+            msg.int32Value = 7
+            msg.anyValue = fromMessage
+            fromMessage = try Google_Protobuf_Any(message: msg)
+        }
+        XCTAssertEqual(try fromMessage.serializedBytes() as [UInt8], expectedTestAnyChain)
+        let fieldsFromJSON = try Google_Protobuf_Any(jsonString: fromMessage.jsonString())
+        XCTAssertEqual(try fieldsFromJSON.serializedBytes() as [UInt8], expectedTestAnyChain)
+        XCTAssertEqual(fieldsFromJSON.value, testAnyChain.value)
+    }
+
+    func test_Any_topLevel_nestedTranscodeFailure() throws {
+        // A top-level Any whose nested Any can't be transcoded has to throw the
+        // same way it does when that Any is a field on another message.
+        // `preTraverse()` only checks one level of `.contentJSON` and nothing
+        // for `.message`, so this relies on the binary encoders reaching the
+        // nested Any themselves.
+        let anyURL = "type.googleapis.com/google.protobuf.Any"
+        let unknownJSON = "{\"@type\":\"type.googleapis.com/UNKNOWN\",\"optionalInt32\":7}"
+
+        // Nested Any is `.contentJSON` with an unregistered type, under a
+        // top-level Any in `.contentJSON` state.
+        let fromJSON = try Google_Protobuf_Any(jsonString: "{\"@type\":\"\(anyURL)\",\"value\":\(unknownJSON)}")
+        XCTAssertThrowsError(try fromJSON.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+
+        // Same nested Any, but the top-level Any is in `.message` state.
+        let unknown = try Google_Protobuf_Any(jsonString: unknownJSON)
+        let fromMessage = try Google_Protobuf_Any(message: unknown)
+        XCTAssertThrowsError(try fromMessage.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+
+        // Nested two levels down, so the failing Any isn't the direct payload.
+        var holder = SwiftProtoTesting_TestAny()
+        holder.int32Value = 7
+        holder.anyValue = unknown
+        let fromMessageField = try Google_Protobuf_Any(message: holder)
+        XCTAssertThrowsError(try fromMessageField.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+
+        // Which is how it already behaved for an Any on another message.
+        XCTAssertThrowsError(try holder.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+    }
+
     func test_Any_Duration_JSON_roundtrip() throws {
         let start =
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\"}}"

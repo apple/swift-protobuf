@@ -42,7 +42,7 @@ extension Message {
         }
 
         // Note that this assumes `options` will not change the required size.
-        let requiredSize = try serializedDataSize()
+        let requiredSize = try BinaryEncodingSizeVisitor.serializedSize(of: self)
 
         // Messages have a 2GB limit in encoded size, the upstread C++ code
         // (message_lite, etc.) does this enforcement also.
@@ -59,7 +59,7 @@ extension Message {
         var data = Bytes(repeating: 0, count: requiredSize)
         try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
             var visitor = BinaryEncodingVisitor(forWritingInto: body, options: options)
-            try traverse(visitor: &visitor)
+            try visitor.encode(message: self)
             // Currently not exposing this from the api because it really would be
             // an internal error in the library and should never happen.
             assert(visitor.encoder.remainder.count == 0)

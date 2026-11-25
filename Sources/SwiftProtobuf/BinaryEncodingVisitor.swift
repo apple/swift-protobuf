@@ -114,9 +114,38 @@ internal struct BinaryEncodingVisitor: Visitor {
         fieldNumber: Int
     ) throws {
         encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-        let length = try value.serializedDataSize()
+        let length = try BinaryEncodingSizeVisitor.serializedSize(of: value)
         encoder.putVarInt(value: length)
-        try value.traverse(visitor: &self)
+        try encode(message: value)
+    }
+
+    /// Writes the fields of `message`.
+    ///
+    /// A `Google_Protobuf_Any` holding a message (rather than bytes) writes that
+    /// message as its `value` field in place instead of building the `value`
+    /// bytes, so nested Anys don't get reserialized by every enclosing pass.
+    /// The size is given by `BinaryEncodingSizeVisitor.serializedSize(of:)`.
+    mutating func encode<M: Message>(message: M) throws {
+        guard M.self == Google_Protobuf_Any.self else {
+            try message.traverse(visitor: &self)
+            return
+        }
+        let any = message as! Google_Protobuf_Any
+        guard let valueMessage = try any._storage.messageForBinaryEncoding() else {
+            try message.traverse(visitor: &self)
+            return
+        }
+        let typeURL = any._storage._typeURL
+        if !typeURL.isEmpty {
+            try visitSingularStringField(value: typeURL, fieldNumber: 1)
+        }
+        let valueSize = try BinaryEncodingSizeVisitor.serializedSize(of: valueMessage)
+        if valueSize > 0 {
+            encoder.startField(fieldNumber: 2, wireFormat: .lengthDelimited)
+            encoder.putVarInt(value: valueSize)
+            try encode(message: valueMessage)
+        }
+        try any.unknownFields.traverse(visitor: &self)
     }
 
     mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {

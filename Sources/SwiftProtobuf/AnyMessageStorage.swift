@@ -176,6 +176,37 @@ internal class AnyMessageStorage {
         }
     }
 
+    /// The message the binary encoders should write in place of `_value`, or
+    /// nil if the value is already held as bytes.
+    ///
+    /// Building `_value` for a `.message` or `.contentJSON` state serializes the
+    /// contained message, and the binary encoders read it during both the size
+    /// and the write pass (and the generated `traverse` reads it twice). If that
+    /// message contains another such Any, every level multiplies the work, so
+    /// nested Anys are instead encoded in place through this message.
+    internal func messageForBinaryEncoding() throws -> (any Message)? {
+        switch state {
+        case .binary:
+            return nil
+        case .message(let message):
+            return message
+        case .contentJSON(let contentJSON, let options):
+            guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
+                throw BinaryEncodingError.anyTranscodeFailure
+            }
+            do {
+                return try unpack(
+                    contentJSON: contentJSON,
+                    extensions: SimpleExtensionMap(),
+                    options: options,
+                    as: messageType
+                )
+            } catch {
+                throw BinaryEncodingError.anyTranscodeFailure
+            }
+        }
+    }
+
     enum InternalState {
         // a serialized binary
         // Note: Unlike contentJSON below, binary does not bother to capture the
